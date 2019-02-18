@@ -1,4 +1,4 @@
-= Address Book (Level 4)
+= Fashion Match
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
 https://travis-ci.org/cs2103-ay1819s2-w15-1/main[image:https://travis-ci.org/se-edu/addressbook-level4.svg?branch=master[Build Status]]
