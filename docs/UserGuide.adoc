@@ -237,7 +237,7 @@ _{explain how the user can enable/disable data encryption}_
 
 === Add Clothes `[coming in v2.0]`
 
-Add a piece of clothing given type i.e. shirt, colour, formality level. 
+Add a piece of clothing given type i.e. shirt, colour, formality level.
 
 === Listing all Clothes `[coming in v2.0]`
 
