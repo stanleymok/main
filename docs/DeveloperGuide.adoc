@@ -24,7 +24,7 @@ Fashion Match (FM) is for those who prefer to use a desktop app to find the matc
 FM is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, FM can get your contact management tasks done faster than traditional GUI apps.
 
-This Developer Guide contains a broad overview of FM. The implementation key features will be discussed, as well as the general software architecture. 
+This Developer Guide contains a broad overview of FM. The implementation key features will be discussed, as well as the general software architecture.
 By reading through this guide, you should be able to modify the codebase yourself.
 //end::introduction
 
@@ -806,7 +806,7 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 * prefers typing over mouse input
 * is reasonably comfortable using CLI apps
 
-*Value proposition*: 
+*Value proposition*:
 * match clothing and accessories instantly
 * ability to know which clothes/accessories are underutilised/overutilised
 
