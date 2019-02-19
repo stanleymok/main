@@ -237,23 +237,23 @@ _{explain how the user can enable/disable data encryption}_
 
 === Add Clothes `[coming in v2.0]`
 
-Add a piece of clothing given type i.e. shirt, colour, formality level 
+Add a piece of clothing given type i.e. shirt, colour, formality level. 
 
 === Listing all Clothes `[coming in v2.0]`
 
-Listing all the clothes you have added to your CLI
+Lists all the clothes you have added to your CLI.
 
 === Calculating use Statistics `[coming in v2.0]`
 
-Calculates the rate of wear of each clothes
+Calculates the rate of wear of each clothes.
 
 === Recommend clothes `[coming in v2.0]`
 
-Recommends clothes given parameters o/OCCASION_FORMALITY c/CLOTHES_CHOSEN 
+Recommends clothes given occasion formality and clothes chosen.
 
 === Recommend formality `[coming in v2.0]`
 
-Recommends dress attire formality i.e. formal, semi-formal, smart-casual, casual by answers to the questions asked in CLI
+Recommends dress attire formality i.e. formal, semi-formal, smart-casual, casual by answers to the questions asked in CLI.
 
 == FAQ
 
