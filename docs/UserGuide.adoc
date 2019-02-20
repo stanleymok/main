@@ -241,7 +241,7 @@ Add a piece of clothing given type i.e. shirt, colour, formality level.
 
 === Listing all Clothes `[coming in v2.0]`
 
-Lists all of the clothes you have added to your CLI.
+Lists all the clothes you have added to your CLI.
 
 === Calculating use Statistics `[coming in v2.0]`
 
