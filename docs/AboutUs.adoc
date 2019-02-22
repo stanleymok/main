@@ -10,7 +10,9 @@ AddressBook - Level 4 was developed by the https://se-edu.github.io/docs/Team.ht
 
 === Philip Garabandic
 
+ifndef::env-github[]
 image::images/philipphil.png[width="300"]
+endif::[]
 
 {empty}[https://github.com/PhilipPhil[github]]
 
@@ -20,7 +22,9 @@ Role: Recommendation Algorithms Methods
 
 === Raffles Andrison
 
+ifndef::env-github[]
 image::images/rafflesandrison.png[width="300"]
+endif::[]
 
 {empty}[http://github.com/rafflesandrison[github]]
 
@@ -28,20 +32,26 @@ Role: Organisation Methods
 
 '''
 
-=== Tan Yiren Eugene
+=== Stanley Joseph Mok
 
-image::images/reinsheer.png[width="300"]
+ifndef::env-github[]
+image::images/stanleymok.png[width="300"]
+endif::[]
 
-{empty}[http://github.com/ReinSheer[github]]
-Role: Statistical Methods
+{empty}[http://github.com/stanleymok[github]]
+
+Role: Infrastructure Management Methods
 
 '''
 
-=== Stanley Joseph Mok
+=== Tan Yiren Eugene
 
-image::images/stanleymok.png[width="300"]
+ifndef::env-github[]
+image::images/reinsheer.png[width="300"]
+endif::[]
 
-{empty}[http://github.com/stanleymok[github]]
-Role: Infrastructure Management Methods
+{empty}[http://github.com/ReinSheer[github]]
+
+Role: Statistical Methods
 
 '''
