@@ -12,7 +12,6 @@ AddressBook - Level 4 was developed by the https://se-edu.github.io/docs/Team.ht
 
 image::images/philipphil.png[width="300"]
 
-
 {empty}[https://github.com/PhilipPhil[github]]
 
 Role: Recommendation Algorithms Methods
