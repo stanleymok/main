@@ -9,15 +9,7 @@ AddressBook - Level 4 was developed by the https://se-edu.github.io/docs/Team.ht
 == Project Team
 
 === Philip Garabandic
-
-ifdef::env-github[]
-image::images/philipphil.png[width="300"]
-endif::[]
-
-ifndef::env-github[]
-image::images/philipphil.png[width="300"]
-endif::[]
-
+image::philipphil.png[width="150", align="left"]
 {empty}[https://github.com/PhilipPhil[github]]
 
 Role: Recommendation Algorithms Methods
@@ -25,15 +17,7 @@ Role: Recommendation Algorithms Methods
 '''
 
 === Raffles Andrison
-
-ifdef::env-github[]
-image::images/rafflesandrison.png[width="300"]
-endif::[]
-
-ifndef::env-github[]
-image::images/rafflesandrison.png[width="300"]
-endif::[]
-
+image::rafflesandrison.png[width="150", align="left"]
 {empty}[http://github.com/rafflesandrison[github]]
 
 Role: Organisation Methods
@@ -41,15 +25,7 @@ Role: Organisation Methods
 '''
 
 === Stanley Joseph Mok
-
-ifdef::env-github[]
-image::images/stanleymok.png[width="300"]
-endif::[]
-
-ifndef::env-github[]
-image::images/stanleymok.png[width="300"]
-endif::[]
-
+image::stanleymok.png[width="150", align="left"]
 {empty}[http://github.com/stanleymok[github]]
 
 Role: Infrastructure Management Methods
@@ -57,15 +33,7 @@ Role: Infrastructure Management Methods
 '''
 
 === Tan Yiren Eugene
-
-ifdef::env-github[]
-image::images/reinsheer.png[width="300"]
-endif::[]
-
-ifndef::env-github[]
-image::images/reinsheer.png[width="300"]
-endif::[]
-
+image::reinsheer.png[width="150", align="left"]
 {empty}[http://github.com/ReinSheer[github]]
 
 Role: Statistical Methods
