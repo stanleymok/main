@@ -3,8 +3,6 @@ package seedu.address.model.apparel;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
-import seedu.address.model.person.Name;
-
 
 /**
  * Represents a Person in the address book.
@@ -49,7 +47,9 @@ public class Apparel {
         return available;
     }
 
-    public int getUsageCount() { return usageCount; }
+    public int getUsageCount() {
+        return usageCount;
+    }
 
     /**
      * Returns true if both apparels of the same name have at least one other identity field that is the same.

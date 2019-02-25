@@ -9,6 +9,9 @@ public class Type {
 
     // private final TypePrimaryValue secondary;
 
+    /**
+     * Field must not be null.
+     */
     public Type(TypePrimaryValue primary /* , TypeSecondaryValue secondary*/) {
         this.primary = primary;
         //this.secondary = secondary;

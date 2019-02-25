@@ -7,6 +7,9 @@ public class Color {
 
     private ColorValue primary;
 
+    /**
+     * Field must not be null.
+     */
     public Color(ColorValue primary) {
         this.primary = primary;
     }
