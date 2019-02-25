@@ -1,5 +1,8 @@
 package seedu.address.model.apparel;
 
+/**
+ * Represents an apparel's type in the apparel bank.
+ */
 public class Type {
 
     private final TypePrimaryValue primary;

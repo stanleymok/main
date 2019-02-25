@@ -1,9 +1,10 @@
 package seedu.address.model.apparel;
 
-import seedu.address.model.person.Name;
-import java.util.Objects;
-
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
+import java.util.Objects;
+import seedu.address.model.person.Name;
+
 
 /**
  * Represents a Person in the address book.

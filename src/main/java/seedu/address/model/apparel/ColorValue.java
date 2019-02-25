@@ -1,6 +1,7 @@
 package seedu.address.model.apparel;
 
 /**
+ * Represents the value of the color of apparel.
  * Accepted color that already has matching relation established.
  * For new color to be added, make sure the new color has a matching relation to any other
  * pre-defined colors.

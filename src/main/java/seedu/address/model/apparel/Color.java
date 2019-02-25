@@ -1,5 +1,8 @@
 package seedu.address.model.apparel;
 
+/**
+ * Represents an Apparel's color in the apparel bank.
+ */
 public class Color {
 
     private ColorValue primary;
