@@ -8,11 +8,11 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Color {
 
-    private ColorValue primary;
-
     public static final String MESSAGE_CONSTRAINTS =
             "Colors should only be those that are listed in the list of accepted colors.\n"
-            + "Type `colors` to see all the accepted colors.";
+                    + "Type `colors` to see all the accepted colors.";
+
+    private ColorValue primary;
 
     /**
      * Constructs a {@code Color}.

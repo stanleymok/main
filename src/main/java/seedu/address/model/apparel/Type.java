@@ -8,12 +8,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Type {
 
+    public static final String MESSAGE_CONSTRAINTS =
+            "Types that are accepted are TOP, BOTTOM, BELT, SHOES.";
+
     private final TypePrimaryValue primary;
 
     // private final TypePrimaryValue secondary;
-
-    public static final String MESSAGE_CONSTRAINTS =
-            "Types that are accepted are TOP, BOTTOM, BELT, SHOES.";
 
     /**
      * Constructs a {@code Type}.
