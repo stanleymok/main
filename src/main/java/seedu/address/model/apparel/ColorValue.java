@@ -38,8 +38,9 @@ public enum ColorValue {
     static public boolean isValidColor(String other) {
         ColorValue[] colors = ColorValue.values();
         for (ColorValue c : colors) {
-            if (ColorValue.valueOf(other.toUpperCase()) == c)
+            if (ColorValue.valueOf(other.toUpperCase()) == c) {
                 return true;
+            }
         }
 
         return false;
@@ -51,8 +52,9 @@ public enum ColorValue {
     static public boolean isValidColor(ColorValue other) {
         ColorValue[] colors = ColorValue.values();
         for (ColorValue c : colors) {
-            if (other == c)
+            if (other == c) {
                 return true;
+            }
         }
 
         return false;

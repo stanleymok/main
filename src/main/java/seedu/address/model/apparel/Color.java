@@ -1,7 +1,5 @@
 package seedu.address.model.apparel;
 
-import seedu.address.model.person.Phone;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 

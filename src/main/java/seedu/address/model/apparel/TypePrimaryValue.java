@@ -15,8 +15,9 @@ public enum TypePrimaryValue {
     static public boolean isValidType(String other) {
         TypePrimaryValue[] types = TypePrimaryValue.values();
         for (TypePrimaryValue t : types) {
-            if (TypePrimaryValue.valueOf(other.toUpperCase()) == t)
+            if (TypePrimaryValue.valueOf(other.toUpperCase()) == t) {
                 return true;
+            }
         }
 
         return false;
@@ -28,8 +29,9 @@ public enum TypePrimaryValue {
     static public boolean isValidType(TypePrimaryValue other) {
         TypePrimaryValue[] types = TypePrimaryValue.values();
         for (TypePrimaryValue t : types) {
-            if (other == t)
+            if (other == t) {
                 return true;
+            }
         }
 
         return false;
