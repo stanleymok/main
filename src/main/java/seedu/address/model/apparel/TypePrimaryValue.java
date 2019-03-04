@@ -7,5 +7,31 @@ public enum TypePrimaryValue {
     TOP,
     BOTTOM,
     BELT,
-    SHOES,
+    SHOES;
+
+    /**
+     * Return true if a given string is a valid type.
+     */
+    static public boolean isValidType(String other) {
+        TypePrimaryValue[] types = TypePrimaryValue.values();
+        for (TypePrimaryValue t : types) {
+            if (TypePrimaryValue.valueOf(other.toUpperCase()) == t)
+                return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Return true if a given string is a valid type.
+     */
+    static public boolean isValidType(TypePrimaryValue other) {
+        TypePrimaryValue[] types = TypePrimaryValue.values();
+        for (TypePrimaryValue t : types) {
+            if (other == t)
+                return true;
+        }
+
+        return false;
+    }
 }
