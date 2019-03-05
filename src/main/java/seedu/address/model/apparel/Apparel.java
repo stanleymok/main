@@ -51,6 +51,18 @@ public class Apparel {
         return usageCount;
     }
 
+    public void use() {
+        usageCount++;
+    }
+
+    public void dirty() {
+        available = false;
+    }
+
+    public void wash() {
+        available = true;
+    }
+
     /**
      * Returns true if both apparels of the same name have at least one other identity field that is the same.
      * This defines a weaker notion of equality between two apparels.
