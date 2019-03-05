@@ -229,31 +229,69 @@ Format: `exit`
 Address book data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
-// tag::dataencryption[]
-=== Encrypting data files `[coming in v2.0]`
-
-_{explain how the user can enable/disable data encryption}_
-// end::dataencryption[]
-
 === Add Clothes `[coming in v2.0]`
 
 Add a piece of clothing given type i.e. shirt, colour, formality level.
 
+=== Edit Clothes `[coming in v2.0]`
+
+Edit the details, i.e. tag/name of the clothes.
+
+=== Add Favourite Combination Relation `[coming in v2.0]`
+
+Add a matching relation between two pieces of clothing outside default combinations.
+
+=== List Favourite Combinations `[coming in v2.0]`
+
+See all saved combinations.
+
+=== List top versatile clothing `[coming in v2.0]`
+
+List clothings that match the most number of other clothings.
+
+== Add Colour Relation `[coming in v2.0]`
+
+Add a matching colour combination outside predefined default combinations.
+
+=== Delete Clothes `[coming in v2.0]`
+
+Delete a piece of clothing from the closet.
+
 === Listing all Clothes `[coming in v2.0]`
 
-Lists all the clothes you have added to your CLI.
+Lists all the categorised clothes you have in your closet to your CLI.
 
 === Calculating use Statistics `[coming in v2.0]`
 
 Calculates the rate of wear of each clothes.
 
-=== Recommend clothes `[coming in v2.0]`
+=== Recommend Clothes `[coming in v2.0]`
 
 Recommends clothes given occasion formality and clothes chosen.
 
-=== Recommend formality `[coming in v2.0]`
+=== Recommend Unsuitable Colours `[coming in v2.0]`
+
+Recommends colours that you MUST NOT wear.
+
+=== Recommend Formality `[coming in v2.0]`
 
 Recommends dress attire formality i.e. formal, semi-formal, smart-casual, casual by answers to the questions asked in CLI.
+
+=== Redo `[coming in v2.0]`
+
+Redo previous command similar to up arrow key in vim.
+
+=== Search Clothing `[coming in v2.0]`
+
+Search for clothing by keyword.
+
+=== Undo `[coming in v2.0]`
+
+Undo previous command.
+
+=== Exit App `[coming in v2.0]`
+
+Exit the app.
 
 == FAQ
 
