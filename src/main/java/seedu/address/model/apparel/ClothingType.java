@@ -11,18 +11,18 @@ public class ClothingType {
     public static final String MESSAGE_CONSTRAINTS =
             "Types that are accepted are TOP, BOTTOM, BELT, SHOES.";
 
-    private final TypePrimaryValue primary;
+    private final ClothingTypeValue primary;
 
-    // private final TypePrimaryValue secondary;
+    // private final ClothingTypeValue secondary;
 
     /**
      * Constructs a {@code Type}.
      *
      * @param primary A valid primary type.
      */
-    public ClothingType(TypePrimaryValue primary) {
+    public ClothingType(ClothingTypeValue primary) {
         requireNonNull(primary);
-        checkArgument(TypePrimaryValue.isValidType(primary), MESSAGE_CONSTRAINTS);
+        checkArgument(ClothingTypeValue.isValidType(primary), MESSAGE_CONSTRAINTS);
 
         this.primary = primary;
     }
@@ -34,9 +34,9 @@ public class ClothingType {
      */
     public ClothingType(String primary) {
         requireNonNull(primary);
-        checkArgument(TypePrimaryValue.isValidType(primary), MESSAGE_CONSTRAINTS);
+        checkArgument(ClothingTypeValue.isValidType(primary), MESSAGE_CONSTRAINTS);
 
-        this.primary = TypePrimaryValue.valueOf(primary.toUpperCase());
+        this.primary = ClothingTypeValue.valueOf(primary.toUpperCase());
     }
 
     @Override
