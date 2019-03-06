@@ -4,6 +4,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.Color;
+import seedu.address.model.apparel.ColorValue;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -132,8 +133,8 @@ public class ParserUtil {
     public static Color parseColor(String color) throws ParseException {
         requireNonNull(color);
         String trimmedColor = color.trim();
-        if (!Name.isValidName(trimmedColor)) {
-            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+        if (!ColorValue.isValidColor(trimmedColor)) {
+            throw new ParseException(Color.MESSAGE_CONSTRAINTS);
         }
         return new Color(trimmedColor);
     }
