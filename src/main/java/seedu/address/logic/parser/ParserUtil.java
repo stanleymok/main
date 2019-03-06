@@ -1,19 +1,21 @@
 package seedu.address.logic.parser;
 
-import static java.util.Objects.requireNonNull;
-
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.apparel.Color;
+import seedu.address.model.apparel.ColorValue;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import static java.util.Objects.requireNonNull;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -121,4 +123,20 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
+    /**
+     * Parses a {@code String name} into a {@code Color}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code Color} is invalid.
+     */
+    public static Color parseColor(String color) throws ParseException {
+        requireNonNull(color);
+        String trimmedColor = color.trim();
+        if (!ColorValue.isValidColor(trimmedColor)) {
+            throw new ParseException(Color.MESSAGE_CONSTRAINTS);
+        }
+        return new Color(trimmedColor);
+    }
+
 }
