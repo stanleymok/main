@@ -203,7 +203,7 @@ public class ModelManager implements Model {
             }
 
             boolean wasSelectedPersonRemoved = change.getRemoved().stream()
-                    .anyMatch(removedPerson -> selectedPerson.getValue().isSamePerson(removedPerson));
+                    .anyMatch(removedPerson -> selectedPerson.getValue().isSameApparel(removedPerson));
             if (wasSelectedPersonRemoved) {
                 // Select the apparel that came before it in the list,
                 // or clear the selection if there is no such apparel.

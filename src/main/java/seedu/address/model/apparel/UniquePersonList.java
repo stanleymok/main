@@ -13,14 +13,14 @@ import seedu.address.model.apparel.exceptions.PersonNotFoundException;
 
 /**
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.
- * A apparel is considered unique by comparing using {@code Apparel#isSamePerson(Apparel)}. As such, adding and updating of
- * persons uses Apparel#isSamePerson(Apparel) for equality so as to ensure that the apparel being added or updated is
+ * A apparel is considered unique by comparing using {@code Apparel#isSameApparel(Apparel)}. As such, adding and updating of
+ * persons uses Apparel#isSameApparel(Apparel) for equality so as to ensure that the apparel being added or updated is
  * unique in terms of identity in the UniquePersonList. However, the removal of a apparel uses Apparel#equals(Object) so
  * as to ensure that the apparel with exactly the same fields will be removed.
  *
  * Supports a minimal set of list operations.
  *
- * @see Apparel#isSamePerson(Apparel)
+ * @see Apparel#isSameApparel(Apparel)
  */
 public class UniquePersonList implements Iterable<Apparel> {
 
@@ -33,7 +33,7 @@ public class UniquePersonList implements Iterable<Apparel> {
      */
     public boolean contains(Apparel toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isSamePerson);
+        return internalList.stream().anyMatch(toCheck::isSameApparel);
     }
 
     /**
@@ -61,7 +61,7 @@ public class UniquePersonList implements Iterable<Apparel> {
             throw new PersonNotFoundException();
         }
 
-        if (!target.isSamePerson(editedApparel) && contains(editedApparel)) {
+        if (!target.isSameApparel(editedApparel) && contains(editedApparel)) {
             throw new DuplicatePersonException();
         }
 
@@ -127,7 +127,7 @@ public class UniquePersonList implements Iterable<Apparel> {
     private boolean personsAreUnique(List<Apparel> apparels) {
         for (int i = 0; i < apparels.size() - 1; i++) {
             for (int j = i + 1; j < apparels.size(); j++) {
-                if (apparels.get(i).isSamePerson(apparels.get(j))) {
+                if (apparels.get(i).isSameApparel(apparels.get(j))) {
                     return false;
                 }
             }

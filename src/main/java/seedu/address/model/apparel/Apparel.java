@@ -1,13 +1,8 @@
 package seedu.address.model.apparel;
 
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
-import seedu.address.model.tag.Tag;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * Represents a Apparel in the address book.
@@ -20,20 +15,20 @@ public class Apparel {
     private final Color color;
     private final ClothingType clothingType;
 
-    // Data fields
-    private final Address address;
-    private final Set<Tag> tags = new HashSet<>();
+    // Status fields
+    private boolean available;
+    private int usageCount;
 
     /**
      * Every field must be present and not null.
      */
-    public Apparel(Name name, Color color, ClothingType clothingType, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, color, clothingType, address, tags);
+    public Apparel(Name name, Color color, ClothingType clothingType) {
+        requireAllNonNull(name, color, clothingType);
         this.name = name;
         this.color = color;
         this.clothingType = clothingType;
-        this.address = address;
-        this.tags.addAll(tags);
+        this.available = true;
+        this.usageCount = 0;
     }
 
     public Name getName() {
@@ -48,30 +43,39 @@ public class Apparel {
         return clothingType;
     }
 
-    public Address getAddress() {
-        return address;
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public int getUsageCount() {
+        return usageCount;
+    }
+
+    public void use() {
+        usageCount++;
+    }
+
+    public void dirty() {
+        available = false;
+    }
+
+    public void wash() {
+        available = true;
     }
 
     /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
+     * Returns true if both apparels of the same name have at least one other identity field that is the same.
+     * This defines a weaker notion of equality between two apparels.
      */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
-    }
-
-    /**
-     * Returns true if both persons of the same name have at least one other identity field that is the same.
-     * This defines a weaker notion of equality between two persons.
-     */
-    public boolean isSamePerson(Apparel otherApparel) {
+    public boolean isSameApparel(Apparel otherApparel) {
         if (otherApparel == this) {
             return true;
         }
 
         return otherApparel != null
                 && otherApparel.getName().equals(getName())
-                && (otherApparel.getColor().equals(getColor()) || otherApparel.getClothingType().equals(getClothingType()));
+                && (otherApparel.getColor().equals(getColor())
+                || otherApparel.getClothingType().equals(getClothingType()));
     }
 
     /**
@@ -91,15 +95,13 @@ public class Apparel {
         Apparel otherApparel = (Apparel) other;
         return otherApparel.getName().equals(getName())
                 && otherApparel.getColor().equals(getColor())
-                && otherApparel.getClothingType().equals(getClothingType())
-                && otherApparel.getAddress().equals(getAddress())
-                && otherApparel.getTags().equals(getTags());
+                && otherApparel.getClothingType().equals(getClothingType());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, color, clothingType, address, tags);
+        return Objects.hash(name, color, clothingType);
     }
 
     @Override
@@ -110,10 +112,11 @@ public class Apparel {
                 .append(getColor())
                 .append(" ClothingType: ")
                 .append(getClothingType())
-                .append(" Address: ")
-                .append(getAddress())
-                .append(" Tags: ");
-        getTags().forEach(builder::append);
+                .append(" Available: ")
+                .append(isAvailable())
+                .append(" Usage-count: ")
+                .append(getUsageCount());
+
         return builder.toString();
     }
 
