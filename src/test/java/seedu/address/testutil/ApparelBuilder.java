@@ -1,8 +1,8 @@
 package seedu.address.testutil;
 
 import seedu.address.model.apparel.Apparel;
-import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ClothingType;
+import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Name;
 
 /**

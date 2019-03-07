@@ -31,8 +31,8 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.NameContainsKeywordsPredicate;
 import seedu.address.testutil.ApparelBuilder;
-import seedu.address.testutil.EditApparelDescriptorBuilder;
 import seedu.address.testutil.ApparelUtil;
+import seedu.address.testutil.EditApparelDescriptorBuilder;
 
 public class AddressBookParserTest {
     @Rule

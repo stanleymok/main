@@ -13,7 +13,7 @@ import seedu.address.model.apparel.Color;
 import seedu.address.testutil.Assert;
 
 public class JsonAdaptedApparelTest {
-    private static final String INVALID_NAME = "F0rm4l b3lt";
+    private static final String INVALID_NAME = "Formal Belt_1";
 
     private static final String VALID_NAME = PANTS1.getName().toString();
     private static final Color VALID_COLOR = PANTS1.getColor();

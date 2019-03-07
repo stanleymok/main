@@ -72,7 +72,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         command = DeleteCommand.COMMAND_WORD + " " + invalidIndex;
         assertCommandFailure(command, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 
-        /* --------------------- Performing delete operation while a apparel card is selected ------------------------ */
+        /* --------------------- Performing delete operation while a apparel card is selected ----------------------- */
 
         /* Case: delete the selected apparel -> apparel list panel selects the apparel before the deleted apparel */
         showAllPersons();

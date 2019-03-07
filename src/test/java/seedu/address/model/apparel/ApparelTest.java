@@ -2,13 +2,11 @@ package seedu.address.model.apparel;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.TypicalPersons.SHIRT1;
 import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.testutil.TypicalPersons.SHIRT1;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -35,7 +33,8 @@ public class ApparelTest {
         assertFalse(SHIRT1.isSameApparel(null));
 
         // different phone and email -> returns false
-        Apparel editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_PHONE_BOB).withClothingType(VALID_EMAIL_BOB).build();
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_PHONE_BOB)
+                .withClothingType(VALID_EMAIL_BOB).build();
         assertFalse(SHIRT1.isSameApparel(editedAlice));
 
         // different name -> returns false

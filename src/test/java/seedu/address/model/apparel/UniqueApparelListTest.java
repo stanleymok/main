@@ -3,10 +3,8 @@ package seedu.address.model.apparel;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.TypicalPersons.SHIRT1;
 import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.testutil.TypicalPersons.SHIRT1;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,8 +14,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import seedu.address.model.apparel.exceptions.DuplicateApparelException;
 import seedu.address.model.apparel.exceptions.ApparelNotFoundException;
+import seedu.address.model.apparel.exceptions.DuplicateApparelException;
 import seedu.address.testutil.ApparelBuilder;
 
 public class UniqueApparelListTest {

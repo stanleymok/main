@@ -17,8 +17,8 @@ import org.junit.rules.ExpectedException;
 
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.ClothingType;
-import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Color;
+import seedu.address.model.apparel.Name;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.Assert;
 
