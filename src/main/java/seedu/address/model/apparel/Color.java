@@ -49,4 +49,5 @@ public class Color {
     public String toString() {
         return primary.name();
     }
+    
 }

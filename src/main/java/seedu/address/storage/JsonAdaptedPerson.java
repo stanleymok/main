@@ -90,4 +90,5 @@ class JsonAdaptedPerson {
         return new Apparel(modelName, modelColor, modelClothingType);
     }
 
+
 }
