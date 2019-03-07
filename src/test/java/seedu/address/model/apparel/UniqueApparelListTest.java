@@ -46,8 +46,7 @@ public class UniqueApparelListTest {
     @Test
     public void contains_personWithSameIdentityFieldsInList_returnsTrue() {
         uniqueApparelList.add(SHIRT1);
-        Apparel editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
-                .build();
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).build();
         assertTrue(uniqueApparelList.contains(editedAlice));
     }
 
@@ -94,8 +93,7 @@ public class UniqueApparelListTest {
     @Test
     public void setPerson_editedPersonHasSameIdentity_success() {
         uniqueApparelList.add(SHIRT1);
-        Apparel editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
-                .build();
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).build();
         uniqueApparelList.setApparel(SHIRT1, editedAlice);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
         expectedUniqueApparelList.add(editedAlice);

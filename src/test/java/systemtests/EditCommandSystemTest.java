@@ -62,7 +62,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         Index index = INDEX_FIRST_PERSON;
         String command = " " + EditCommand.COMMAND_WORD + "  " + index.getOneBased() + "  " + NAME_DESC_BOB + "  "
                 + PHONE_DESC_BOB + " " + EMAIL_DESC_BOB + "  " + ADDRESS_DESC_BOB + " " + TAG_DESC_HUSBAND + " ";
-        Apparel editedApparel = new ApparelBuilder(BOB).withTags(VALID_TAG_HUSBAND).build();
+        Apparel editedApparel = new ApparelBuilder(BOB).build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* Case: undo editing the last apparel in the list -> last apparel restored */
@@ -103,7 +103,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         index = INDEX_FIRST_PERSON;
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + PREFIX_TAG.getPrefix();
         Apparel apparelToEdit = getModel().getFilteredPersonList().get(index.getZeroBased());
-        editedApparel = new ApparelBuilder(apparelToEdit).withTags().build();
+        editedApparel = new ApparelBuilder(apparelToEdit).build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* ------------------ Performing edit operation while a filtered list is being shown ------------------------ */

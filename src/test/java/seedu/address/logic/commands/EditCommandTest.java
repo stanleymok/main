@@ -59,10 +59,10 @@ public class EditCommandTest {
 
         ApparelBuilder personInList = new ApparelBuilder(lastApparel);
         Apparel editedApparel = personInList.withName(VALID_NAME_BOB).withColor(VALID_PHONE_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .build();
 
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withColor(VALID_PHONE_BOB).withTags(VALID_TAG_HUSBAND).build();
+                .withColor(VALID_PHONE_BOB).build();
         EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedApparel);

@@ -62,11 +62,9 @@ public class CommandTestUtil {
 
     static {
         DESC_AMY = new EditApparelDescriptorBuilder().withName(VALID_NAME_AMY)
-                .withColor(VALID_PHONE_AMY).withClothingType(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-                .withTags(VALID_TAG_FRIEND).build();
+                .withColor(VALID_PHONE_AMY).withClothingType(VALID_EMAIL_AMY).build();
         DESC_BOB = new EditApparelDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withColor(VALID_PHONE_BOB).withClothingType(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withColor(VALID_PHONE_BOB).withClothingType(VALID_EMAIL_BOB).build();
     }
 
     /**

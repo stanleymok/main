@@ -128,7 +128,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
 
         /* Case: add a duplicate apparel except with different address -> rejected */
-        toAdd = new ApparelBuilder(SHOES2).withAddress(VALID_ADDRESS_BOB).build();
+        toAdd = new ApparelBuilder(SHOES2).build();
         command = ApparelUtil.getAddCommand(toAdd);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
 

@@ -53,8 +53,7 @@ public class AddressBookTest {
     @Test
     public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
         // Two apparels with the same identity fields
-        Apparel editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
-                .build();
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).build();
         List<Apparel> newApparels = Arrays.asList(SHIRT1, editedAlice);
         AddressBookStub newData = new AddressBookStub(newApparels);
 
@@ -82,8 +81,7 @@ public class AddressBookTest {
     @Test
     public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addApparel(SHIRT1);
-        Apparel editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
-                .build();
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).build();
         assertTrue(addressBook.hasApparel(editedAlice));
     }
 

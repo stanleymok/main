@@ -16,7 +16,7 @@ public class ApparelCardTest extends GuiUnitTest {
     @Test
     public void display() {
         // no tags
-        Apparel apparelWithNoTags = new ApparelBuilder().withTags(new String[0]).build();
+        Apparel apparelWithNoTags = new ApparelBuilder().build();
         PersonCard personCard = new PersonCard(apparelWithNoTags, 1);
         uiPartRule.setUiPart(personCard);
         assertCardDisplay(personCard, apparelWithNoTags, 1);

@@ -43,17 +43,15 @@ public class ApparelTest {
         assertFalse(SHIRT1.isSameApparel(editedAlice));
 
         // same name, same phone, different attributes -> returns true
-        editedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_EMAIL_BOB).build();
         assertTrue(SHIRT1.isSameApparel(editedAlice));
 
         // same name, same email, different attributes -> returns true
-        editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_PHONE_BOB).build();
         assertTrue(SHIRT1.isSameApparel(editedAlice));
 
         // same name, same phone, same email, different attributes -> returns true
-        editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new ApparelBuilder(SHIRT1).build();
         assertTrue(SHIRT1.isSameApparel(editedAlice));
     }
 
@@ -88,11 +86,11 @@ public class ApparelTest {
         assertFalse(SHIRT1.equals(editedAlice));
 
         // different address -> returns false
-        editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).build();
+        editedAlice = new ApparelBuilder(SHIRT1).build();
         assertFalse(SHIRT1.equals(editedAlice));
 
         // different tags -> returns false
-        editedAlice = new ApparelBuilder(SHIRT1).withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new ApparelBuilder(SHIRT1).build();
         assertFalse(SHIRT1.equals(editedAlice));
     }
 }
