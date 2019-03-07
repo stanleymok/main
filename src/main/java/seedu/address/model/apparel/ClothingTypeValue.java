@@ -12,7 +12,7 @@ public enum ClothingTypeValue {
     /**
      * Return true if a given string is a valid type.
      */
-    public static boolean isValidType(String other) {
+    public static boolean isValidClothingType(String other) {
         ClothingTypeValue[] types = ClothingTypeValue.values();
         for (ClothingTypeValue t : types) {
             if (ClothingTypeValue.valueOf(other.toUpperCase()) == t) {
@@ -26,7 +26,7 @@ public enum ClothingTypeValue {
     /**
      * Return true if a given string is a valid type.
      */
-    public static boolean isValidType(ClothingTypeValue other) {
+    public static boolean isValidClothingType(ClothingTypeValue other) {
         ClothingTypeValue[] types = ClothingTypeValue.values();
         for (ClothingTypeValue t : types) {
             if (other == t) {

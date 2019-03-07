@@ -89,25 +89,25 @@ public class ParserUtilTest {
 
     @Test
     public void parsePhone_null_throwsNullPointerException() {
-        Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parsePhone((String) null));
+        Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseColor((String) null));
     }
 
     @Test
     public void parsePhone_invalidValue_throwsParseException() {
-        Assert.assertThrows(ParseException.class, () -> ParserUtil.parsePhone(INVALID_PHONE));
+        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseColor(INVALID_PHONE));
     }
 
     @Test
     public void parsePhone_validValueWithoutWhitespace_returnsPhone() throws Exception {
         Color expectedColor = new Color(VALID_PHONE);
-        assertEquals(expectedColor, ParserUtil.parsePhone(VALID_PHONE));
+        assertEquals(expectedColor, ParserUtil.parseColor(VALID_PHONE));
     }
 
     @Test
     public void parsePhone_validValueWithWhitespace_returnsTrimmedPhone() throws Exception {
         String phoneWithWhitespace = WHITESPACE + VALID_PHONE + WHITESPACE;
         Color expectedColor = new Color(VALID_PHONE);
-        assertEquals(expectedColor, ParserUtil.parsePhone(phoneWithWhitespace));
+        assertEquals(expectedColor, ParserUtil.parseColor(phoneWithWhitespace));
     }
 
     @Test
@@ -135,25 +135,25 @@ public class ParserUtilTest {
 
     @Test
     public void parseEmail_null_throwsNullPointerException() {
-        Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseEmail((String) null));
+        Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseClothingType((String) null));
     }
 
     @Test
     public void parseEmail_invalidValue_throwsParseException() {
-        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseEmail(INVALID_EMAIL));
+        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseClothingType(INVALID_EMAIL));
     }
 
     @Test
     public void parseEmail_validValueWithoutWhitespace_returnsEmail() throws Exception {
         ClothingType expectedClothingType = new ClothingType(VALID_EMAIL);
-        assertEquals(expectedClothingType, ParserUtil.parseEmail(VALID_EMAIL));
+        assertEquals(expectedClothingType, ParserUtil.parseClothingType(VALID_EMAIL));
     }
 
     @Test
     public void parseEmail_validValueWithWhitespace_returnsTrimmedEmail() throws Exception {
         String emailWithWhitespace = WHITESPACE + VALID_EMAIL + WHITESPACE;
         ClothingType expectedClothingType = new ClothingType(VALID_EMAIL);
-        assertEquals(expectedClothingType, ParserUtil.parseEmail(emailWithWhitespace));
+        assertEquals(expectedClothingType, ParserUtil.parseClothingType(emailWithWhitespace));
     }
 
     @Test

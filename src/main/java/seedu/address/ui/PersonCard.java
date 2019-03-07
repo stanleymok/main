@@ -31,11 +31,11 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
+    private Label color;
     @FXML
     private Label address;
     @FXML
-    private Label email;
+    private Label clothingType;
     @FXML
     private FlowPane tags;
 
@@ -44,10 +44,8 @@ public class PersonCard extends UiPart<Region> {
         this.apparel = apparel;
         id.setText(displayedIndex + ". ");
         name.setText(apparel.getName().fullName);
-        phone.setText(apparel.getColor().value);
-        address.setText(apparel.getAddress().value);
-        email.setText(apparel.getClothingType().value);
-        apparel.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        color.setText(apparel.getColor().toString());
+        clothingType.setText(apparel.getClothingType().toString());
     }
 
     @Override

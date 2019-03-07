@@ -7,17 +7,14 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
-import java.util.Set;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.model.tag.Tag;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -39,12 +36,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
-        Color color = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
-        ClothingType clothingType = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
-        Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        Color color = ParserUtil.parseColor(argMultimap.getValue(PREFIX_PHONE).get());
+        ClothingType clothingType = ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_EMAIL).get());
 
-        Apparel apparel = new Apparel(name, color, clothingType, address, tagList);
+        Apparel apparel = new Apparel(name, color, clothingType);
 
         return new AddCommand(apparel);
     }

@@ -53,45 +53,31 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String phone} into a {@code Color}.
+     * Parses a {@code String color} into a {@code Color}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code phone} is invalid.
+     * @throws ParseException if the given {@code color} is invalid.
      */
-    public static Color parsePhone(String phone) throws ParseException {
-        requireNonNull(phone);
-        String trimmedPhone = phone.trim();
-        if (!Color.isValidColor(trimmedPhone)) {
+    public static Color parseColor(String color) throws ParseException {
+        requireNonNull(color);
+        String trimmedColor = color.trim();
+        if (!ColorValue.isValidColor(trimmedColor)) {
             throw new ParseException(Color.MESSAGE_CONSTRAINTS);
         }
-        return new Color(trimmedPhone);
+        return new Color(trimmedColor);
     }
 
-    /**
-     * Parses a {@code String address} into an {@code Address}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code address} is invalid.
-     */
-    public static Address parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Address.isValidAddress(trimmedAddress)) {
-            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
-        }
-        return new Address(trimmedAddress);
-    }
 
     /**
-     * Parses a {@code String email} into an {@code ClothingType}.
+     * Parses a {@code String clothingType} into an {@code ClothingType}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code email} is invalid.
+     * @throws ParseException if the given {@code clothingType} is invalid.
      */
-    public static ClothingType parseEmail(String email) throws ParseException {
-        requireNonNull(email);
-        String trimmedEmail = email.trim();
-        if (!ClothingType.isValidClothingType(trimmedEmail)) {
+    public static ClothingType parseClothingType(String clothingType) throws ParseException {
+        requireNonNull(clothingType);
+        String trimmedEmail = clothingType.trim();
+        if (!ClothingTypeValue.isValidClothingType(trimmedEmail)) {
             throw new ParseException(ClothingType.MESSAGE_CONSTRAINTS);
         }
         return new ClothingType(trimmedEmail);
@@ -124,34 +110,5 @@ public class ParserUtil {
         return tagSet;
     }
 
-    /**
-     * Parses a {@code String Color} into a {@code Color}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code Color} is invalid.
-     */
-    public static Color parseColor(String color) throws ParseException {
-        requireNonNull(color);
-        String trimmedColor = color.trim();
-        if (!ColorValue.isValidColor(trimmedColor)) {
-            throw new ParseException(Color.MESSAGE_CONSTRAINTS);
-        }
-        return new Color(trimmedColor);
-    }
-
-    /**
-     * Parses a {@code String ClothingType} into a {@code ClothingType}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code ClothingType} is invalid.
-     */
-    public static ClothingType parseClothingType(String clothingType) throws ParseException {
-        requireNonNull(clothingType);
-        String trimmedClothingType = clothingType.trim();
-        if (!ClothingTypeValue.isValidType(trimmedClothingType)) {
-            throw new ParseException(ClothingType.MESSAGE_CONSTRAINTS);
-        }
-        return new ClothingType(clothingType);
-    }
 
 }
