@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableMultiset;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import seedu.address.model.apparel.Person;
+import seedu.address.model.apparel.Apparel;
 
 /**
  * Provides a handle to a apparel card in the apparel list panel.
@@ -75,12 +75,12 @@ public class PersonCardHandle extends NodeHandle<Node> {
     /**
      * Returns true if this handle contains {@code apparel}.
      */
-    public boolean equals(Person person) {
-        return getName().equals(person.getName().fullName)
-                && getAddress().equals(person.getAddress().value)
-                && getPhone().equals(person.getPhone().value)
-                && getEmail().equals(person.getEmail().value)
-                && ImmutableMultiset.copyOf(getTags()).equals(ImmutableMultiset.copyOf(person.getTags().stream()
+    public boolean equals(Apparel apparel) {
+        return getName().equals(apparel.getName().fullName)
+                && getAddress().equals(apparel.getAddress().value)
+                && getPhone().equals(apparel.getPhone().value)
+                && getEmail().equals(apparel.getEmail().value)
+                && ImmutableMultiset.copyOf(getTags()).equals(ImmutableMultiset.copyOf(apparel.getTags().stream()
                         .map(tag -> tag.tagName)
                         .collect(Collectors.toList())));
     }

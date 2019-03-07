@@ -13,25 +13,25 @@ import seedu.address.model.apparel.exceptions.PersonNotFoundException;
 
 /**
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.
- * A apparel is considered unique by comparing using {@code Person#isSamePerson(Person)}. As such, adding and updating of
- * persons uses Person#isSamePerson(Person) for equality so as to ensure that the apparel being added or updated is
- * unique in terms of identity in the UniquePersonList. However, the removal of a apparel uses Person#equals(Object) so
+ * A apparel is considered unique by comparing using {@code Apparel#isSamePerson(Apparel)}. As such, adding and updating of
+ * persons uses Apparel#isSamePerson(Apparel) for equality so as to ensure that the apparel being added or updated is
+ * unique in terms of identity in the UniquePersonList. However, the removal of a apparel uses Apparel#equals(Object) so
  * as to ensure that the apparel with exactly the same fields will be removed.
  *
  * Supports a minimal set of list operations.
  *
- * @see Person#isSamePerson(Person)
+ * @see Apparel#isSamePerson(Apparel)
  */
-public class UniquePersonList implements Iterable<Person> {
+public class UniquePersonList implements Iterable<Apparel> {
 
-    private final ObservableList<Person> internalList = FXCollections.observableArrayList();
-    private final ObservableList<Person> internalUnmodifiableList =
+    private final ObservableList<Apparel> internalList = FXCollections.observableArrayList();
+    private final ObservableList<Apparel> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
 
     /**
      * Returns true if the list contains an equivalent apparel as the given argument.
      */
-    public boolean contains(Person toCheck) {
+    public boolean contains(Apparel toCheck) {
         requireNonNull(toCheck);
         return internalList.stream().anyMatch(toCheck::isSamePerson);
     }
@@ -40,7 +40,7 @@ public class UniquePersonList implements Iterable<Person> {
      * Adds a apparel to the list.
      * The apparel must not already exist in the list.
      */
-    public void add(Person toAdd) {
+    public void add(Apparel toAdd) {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
             throw new DuplicatePersonException();
@@ -49,63 +49,63 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
-     * Replaces the apparel {@code target} in the list with {@code editedPerson}.
+     * Replaces the apparel {@code target} in the list with {@code editedApparel}.
      * {@code target} must exist in the list.
-     * The apparel identity of {@code editedPerson} must not be the same as another existing apparel in the list.
+     * The apparel identity of {@code editedApparel} must not be the same as another existing apparel in the list.
      */
-    public void setPerson(Person target, Person editedPerson) {
-        requireAllNonNull(target, editedPerson);
+    public void setPerson(Apparel target, Apparel editedApparel) {
+        requireAllNonNull(target, editedApparel);
 
         int index = internalList.indexOf(target);
         if (index == -1) {
             throw new PersonNotFoundException();
         }
 
-        if (!target.isSamePerson(editedPerson) && contains(editedPerson)) {
+        if (!target.isSamePerson(editedApparel) && contains(editedApparel)) {
             throw new DuplicatePersonException();
         }
 
-        internalList.set(index, editedPerson);
+        internalList.set(index, editedApparel);
     }
 
     /**
      * Removes the equivalent apparel from the list.
      * The apparel must exist in the list.
      */
-    public void remove(Person toRemove) {
+    public void remove(Apparel toRemove) {
         requireNonNull(toRemove);
         if (!internalList.remove(toRemove)) {
             throw new PersonNotFoundException();
         }
     }
 
-    public void setPersons(UniquePersonList replacement) {
+    public void setApparels(UniquePersonList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
     }
 
     /**
-     * Replaces the contents of this list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of this list with {@code apparels}.
+     * {@code apparels} must not contain duplicate apparels.
      */
-    public void setPersons(List<Person> persons) {
-        requireAllNonNull(persons);
-        if (!personsAreUnique(persons)) {
+    public void setApparels(List<Apparel> apparels) {
+        requireAllNonNull(apparels);
+        if (!personsAreUnique(apparels)) {
             throw new DuplicatePersonException();
         }
 
-        internalList.setAll(persons);
+        internalList.setAll(apparels);
     }
 
     /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
-    public ObservableList<Person> asUnmodifiableObservableList() {
+    public ObservableList<Apparel> asUnmodifiableObservableList() {
         return internalUnmodifiableList;
     }
 
     @Override
-    public Iterator<Person> iterator() {
+    public Iterator<Apparel> iterator() {
         return internalList.iterator();
     }
 
@@ -122,12 +122,12 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
-     * Returns true if {@code persons} contains only unique persons.
+     * Returns true if {@code apparels} contains only unique apparels.
      */
-    private boolean personsAreUnique(List<Person> persons) {
-        for (int i = 0; i < persons.size() - 1; i++) {
-            for (int j = i + 1; j < persons.size(); j++) {
-                if (persons.get(i).isSamePerson(persons.get(j))) {
+    private boolean personsAreUnique(List<Apparel> apparels) {
+        for (int i = 0; i < apparels.size() - 1; i++) {
+            for (int j = i + 1; j < apparels.size(); j++) {
+                if (apparels.get(i).isSamePerson(apparels.get(j))) {
                     return false;
                 }
             }

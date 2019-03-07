@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.apparel.Person;
+import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.exceptions.PersonNotFoundException;
 
 /**
@@ -26,8 +26,8 @@ public class ModelManager implements Model {
 
     private final VersionedAddressBook versionedAddressBook;
     private final UserPrefs userPrefs;
-    private final FilteredList<Person> filteredPersons;
-    private final SimpleObjectProperty<Person> selectedPerson = new SimpleObjectProperty<>();
+    private final FilteredList<Apparel> filteredApparels;
+    private final SimpleObjectProperty<Apparel> selectedPerson = new SimpleObjectProperty<>();
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -40,8 +40,8 @@ public class ModelManager implements Model {
 
         versionedAddressBook = new VersionedAddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(versionedAddressBook.getPersonList());
-        filteredPersons.addListener(this::ensureSelectedPersonIsValid);
+        filteredApparels = new FilteredList<>(versionedAddressBook.getApparelList());
+        filteredApparels.addListener(this::ensureSelectedPersonIsValid);
     }
 
     public ModelManager() {
@@ -96,44 +96,44 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return versionedAddressBook.hasPerson(person);
+    public boolean hasPerson(Apparel apparel) {
+        requireNonNull(apparel);
+        return versionedAddressBook.hasApparel(apparel);
     }
 
     @Override
-    public void deletePerson(Person target) {
-        versionedAddressBook.removePerson(target);
+    public void deletePerson(Apparel target) {
+        versionedAddressBook.removeApparel(target);
     }
 
     @Override
-    public void addPerson(Person person) {
-        versionedAddressBook.addPerson(person);
+    public void addPerson(Apparel apparel) {
+        versionedAddressBook.addApparel(apparel);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
     }
 
     @Override
-    public void setPerson(Person target, Person editedPerson) {
-        requireAllNonNull(target, editedPerson);
+    public void setPerson(Apparel target, Apparel editedApparel) {
+        requireAllNonNull(target, editedApparel);
 
-        versionedAddressBook.setPerson(target, editedPerson);
+        versionedAddressBook.setApparel(target, editedApparel);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
+    //=========== Filtered Apparel List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * Returns an unmodifiable view of the list of {@code Apparel} backed by the internal list of
      * {@code versionedAddressBook}
      */
     @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return filteredPersons;
+    public ObservableList<Apparel> getFilteredPersonList() {
+        return filteredApparels;
     }
 
     @Override
-    public void updateFilteredPersonList(Predicate<Person> predicate) {
+    public void updateFilteredPersonList(Predicate<Apparel> predicate) {
         requireNonNull(predicate);
-        filteredPersons.setPredicate(predicate);
+        filteredApparels.setPredicate(predicate);
     }
 
     //=========== Undo/Redo =================================================================================
@@ -166,27 +166,27 @@ public class ModelManager implements Model {
     //=========== Selected apparel ===========================================================================
 
     @Override
-    public ReadOnlyProperty<Person> selectedPersonProperty() {
+    public ReadOnlyProperty<Apparel> selectedPersonProperty() {
         return selectedPerson;
     }
 
     @Override
-    public Person getSelectedPerson() {
+    public Apparel getSelectedPerson() {
         return selectedPerson.getValue();
     }
 
     @Override
-    public void setSelectedPerson(Person person) {
-        if (person != null && !filteredPersons.contains(person)) {
+    public void setSelectedPerson(Apparel apparel) {
+        if (apparel != null && !filteredApparels.contains(apparel)) {
             throw new PersonNotFoundException();
         }
-        selectedPerson.setValue(person);
+        selectedPerson.setValue(apparel);
     }
 
     /**
-     * Ensures {@code selectedPerson} is a valid apparel in {@code filteredPersons}.
+     * Ensures {@code selectedPerson} is a valid apparel in {@code filteredApparels}.
      */
-    private void ensureSelectedPersonIsValid(ListChangeListener.Change<? extends Person> change) {
+    private void ensureSelectedPersonIsValid(ListChangeListener.Change<? extends Apparel> change) {
         while (change.next()) {
             if (selectedPerson.getValue() == null) {
                 // null is always a valid selected apparel, so we do not need to check that it is valid anymore.
@@ -228,7 +228,7 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return versionedAddressBook.equals(other.versionedAddressBook)
                 && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons)
+                && filteredApparels.equals(other.filteredApparels)
                 && Objects.equals(selectedPerson.get(), other.selectedPerson.get());
     }
 

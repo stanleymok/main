@@ -11,10 +11,10 @@ import org.junit.Test;
 
 import guitests.guihandles.BrowserPanelHandle;
 import javafx.beans.property.SimpleObjectProperty;
-import seedu.address.model.apparel.Person;
+import seedu.address.model.apparel.Apparel;
 
 public class BrowserPanelTest extends GuiUnitTest {
-    private SimpleObjectProperty<Person> selectedPerson = new SimpleObjectProperty<>();
+    private SimpleObjectProperty<Apparel> selectedPerson = new SimpleObjectProperty<>();
     private BrowserPanel browserPanel;
     private BrowserPanelHandle browserPanelHandle;
 

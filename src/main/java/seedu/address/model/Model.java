@@ -6,14 +6,14 @@ import java.util.function.Predicate;
 import javafx.beans.property.ReadOnlyProperty;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.apparel.Person;
+import seedu.address.model.apparel.Apparel;
 
 /**
  * The API of the Model component.
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Apparel> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -56,35 +56,35 @@ public interface Model {
     /**
      * Returns true if a apparel with the same identity as {@code apparel} exists in the address book.
      */
-    boolean hasPerson(Person person);
+    boolean hasPerson(Apparel apparel);
 
     /**
      * Deletes the given apparel.
      * The apparel must exist in the address book.
      */
-    void deletePerson(Person target);
+    void deletePerson(Apparel target);
 
     /**
      * Adds the given apparel.
      * {@code apparel} must not already exist in the address book.
      */
-    void addPerson(Person person);
+    void addPerson(Apparel apparel);
 
     /**
-     * Replaces the given apparel {@code target} with {@code editedPerson}.
+     * Replaces the given apparel {@code target} with {@code editedApparel}.
      * {@code target} must exist in the address book.
-     * The apparel identity of {@code editedPerson} must not be the same as another existing apparel in the address book.
+     * The apparel identity of {@code editedApparel} must not be the same as another existing apparel in the address book.
      */
-    void setPerson(Person target, Person editedPerson);
+    void setPerson(Apparel target, Apparel editedApparel);
 
     /** Returns an unmodifiable view of the filtered apparel list */
-    ObservableList<Person> getFilteredPersonList();
+    ObservableList<Apparel> getFilteredPersonList();
 
     /**
      * Updates the filter of the filtered apparel list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredPersonList(Predicate<Person> predicate);
+    void updateFilteredPersonList(Predicate<Apparel> predicate);
 
     /**
      * Returns true if the model has previous address book states to restore.
@@ -115,16 +115,16 @@ public interface Model {
      * Selected apparel in the filtered apparel list.
      * null if no apparel is selected.
      */
-    ReadOnlyProperty<Person> selectedPersonProperty();
+    ReadOnlyProperty<Apparel> selectedPersonProperty();
 
     /**
      * Returns the selected apparel in the filtered apparel list.
      * null if no apparel is selected.
      */
-    Person getSelectedPerson();
+    Apparel getSelectedPerson();
 
     /**
      * Sets the selected apparel in the filtered apparel list.
      */
-    void setSelectedPerson(Person person);
+    void setSelectedPerson(Apparel apparel);
 }

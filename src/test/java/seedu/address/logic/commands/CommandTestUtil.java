@@ -17,8 +17,8 @@ import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
+import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.NameContainsKeywordsPredicate;
-import seedu.address.model.apparel.Person;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -110,8 +110,8 @@ public class CommandTestUtil {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
-        List<Person> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
-        Person expectedSelectedPerson = actualModel.getSelectedPerson();
+        List<Apparel> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
+        Apparel expectedSelectedApparel = actualModel.getSelectedPerson();
 
         CommandHistory expectedCommandHistory = new CommandHistory(actualCommandHistory);
 
@@ -122,7 +122,7 @@ public class CommandTestUtil {
             assertEquals(expectedMessage, e.getMessage());
             assertEquals(expectedAddressBook, actualModel.getAddressBook());
             assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
-            assertEquals(expectedSelectedPerson, actualModel.getSelectedPerson());
+            assertEquals(expectedSelectedApparel, actualModel.getSelectedPerson());
             assertEquals(expectedCommandHistory, actualCommandHistory);
         }
     }
@@ -134,8 +134,8 @@ public class CommandTestUtil {
     public static void showPersonAtIndex(Model model, Index targetIndex) {
         assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
 
-        Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
-        final String[] splitName = person.getName().fullName.split("\\s+");
+        Apparel apparel = model.getFilteredPersonList().get(targetIndex.getZeroBased());
+        final String[] splitName = apparel.getName().fullName.split("\\s+");
         model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
         assertEquals(1, model.getFilteredPersonList().size());
@@ -145,8 +145,8 @@ public class CommandTestUtil {
      * Deletes the first apparel in {@code model}'s filtered list from {@code model}'s address book.
      */
     public static void deleteFirstPerson(Model model) {
-        Person firstPerson = model.getFilteredPersonList().get(0);
-        model.deletePerson(firstPerson);
+        Apparel firstApparel = model.getFilteredPersonList().get(0);
+        model.deletePerson(firstApparel);
         model.commitAddressBook();
     }
 

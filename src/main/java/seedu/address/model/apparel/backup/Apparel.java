@@ -5,7 +5,7 @@ import java.util.Objects;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Apparel in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Apparel {

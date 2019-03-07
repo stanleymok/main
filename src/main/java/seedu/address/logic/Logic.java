@@ -9,7 +9,7 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.apparel.Person;
+import seedu.address.model.apparel.Apparel;
 
 /**
  * API of the Logic component
@@ -32,7 +32,7 @@ public interface Logic {
     ReadOnlyAddressBook getAddressBook();
 
     /** Returns an unmodifiable view of the filtered list of persons */
-    ObservableList<Person> getFilteredPersonList();
+    ObservableList<Apparel> getFilteredPersonList();
 
     /**
      * Returns an unmodifiable view of the list of commands entered by the user.
@@ -61,12 +61,12 @@ public interface Logic {
      *
      * @see seedu.address.model.Model#selectedPersonProperty()
      */
-    ReadOnlyProperty<Person> selectedPersonProperty();
+    ReadOnlyProperty<Apparel> selectedPersonProperty();
 
     /**
      * Sets the selected apparel in the filtered apparel list.
      *
-     * @see seedu.address.model.Model#setSelectedPerson(Person)
+     * @see seedu.address.model.Model#setSelectedPerson(Apparel)
      */
-    void setSelectedPerson(Person person);
+    void setSelectedPerson(Apparel apparel);
 }

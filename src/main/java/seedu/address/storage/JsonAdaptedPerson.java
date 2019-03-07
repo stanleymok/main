@@ -13,16 +13,16 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.apparel.Person;
+import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
- * Jackson-friendly version of {@link Person}.
+ * Jackson-friendly version of {@link Apparel}.
  */
 class JsonAdaptedPerson {
 
-    public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
+    public static final String MISSING_FIELD_MESSAGE_FORMAT = "Apparel's %s field is missing!";
 
     private final String name;
     private final String phone;
@@ -47,9 +47,9 @@ class JsonAdaptedPerson {
     }
 
     /**
-     * Converts a given {@code Person} into this class for Jackson use.
+     * Converts a given {@code Apparel} into this class for Jackson use.
      */
-    public JsonAdaptedPerson(Person source) {
+    public JsonAdaptedPerson(Apparel source) {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -60,11 +60,11 @@ class JsonAdaptedPerson {
     }
 
     /**
-     * Converts this Jackson-friendly adapted apparel object into the model's {@code Person} object.
+     * Converts this Jackson-friendly adapted apparel object into the model's {@code Apparel} object.
      *
      * @throws IllegalValueException if there were any data constraints violated in the adapted apparel.
      */
-    public Person toModelType() throws IllegalValueException {
+    public Apparel toModelType() throws IllegalValueException {
         final List<Tag> personTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tagged) {
             personTags.add(tag.toModelType());
@@ -103,7 +103,7 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        return new Apparel(modelName, modelPhone, modelEmail, modelAddress, modelTags);
     }
 
 }

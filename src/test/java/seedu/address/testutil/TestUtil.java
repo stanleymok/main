@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
-import seedu.address.model.apparel.Person;
+import seedu.address.model.apparel.Apparel;
 
 /**
  * A utility class for test cases.
@@ -49,7 +49,7 @@ public class TestUtil {
     /**
      * Returns the apparel in the {@code model}'s apparel list at {@code index}.
      */
-    public static Person getPerson(Model model, Index index) {
+    public static Apparel getPerson(Model model, Index index) {
         return model.getFilteredPersonList().get(index.getZeroBased());
     }
 }

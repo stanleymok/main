@@ -17,7 +17,7 @@ import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Phone;
 import seedu.address.testutil.Assert;
 
-public class JsonAdaptedPersonTest {
+public class JsonAdaptedApparelTest {
     private static final String INVALID_NAME = "R@chel";
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_ADDRESS = " ";
