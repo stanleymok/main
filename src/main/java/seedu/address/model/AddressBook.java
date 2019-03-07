@@ -8,7 +8,7 @@ import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.model.apparel.UniquePersonList;
+import seedu.address.model.apparel.UniqueApparelList;
 
 /**
  * Wraps all data at the address-book level
@@ -16,7 +16,7 @@ import seedu.address.model.apparel.UniquePersonList;
  */
 public class AddressBook implements ReadOnlyAddressBook {
 
-    private final UniquePersonList apparels;
+    private final UniqueApparelList apparels;
     private final InvalidationListenerManager invalidationListenerManager = new InvalidationListenerManager();
 
     /*
@@ -27,7 +27,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      *   among constructors.
      */
     {
-        apparels = new UniquePersonList();
+        apparels = new UniqueApparelList();
     }
 
     public AddressBook() {}
@@ -87,7 +87,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void setApparel(Apparel target, Apparel editedApparel) {
         requireNonNull(editedApparel);
 
-        apparels.setPerson(target, editedApparel);
+        apparels.setApparel(target, editedApparel);
         indicateModified();
     }
 

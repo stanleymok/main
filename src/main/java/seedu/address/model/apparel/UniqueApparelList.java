@@ -12,17 +12,17 @@ import seedu.address.model.apparel.exceptions.DuplicatePersonException;
 import seedu.address.model.apparel.exceptions.PersonNotFoundException;
 
 /**
- * A list of persons that enforces uniqueness between its elements and does not allow nulls.
- * A apparel is considered unique by comparing using {@code Apparel#isSameApparel(Apparel)}. As such, adding and updating of
- * persons uses Apparel#isSameApparel(Apparel) for equality so as to ensure that the apparel being added or updated is
- * unique in terms of identity in the UniquePersonList. However, the removal of a apparel uses Apparel#equals(Object) so
+ * A list of apparels that enforces uniqueness between its elements and does not allow nulls.
+ * An apparel is considered unique by comparing using {@code Apparel#isSameApparel(Apparel)}. As such, adding and updating of
+ * apparels uses Apparel#isSameApparel(Apparel) for equality so as to ensure that the apparel being added or updated is
+ * unique in terms of identity in the UniqueApparelList. However, the removal of a apparel uses Apparel#equals(Object) so
  * as to ensure that the apparel with exactly the same fields will be removed.
  *
  * Supports a minimal set of list operations.
  *
  * @see Apparel#isSameApparel(Apparel)
  */
-public class UniquePersonList implements Iterable<Apparel> {
+public class UniqueApparelList implements Iterable<Apparel> {
 
     private final ObservableList<Apparel> internalList = FXCollections.observableArrayList();
     private final ObservableList<Apparel> internalUnmodifiableList =
@@ -53,7 +53,7 @@ public class UniquePersonList implements Iterable<Apparel> {
      * {@code target} must exist in the list.
      * The apparel identity of {@code editedApparel} must not be the same as another existing apparel in the list.
      */
-    public void setPerson(Apparel target, Apparel editedApparel) {
+    public void setApparel(Apparel target, Apparel editedApparel) {
         requireAllNonNull(target, editedApparel);
 
         int index = internalList.indexOf(target);
@@ -79,7 +79,7 @@ public class UniquePersonList implements Iterable<Apparel> {
         }
     }
 
-    public void setApparels(UniquePersonList replacement) {
+    public void setApparels(UniqueApparelList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
     }
@@ -90,7 +90,7 @@ public class UniquePersonList implements Iterable<Apparel> {
      */
     public void setApparels(List<Apparel> apparels) {
         requireAllNonNull(apparels);
-        if (!personsAreUnique(apparels)) {
+        if (!apparelsAreUnique(apparels)) {
             throw new DuplicatePersonException();
         }
 
@@ -112,8 +112,8 @@ public class UniquePersonList implements Iterable<Apparel> {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof UniquePersonList // instanceof handles nulls
-                        && internalList.equals(((UniquePersonList) other).internalList));
+                || (other instanceof UniqueApparelList // instanceof handles nulls
+                        && internalList.equals(((UniqueApparelList) other).internalList));
     }
 
     @Override
@@ -124,7 +124,7 @@ public class UniquePersonList implements Iterable<Apparel> {
     /**
      * Returns true if {@code apparels} contains only unique apparels.
      */
-    private boolean personsAreUnique(List<Apparel> apparels) {
+    private boolean apparelsAreUnique(List<Apparel> apparels) {
         for (int i = 0; i < apparels.size() - 1; i++) {
             for (int j = i + 1; j < apparels.size(); j++) {
                 if (apparels.get(i).isSameApparel(apparels.get(j))) {
