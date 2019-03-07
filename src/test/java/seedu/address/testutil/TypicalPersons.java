@@ -1,15 +1,11 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,37 +19,33 @@ import seedu.address.model.apparel.Apparel;
  */
 public class TypicalPersons {
 
-    public static final Apparel ALICE = new PersonBuilder().withName("Alice Pauline")
-            .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
-            .withPhone("94351253")
-            .withTags("friends").build();
-    public static final Apparel BENSON = new PersonBuilder().withName("Benson Meier")
-            .withAddress("311, Clementi Ave 2, #02-25")
-            .withEmail("johnd@example.com").withPhone("98765432")
-            .withTags("owesMoney", "friends").build();
-    public static final Apparel CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withEmail("heinz@example.com").withAddress("wall street").build();
-    public static final Apparel DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withEmail("cornelia@example.com").withAddress("10th street").withTags("friends").build();
-    public static final Apparel ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withEmail("werner@example.com").withAddress("michegan ave").build();
-    public static final Apparel FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withEmail("lydia@example.com").withAddress("little tokyo").build();
-    public static final Apparel GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
-            .withEmail("anna@example.com").withAddress("4th street").build();
+    public static final Apparel SHIRT1 = new ApparelBuilder().withName("Formal Shirt")
+            .withColor("White").build();
+    public static final Apparel PANTS1 = new ApparelBuilder().withName("Formal Pants")
+            .withClothingType("Bottom").withColor("Pink").build();
+    public static final Apparel SHIRT2 = new ApparelBuilder().withName("Informal Shirt")
+            .withColor("Blue")
+            .withClothingType("Top").build();
+    public static final Apparel BELT1 = new ApparelBuilder().withName("Formal Belt").withColor("Black")
+            .withClothingType("Belt").build();
+    public static final Apparel BELT2 = new ApparelBuilder().withName("Casual Belt").withColor("Yellow")
+            .withClothingType("Belt").build();
+    public static final Apparel BELT3 = new ApparelBuilder().withName("Casual Belt 2").withColor("Blue")
+            .withClothingType("Belt").build();
+    public static final Apparel SHOES1 = new ApparelBuilder().withName("Formal Shoes").withColor("Brown")
+            .withClothingType("Shoes").build();
 
     // Manually added
-    public static final Apparel HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withEmail("stefan@example.com").withAddress("little india").build();
-    public static final Apparel IDA = new PersonBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withEmail("hans@example.com").withAddress("chicago ave").build();
+    public static final Apparel SHOES2 = new ApparelBuilder().withName("Casual Shoes").withColor("Green")
+            .withClothingType("Shoes").build();
+    public static final Apparel SHOES3 = new ApparelBuilder().withName("Sneakers").withColor("Grey")
+            .withClothingType("Shoes").build();
 
     // Manually added - Apparel's details found in {@code CommandTestUtil}
-    public static final Apparel AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-            .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
-    public static final Apparel BOB = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-            .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
-            .build();
+    public static final Apparel AMY = new ApparelBuilder().withName(VALID_NAME_AMY).withColor(VALID_PHONE_AMY)
+            .withClothingType(VALID_EMAIL_AMY).build();
+    public static final Apparel BOB = new ApparelBuilder().withName(VALID_NAME_BOB).withColor(VALID_PHONE_BOB)
+            .withClothingType(VALID_EMAIL_BOB).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
@@ -71,6 +63,6 @@ public class TypicalPersons {
     }
 
     public static List<Apparel> getTypicalPersons() {
-        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, SHIRT2, BELT1, BELT2, BELT3, SHOES1));
     }
 }

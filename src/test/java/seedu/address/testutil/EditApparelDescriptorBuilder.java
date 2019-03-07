@@ -15,34 +15,32 @@ import seedu.address.model.tag.Tag;
 /**
  * A utility class to help with building EditPersonDescriptor objects.
  */
-public class EditPersonDescriptorBuilder {
+public class EditApparelDescriptorBuilder {
 
     private EditPersonDescriptor descriptor;
 
-    public EditPersonDescriptorBuilder() {
+    public EditApparelDescriptorBuilder() {
         descriptor = new EditPersonDescriptor();
     }
 
-    public EditPersonDescriptorBuilder(EditPersonDescriptor descriptor) {
+    public EditApparelDescriptorBuilder(EditPersonDescriptor descriptor) {
         this.descriptor = new EditPersonDescriptor(descriptor);
     }
 
     /**
      * Returns an {@code EditPersonDescriptor} with fields containing {@code apparel}'s details
      */
-    public EditPersonDescriptorBuilder(Apparel apparel) {
+    public EditApparelDescriptorBuilder(Apparel apparel) {
         descriptor = new EditPersonDescriptor();
         descriptor.setName(apparel.getName());
         descriptor.setColor(apparel.getColor());
         descriptor.setClothingType(apparel.getClothingType());
-        descriptor.setAddress(apparel.getAddress());
-        descriptor.setTags(apparel.getTags());
     }
 
     /**
      * Sets the {@code Name} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withName(String name) {
+    public EditApparelDescriptorBuilder withName(String name) {
         descriptor.setName(new Name(name));
         return this;
     }
@@ -50,34 +48,16 @@ public class EditPersonDescriptorBuilder {
     /**
      * Sets the {@code Color} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withPhone(String phone) {
-        descriptor.setColor(new Color(phone));
+    public EditApparelDescriptorBuilder withColor(String color) {
+        descriptor.setColor(new Color(color));
         return this;
     }
 
     /**
      * Sets the {@code ClothingType} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withEmail(String email) {
-        descriptor.setClothingType(new ClothingType(email));
-        return this;
-    }
-
-    /**
-     * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
-     */
-    public EditPersonDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Address(address));
-        return this;
-    }
-
-    /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}
-     * that we are building.
-     */
-    public EditPersonDescriptorBuilder withTags(String... tags) {
-        Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
-        descriptor.setTags(tagSet);
+    public EditApparelDescriptorBuilder withClothingType(String clothingType) {
+        descriptor.setClothingType(new ClothingType(clothingType));
         return this;
     }
 

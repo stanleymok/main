@@ -45,8 +45,8 @@ import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.tag.Tag;
-import seedu.address.testutil.PersonBuilder;
-import seedu.address.testutil.PersonUtil;
+import seedu.address.testutil.ApparelBuilder;
+import seedu.address.testutil.ApparelUtil;
 
 public class EditCommandSystemTest extends AddressBookSystemTest {
 
@@ -62,7 +62,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         Index index = INDEX_FIRST_PERSON;
         String command = " " + EditCommand.COMMAND_WORD + "  " + index.getOneBased() + "  " + NAME_DESC_BOB + "  "
                 + PHONE_DESC_BOB + " " + EMAIL_DESC_BOB + "  " + ADDRESS_DESC_BOB + " " + TAG_DESC_HUSBAND + " ";
-        Apparel editedApparel = new PersonBuilder(BOB).withTags(VALID_TAG_HUSBAND).build();
+        Apparel editedApparel = new ApparelBuilder(BOB).withTags(VALID_TAG_HUSBAND).build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* Case: undo editing the last apparel in the list -> last apparel restored */
@@ -87,7 +87,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         assertNotEquals(getModel().getFilteredPersonList().get(index.getZeroBased()), BOB);
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
-        editedApparel = new PersonBuilder(BOB).withName(VALID_NAME_AMY).build();
+        editedApparel = new ApparelBuilder(BOB).withName(VALID_NAME_AMY).build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* Case: edit a apparel with new values same as another apparel's values but with different phone and email
@@ -96,14 +96,14 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         index = INDEX_SECOND_PERSON;
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_AMY + EMAIL_DESC_AMY
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
-        editedApparel = new PersonBuilder(BOB).withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).build();
+        editedApparel = new ApparelBuilder(BOB).withColor(VALID_PHONE_AMY).withClothingType(VALID_EMAIL_AMY).build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* Case: clear tags -> cleared */
         index = INDEX_FIRST_PERSON;
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + PREFIX_TAG.getPrefix();
         Apparel apparelToEdit = getModel().getFilteredPersonList().get(index.getZeroBased());
-        editedApparel = new PersonBuilder(apparelToEdit).withTags().build();
+        editedApparel = new ApparelBuilder(apparelToEdit).withTags().build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* ------------------ Performing edit operation while a filtered list is being shown ------------------------ */
@@ -114,7 +114,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         assertTrue(index.getZeroBased() < getModel().getFilteredPersonList().size());
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + NAME_DESC_BOB;
         apparelToEdit = getModel().getFilteredPersonList().get(index.getZeroBased());
-        editedApparel = new PersonBuilder(apparelToEdit).withName(VALID_NAME_BOB).build();
+        editedApparel = new ApparelBuilder(apparelToEdit).withName(VALID_NAME_BOB).build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* Case: filtered apparel list, edit index within bounds of address book but out of bounds of apparel list
@@ -183,7 +183,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
                 Tag.MESSAGE_CONSTRAINTS);
 
         /* Case: edit a apparel with new values same as another apparel's values -> rejected */
-        executeCommand(PersonUtil.getAddCommand(BOB));
+        executeCommand(ApparelUtil.getAddCommand(BOB));
         assertTrue(getModel().getAddressBook().getApparelList().contains(BOB));
         index = INDEX_FIRST_PERSON;
         assertFalse(getModel().getFilteredPersonList().get(index.getZeroBased()).equals(BOB));

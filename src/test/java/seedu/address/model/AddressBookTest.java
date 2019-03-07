@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.SHIRT1;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.Arrays;
@@ -23,7 +23,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.exceptions.DuplicateApparelException;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.ApparelBuilder;
 
 public class AddressBookTest {
 
@@ -53,9 +53,9 @@ public class AddressBookTest {
     @Test
     public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
         // Two apparels with the same identity fields
-        Apparel editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        List<Apparel> newApparels = Arrays.asList(ALICE, editedAlice);
+        List<Apparel> newApparels = Arrays.asList(SHIRT1, editedAlice);
         AddressBookStub newData = new AddressBookStub(newApparels);
 
         thrown.expect(DuplicateApparelException.class);
@@ -70,19 +70,19 @@ public class AddressBookTest {
 
     @Test
     public void hasPerson_personNotInAddressBook_returnsFalse() {
-        assertFalse(addressBook.hasApparel(ALICE));
+        assertFalse(addressBook.hasApparel(SHIRT1));
     }
 
     @Test
     public void hasPerson_personInAddressBook_returnsTrue() {
-        addressBook.addApparel(ALICE);
-        assertTrue(addressBook.hasApparel(ALICE));
+        addressBook.addApparel(SHIRT1);
+        assertTrue(addressBook.hasApparel(SHIRT1));
     }
 
     @Test
     public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
-        addressBook.addApparel(ALICE);
-        Apparel editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        addressBook.addApparel(SHIRT1);
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(addressBook.hasApparel(editedAlice));
     }
@@ -98,7 +98,7 @@ public class AddressBookTest {
         SimpleIntegerProperty counter = new SimpleIntegerProperty();
         InvalidationListener listener = observable -> counter.set(counter.get() + 1);
         addressBook.addListener(listener);
-        addressBook.addApparel(ALICE);
+        addressBook.addApparel(SHIRT1);
         assertEquals(1, counter.get());
     }
 
@@ -108,7 +108,7 @@ public class AddressBookTest {
         InvalidationListener listener = observable -> counter.set(counter.get() + 1);
         addressBook.addListener(listener);
         addressBook.removeListener(listener);
-        addressBook.addApparel(ALICE);
+        addressBook.addApparel(SHIRT1);
         assertEquals(0, counter.get());
     }
 

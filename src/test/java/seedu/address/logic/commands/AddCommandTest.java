@@ -24,7 +24,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.ApparelBuilder;
 
 public class AddCommandTest {
 
@@ -44,7 +44,7 @@ public class AddCommandTest {
     @Test
     public void execute_personAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
-        Apparel validApparel = new PersonBuilder().build();
+        Apparel validApparel = new ApparelBuilder().build();
 
         CommandResult commandResult = new AddCommand(validApparel).execute(modelStub, commandHistory);
 
@@ -55,7 +55,7 @@ public class AddCommandTest {
 
     @Test
     public void execute_duplicatePerson_throwsCommandException() throws Exception {
-        Apparel validApparel = new PersonBuilder().build();
+        Apparel validApparel = new ApparelBuilder().build();
         AddCommand addCommand = new AddCommand(validApparel);
         ModelStub modelStub = new ModelStubWithPerson(validApparel);
 
@@ -66,8 +66,8 @@ public class AddCommandTest {
 
     @Test
     public void equals() {
-        Apparel alice = new PersonBuilder().withName("Alice").build();
-        Apparel bob = new PersonBuilder().withName("Bob").build();
+        Apparel alice = new ApparelBuilder().withName("Alice").build();
+        Apparel bob = new ApparelBuilder().withName("Bob").build();
         AddCommand addAliceCommand = new AddCommand(alice);
         AddCommand addBobCommand = new AddCommand(bob);
 

@@ -20,7 +20,7 @@ import seedu.address.model.tag.Tag;
 /**
  * Jackson-friendly version of {@link Apparel}.
  */
-class JsonAdaptedPerson {
+class JsonAdaptedApparel {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Apparel's %s field is missing!";
 
@@ -30,11 +30,11 @@ class JsonAdaptedPerson {
     private final ClothingType clothingType;
 
     /**
-     * Constructs a {@code JsonAdaptedPerson} with the given apparel details.
+     * Constructs a {@code JsonAdaptedApparel} with the given apparel details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("color") Color color,
-                             @JsonProperty("clothingType") ClothingType clothingType) {
+    public JsonAdaptedApparel(@JsonProperty("name") String name, @JsonProperty("color") Color color,
+                              @JsonProperty("clothingType") ClothingType clothingType) {
         this.name = name;
         this.color = color;
         this.clothingType = clothingType;
@@ -44,7 +44,7 @@ class JsonAdaptedPerson {
     /**
      * Converts a given {@code Apparel} into this class for Jackson use.
      */
-    public JsonAdaptedPerson(Apparel source) {
+    public JsonAdaptedApparel(Apparel source) {
         name = source.getName().fullName;
         color = source.getColor();
         clothingType = source.getClothingType();

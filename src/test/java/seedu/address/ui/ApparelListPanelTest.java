@@ -83,7 +83,7 @@ public class ApparelListPanelTest extends GuiUnitTest {
             Color color = new Color("000");
             ClothingType clothingType = new ClothingType("a@aa");
             Address address = new Address("a");
-            Apparel apparel = new Apparel(name, color, clothingType, address, Collections.emptySet());
+            Apparel apparel = new Apparel(name, color, clothingType);
             backingList.add(apparel);
         }
         return backingList;

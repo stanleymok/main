@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.SHIRT1;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import org.junit.rules.ExpectedException;
 
 import seedu.address.model.apparel.exceptions.DuplicateApparelException;
 import seedu.address.model.apparel.exceptions.ApparelNotFoundException;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.ApparelBuilder;
 
 public class UniqueApparelListTest {
     @Rule
@@ -34,19 +34,19 @@ public class UniqueApparelListTest {
 
     @Test
     public void contains_personNotInList_returnsFalse() {
-        assertFalse(uniqueApparelList.contains(ALICE));
+        assertFalse(uniqueApparelList.contains(SHIRT1));
     }
 
     @Test
     public void contains_personInList_returnsTrue() {
-        uniqueApparelList.add(ALICE);
-        assertTrue(uniqueApparelList.contains(ALICE));
+        uniqueApparelList.add(SHIRT1);
+        assertTrue(uniqueApparelList.contains(SHIRT1));
     }
 
     @Test
     public void contains_personWithSameIdentityFieldsInList_returnsTrue() {
-        uniqueApparelList.add(ALICE);
-        Apparel editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        uniqueApparelList.add(SHIRT1);
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(uniqueApparelList.contains(editedAlice));
     }
@@ -59,44 +59,44 @@ public class UniqueApparelListTest {
 
     @Test
     public void add_duplicatePerson_throwsDuplicatePersonException() {
-        uniqueApparelList.add(ALICE);
+        uniqueApparelList.add(SHIRT1);
         thrown.expect(DuplicateApparelException.class);
-        uniqueApparelList.add(ALICE);
+        uniqueApparelList.add(SHIRT1);
     }
 
     @Test
     public void setPerson_nullTargetPerson_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        uniqueApparelList.setApparel(null, ALICE);
+        uniqueApparelList.setApparel(null, SHIRT1);
     }
 
     @Test
     public void setPerson_nullEditedPerson_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        uniqueApparelList.setApparel(ALICE, null);
+        uniqueApparelList.setApparel(SHIRT1, null);
     }
 
     @Test
     public void setPerson_targetPersonNotInList_throwsPersonNotFoundException() {
         thrown.expect(ApparelNotFoundException.class);
-        uniqueApparelList.setApparel(ALICE, ALICE);
+        uniqueApparelList.setApparel(SHIRT1, SHIRT1);
     }
 
     @Test
     public void setPerson_editedPersonIsSamePerson_success() {
-        uniqueApparelList.add(ALICE);
-        uniqueApparelList.setApparel(ALICE, ALICE);
+        uniqueApparelList.add(SHIRT1);
+        uniqueApparelList.setApparel(SHIRT1, SHIRT1);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
-        expectedUniqueApparelList.add(ALICE);
+        expectedUniqueApparelList.add(SHIRT1);
         assertEquals(expectedUniqueApparelList, uniqueApparelList);
     }
 
     @Test
     public void setPerson_editedPersonHasSameIdentity_success() {
-        uniqueApparelList.add(ALICE);
-        Apparel editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        uniqueApparelList.add(SHIRT1);
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        uniqueApparelList.setApparel(ALICE, editedAlice);
+        uniqueApparelList.setApparel(SHIRT1, editedAlice);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
         expectedUniqueApparelList.add(editedAlice);
         assertEquals(expectedUniqueApparelList, uniqueApparelList);
@@ -104,8 +104,8 @@ public class UniqueApparelListTest {
 
     @Test
     public void setPerson_editedPersonHasDifferentIdentity_success() {
-        uniqueApparelList.add(ALICE);
-        uniqueApparelList.setApparel(ALICE, BOB);
+        uniqueApparelList.add(SHIRT1);
+        uniqueApparelList.setApparel(SHIRT1, BOB);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
         expectedUniqueApparelList.add(BOB);
         assertEquals(expectedUniqueApparelList, uniqueApparelList);
@@ -113,10 +113,10 @@ public class UniqueApparelListTest {
 
     @Test
     public void setPerson_editedPersonHasNonUniqueIdentity_throwsDuplicatePersonException() {
-        uniqueApparelList.add(ALICE);
+        uniqueApparelList.add(SHIRT1);
         uniqueApparelList.add(BOB);
         thrown.expect(DuplicateApparelException.class);
-        uniqueApparelList.setApparel(ALICE, BOB);
+        uniqueApparelList.setApparel(SHIRT1, BOB);
     }
 
     @Test
@@ -128,13 +128,13 @@ public class UniqueApparelListTest {
     @Test
     public void remove_personDoesNotExist_throwsPersonNotFoundException() {
         thrown.expect(ApparelNotFoundException.class);
-        uniqueApparelList.remove(ALICE);
+        uniqueApparelList.remove(SHIRT1);
     }
 
     @Test
     public void remove_existingPerson_removesPerson() {
-        uniqueApparelList.add(ALICE);
-        uniqueApparelList.remove(ALICE);
+        uniqueApparelList.add(SHIRT1);
+        uniqueApparelList.remove(SHIRT1);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
         assertEquals(expectedUniqueApparelList, uniqueApparelList);
     }
@@ -147,7 +147,7 @@ public class UniqueApparelListTest {
 
     @Test
     public void setPersons_uniquePersonList_replacesOwnListWithProvidedUniquePersonList() {
-        uniqueApparelList.add(ALICE);
+        uniqueApparelList.add(SHIRT1);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
         expectedUniqueApparelList.add(BOB);
         uniqueApparelList.setApparels(expectedUniqueApparelList);
@@ -162,7 +162,7 @@ public class UniqueApparelListTest {
 
     @Test
     public void setPersons_list_replacesOwnListWithProvidedList() {
-        uniqueApparelList.add(ALICE);
+        uniqueApparelList.add(SHIRT1);
         List<Apparel> apparelList = Collections.singletonList(BOB);
         uniqueApparelList.setApparels(apparelList);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
@@ -172,7 +172,7 @@ public class UniqueApparelListTest {
 
     @Test
     public void setPersons_listWithDuplicatePersons_throwsDuplicatePersonException() {
-        List<Apparel> listWithDuplicateApparels = Arrays.asList(ALICE, ALICE);
+        List<Apparel> listWithDuplicateApparels = Arrays.asList(SHIRT1, SHIRT1);
         thrown.expect(DuplicateApparelException.class);
         uniqueApparelList.setApparels(listWithDuplicateApparels);
     }

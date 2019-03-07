@@ -9,20 +9,20 @@ import org.junit.Test;
 
 import guitests.guihandles.PersonCardHandle;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.ApparelBuilder;
 
 public class ApparelCardTest extends GuiUnitTest {
 
     @Test
     public void display() {
         // no tags
-        Apparel apparelWithNoTags = new PersonBuilder().withTags(new String[0]).build();
+        Apparel apparelWithNoTags = new ApparelBuilder().withTags(new String[0]).build();
         PersonCard personCard = new PersonCard(apparelWithNoTags, 1);
         uiPartRule.setUiPart(personCard);
         assertCardDisplay(personCard, apparelWithNoTags, 1);
 
         // with tags
-        Apparel apparelWithTags = new PersonBuilder().build();
+        Apparel apparelWithTags = new ApparelBuilder().build();
         personCard = new PersonCard(apparelWithTags, 2);
         uiPartRule.setUiPart(personCard);
         assertCardDisplay(personCard, apparelWithTags, 2);
@@ -30,7 +30,7 @@ public class ApparelCardTest extends GuiUnitTest {
 
     @Test
     public void equals() {
-        Apparel apparel = new PersonBuilder().build();
+        Apparel apparel = new ApparelBuilder().build();
         PersonCard personCard = new PersonCard(apparel, 0);
 
         // same apparel, same index -> returns true
@@ -47,7 +47,7 @@ public class ApparelCardTest extends GuiUnitTest {
         assertFalse(personCard.equals(0));
 
         // different apparel, same index -> returns false
-        Apparel differentApparel = new PersonBuilder().withName("differentName").build();
+        Apparel differentApparel = new ApparelBuilder().withName("differentName").build();
         assertFalse(personCard.equals(new PersonCard(differentApparel, 0)));
 
         // same apparel, different index -> returns false

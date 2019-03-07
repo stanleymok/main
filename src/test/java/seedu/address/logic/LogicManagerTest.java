@@ -32,7 +32,7 @@ import seedu.address.model.apparel.Apparel;
 import seedu.address.storage.JsonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.ApparelBuilder;
 
 
 public class LogicManagerTest {
@@ -88,7 +88,7 @@ public class LogicManagerTest {
         // Execute add command
         String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
                 + ADDRESS_DESC_AMY;
-        Apparel expectedApparel = new PersonBuilder(AMY).withTags().build();
+        Apparel expectedApparel = new ApparelBuilder(AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addPerson(expectedApparel);
         expectedModel.commitAddressBook();

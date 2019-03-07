@@ -3,9 +3,9 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CLOTHING_TYPE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COLOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
@@ -32,7 +32,7 @@ public class EditCommandParser implements Parser<EditCommand> {
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_COLOR, PREFIX_CLOTHING_TYPE, PREFIX_ADDRESS, PREFIX_TAG);
 
         Index index;
 
@@ -46,12 +46,12 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editPersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         }
-        if (argMultimap.getValue(PREFIX_PHONE).isPresent()) {
-            editPersonDescriptor.setColor(ParserUtil.parseColor(argMultimap.getValue(PREFIX_PHONE).get()));
+        if (argMultimap.getValue(PREFIX_COLOR).isPresent()) {
+            editPersonDescriptor.setColor(ParserUtil.parseColor(argMultimap.getValue(PREFIX_COLOR).get()));
         }
-        if (argMultimap.getValue(PREFIX_EMAIL).isPresent()) {
+        if (argMultimap.getValue(PREFIX_CLOTHING_TYPE).isPresent()) {
             editPersonDescriptor.setClothingType(
-                    ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_EMAIL).get()));
+                    ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_CLOTHING_TYPE).get()));
         }
 
         if (!editPersonDescriptor.isAnyFieldEdited()) {

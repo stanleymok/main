@@ -7,14 +7,14 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.SHIRT1;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.ApparelBuilder;
 
 public class ApparelTest {
     @Rule
@@ -22,78 +22,77 @@ public class ApparelTest {
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-        Apparel apparel = new PersonBuilder().build();
+        Apparel apparel = new ApparelBuilder().build();
         thrown.expect(UnsupportedOperationException.class);
-        apparel.getTags().remove(0);
     }
 
     @Test
     public void isSamePerson() {
         // same object -> returns true
-        assertTrue(ALICE.isSameApparel(ALICE));
+        assertTrue(SHIRT1.isSameApparel(SHIRT1));
 
         // null -> returns false
-        assertFalse(ALICE.isSameApparel(null));
+        assertFalse(SHIRT1.isSameApparel(null));
 
         // different phone and email -> returns false
-        Apparel editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).build();
-        assertFalse(ALICE.isSameApparel(editedAlice));
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_PHONE_BOB).withClothingType(VALID_EMAIL_BOB).build();
+        assertFalse(SHIRT1.isSameApparel(editedAlice));
 
         // different name -> returns false
-        editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
-        assertFalse(ALICE.isSameApparel(editedAlice));
+        editedAlice = new ApparelBuilder(SHIRT1).withName(VALID_NAME_BOB).build();
+        assertFalse(SHIRT1.isSameApparel(editedAlice));
 
         // same name, same phone, different attributes -> returns true
-        editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+        editedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
-        assertTrue(ALICE.isSameApparel(editedAlice));
+        assertTrue(SHIRT1.isSameApparel(editedAlice));
 
         // same name, same email, different attributes -> returns true
-        editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
+        editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
-        assertTrue(ALICE.isSameApparel(editedAlice));
+        assertTrue(SHIRT1.isSameApparel(editedAlice));
 
         // same name, same phone, same email, different attributes -> returns true
-        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
-        assertTrue(ALICE.isSameApparel(editedAlice));
+        editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+        assertTrue(SHIRT1.isSameApparel(editedAlice));
     }
 
     @Test
     public void equals() {
         // same values -> returns true
-        Apparel aliceCopy = new PersonBuilder(ALICE).build();
-        assertTrue(ALICE.equals(aliceCopy));
+        Apparel aliceCopy = new ApparelBuilder(SHIRT1).build();
+        assertTrue(SHIRT1.equals(aliceCopy));
 
         // same object -> returns true
-        assertTrue(ALICE.equals(ALICE));
+        assertTrue(SHIRT1.equals(SHIRT1));
 
         // null -> returns false
-        assertFalse(ALICE.equals(null));
+        assertFalse(SHIRT1.equals(null));
 
         // different type -> returns false
-        assertFalse(ALICE.equals(5));
+        assertFalse(SHIRT1.equals(5));
 
         // different apparel -> returns false
-        assertFalse(ALICE.equals(BOB));
+        assertFalse(SHIRT1.equals(BOB));
 
         // different name -> returns false
-        Apparel editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
-        assertFalse(ALICE.equals(editedAlice));
+        Apparel editedAlice = new ApparelBuilder(SHIRT1).withName(VALID_NAME_BOB).build();
+        assertFalse(SHIRT1.equals(editedAlice));
 
         // different phone -> returns false
-        editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
-        assertFalse(ALICE.equals(editedAlice));
+        editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_PHONE_BOB).build();
+        assertFalse(SHIRT1.equals(editedAlice));
 
         // different email -> returns false
-        editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
-        assertFalse(ALICE.equals(editedAlice));
+        editedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_EMAIL_BOB).build();
+        assertFalse(SHIRT1.equals(editedAlice));
 
         // different address -> returns false
-        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
-        assertFalse(ALICE.equals(editedAlice));
+        editedAlice = new ApparelBuilder(SHIRT1).withAddress(VALID_ADDRESS_BOB).build();
+        assertFalse(SHIRT1.equals(editedAlice));
 
         // different tags -> returns false
-        editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
-        assertFalse(ALICE.equals(editedAlice));
+        editedAlice = new ApparelBuilder(SHIRT1).withTags(VALID_TAG_HUSBAND).build();
+        assertFalse(SHIRT1.equals(editedAlice));
     }
 }
