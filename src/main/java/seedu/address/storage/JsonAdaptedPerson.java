@@ -1,22 +1,20 @@
 package seedu.address.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.apparel.Address;
+import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.ClothingTypeValue;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ColorValue;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.apparel.Apparel;
 import seedu.address.model.tag.Tag;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Jackson-friendly version of {@link Apparel}.
@@ -78,7 +76,8 @@ class JsonAdaptedPerson {
         final Color modelColor = new Color(color.toString());
 
         if (clothingType == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, ClothingType.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    ClothingType.class.getSimpleName()));
         }
         if (!ClothingTypeValue.isValidClothingType(clothingType.toString())) {
             throw new IllegalValueException(ClothingType.MESSAGE_CONSTRAINTS);

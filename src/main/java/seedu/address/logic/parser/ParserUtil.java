@@ -7,7 +7,6 @@ import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.ClothingTypeValue;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ColorValue;
-import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.tag.Tag;
 
@@ -16,6 +15,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static java.util.Objects.requireNonNull;
+
+
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.

@@ -73,7 +73,8 @@ public interface Model {
     /**
      * Replaces the given apparel {@code target} with {@code editedApparel}.
      * {@code target} must exist in the address book.
-     * The apparel identity of {@code editedApparel} must not be the same as another existing apparel in the address book.
+     * The apparel identity of {@code editedApparel} must not
+     * be the same as another existing apparel in the address book.
      */
     void setPerson(Apparel target, Apparel editedApparel);
 

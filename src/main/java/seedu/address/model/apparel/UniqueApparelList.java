@@ -1,15 +1,15 @@
 package seedu.address.model.apparel;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import seedu.address.model.apparel.exceptions.ApparelNotFoundException;
+import seedu.address.model.apparel.exceptions.DuplicateApparelException;
 
 import java.util.Iterator;
 import java.util.List;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import seedu.address.model.apparel.exceptions.DuplicateApparelException;
-import seedu.address.model.apparel.exceptions.ApparelNotFoundException;
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * A list of apparels that enforces uniqueness between its elements and does not allow nulls.

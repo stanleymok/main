@@ -50,7 +50,8 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setColor(ParserUtil.parseColor(argMultimap.getValue(PREFIX_PHONE).get()));
         }
         if (argMultimap.getValue(PREFIX_EMAIL).isPresent()) {
-            editPersonDescriptor.setClothingType(ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_EMAIL).get()));
+            editPersonDescriptor.setClothingType(
+                    ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_EMAIL).get()));
         }
 
         if (!editPersonDescriptor.isAnyFieldEdited()) {

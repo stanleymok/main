@@ -46,5 +46,8 @@ public class Color {
     }
 
     @Override
-    public String toString() { return primary.name(); }
+    public String toString() {
+        return primary.name();
+    }
+
 }

@@ -97,7 +97,8 @@ public class EditCommand extends Command {
 
         Name updatedName = editPersonDescriptor.getName().orElse(apparelToEdit.getName());
         Color updatedColor = editPersonDescriptor.getColor().orElse(apparelToEdit.getColor());
-        ClothingType updatedClothingType = editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
+        ClothingType updatedClothingType =
+                editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
 
         return new Apparel(updatedName, updatedColor, updatedClothingType);
     }

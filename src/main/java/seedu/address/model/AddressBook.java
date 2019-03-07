@@ -82,7 +82,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Replaces the given apparel {@code target} in the list with {@code editedApparel}.
      * {@code target} must exist in the address book.
-     * The apparel identity of {@code editedApparel} must not be the same as another existing apparel in the address book.
+     * The apparel identity of {@code editedApparel} must not be
+     * the same as another existing apparel in the address book.
      */
     public void setApparel(Apparel target, Apparel editedApparel) {
         requireNonNull(editedApparel);

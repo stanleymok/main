@@ -11,10 +11,10 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.apparel.Color;
-import seedu.address.model.apparel.ClothingType;
-import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Apparel;
+import seedu.address.model.apparel.ClothingType;
+import seedu.address.model.apparel.Color;
+import seedu.address.model.apparel.Name;
 
 /**
  * Parses input arguments and creates a new AddCommand object
