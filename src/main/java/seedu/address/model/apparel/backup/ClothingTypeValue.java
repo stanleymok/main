@@ -1,4 +1,4 @@
-package seedu.address.model.apparel;
+package seedu.address.model.apparel.backup;
 
 /**
  * Represents the primary type of an apparel.

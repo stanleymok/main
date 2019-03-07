@@ -7,10 +7,10 @@ import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.ClothingTypeValue;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ColorValue;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
+import seedu.address.model.apparel.Address;
+import seedu.address.model.apparel.Email;
+import seedu.address.model.apparel.Name;
+import seedu.address.model.apparel.Phone;
 import seedu.address.model.tag.Tag;
 
 import java.util.Collection;

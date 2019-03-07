@@ -1,8 +1,8 @@
-package seedu.address.model.apparel;
-
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+package seedu.address.model.apparel.backup;
 
 import java.util.Objects;
+
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * Represents a Person in the address book.

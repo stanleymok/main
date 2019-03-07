@@ -13,7 +13,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.web.WebView;
 import seedu.address.MainApp;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.person.Person;
+import seedu.address.model.apparel.Person;
 
 /**
  * The Browser Panel of the App.
@@ -37,7 +37,7 @@ public class BrowserPanel extends UiPart<Region> {
         // To prevent triggering events for typing inside the loaded Web page.
         getRoot().setOnKeyPressed(Event::consume);
 
-        // Load person page when selected person changes.
+        // Load apparel page when selected apparel changes.
         selectedPerson.addListener((observable, oldValue, newValue) -> {
             if (newValue == null) {
                 loadDefaultPage();
