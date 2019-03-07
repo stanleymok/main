@@ -8,7 +8,6 @@ import seedu.address.model.apparel.ClothingTypeValue;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ColorValue;
 import seedu.address.model.apparel.Address;
-import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.tag.Tag;
 
@@ -84,18 +83,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String email} into an {@code Email}.
+     * Parses a {@code String email} into an {@code ClothingType}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code email} is invalid.
      */
-    public static Email parseEmail(String email) throws ParseException {
+    public static ClothingType parseEmail(String email) throws ParseException {
         requireNonNull(email);
         String trimmedEmail = email.trim();
-        if (!Email.isValidEmail(trimmedEmail)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+        if (!ClothingType.isValidClothingType(trimmedEmail)) {
+            throw new ParseException(ClothingType.MESSAGE_CONSTRAINTS);
         }
-        return new Email(trimmedEmail);
+        return new ClothingType(trimmedEmail);
     }
 
     /**

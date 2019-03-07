@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.model.apparel.Email;
+import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.tag.Tag;
@@ -34,7 +34,7 @@ public class EditPersonDescriptorBuilder {
         descriptor = new EditPersonDescriptor();
         descriptor.setName(apparel.getName());
         descriptor.setColor(apparel.getColor());
-        descriptor.setEmail(apparel.getEmail());
+        descriptor.setClothingType(apparel.getClothingType());
         descriptor.setAddress(apparel.getAddress());
         descriptor.setTags(apparel.getTags());
     }
@@ -56,10 +56,10 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Email} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code ClothingType} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withEmail(String email) {
-        descriptor.setEmail(new Email(email));
+        descriptor.setClothingType(new ClothingType(email));
         return this;
     }
 

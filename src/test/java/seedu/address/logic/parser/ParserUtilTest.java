@@ -17,7 +17,7 @@ import org.junit.rules.ExpectedException;
 
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.Address;
-import seedu.address.model.apparel.Email;
+import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.tag.Tag;
@@ -145,15 +145,15 @@ public class ParserUtilTest {
 
     @Test
     public void parseEmail_validValueWithoutWhitespace_returnsEmail() throws Exception {
-        Email expectedEmail = new Email(VALID_EMAIL);
-        assertEquals(expectedEmail, ParserUtil.parseEmail(VALID_EMAIL));
+        ClothingType expectedClothingType = new ClothingType(VALID_EMAIL);
+        assertEquals(expectedClothingType, ParserUtil.parseEmail(VALID_EMAIL));
     }
 
     @Test
     public void parseEmail_validValueWithWhitespace_returnsTrimmedEmail() throws Exception {
         String emailWithWhitespace = WHITESPACE + VALID_EMAIL + WHITESPACE;
-        Email expectedEmail = new Email(VALID_EMAIL);
-        assertEquals(expectedEmail, ParserUtil.parseEmail(emailWithWhitespace));
+        ClothingType expectedClothingType = new ClothingType(VALID_EMAIL);
+        assertEquals(expectedClothingType, ParserUtil.parseEmail(emailWithWhitespace));
     }
 
     @Test

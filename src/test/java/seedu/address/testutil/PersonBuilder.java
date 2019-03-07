@@ -6,7 +6,7 @@ import java.util.Set;
 import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.Color;
-import seedu.address.model.apparel.Email;
+import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -23,14 +23,14 @@ public class PersonBuilder {
 
     private Name name;
     private Color color;
-    private Email email;
+    private ClothingType clothingType;
     private Address address;
     private Set<Tag> tags;
 
     public PersonBuilder() {
         name = new Name(DEFAULT_NAME);
         color = new Color(DEFAULT_PHONE);
-        email = new Email(DEFAULT_EMAIL);
+        clothingType = new ClothingType(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
@@ -41,7 +41,7 @@ public class PersonBuilder {
     public PersonBuilder(Apparel apparelToCopy) {
         name = apparelToCopy.getName();
         color = apparelToCopy.getColor();
-        email = apparelToCopy.getEmail();
+        clothingType = apparelToCopy.getClothingType();
         address = apparelToCopy.getAddress();
         tags = new HashSet<>(apparelToCopy.getTags());
     }
@@ -79,15 +79,15 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Email} of the {@code Apparel} that we are building.
+     * Sets the {@code ClothingType} of the {@code Apparel} that we are building.
      */
     public PersonBuilder withEmail(String email) {
-        this.email = new Email(email);
+        this.clothingType = new ClothingType(email);
         return this;
     }
 
     public Apparel build() {
-        return new Apparel(name, color, email, address, tags);
+        return new Apparel(name, color, clothingType, address, tags);
     }
 
 }

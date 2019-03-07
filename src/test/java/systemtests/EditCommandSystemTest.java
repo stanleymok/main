@@ -41,7 +41,7 @@ import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
 import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.model.apparel.Email;
+import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.tag.Tag;
@@ -172,7 +172,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: invalid email -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_EMAIL_DESC,
-                Email.MESSAGE_CONSTRAINTS);
+                ClothingType.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid address -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_ADDRESS_DESC,

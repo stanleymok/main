@@ -18,7 +18,7 @@ public class Apparel {
     // Identity fields
     private final Name name;
     private final Color color;
-    private final Email email;
+    private final ClothingType clothingType;
 
     // Data fields
     private final Address address;
@@ -27,11 +27,11 @@ public class Apparel {
     /**
      * Every field must be present and not null.
      */
-    public Apparel(Name name, Color color, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, color, email, address, tags);
+    public Apparel(Name name, Color color, ClothingType clothingType, Address address, Set<Tag> tags) {
+        requireAllNonNull(name, color, clothingType, address, tags);
         this.name = name;
         this.color = color;
-        this.email = email;
+        this.clothingType = clothingType;
         this.address = address;
         this.tags.addAll(tags);
     }
@@ -44,8 +44,8 @@ public class Apparel {
         return color;
     }
 
-    public Email getEmail() {
-        return email;
+    public ClothingType getClothingType() {
+        return clothingType;
     }
 
     public Address getAddress() {
@@ -71,7 +71,7 @@ public class Apparel {
 
         return otherApparel != null
                 && otherApparel.getName().equals(getName())
-                && (otherApparel.getColor().equals(getColor()) || otherApparel.getEmail().equals(getEmail()));
+                && (otherApparel.getColor().equals(getColor()) || otherApparel.getClothingType().equals(getClothingType()));
     }
 
     /**
@@ -91,7 +91,7 @@ public class Apparel {
         Apparel otherApparel = (Apparel) other;
         return otherApparel.getName().equals(getName())
                 && otherApparel.getColor().equals(getColor())
-                && otherApparel.getEmail().equals(getEmail())
+                && otherApparel.getClothingType().equals(getClothingType())
                 && otherApparel.getAddress().equals(getAddress())
                 && otherApparel.getTags().equals(getTags());
     }
@@ -99,7 +99,7 @@ public class Apparel {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, color, email, address, tags);
+        return Objects.hash(name, color, clothingType, address, tags);
     }
 
     @Override
@@ -108,8 +108,8 @@ public class Apparel {
         builder.append(getName())
                 .append(" Color: ")
                 .append(getColor())
-                .append(" Email: ")
-                .append(getEmail())
+                .append(" ClothingType: ")
+                .append(getClothingType())
                 .append(" Address: ")
                 .append(getAddress())
                 .append(" Tags: ");

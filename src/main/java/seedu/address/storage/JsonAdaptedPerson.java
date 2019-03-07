@@ -11,8 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.apparel.Address;
+import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Color;
-import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.tag.Tag;
@@ -52,7 +52,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(Apparel source) {
         name = source.getName().fullName;
         phone = source.getColor().value;
-        email = source.getEmail().value;
+        email = source.getClothingType().value;
         address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -87,12 +87,12 @@ class JsonAdaptedPerson {
         final Color modelColor = new Color(phone);
 
         if (email == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, ClothingType.class.getSimpleName()));
         }
-        if (!Email.isValidEmail(email)) {
-            throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
+        if (!ClothingType.isValidClothingType(email)) {
+            throw new IllegalValueException(ClothingType.MESSAGE_CONSTRAINTS);
         }
-        final Email modelEmail = new Email(email);
+        final ClothingType modelClothingType = new ClothingType(email);
 
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
@@ -103,7 +103,7 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Apparel(modelName, modelColor, modelEmail, modelAddress, modelTags);
+        return new Apparel(modelName, modelColor, modelClothingType, modelAddress, modelTags);
     }
 
 }

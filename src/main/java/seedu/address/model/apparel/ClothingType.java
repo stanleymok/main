@@ -4,12 +4,12 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Apparel's email in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
+ * Represents a Apparel's ClothingType in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidClothingType(String)}
  */
-public class Email {
+public class ClothingType {
 
-    private static final String SPECIAL_CHARACTERS = "!#$%&'*+/=?`{|}~^.-";
+    private static final String SPECIAL_CHARACTERS = "!#$%&'*+/=?`{|}~^.-"; //TODO
     public static final String MESSAGE_CONSTRAINTS = "Emails should be of the format local-part@domain "
             + "and adhere to the following constraints:\n"
             + "1. The local-part should only contain alphanumeric characters and these special characters, excluding "
@@ -30,20 +30,20 @@ public class Email {
     public final String value;
 
     /**
-     * Constructs an {@code Email}.
+     * Constructs an {@code ClothingType}.
      *
-     * @param email A valid email address.
+     * @param clothingType A valid clothingType.
      */
-    public Email(String email) {
-        requireNonNull(email);
-        checkArgument(isValidEmail(email), MESSAGE_CONSTRAINTS);
-        value = email;
+    public ClothingType(String clothingType) {
+        requireNonNull(clothingType);
+        checkArgument(isValidClothingType(clothingType), MESSAGE_CONSTRAINTS);
+        value = clothingType;
     }
 
     /**
-     * Returns if a given string is a valid email.
+     * Returns if a given string is a valid clothingType.
      */
-    public static boolean isValidEmail(String test) {
+    public static boolean isValidClothingType(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
@@ -55,8 +55,8 @@ public class Email {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Email // instanceof handles nulls
-                && value.equals(((Email) other).value)); // state check
+                || (other instanceof ClothingType // instanceof handles nulls
+                && value.equals(((ClothingType) other).value)); // state check
     }
 
     @Override
