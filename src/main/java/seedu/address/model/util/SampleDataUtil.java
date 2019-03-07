@@ -1,5 +1,9 @@
 package seedu.address.model.util;
 
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.apparel.Apparel;
@@ -8,19 +12,15 @@ import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.tag.Tag;
 
-import java.util.Arrays;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 /**
  * Contains utility methods for populating {@code AddressBook} with sample data.
  */
 public class SampleDataUtil {
     public static Apparel[] getSamplePersons() {
         return new Apparel[] {
-            new Apparel(new Name("Formal Shirt"), new Color("WHITE"), new ClothingType("TOP")),
+            new Apparel(new Name("Formal Shirt"), new Color("White"), new ClothingType("Top")),
 
-/*          new Apparel(new Name("Formal Pants"), new Color("Black"), new ClothingType("Bottom")),
+            new Apparel(new Name("Formal Pants"), new Color("Black"), new ClothingType("Bottom")),
 
             new Apparel(new Name("Formal Belt"), new Color("Black"), new ClothingType("Belt")),
 
@@ -28,7 +28,7 @@ public class SampleDataUtil {
 
             new Apparel(new Name("Uniqlo Tshirt"), new Color("Yellow"), new ClothingType("Top")),
 
-            new Apparel(new Name("H&M Tshirt"), new Color("Brown"), new ClothingType("Top")),*/
+            new Apparel(new Name("Adidas Tshirt"), new Color("Brown"), new ClothingType("Top")),
         };
     }
 

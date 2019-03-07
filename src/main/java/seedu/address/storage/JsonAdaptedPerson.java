@@ -2,6 +2,12 @@ package seedu.address.storage;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.ClothingType;
@@ -10,11 +16,6 @@ import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ColorValue;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.tag.Tag;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Jackson-friendly version of {@link Apparel}.
