@@ -4,7 +4,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_CLOTHING_TYPE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COLOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 
-
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.apparel.Apparel;

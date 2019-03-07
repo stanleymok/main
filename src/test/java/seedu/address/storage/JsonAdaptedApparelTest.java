@@ -8,12 +8,12 @@ import org.junit.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.apparel.ClothingType;
-import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Color;
+import seedu.address.model.apparel.Name;
 import seedu.address.testutil.Assert;
 
 public class JsonAdaptedApparelTest {
-    private static final String INVALID_NAME = "Formal Belt_1";
+    private static final String INVALID_NAME = "Formal Belt1";
 
     private static final String VALID_NAME = PANTS1.getName().toString();
     private static final Color VALID_COLOR = PANTS1.getColor();
