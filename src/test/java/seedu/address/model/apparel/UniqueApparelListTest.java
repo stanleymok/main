@@ -16,8 +16,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import seedu.address.model.apparel.exceptions.DuplicatePersonException;
-import seedu.address.model.apparel.exceptions.PersonNotFoundException;
+import seedu.address.model.apparel.exceptions.DuplicateApparelException;
+import seedu.address.model.apparel.exceptions.ApparelNotFoundException;
 import seedu.address.testutil.PersonBuilder;
 
 public class UniqueApparelListTest {
@@ -60,7 +60,7 @@ public class UniqueApparelListTest {
     @Test
     public void add_duplicatePerson_throwsDuplicatePersonException() {
         uniqueApparelList.add(ALICE);
-        thrown.expect(DuplicatePersonException.class);
+        thrown.expect(DuplicateApparelException.class);
         uniqueApparelList.add(ALICE);
     }
 
@@ -78,7 +78,7 @@ public class UniqueApparelListTest {
 
     @Test
     public void setPerson_targetPersonNotInList_throwsPersonNotFoundException() {
-        thrown.expect(PersonNotFoundException.class);
+        thrown.expect(ApparelNotFoundException.class);
         uniqueApparelList.setApparel(ALICE, ALICE);
     }
 
@@ -115,7 +115,7 @@ public class UniqueApparelListTest {
     public void setPerson_editedPersonHasNonUniqueIdentity_throwsDuplicatePersonException() {
         uniqueApparelList.add(ALICE);
         uniqueApparelList.add(BOB);
-        thrown.expect(DuplicatePersonException.class);
+        thrown.expect(DuplicateApparelException.class);
         uniqueApparelList.setApparel(ALICE, BOB);
     }
 
@@ -127,7 +127,7 @@ public class UniqueApparelListTest {
 
     @Test
     public void remove_personDoesNotExist_throwsPersonNotFoundException() {
-        thrown.expect(PersonNotFoundException.class);
+        thrown.expect(ApparelNotFoundException.class);
         uniqueApparelList.remove(ALICE);
     }
 
@@ -173,7 +173,7 @@ public class UniqueApparelListTest {
     @Test
     public void setPersons_listWithDuplicatePersons_throwsDuplicatePersonException() {
         List<Apparel> listWithDuplicateApparels = Arrays.asList(ALICE, ALICE);
-        thrown.expect(DuplicatePersonException.class);
+        thrown.expect(DuplicateApparelException.class);
         uniqueApparelList.setApparels(listWithDuplicateApparels);
     }
 

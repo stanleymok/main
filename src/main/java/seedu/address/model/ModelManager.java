@@ -16,7 +16,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.model.apparel.exceptions.PersonNotFoundException;
+import seedu.address.model.apparel.exceptions.ApparelNotFoundException;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -178,7 +178,7 @@ public class ModelManager implements Model {
     @Override
     public void setSelectedPerson(Apparel apparel) {
         if (apparel != null && !filteredApparels.contains(apparel)) {
-            throw new PersonNotFoundException();
+            throw new ApparelNotFoundException();
         }
         selectedPerson.setValue(apparel);
     }

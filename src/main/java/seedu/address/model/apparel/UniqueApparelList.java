@@ -8,8 +8,8 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.apparel.exceptions.DuplicatePersonException;
-import seedu.address.model.apparel.exceptions.PersonNotFoundException;
+import seedu.address.model.apparel.exceptions.DuplicateApparelException;
+import seedu.address.model.apparel.exceptions.ApparelNotFoundException;
 
 /**
  * A list of apparels that enforces uniqueness between its elements and does not allow nulls.
@@ -43,7 +43,7 @@ public class UniqueApparelList implements Iterable<Apparel> {
     public void add(Apparel toAdd) {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
-            throw new DuplicatePersonException();
+            throw new DuplicateApparelException();
         }
         internalList.add(toAdd);
     }
@@ -58,11 +58,11 @@ public class UniqueApparelList implements Iterable<Apparel> {
 
         int index = internalList.indexOf(target);
         if (index == -1) {
-            throw new PersonNotFoundException();
+            throw new ApparelNotFoundException();
         }
 
         if (!target.isSameApparel(editedApparel) && contains(editedApparel)) {
-            throw new DuplicatePersonException();
+            throw new DuplicateApparelException();
         }
 
         internalList.set(index, editedApparel);
@@ -75,7 +75,7 @@ public class UniqueApparelList implements Iterable<Apparel> {
     public void remove(Apparel toRemove) {
         requireNonNull(toRemove);
         if (!internalList.remove(toRemove)) {
-            throw new PersonNotFoundException();
+            throw new ApparelNotFoundException();
         }
     }
 
@@ -91,7 +91,7 @@ public class UniqueApparelList implements Iterable<Apparel> {
     public void setApparels(List<Apparel> apparels) {
         requireAllNonNull(apparels);
         if (!apparelsAreUnique(apparels)) {
-            throw new DuplicatePersonException();
+            throw new DuplicateApparelException();
         }
 
         internalList.setAll(apparels);
