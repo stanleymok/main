@@ -22,9 +22,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Apparel;
+import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.apparel.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -96,12 +96,12 @@ public class EditCommand extends Command {
         assert apparelToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(apparelToEdit.getName());
-        Phone updatedPhone = editPersonDescriptor.getPhone().orElse(apparelToEdit.getPhone());
+        Color updatedColor = editPersonDescriptor.getColor().orElse(apparelToEdit.getColor());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(apparelToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(apparelToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(apparelToEdit.getTags());
 
-        return new Apparel(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Apparel(updatedName, updatedColor, updatedEmail, updatedAddress, updatedTags);
     }
 
     @Override
@@ -128,7 +128,7 @@ public class EditCommand extends Command {
      */
     public static class EditPersonDescriptor {
         private Name name;
-        private Phone phone;
+        private Color color;
         private Email email;
         private Address address;
         private Set<Tag> tags;
@@ -141,7 +141,7 @@ public class EditCommand extends Command {
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
-            setPhone(toCopy.phone);
+            setColor(toCopy.color);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
@@ -151,7 +151,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, color, email, address, tags);
         }
 
         public void setName(Name name) {
@@ -162,12 +162,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(name);
         }
 
-        public void setPhone(Phone phone) {
-            this.phone = phone;
+        public void setColor(Color color) {
+            this.color = color;
         }
 
-        public Optional<Phone> getPhone() {
-            return Optional.ofNullable(phone);
+        public Optional<Color> getColor() {
+            return Optional.ofNullable(color);
         }
 
         public void setEmail(Email email) {
@@ -219,7 +219,7 @@ public class EditCommand extends Command {
             EditPersonDescriptor e = (EditPersonDescriptor) other;
 
             return getName().equals(e.getName())
-                    && getPhone().equals(e.getPhone())
+                    && getColor().equals(e.getColor())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags());

@@ -19,9 +19,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Apparel;
+import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.apparel.Phone;
 
 public class ApparelListPanelTest extends GuiUnitTest {
     private static final ObservableList<Apparel> TYPICAL_APPARELS =
@@ -80,10 +80,10 @@ public class ApparelListPanelTest extends GuiUnitTest {
         ObservableList<Apparel> backingList = FXCollections.observableArrayList();
         for (int i = 0; i < personCount; i++) {
             Name name = new Name(i + "a");
-            Phone phone = new Phone("000");
+            Color color = new Color("000");
             Email email = new Email("a@aa");
             Address address = new Address("a");
-            Apparel apparel = new Apparel(name, phone, email, address, Collections.emptySet());
+            Apparel apparel = new Apparel(name, color, email, address, Collections.emptySet());
             backingList.add(apparel);
         }
         return backingList;

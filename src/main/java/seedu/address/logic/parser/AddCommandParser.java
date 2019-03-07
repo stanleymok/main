@@ -13,10 +13,10 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.Address;
+import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.model.apparel.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -39,12 +39,12 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
-        Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
+        Color color = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Apparel apparel = new Apparel(name, phone, email, address, tagList);
+        Apparel apparel = new Apparel(name, color, email, address, tagList);
 
         return new AddCommand(apparel);
     }

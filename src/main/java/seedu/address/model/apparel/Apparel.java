@@ -17,7 +17,7 @@ public class Apparel {
 
     // Identity fields
     private final Name name;
-    private final Phone phone;
+    private final Color color;
     private final Email email;
 
     // Data fields
@@ -27,10 +27,10 @@ public class Apparel {
     /**
      * Every field must be present and not null.
      */
-    public Apparel(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Apparel(Name name, Color color, Email email, Address address, Set<Tag> tags) {
+        requireAllNonNull(name, color, email, address, tags);
         this.name = name;
-        this.phone = phone;
+        this.color = color;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
@@ -40,8 +40,8 @@ public class Apparel {
         return name;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public Color getColor() {
+        return color;
     }
 
     public Email getEmail() {
@@ -71,7 +71,7 @@ public class Apparel {
 
         return otherApparel != null
                 && otherApparel.getName().equals(getName())
-                && (otherApparel.getPhone().equals(getPhone()) || otherApparel.getEmail().equals(getEmail()));
+                && (otherApparel.getColor().equals(getColor()) || otherApparel.getEmail().equals(getEmail()));
     }
 
     /**
@@ -90,7 +90,7 @@ public class Apparel {
 
         Apparel otherApparel = (Apparel) other;
         return otherApparel.getName().equals(getName())
-                && otherApparel.getPhone().equals(getPhone())
+                && otherApparel.getColor().equals(getColor())
                 && otherApparel.getEmail().equals(getEmail())
                 && otherApparel.getAddress().equals(getAddress())
                 && otherApparel.getTags().equals(getTags());
@@ -99,15 +99,15 @@ public class Apparel {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, color, email, address, tags);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append(" Phone: ")
-                .append(getPhone())
+                .append(" Color: ")
+                .append(getColor())
                 .append(" Email: ")
                 .append(getEmail())
                 .append(" Address: ")

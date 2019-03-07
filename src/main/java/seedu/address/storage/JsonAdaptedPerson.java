@@ -11,10 +11,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.apparel.Address;
+import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.model.apparel.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -51,7 +51,7 @@ class JsonAdaptedPerson {
      */
     public JsonAdaptedPerson(Apparel source) {
         name = source.getName().fullName;
-        phone = source.getPhone().value;
+        phone = source.getColor().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
@@ -79,12 +79,12 @@ class JsonAdaptedPerson {
         final Name modelName = new Name(name);
 
         if (phone == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Color.class.getSimpleName()));
         }
-        if (!Phone.isValidPhone(phone)) {
-            throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
+        if (!Color.isValidColor(phone)) {
+            throw new IllegalValueException(Color.MESSAGE_CONSTRAINTS);
         }
-        final Phone modelPhone = new Phone(phone);
+        final Color modelColor = new Color(phone);
 
         if (email == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
@@ -103,7 +103,7 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Apparel(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        return new Apparel(modelName, modelColor, modelEmail, modelAddress, modelTags);
     }
 
 }

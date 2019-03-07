@@ -9,7 +9,7 @@ import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.apparel.Phone;
+import seedu.address.model.apparel.Color;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -33,7 +33,7 @@ public class EditPersonDescriptorBuilder {
     public EditPersonDescriptorBuilder(Apparel apparel) {
         descriptor = new EditPersonDescriptor();
         descriptor.setName(apparel.getName());
-        descriptor.setPhone(apparel.getPhone());
+        descriptor.setColor(apparel.getColor());
         descriptor.setEmail(apparel.getEmail());
         descriptor.setAddress(apparel.getAddress());
         descriptor.setTags(apparel.getTags());
@@ -48,10 +48,10 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Phone} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Color} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withPhone(String phone) {
-        descriptor.setPhone(new Phone(phone));
+        descriptor.setColor(new Color(phone));
         return this;
     }
 

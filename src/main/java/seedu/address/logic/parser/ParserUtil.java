@@ -10,7 +10,6 @@ import seedu.address.model.apparel.ColorValue;
 import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Email;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.apparel.Phone;
 import seedu.address.model.tag.Tag;
 
 import java.util.Collection;
@@ -55,18 +54,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String phone} into a {@code Phone}.
+     * Parses a {@code String phone} into a {@code Color}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code phone} is invalid.
      */
-    public static Phone parsePhone(String phone) throws ParseException {
+    public static Color parsePhone(String phone) throws ParseException {
         requireNonNull(phone);
         String trimmedPhone = phone.trim();
-        if (!Phone.isValidPhone(trimmedPhone)) {
-            throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
+        if (!Color.isValidColor(trimmedPhone)) {
+            throw new ParseException(Color.MESSAGE_CONSTRAINTS);
         }
-        return new Phone(trimmedPhone);
+        return new Color(trimmedPhone);
     }
 
     /**
