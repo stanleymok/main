@@ -13,7 +13,7 @@ public class Apparel {
     // Identity fields
     private final Name name;
     private final Color color;
-    private final Type type;
+    private final ClothingType clothingType;
 
     // Status fields
     private boolean available;
@@ -22,11 +22,11 @@ public class Apparel {
     /**
      * Every field must be present and not null.
      */
-    public Apparel(Name name, Color color, Type type) {
-        requireAllNonNull(name, color, type);
+    public Apparel(Name name, Color color, ClothingType clothingType) {
+        requireAllNonNull(name, color, clothingType);
         this.name = name;
         this.color = color;
-        this.type = type;
+        this.clothingType = clothingType;
         this.available = true;
         this.usageCount = 0;
     }
@@ -39,8 +39,8 @@ public class Apparel {
         return color;
     }
 
-    public Type getType() {
-        return type;
+    public ClothingType getClothingType() {
+        return clothingType;
     }
 
     public boolean isAvailable() {
@@ -49,6 +49,18 @@ public class Apparel {
 
     public int getUsageCount() {
         return usageCount;
+    }
+
+    public void use() {
+        usageCount++;
+    }
+
+    public void dirty() {
+        available = false;
+    }
+
+    public void wash() {
+        available = true;
     }
 
     /**
@@ -62,7 +74,8 @@ public class Apparel {
 
         return otherApparel != null
                 && otherApparel.getName().equals(getName())
-                && (otherApparel.getColor().equals(getColor()) || otherApparel.getType().equals(getType()));
+                && (otherApparel.getColor().equals(getColor())
+                || otherApparel.getClothingType().equals(getClothingType()));
     }
 
     /**
@@ -82,13 +95,13 @@ public class Apparel {
         Apparel otherApparel = (Apparel) other;
         return otherApparel.getName().equals(getName())
                 && otherApparel.getColor().equals(getColor())
-                && otherApparel.getType().equals(getType());
+                && otherApparel.getClothingType().equals(getClothingType());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, color, type);
+        return Objects.hash(name, color, clothingType);
     }
 
     @Override
@@ -98,7 +111,7 @@ public class Apparel {
                 .append(" Color: ")
                 .append(getColor())
                 .append(" Type: ")
-                .append(getType())
+                .append(getClothingType())
                 .append(" Available: ")
                 .append(isAvailable())
                 .append(" Usage-count: ")
