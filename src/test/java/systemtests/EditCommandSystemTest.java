@@ -72,7 +72,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         /* Case: redo editing the last apparel in the list -> last apparel edited again */
         command = RedoCommand.COMMAND_WORD;
         expectedResultMessage = RedoCommand.MESSAGE_SUCCESS;
-        model.setPerson(getModel().getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()), editedApparel);
+        model.setPerson(getModel().getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased()), editedApparel);
         assertCommandSuccess(command, model, expectedResultMessage);
 
         /* Case: edit a apparel with new values same as existing values -> edited */
@@ -83,7 +83,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         /* Case: edit a apparel with new values same as another apparel's values but with different name -> edited */
         assertTrue(getModel().getAddressBook().getApparelList().contains(BOB));
         index = INDEX_SECOND_PERSON;
-        assertNotEquals(getModel().getFilteredPersonList().get(index.getZeroBased()), BOB);
+        assertNotEquals(getModel().getFilteredApparelList().get(index.getZeroBased()), BOB);
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         editedApparel = new ApparelBuilder(BOB).withName(VALID_NAME_AMY).build();
@@ -101,7 +101,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         /* Case: clear tags -> cleared */
         index = INDEX_FIRST_PERSON;
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + PREFIX_TAG.getPrefix();
-        Apparel apparelToEdit = getModel().getFilteredPersonList().get(index.getZeroBased());
+        Apparel apparelToEdit = getModel().getFilteredApparelList().get(index.getZeroBased());
         editedApparel = new ApparelBuilder(apparelToEdit).build();
         assertCommandSuccess(command, index, editedApparel);
 
@@ -110,9 +110,9 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         /* Case: filtered apparel list, edit index within bounds of address book and apparel list -> edited */
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
         index = INDEX_FIRST_PERSON;
-        assertTrue(index.getZeroBased() < getModel().getFilteredPersonList().size());
+        assertTrue(index.getZeroBased() < getModel().getFilteredApparelList().size());
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + NAME_DESC_BOB;
-        apparelToEdit = getModel().getFilteredPersonList().get(index.getZeroBased());
+        apparelToEdit = getModel().getFilteredApparelList().get(index.getZeroBased());
         editedApparel = new ApparelBuilder(apparelToEdit).withName(VALID_NAME_BOB).build();
         assertCommandSuccess(command, index, editedApparel);
 
@@ -122,7 +122,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
         int invalidIndex = getModel().getAddressBook().getApparelList().size();
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + NAME_DESC_BOB,
-                Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+                Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
 
         /* --------------------- Performing edit operation while a apparel card is selected ------------------------- */
 
@@ -149,9 +149,9 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
                 String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
 
         /* Case: invalid index (size + 1) -> rejected */
-        invalidIndex = getModel().getFilteredPersonList().size() + 1;
+        invalidIndex = getModel().getFilteredApparelList().size() + 1;
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + NAME_DESC_BOB,
-                Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+                Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
 
         /* Case: missing index -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + NAME_DESC_BOB,
@@ -185,7 +185,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         executeCommand(ApparelUtil.getAddCommand(BOB));
         assertTrue(getModel().getAddressBook().getApparelList().contains(BOB));
         index = INDEX_FIRST_PERSON;
-        assertFalse(getModel().getFilteredPersonList().get(index.getZeroBased()).equals(BOB));
+        assertFalse(getModel().getFilteredApparelList().get(index.getZeroBased()).equals(BOB));
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
@@ -233,7 +233,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
     private void assertCommandSuccess(String command, Index toEdit, Apparel editedApparel,
             Index expectedSelectedCardIndex) {
         Model expectedModel = getModel();
-        expectedModel.setPerson(expectedModel.getFilteredPersonList().get(toEdit.getZeroBased()), editedApparel);
+        expectedModel.setPerson(expectedModel.getFilteredApparelList().get(toEdit.getZeroBased()), editedApparel);
         expectedModel.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
 
         assertCommandSuccess(command, expectedModel,

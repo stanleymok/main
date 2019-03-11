@@ -65,10 +65,10 @@ public class EditCommand extends Command {
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
-        List<Apparel> lastShownList = model.getFilteredPersonList();
+        List<Apparel> lastShownList = model.getFilteredApparelList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
         }
 
         Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
