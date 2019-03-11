@@ -60,7 +60,7 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithPerson(validApparel);
 
         thrown.expect(CommandException.class);
-        thrown.expectMessage(AddCommand.MESSAGE_DUPLICATE_PERSON);
+        thrown.expectMessage(AddCommand.MESSAGE_DUPLICATE_APPAREL);
         addCommand.execute(modelStub, commandHistory);
     }
 
@@ -123,7 +123,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void addPerson(Apparel apparel) {
+        public void addApparel(Apparel apparel) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -138,7 +138,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPerson(Apparel apparel) {
+        public boolean hasApparel(Apparel apparel) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -158,7 +158,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void updateFilteredPersonList(Predicate<Apparel> predicate) {
+        public void updateFilteredApparelList(Predicate<Apparel> predicate) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -215,7 +215,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPerson(Apparel apparel) {
+        public boolean hasApparel(Apparel apparel) {
             requireNonNull(apparel);
             return this.apparel.isSameApparel(apparel);
         }
@@ -228,13 +228,13 @@ public class AddCommandTest {
         final ArrayList<Apparel> personsAdded = new ArrayList<>();
 
         @Override
-        public boolean hasPerson(Apparel apparel) {
+        public boolean hasApparel(Apparel apparel) {
             requireNonNull(apparel);
             return personsAdded.stream().anyMatch(apparel::isSameApparel);
         }
 
         @Override
-        public void addPerson(Apparel apparel) {
+        public void addApparel(Apparel apparel) {
             requireNonNull(apparel);
             personsAdded.add(apparel);
         }

@@ -42,7 +42,7 @@ public class EditCommandTest {
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder(editedApparel).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedApparel);
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredPersonList().get(0), editedApparel);
@@ -64,7 +64,7 @@ public class EditCommandTest {
                 .withColor(VALID_PHONE_BOB).build();
         EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedApparel);
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(lastApparel, editedApparel);
@@ -78,7 +78,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, new EditPersonDescriptor());
         Apparel editedApparel = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedApparel);
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.commitAddressBook();
@@ -95,7 +95,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
                 new EditApparelDescriptorBuilder().withName(VALID_NAME_BOB).build());
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedApparel);
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredPersonList().get(0), editedApparel);
@@ -110,7 +110,7 @@ public class EditCommandTest {
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder(firstApparel).build();
         EditCommand editCommand = new EditCommand(INDEX_SECOND_PERSON, descriptor);
 
-        assertCommandFailure(editCommand, model, commandHistory, EditCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(editCommand, model, commandHistory, EditCommand.MESSAGE_DUPLICATE_APPAREL);
     }
 
     @Test
@@ -122,7 +122,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
                 new EditApparelDescriptorBuilder(apparelInList).build());
 
-        assertCommandFailure(editCommand, model, commandHistory, EditCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(editCommand, model, commandHistory, EditCommand.MESSAGE_DUPLICATE_APPAREL);
     }
 
     @Test

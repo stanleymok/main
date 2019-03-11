@@ -55,9 +55,9 @@ class JsonAdaptedApparel {
      * @throws IllegalValueException if there were any data constraints violated in the adapted apparel.
      */
     public Apparel toModelType() throws IllegalValueException {
-        final List<Tag> personTags = new ArrayList<>();
+        final List<Tag> apparelTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tagged) {
-            personTags.add(tag.toModelType());
+            apparelTags.add(tag.toModelType());
         }
 
         if (name == null) {
@@ -86,7 +86,7 @@ class JsonAdaptedApparel {
         final ClothingType modelClothingType = new ClothingType(clothingType.toString());
 
 
-        final Set<Tag> modelTags = new HashSet<>(personTags);
+        final Set<Tag> modelTags = new HashSet<>(apparelTags);
         return new Apparel(modelName, modelColor, modelClothingType);
     }
 

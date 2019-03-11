@@ -19,16 +19,16 @@ import seedu.address.model.apparel.Apparel;
 @JsonRootName(value = "addressbook")
 class JsonSerializableAddressBook {
 
-    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate apparel(s).";
+    public static final String MESSAGE_DUPLICATE_APPAREL = "Apparels list contains duplicate apparel(s).";
 
-    private final List<JsonAdaptedApparel> persons = new ArrayList<>();
+    private final List<JsonAdaptedApparel> apparels = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given persons.
+     * Constructs a {@code JsonSerializableAddressBook} with the given apparels.
      */
     @JsonCreator
-    public JsonSerializableAddressBook(@JsonProperty("persons") List<JsonAdaptedApparel> persons) {
-        this.persons.addAll(persons);
+    public JsonSerializableAddressBook(@JsonProperty("apparels") List<JsonAdaptedApparel> apparels) {
+        this.apparels.addAll(apparels);
     }
 
     /**
@@ -37,7 +37,7 @@ class JsonSerializableAddressBook {
      * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
      */
     public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
-        persons.addAll(source.getApparelList().stream().map(JsonAdaptedApparel::new).collect(Collectors.toList()));
+        apparels.addAll(source.getApparelList().stream().map(JsonAdaptedApparel::new).collect(Collectors.toList()));
     }
 
     /**
@@ -47,10 +47,10 @@ class JsonSerializableAddressBook {
      */
     public AddressBook toModelType() throws IllegalValueException {
         AddressBook addressBook = new AddressBook();
-        for (JsonAdaptedApparel jsonAdaptedApparel : persons) {
+        for (JsonAdaptedApparel jsonAdaptedApparel : apparels) {
             Apparel apparel = jsonAdaptedApparel.toModelType();
             if (addressBook.hasApparel(apparel)) {
-                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+                throw new IllegalValueException(MESSAGE_DUPLICATE_APPAREL);
             }
             addressBook.addApparel(apparel);
         }
