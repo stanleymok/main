@@ -126,7 +126,7 @@ public class ModelManager implements Model {
      * {@code versionedAddressBook}
      */
     @Override
-    public ObservableList<Apparel> getFilteredPersonList() {
+    public ObservableList<Apparel> getFilteredApparelList() {
         return filteredApparels;
     }
 
