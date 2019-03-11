@@ -13,7 +13,7 @@ import seedu.address.model.apparel.Apparel;
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Apparel> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Apparel> PREDICATE_SHOW_ALL_APPARELS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -56,7 +56,7 @@ public interface Model {
     /**
      * Returns true if a apparel with the same identity as {@code apparel} exists in the address book.
      */
-    boolean hasPerson(Apparel apparel);
+    boolean hasApparel(Apparel apparel);
 
     /**
      * Deletes the given apparel.
@@ -68,7 +68,7 @@ public interface Model {
      * Adds the given apparel.
      * {@code apparel} must not already exist in the address book.
      */
-    void addPerson(Apparel apparel);
+    void addApparel(Apparel apparel);
 
     /**
      * Replaces the given apparel {@code target} with {@code editedApparel}.
@@ -85,7 +85,7 @@ public interface Model {
      * Updates the filter of the filtered apparel list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredPersonList(Predicate<Apparel> predicate);
+    void updateFilteredApparelList(Predicate<Apparel> predicate);
 
     /**
      * Returns true if the model has previous address book states to restore.

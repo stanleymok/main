@@ -96,7 +96,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public boolean hasPerson(Apparel apparel) {
+    public boolean hasApparel(Apparel apparel) {
         requireNonNull(apparel);
         return versionedAddressBook.hasApparel(apparel);
     }
@@ -107,9 +107,9 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void addPerson(Apparel apparel) {
+    public void addApparel(Apparel apparel) {
         versionedAddressBook.addApparel(apparel);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
     }
 
     @Override
@@ -131,7 +131,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void updateFilteredPersonList(Predicate<Apparel> predicate) {
+    public void updateFilteredApparelList(Predicate<Apparel> predicate) {
         requireNonNull(predicate);
         filteredApparels.setPredicate(predicate);
     }

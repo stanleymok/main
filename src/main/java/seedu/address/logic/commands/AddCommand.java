@@ -30,7 +30,7 @@ public class AddCommand extends Command {
             + PREFIX_CLOTHING_TYPE + "TOP";
 
     public static final String MESSAGE_SUCCESS = "New apparel added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This apparel already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book";
 
     private final Apparel toAdd;
 
@@ -46,11 +46,11 @@ public class AddCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        if (model.hasApparel(toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
         }
 
-        model.addPerson(toAdd);
+        model.addApparel(toAdd);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }

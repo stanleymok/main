@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CLOTHING_TYPE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COLOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPARELS;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -74,12 +74,12 @@ public class EditCommand extends Command {
         Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
         Apparel editedApparel = createEditedPerson(apparelToEdit, editPersonDescriptor);
 
-        if (!apparelToEdit.isSameApparel(editedApparel) && model.hasPerson(editedApparel)) {
+        if (!apparelToEdit.isSameApparel(editedApparel) && model.hasApparel(editedApparel)) {
             throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
         }
 
         model.setPerson(apparelToEdit, editedApparel);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel));
     }

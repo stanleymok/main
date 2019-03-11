@@ -32,7 +32,7 @@ public class AddCommandIntegrationTest {
         Apparel validApparel = new ApparelBuilder().build();
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.addPerson(validApparel);
+        expectedModel.addApparel(validApparel);
         expectedModel.commitAddressBook();
 
         assertCommandSuccess(new AddCommand(validApparel), model, commandHistory,
@@ -43,7 +43,7 @@ public class AddCommandIntegrationTest {
     public void execute_duplicatePerson_throwsCommandException() {
         Apparel apparelInList = model.getAddressBook().getApparelList().get(0);
         assertCommandFailure(new AddCommand(apparelInList), model, commandHistory,
-                AddCommand.MESSAGE_DUPLICATE_PERSON);
+                AddCommand.MESSAGE_DUPLICATE_APPAREL);
     }
 
 }
