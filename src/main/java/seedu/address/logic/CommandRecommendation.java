@@ -6,7 +6,10 @@ import seedu.address.model.apparel.Apparel;
  * Stores the recommendated outfit of CommandRecommendation.
  */
 public class CommandRecommendation {
-    Apparel TOP, BOTTOM, BELT, SHOES;
+    Apparel TOP;
+    Apparel BOTTOM;
+    Apparel BELT;
+    Apparel SHOES;
 
     public CommandRecommendation() {};
 
