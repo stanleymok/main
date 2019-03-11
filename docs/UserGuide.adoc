@@ -69,9 +69,9 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 
-=== Listing all persons : `list`
+=== Listing all apparels : `list`
 
-Shows a list of all persons in the address book. +
+Shows a list of all apparels in the address book. +
 Format: `list`
 
 === Editing a person : `edit`
@@ -94,9 +94,9 @@ Edits the phone number and email address of the 1st person to be `91234567` and 
 * `edit 2 n/Betsy Crower t/` +
 Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
-=== Locating persons by name: `find`
+=== Locating apparels by name: `find`
 
-Finds persons whose names contain any of the given keywords. +
+Finds apparels whose names contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 ****

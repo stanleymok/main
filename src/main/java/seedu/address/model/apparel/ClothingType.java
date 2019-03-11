@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents an apparel's type in the apparel bank.
+ * Represents am Apparel's ClothingType in the apparel bank.
  */
 public class ClothingType {
 
@@ -13,16 +13,14 @@ public class ClothingType {
 
     private final ClothingTypeValue primary;
 
-    // private final ClothingTypeValue secondary;
-
     /**
-     * Constructs a {@code Type}.
+     * Constructs a {@code ClothingType}.
      *
      * @param primary A valid primary type.
      */
     public ClothingType(ClothingTypeValue primary) {
         requireNonNull(primary);
-        checkArgument(ClothingTypeValue.isValidType(primary), MESSAGE_CONSTRAINTS);
+        checkArgument(ClothingTypeValue.isValidClothingType(primary), MESSAGE_CONSTRAINTS);
 
         this.primary = primary;
     }
@@ -34,7 +32,7 @@ public class ClothingType {
      */
     public ClothingType(String primary) {
         requireNonNull(primary);
-        checkArgument(ClothingTypeValue.isValidType(primary), MESSAGE_CONSTRAINTS);
+        checkArgument(ClothingTypeValue.isValidClothingType(primary), MESSAGE_CONSTRAINTS);
 
         this.primary = ClothingTypeValue.valueOf(primary.toUpperCase());
     }
