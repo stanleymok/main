@@ -1,5 +1,11 @@
 package seedu.address.logic.parser;
 
+import static java.util.Objects.requireNonNull;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -7,17 +13,8 @@ import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.ClothingTypeValue;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ColorValue;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
+import seedu.address.model.apparel.Name;
 import seedu.address.model.tag.Tag;
-
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -55,48 +52,34 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String phone} into a {@code Phone}.
+     * Parses a {@code String color} into a {@code Color}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code phone} is invalid.
+     * @throws ParseException if the given {@code color} is invalid.
      */
-    public static Phone parsePhone(String phone) throws ParseException {
-        requireNonNull(phone);
-        String trimmedPhone = phone.trim();
-        if (!Phone.isValidPhone(trimmedPhone)) {
-            throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
+    public static Color parseColor(String color) throws ParseException {
+        requireNonNull(color);
+        String trimmedColor = color.trim();
+        if (!ColorValue.isValidColor(trimmedColor)) {
+            throw new ParseException(Color.MESSAGE_CONSTRAINTS);
         }
-        return new Phone(trimmedPhone);
+        return new Color(trimmedColor);
     }
 
-    /**
-     * Parses a {@code String address} into an {@code Address}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code address} is invalid.
-     */
-    public static Address parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Address.isValidAddress(trimmedAddress)) {
-            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
-        }
-        return new Address(trimmedAddress);
-    }
 
     /**
-     * Parses a {@code String email} into an {@code Email}.
+     * Parses a {@code String clothingType} into an {@code ClothingType}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code email} is invalid.
+     * @throws ParseException if the given {@code clothingType} is invalid.
      */
-    public static Email parseEmail(String email) throws ParseException {
-        requireNonNull(email);
-        String trimmedEmail = email.trim();
-        if (!Email.isValidEmail(trimmedEmail)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+    public static ClothingType parseClothingType(String clothingType) throws ParseException {
+        requireNonNull(clothingType);
+        String trimmedEmail = clothingType.trim();
+        if (!ClothingTypeValue.isValidClothingType(trimmedEmail)) {
+            throw new ParseException(ClothingType.MESSAGE_CONSTRAINTS);
         }
-        return new Email(trimmedEmail);
+        return new ClothingType(trimmedEmail);
     }
 
     /**
@@ -126,34 +109,5 @@ public class ParserUtil {
         return tagSet;
     }
 
-    /**
-     * Parses a {@code String Color} into a {@code Color}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code Color} is invalid.
-     */
-    public static Color parseColor(String color) throws ParseException {
-        requireNonNull(color);
-        String trimmedColor = color.trim();
-        if (!ColorValue.isValidColor(trimmedColor)) {
-            throw new ParseException(Color.MESSAGE_CONSTRAINTS);
-        }
-        return new Color(trimmedColor);
-    }
-
-    /**
-     * Parses a {@code String ClothingType} into a {@code ClothingType}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code ClothingType} is invalid.
-     */
-    public static ClothingType parseClothingType(String clothingType) throws ParseException {
-        requireNonNull(clothingType);
-        String trimmedClothingType = clothingType.trim();
-        if (!ClothingTypeValue.isValidType(trimmedClothingType)) {
-            throw new ParseException(ClothingType.MESSAGE_CONSTRAINTS);
-        }
-        return new ClothingType(clothingType);
-    }
 
 }

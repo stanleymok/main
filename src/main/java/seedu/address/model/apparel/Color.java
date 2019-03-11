@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents an Apparel's color in the apparel bank.
+ * Represents an Apparel's color in the address book.
  */
 public class Color {
 
@@ -49,4 +49,5 @@ public class Color {
     public String toString() {
         return primary.name();
     }
+
 }

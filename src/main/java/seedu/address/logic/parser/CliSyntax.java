@@ -7,8 +7,7 @@ public class CliSyntax {
 
     /* Prefix definitions */
     public static final Prefix PREFIX_NAME = new Prefix("n/");
-    public static final Prefix PREFIX_PHONE = new Prefix("p/"); // TODO: remove
-    public static final Prefix PREFIX_EMAIL = new Prefix("e/"); // TODO: remove
+    public static final Prefix PREFIX_CLOTHING_TYPE = new Prefix("e/"); // TODO: remove
     public static final Prefix PREFIX_ADDRESS = new Prefix("a/"); // TODO: remove
     public static final Prefix PREFIX_TAG = new Prefix("t/"); // TODO: remove
 
