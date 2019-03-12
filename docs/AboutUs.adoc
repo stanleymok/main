@@ -4,7 +4,7 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-AddressBook - Level 4 was developed by the https://se-edu.github.io/docs/Team.html[se-edu] team.
+Fashion Match was developed by W15-1.
 
 == Project Team
 
@@ -12,7 +12,11 @@ AddressBook - Level 4 was developed by the https://se-edu.github.io/docs/Team.ht
 image::philipphil.png[width="150", align="left"]
 {empty}[https://github.com/PhilipPhil[github]]
 
-Role: Recommendation Algorithms Methods
+Role: Developer
+
+Responsibilities:
+
+* Working on **Recommendation Algorithms Methods**
 
 '''
 
@@ -20,7 +24,14 @@ Role: Recommendation Algorithms Methods
 image::rafflesandrison.png[width="150", align="left"]
 {empty}[http://github.com/rafflesandrison[github]]
 
-Role: Organisation Methods
+Role: Code Reviewer & Developer
+
+Responsibilities:
+
+* Setting up of team environment
+* Quality check on all pull request submitted.
+* Working on **Data Organisation Methods** which makes the `list` feature
+more robust by allowing it to process multiple options.
 
 '''
 
@@ -28,7 +39,11 @@ Role: Organisation Methods
 image::stanleymok.png[width="150", align="left"]
 {empty}[http://github.com/stanleymok[github]]
 
-Role: Infrastructure Management Methods
+Role: Developer
+
+Responsibilities:
+
+* Working on **Infrastructure Management Methods**
 
 '''
 
@@ -36,6 +51,10 @@ Role: Infrastructure Management Methods
 image::reinsheer.png[width="150", align="left"]
 {empty}[http://github.com/ReinSheer[github]]
 
-Role: Statistical Methods
+Role: Developer
+
+Responsibilities:
+
+* Working on **Profiling Statistical Methods**
 
 '''
