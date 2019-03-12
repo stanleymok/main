@@ -8,6 +8,22 @@ Fashion Match was developed by W15-1.
 
 == Project Team
 
+=== Raffles Andrison
+image::rafflesandrison.png[width="150", align="left"]
+{empty}[http://github.com/rafflesandrison[github]]
+
+Role: Tech Lead & Developer
+
+Responsibilities:
+
+* Setting up of team environment
+* Quality check on all pull request submitted.
+* Fous on Storage Component
+* Working on **Data Organisation Methods** which makes the `list` feature
+more robust by allowing it to process multiple options.
+
+'''
+
 === Philip Garabandic
 image::philipphil.png[width="150", align="left"]
 {empty}[https://github.com/PhilipPhil[github]]
@@ -16,22 +32,8 @@ Role: Developer
 
 Responsibilities:
 
+* Focus on Logic Component
 * Working on **Recommendation Algorithms Methods**
-
-'''
-
-=== Raffles Andrison
-image::rafflesandrison.png[width="150", align="left"]
-{empty}[http://github.com/rafflesandrison[github]]
-
-Role: Code Reviewer & Developer
-
-Responsibilities:
-
-* Setting up of team environment
-* Quality check on all pull request submitted.
-* Working on **Data Organisation Methods** which makes the `list` feature
-more robust by allowing it to process multiple options.
 
 '''
 
@@ -43,6 +45,7 @@ Role: Developer
 
 Responsibilities:
 
+* Focus on UI Component
 * Working on **Infrastructure Management Methods**
 
 '''
@@ -55,6 +58,7 @@ Role: Developer
 
 Responsibilities:
 
+* Focus on Model Component
 * Working on **Profiling Statistical Methods**
 
 '''
