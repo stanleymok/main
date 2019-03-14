@@ -7,6 +7,5 @@ package seedu.address.model.apparel.exceptions;
 public class DuplicateApparelException extends RuntimeException {
     public DuplicateApparelException() {
         super("Operation would result in duplicate persons");
-
     }
 }
