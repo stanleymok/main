@@ -79,7 +79,7 @@ public interface Model {
     void setPerson(Apparel target, Apparel editedApparel);
 
     /** Returns an unmodifiable view of the filtered apparel list */
-    ObservableList<Apparel> getFilteredPersonList();
+    ObservableList<Apparel> getFilteredApparelList();
 
     /**
      * Updates the filter of the filtered apparel list to filter by the given {@code predicate}.

@@ -21,7 +21,7 @@ import seedu.address.storage.Storage;
 /**
  * The main LogicManager of the app.
  */
-public class LogicManager implements Logic {
+public class ApparelManager implements Logic {
     public static final String FILE_OPS_ERROR_MESSAGE = "Could not save data to file: ";
     private final Logger logger = LogsCenter.getLogger(LogicManager.class);
 
@@ -31,7 +31,7 @@ public class LogicManager implements Logic {
     private final AddressBookParser addressBookParser;
     private boolean addressBookModified;
 
-    public LogicManager(Model model, Storage storage) {
+    public ApparelManager(Model model, Storage storage) {
         this.model = model;
         this.storage = storage;
         history = new CommandHistory();
@@ -106,3 +106,4 @@ public class LogicManager implements Logic {
         model.setSelectedPerson(apparel);
     }
 }
+
