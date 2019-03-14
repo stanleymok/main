@@ -114,7 +114,7 @@ public class ModelManagerTest {
     public void deletePerson_personIsSelectedAndSecondPersonInFilteredPersonList_firstPersonSelected() {
         modelManager.addApparel(SHIRT1);
         modelManager.addApparel(BOB);
-        assertEquals(Arrays.asList(SHIRT1, BOB), modelManager.getFilteredPersonList());
+        assertEquals(Arrays.asList(SHIRT1, BOB), modelManager.getFilteredApparelList());
         modelManager.setSelectedPerson(BOB);
         modelManager.deletePerson(BOB);
         assertEquals(SHIRT1, modelManager.getSelectedPerson());
@@ -132,7 +132,7 @@ public class ModelManagerTest {
     @Test
     public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
-        modelManager.getFilteredPersonList().remove(0);
+        modelManager.getFilteredApparelList().remove(0);
     }
 
     @Test
@@ -144,7 +144,7 @@ public class ModelManagerTest {
     @Test
     public void setSelectedPerson_personInFilteredPersonList_setsSelectedPerson() {
         modelManager.addApparel(SHIRT1);
-        assertEquals(Collections.singletonList(SHIRT1), modelManager.getFilteredPersonList());
+        assertEquals(Collections.singletonList(SHIRT1), modelManager.getFilteredApparelList());
         modelManager.setSelectedPerson(SHIRT1);
         assertEquals(SHIRT1, modelManager.getSelectedPerson());
     }

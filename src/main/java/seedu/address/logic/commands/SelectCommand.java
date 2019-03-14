@@ -35,10 +35,10 @@ public class SelectCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
 
-        List<Apparel> filteredApparelList = model.getFilteredPersonList();
+        List<Apparel> filteredApparelList = model.getFilteredApparelList();
 
         if (targetIndex.getZeroBased() >= filteredApparelList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
         }
 
         model.setSelectedPerson(filteredApparelList.get(targetIndex.getZeroBased()));
