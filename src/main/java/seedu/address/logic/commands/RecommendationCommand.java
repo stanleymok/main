@@ -23,7 +23,7 @@ public class RecommendationCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
         CommandRecommendation rec = new CommandRecommendation(model);
-
-        return new CommandResult(MESSAGE_SUCCESS);
+        String outfit = rec.returnRecommendationString();
+        return new CommandResult(outfit + "\n" + MESSAGE_SUCCESS);
     }
 }

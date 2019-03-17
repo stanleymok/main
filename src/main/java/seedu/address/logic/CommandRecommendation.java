@@ -6,7 +6,6 @@ import javafx.collections.ObservableList;
 import seedu.address.model.Model;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.ClothingType;
-import seedu.address.model.apparel.Color;
 
 /**
  * Stores the recommendated outfit of CommandRecommendation.
@@ -16,10 +15,10 @@ public class CommandRecommendation {
     private ArrayList<Apparel> belts = new ArrayList<>();
     private ArrayList<Apparel> shoes = new ArrayList<>();
     private ArrayList<Apparel> bottoms = new ArrayList<>();
-    private Apparel reccomendedTop;
-    private Apparel reccomendedBelt;
-    private Apparel reccomendedShoe;
-    private Apparel reccomendedBottom;
+    private Apparel reccomendedTop = null;
+    private Apparel reccomendedBelt = null;
+    private Apparel reccomendedShoe = null;
+    private Apparel reccomendedBottom = null;
 
     /**
      * Constructs for CommandRecommendation
@@ -27,17 +26,33 @@ public class CommandRecommendation {
     public CommandRecommendation(Model model) {
         setClothingInSections(model.getFilteredApparelList());
         reccomendedBottom = reccomendBottom();
-        reccomendedTop = reccomendTop(reccomendedBottom.getColor());
+        reccomendedTop = reccomendTop();
         reccomendedBelt = reccomendBelt();
         reccomendedShoe = reccomendShoe();
 
     }
+    /**
+     * returns string of recommended outfit
+     */
+    public String returnRecommendationString(){
+       if (reccomendedBottom == null || reccomendedTop == null || reccomendedBelt == null
+               || reccomendedShoe == null) {
+            return "You don't have enough clothing";
+        }
+
+        return reccomendedTop.toString() + "\n" + reccomendedBottom.toString()
+                + "\n" + reccomendedBelt.toString() + "\n" + reccomendedShoe.toString();
+
+
+    }
+
+
 
     /**
      * find a reccomend Shoe
      */
     private Apparel reccomendShoe() {
-        if (shoes.size() > 0) {
+        if (shoes.size() <= 0) {
             return null;
         }
 
@@ -48,7 +63,7 @@ public class CommandRecommendation {
      * find a recommended belt
      */
     private Apparel reccomendBelt() {
-        if (belts.size() > 0) {
+        if (belts.size() <= 0) {
             return null;
         }
         return belts.get(0);
@@ -57,21 +72,21 @@ public class CommandRecommendation {
     /**
      * find a recommended top
      */
-    private Apparel reccomendTop(Color bottomColor) {
-        if (tops.size() > 0) {
+    private Apparel reccomendTop() {
+        if (tops.size() <= 0) {
             return null;
         }
-        return bottoms.get(0);
+        return tops.get(0);
     }
     /**
      * find a recommended bottom
      */
     private Apparel reccomendBottom() {
-        if (bottoms.size() > 0) {
+        if (bottoms.size() <= 0) {
             return null;
         }
         int index = (int)(Math.random() * bottoms.size());
-        return bottoms.get(index);
+        return bottoms.get(0);
     }
     /**
      * initiat all the clothing type lists
@@ -82,9 +97,14 @@ public class CommandRecommendation {
             ClothingType type = apperal.getClothingType();
             switch (type.getClothingTypeValue()) {
                 case TOP: tops.add(apperal);
+                break;
                 case BELT: belts.add(apperal);
+                break;
                 case SHOES: shoes.add(apperal);
+                break;
                 case BOTTOM: bottoms.add(apperal);
+                break;
+
             }
         }
 

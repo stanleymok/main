@@ -31,11 +31,11 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label color;
+    private Label phone;
     @FXML
     private Label address;
     @FXML
-    private Label clothingType;
+    private Label email;
     @FXML
     private FlowPane tags;
 
@@ -44,9 +44,10 @@ public class PersonCard extends UiPart<Region> {
         this.apparel = apparel;
         id.setText(displayedIndex + ". ");
         name.setText(apparel.getName().fullName);
-        color.setText(apparel.getColor().toString());
-        clothingType.setText(apparel.getClothingType().toString());
-    }
+        phone.setText(apparel.getColor().toString());
+        address.setText(apparel.getClothingType().toString());
+        email.setText("FIX THIS BUG");
+   }
 
     @Override
     public boolean equals(Object other) {
