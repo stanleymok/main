@@ -3,26 +3,19 @@ package systemtests;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPARELS;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
@@ -60,7 +53,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
          */
         Index index = INDEX_FIRST_PERSON;
         String command = " " + EditCommand.COMMAND_WORD + "  " + index.getOneBased() + "  " + NAME_DESC_BOB + "  "
-                + PHONE_DESC_BOB + " " + EMAIL_DESC_BOB + "  " + ADDRESS_DESC_BOB + " " + TAG_DESC_HUSBAND + " ";
+                + PHONE_DESC_BOB + " " + EMAIL_DESC_BOB + " ";
         Apparel editedApparel = new ApparelBuilder(BOB).build();
         assertCommandSuccess(command, index, editedApparel);
 
@@ -76,16 +69,16 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, model, expectedResultMessage);
 
         /* Case: edit a apparel with new values same as existing values -> edited */
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB
+                + PHONE_DESC_BOB + EMAIL_DESC_BOB;
         assertCommandSuccess(command, index, BOB);
 
         /* Case: edit a apparel with new values same as another apparel's values but with different name -> edited */
         assertTrue(getModel().getAddressBook().getApparelList().contains(BOB));
         index = INDEX_SECOND_PERSON;
         assertNotEquals(getModel().getFilteredApparelList().get(index.getZeroBased()), BOB);
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY
+                + PHONE_DESC_BOB + EMAIL_DESC_BOB;
         editedApparel = new ApparelBuilder(BOB).withName(VALID_NAME_AMY).build();
         assertCommandSuccess(command, index, editedApparel);
 
@@ -93,14 +86,14 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
          * -> edited
          */
         index = INDEX_SECOND_PERSON;
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_AMY + EMAIL_DESC_AMY
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB
+                + PHONE_DESC_AMY + EMAIL_DESC_AMY;
         editedApparel = new ApparelBuilder(BOB).withColor(VALID_PHONE_AMY).withClothingType(VALID_EMAIL_AMY).build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* Case: clear tags -> cleared */
         index = INDEX_FIRST_PERSON;
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + PREFIX_TAG.getPrefix();
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased();
         Apparel apparelToEdit = getModel().getFilteredApparelList().get(index.getZeroBased());
         editedApparel = new ApparelBuilder(apparelToEdit).build();
         assertCommandSuccess(command, index, editedApparel);
@@ -132,8 +125,8 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         showAllPersons();
         index = INDEX_FIRST_PERSON;
         selectPerson(index);
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
-                + ADDRESS_DESC_AMY + TAG_DESC_FRIEND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY
+                + PHONE_DESC_AMY + EMAIL_DESC_AMY;
         // this can be misleading: card selection actually remains unchanged but the
         // browser's url is updated to reflect the new apparel's name
         assertCommandSuccess(command, index, AMY, index);
@@ -162,23 +155,26 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
                 EditCommand.MESSAGE_NOT_EDITED);
 
         /* Case: invalid name -> rejected */
-        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_NAME_DESC,
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
+                        + INVALID_NAME_DESC,
                 Name.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid phone -> rejected */
-        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_PHONE_DESC,
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
+                        + INVALID_PHONE_DESC,
                 Color.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid email -> rejected */
-        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_EMAIL_DESC,
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased()
+                        + INVALID_EMAIL_DESC,
                 ClothingType.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid address -> rejected */
-        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_ADDRESS_DESC,
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased(),
                 Address.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid tag -> rejected */
-        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + INVALID_TAG_DESC,
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased(),
                 Tag.MESSAGE_CONSTRAINTS);
 
         /* Case: edit a apparel with new values same as another apparel's values -> rejected */
@@ -186,29 +182,29 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         assertTrue(getModel().getAddressBook().getApparelList().contains(BOB));
         index = INDEX_FIRST_PERSON;
         assertFalse(getModel().getFilteredApparelList().get(index.getZeroBased()).equals(BOB));
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB
+                + PHONE_DESC_BOB + EMAIL_DESC_BOB;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
 
         /* Case: edit a apparel with new values same as another apparel's values but with different tags -> rejected */
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB
+                + PHONE_DESC_BOB + EMAIL_DESC_BOB;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
 
         /* Case: edit a apparel with new values same as another apparel's values but with different address ->
         rejected */
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_AMY + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB
+                + PHONE_DESC_BOB + EMAIL_DESC_BOB;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
 
         /* Case: edit a apparel with new values same as another apparel's values but with different phone -> rejected */
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_AMY + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB
+                + PHONE_DESC_AMY + EMAIL_DESC_BOB;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
 
         /* Case: edit a apparel with new values same as another apparel's values but with different email -> rejected */
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_AMY
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB
+                + PHONE_DESC_BOB + EMAIL_DESC_AMY;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
     }
 
