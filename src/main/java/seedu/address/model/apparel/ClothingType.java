@@ -39,8 +39,8 @@ public class ClothingType {
         this.primary = ClothingTypeValue.valueOf(primary.toUpperCase());
     }
 
-    public ClothingTypeValue getClothingTypeValue(){
-        return primary;
+    public ClothingTypeValue getClothingTypeValue() {
+        return this.primary;
     }
 
     @Override
