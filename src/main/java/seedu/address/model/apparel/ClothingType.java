@@ -13,6 +13,8 @@ public class ClothingType {
 
     private ClothingTypeValue primary;
 
+    public ClothingType() {};
+
     /**
      * Constructs a {@code ClothingType}.
      *
