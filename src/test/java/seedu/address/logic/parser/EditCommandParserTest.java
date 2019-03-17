@@ -26,11 +26,9 @@ import org.junit.Test;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
-import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditApparelDescriptorBuilder;
 
 public class EditCommandParserTest {
