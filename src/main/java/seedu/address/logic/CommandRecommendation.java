@@ -21,7 +21,9 @@ public class CommandRecommendation {
     private Apparel reccomendedShoe;
     private Apparel reccomendedBottom;
 
-
+    /**
+     * Constructs for CommandRecommendation
+     */
     public CommandRecommendation(Model model) {
         setClothingInSections(model.getFilteredApparelList());
         reccomendedBottom = reccomendBottom();
@@ -31,6 +33,9 @@ public class CommandRecommendation {
 
     }
 
+    /**
+     * find a reccomend Shoe
+     */
     private Apparel reccomendShoe() {
         if (shoes.size() > 0) {
             return null;
@@ -39,6 +44,9 @@ public class CommandRecommendation {
         return shoes.get(0);
     }
 
+    /**
+     * find a recommended belt
+     */
     private Apparel reccomendBelt() {
         if (belts.size() > 0) {
             return null;
@@ -46,13 +54,18 @@ public class CommandRecommendation {
         return belts.get(0);
     }
 
+    /**
+     * find a recommended top
+     */
     private Apparel reccomendTop(Color bottomColor) {
         if (tops.size() > 0) {
             return null;
         }
         return bottoms.get(0);
     }
-
+    /**
+     * find a recommended bottom
+     */
     private Apparel reccomendBottom() {
         if (bottoms.size() > 0) {
             return null;
@@ -60,7 +73,9 @@ public class CommandRecommendation {
         int index = (int)(Math.random() * bottoms.size());
         return bottoms.get(index);
     }
-
+    /**
+     * initiat all the clothing type lists
+     */
     private void setClothingInSections(ObservableList<Apparel> filteredApparelList) {
         for (int i = 0; i < filteredApparelList.size(); i++) {
             Apparel apperal = filteredApparelList.get(i);
