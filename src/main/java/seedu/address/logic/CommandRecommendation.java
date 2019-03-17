@@ -1,47 +1,93 @@
 package seedu.address.logic;
 
+import java.util.ArrayList;
+
+import javafx.collections.ObservableList;
+import seedu.address.model.Model;
 import seedu.address.model.apparel.Apparel;
+import seedu.address.model.apparel.ClothingType;
+import seedu.address.model.apparel.Color;
 
 /**
  * Stores the recommendated outfit of CommandRecommendation.
  */
 public class CommandRecommendation {
-    private Apparel top;
-    private Apparel bottom;
-    private Apparel belt;
-    private Apparel shoes;
+    private ArrayList<Apparel> tops = new ArrayList<>();
+    private ArrayList<Apparel> belts = new ArrayList<>();
+    private ArrayList<Apparel> shoes = new ArrayList<>();
+    private ArrayList<Apparel> bottoms = new ArrayList<>();
+    private Apparel reccomendedTop;
+    private Apparel reccomendedBelt;
+    private Apparel reccomendedShoe;
+    private Apparel reccomendedBottom;
 
-    public CommandRecommendation() {};
+    /**
+     * Constructs for CommandRecommendation
+     */
+    public CommandRecommendation(Model model) {
+        setClothingInSections(model.getFilteredApparelList());
+        reccomendedBottom = reccomendBottom();
+        reccomendedTop = reccomendTop(reccomendedBottom.getColor());
+        reccomendedBelt = reccomendBelt();
+        reccomendedShoe = reccomendShoe();
 
-    public Apparel getTop() {
-        return top;
     }
 
-    public void setTop(Apparel top) {
-        this.top = top;
+    /**
+     * find a reccomend Shoe
+     */
+    private Apparel reccomendShoe() {
+        if (shoes.size() > 0) {
+            return null;
+        }
+
+        return shoes.get(0);
     }
 
-    public Apparel getBottom() {
-        return bottom;
+    /**
+     * find a recommended belt
+     */
+    private Apparel reccomendBelt() {
+        if (belts.size() > 0) {
+            return null;
+        }
+        return belts.get(0);
     }
 
-    public void setBottom(Apparel bottom) {
-        this.bottom = bottom;
+    /**
+     * find a recommended top
+     */
+    private Apparel reccomendTop(Color bottomColor) {
+        if (tops.size() > 0) {
+            return null;
+        }
+        return bottoms.get(0);
+    }
+    /**
+     * find a recommended bottom
+     */
+    private Apparel reccomendBottom() {
+        if (bottoms.size() > 0) {
+            return null;
+        }
+        int index = (int)(Math.random() * bottoms.size());
+        return bottoms.get(index);
+    }
+    /**
+     * initiat all the clothing type lists
+     */
+    private void setClothingInSections(ObservableList<Apparel> filteredApparelList) {
+        for (int i = 0; i < filteredApparelList.size(); i++) {
+            Apparel apperal = filteredApparelList.get(i);
+            ClothingType type = apperal.getClothingType();
+            switch (type.getClothingTypeValue()) {
+                case TOP: tops.add(apperal);
+                case BELT: belts.add(apperal);
+                case SHOES: shoes.add(apperal);
+                case BOTTOM: bottoms.add(apperal);
+            }
+        }
+
     }
 
-    public Apparel getBelt() {
-        return belt;
-    }
-
-    public void setBelt(Apparel belt) {
-        this.belt = belt;
-    }
-
-    public Apparel getShoes() {
-        return shoes;
-    }
-
-    public void setShoes(Apparel shoes) {
-        this.shoes = shoes;
-    }
 }

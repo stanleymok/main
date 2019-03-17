@@ -5,8 +5,6 @@ import static java.util.Objects.requireNonNull;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-
-
 /**
  * Stores the history of commands executed.
  */

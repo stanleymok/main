@@ -11,7 +11,7 @@ public class ClothingType {
     public static final String MESSAGE_CONSTRAINTS =
             "Types that are accepted are TOP, BOTTOM, BELT, SHOES.";
 
-    private final ClothingTypeValue primary;
+    private ClothingTypeValue primary;
 
     /**
      * Constructs a {@code ClothingType}.
@@ -35,6 +35,10 @@ public class ClothingType {
         checkArgument(ClothingTypeValue.isValidClothingType(primary), MESSAGE_CONSTRAINTS);
 
         this.primary = ClothingTypeValue.valueOf(primary.toUpperCase());
+    }
+
+    public ClothingTypeValue getClothingTypeValue(){
+        return primary;
     }
 
     @Override
