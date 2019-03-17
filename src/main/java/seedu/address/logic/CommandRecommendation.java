@@ -32,7 +32,7 @@ public class CommandRecommendation {
     }
 
     private Apparel reccomendShoe() {
-        if(shoes.size() > 0){
+        if (shoes.size() > 0) {
             return null;
         }
 
@@ -40,21 +40,21 @@ public class CommandRecommendation {
     }
 
     private Apparel reccomendBelt() {
-        if(belts.size() > 0){
+        if (belts.size() > 0) {
             return null;
         }
         return belts.get(0);
     }
 
     private Apparel reccomendTop(Color bottomColor) {
-        if(tops.size() > 0){
+        if (tops.size() > 0) {
             return null;
         }
         return bottoms.get(0);
     }
 
     private Apparel reccomendBottom() {
-        if(bottoms.size() > 0){
+        if (bottoms.size() > 0) {
             return null;
         }
         int index = (int)(Math.random() * bottoms.size());
@@ -62,7 +62,7 @@ public class CommandRecommendation {
     }
 
     private void setClothingInSections(ObservableList<Apparel> filteredApparelList) {
-        for (int i = 0; i < filteredApparelList.size(); i++){
+        for (int i = 0; i < filteredApparelList.size(); i++) {
             Apparel apperal = filteredApparelList.get(i);
             ClothingType type = apperal.getClothingType();
             switch (type.getClothingTypeValue()) {
