@@ -14,6 +14,8 @@ public class Color {
 
     private ColorValue primary;
 
+    public Color() { };
+
     /**
      * Constructs a {@code Color}.
      *

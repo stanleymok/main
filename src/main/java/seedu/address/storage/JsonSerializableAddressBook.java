@@ -16,7 +16,7 @@ import seedu.address.model.apparel.Apparel;
 /**
  * An Immutable AddressBook that is serializable to JSON format.
  */
-@JsonRootName(value = "addressbook")
+@JsonRootName(value = "apparels")
 class JsonSerializableAddressBook {
 
     public static final String MESSAGE_DUPLICATE_APPAREL = "Apparels list contains duplicate apparel(s).";
