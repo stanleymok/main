@@ -47,7 +47,7 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(apparel.getColor().toString());
         address.setText(apparel.getClothingType().toString());
         email.setText("FIX THIS BUG");
-   }
+    }
 
     @Override
     public boolean equals(Object other) {

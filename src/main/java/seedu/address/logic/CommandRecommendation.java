@@ -15,33 +15,33 @@ public class CommandRecommendation {
     private ArrayList<Apparel> belts = new ArrayList<>();
     private ArrayList<Apparel> shoes = new ArrayList<>();
     private ArrayList<Apparel> bottoms = new ArrayList<>();
-    private Apparel reccomendedTop = null;
-    private Apparel reccomendedBelt = null;
-    private Apparel reccomendedShoe = null;
-    private Apparel reccomendedBottom = null;
+    private Apparel recommendedTop = null;
+    private Apparel recommendedBelt = null;
+    private Apparel recommendedShoe = null;
+    private Apparel recommendedBottom = null;
 
     /**
      * Constructs for CommandRecommendation
      */
     public CommandRecommendation(Model model) {
         setClothingInSections(model.getFilteredApparelList());
-        reccomendedBottom = reccomendBottom();
-        reccomendedTop = reccomendTop();
-        reccomendedBelt = reccomendBelt();
-        reccomendedShoe = reccomendShoe();
+        recommendedBottom = recommendBottom();
+        recommendedTop = recommendTop();
+        recommendedBelt = recommendBelt();
+        recommendedShoe = recommendShoe();
 
     }
     /**
      * returns string of recommended outfit
      */
-    public String returnRecommendationString(){
-       if (reccomendedBottom == null || reccomendedTop == null || reccomendedBelt == null
-               || reccomendedShoe == null) {
+    public String returnRecommendationString() {
+        if (recommendedBottom == null || recommendedTop == null || recommendedBelt == null
+               || recommendedShoe == null) {
             return "You don't have enough clothing";
         }
 
-        return reccomendedTop.toString() + "\n" + reccomendedBottom.toString()
-                + "\n" + reccomendedBelt.toString() + "\n" + reccomendedShoe.toString();
+        return recommendedTop.toString() + "\n" + recommendedBottom.toString()
+                + "\n" + recommendedBelt.toString() + "\n" + recommendedShoe.toString();
 
 
     }
@@ -51,7 +51,7 @@ public class CommandRecommendation {
     /**
      * find a reccomend Shoe
      */
-    private Apparel reccomendShoe() {
+    private Apparel recommendShoe() {
         if (shoes.size() <= 0) {
             return null;
         }
@@ -62,7 +62,7 @@ public class CommandRecommendation {
     /**
      * find a recommended belt
      */
-    private Apparel reccomendBelt() {
+    private Apparel recommendBelt() {
         if (belts.size() <= 0) {
             return null;
         }
@@ -72,7 +72,7 @@ public class CommandRecommendation {
     /**
      * find a recommended top
      */
-    private Apparel reccomendTop() {
+    private Apparel recommendTop() {
         if (tops.size() <= 0) {
             return null;
         }
@@ -81,11 +81,11 @@ public class CommandRecommendation {
     /**
      * find a recommended bottom
      */
-    private Apparel reccomendBottom() {
+    private Apparel recommendBottom() {
         if (bottoms.size() <= 0) {
             return null;
         }
-        int index = (int)(Math.random() * bottoms.size());
+        int index = (int) (Math.random() * bottoms.size());
         return bottoms.get(0);
     }
     /**
@@ -93,18 +93,23 @@ public class CommandRecommendation {
      */
     private void setClothingInSections(ObservableList<Apparel> filteredApparelList) {
         for (int i = 0; i < filteredApparelList.size(); i++) {
-            Apparel apperal = filteredApparelList.get(i);
-            ClothingType type = apperal.getClothingType();
+            Apparel apparel = filteredApparelList.get(i);
+            ClothingType type = apparel.getClothingType();
             switch (type.getClothingTypeValue()) {
-                case TOP: tops.add(apperal);
-                break;
-                case BELT: belts.add(apperal);
-                break;
-                case SHOES: shoes.add(apperal);
-                break;
-                case BOTTOM: bottoms.add(apperal);
-                break;
-
+                case TOP:
+                    tops.add(apparel);
+                    break;
+                case BELT:
+                    belts.add(apparel);
+                    break;
+                case SHOES:
+                    shoes.add(apparel);
+                    break;
+                case BOTTOM:
+                    bottoms.add(apparel);
+                    break;
+                default:
+                    break;
             }
         }
 
