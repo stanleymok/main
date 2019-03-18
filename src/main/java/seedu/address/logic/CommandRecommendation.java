@@ -96,20 +96,20 @@ public class CommandRecommendation {
             Apparel apparel = filteredApparelList.get(i);
             ClothingType type = apparel.getClothingType();
             switch (type.getClothingTypeValue()) {
-                case TOP:
-                    tops.add(apparel);
-                    break;
-                case BELT:
-                    belts.add(apparel);
-                    break;
-                case SHOES:
-                    shoes.add(apparel);
-                    break;
-                case BOTTOM:
-                    bottoms.add(apparel);
-                    break;
-                default:
-                    break;
+            case TOP:
+                tops.add(apparel);
+                break;
+            case BELT:
+                belts.add(apparel);
+                break;
+            case SHOES:
+                shoes.add(apparel);
+                break;
+            case BOTTOM:
+                bottoms.add(apparel);
+                break;
+            default:
+                break;
             }
         }
 
