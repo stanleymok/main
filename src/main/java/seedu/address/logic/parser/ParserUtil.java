@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.commons.core.index.SortBy;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.ClothingType;
@@ -34,6 +35,10 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+    }
+
+    public static SortBy parseSortValue(String sortBy) throws ParseException {
+        return new SortBy("testing"); // TODO: remove stud
     }
 
     /**
