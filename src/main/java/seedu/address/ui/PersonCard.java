@@ -32,11 +32,9 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
+    private Label color;
     @FXML
-    private Label address;
-    @FXML
-    private Label email;
+    private Label clothingType;
     @FXML
     private FlowPane tags;
 
@@ -45,9 +43,8 @@ public class PersonCard extends UiPart<Region> {
         this.apparel = apparel;
         id.setText(displayedIndex + ". ");
         name.setText(StringUtil.capitaliseFirstLetter(apparel.getName().fullName));
-        phone.setText(StringUtil.capitaliseFirstLetter(apparel.getColor().toString()));
-        address.setText(StringUtil.capitaliseFirstLetter(apparel.getClothingType().toString()));
-        email.setText("FIX THIS BUG");
+        color.setText(StringUtil.capitaliseFirstLetter(apparel.getColor().toString()));
+        clothingType.setText(StringUtil.capitaliseFirstLetter(apparel.getClothingType().toString()));
     }
 
     @Override
