@@ -11,13 +11,15 @@ import java.util.Objects;
 public class Apparel {
 
     // Identity fields
-    private final Name name;
-    private final Color color;
-    private final ClothingType clothingType;
+    private Name name;
+    private Color color;
+    private ClothingType clothingType;
 
     // Status fields
     private boolean available;
     private int usageCount;
+
+    public Apparel() {};
 
     /**
      * Every field must be present and not null.
@@ -79,7 +81,7 @@ public class Apparel {
     }
 
     /**
-     * Returns true if both persons have the same identity and data fields.
+     * Returns true if both apparels have the same identity and data fields.
      * This defines a stronger notion of equality between two persons.
      */
     @Override

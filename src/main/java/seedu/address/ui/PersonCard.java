@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.commons.util.StringUtil;
 import seedu.address.model.apparel.Apparel;
 
 /**
@@ -31,11 +32,9 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
+    private Label color;
     @FXML
-    private Label address;
-    @FXML
-    private Label email;
+    private Label clothingType;
     @FXML
     private FlowPane tags;
 
@@ -43,11 +42,10 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.apparel = apparel;
         id.setText(displayedIndex + ". ");
-        name.setText(apparel.getName().fullName);
-        phone.setText(apparel.getColor().toString());
-        address.setText(apparel.getClothingType().toString());
-        email.setText("FIX THIS BUG");
-   }
+        name.setText(StringUtil.capitaliseFirstLetter(apparel.getName().fullName));
+        color.setText(StringUtil.capitaliseFirstLetter(apparel.getColor().toString()));
+        clothingType.setText(StringUtil.capitaliseFirstLetter(apparel.getClothingType().toString()));
+    }
 
     @Override
     public boolean equals(Object other) {
