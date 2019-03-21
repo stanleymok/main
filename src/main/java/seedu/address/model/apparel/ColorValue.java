@@ -14,23 +14,13 @@ public enum ColorValue {
     BLUE,
     PURPLE,
     BROWN,
-    MAGENTA,
-    TAN,
-    CYAN,
-    OLIVE,
-    MAROON,
     NAVY,
-    AQUAMARINE,
-    TURQUOISE,
-    SILVER,
-    LIME,
-    TEAL,
-    INDIGO,
-    VIOLET,
     PINK,
     BLACK,
     WHITE,
-    GREY;
+    GREY,
+    KHAKI,
+    CREAM;
 
     /**
      * Return true if a given string is a valid color.

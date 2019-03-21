@@ -40,6 +40,10 @@ public class Color {
         this.primary = ColorValue.valueOf(primary.toUpperCase());
     }
 
+    public ColorValue getPrimary() {
+        return primary;
+    }
+
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

@@ -17,13 +17,13 @@ public class RecommendationCommand extends Command {
 
     public static final String COMMAND_WORD = "recommendation";
 
-    public static final String MESSAGE_SUCCESS = "Outfit Recommended";
+    public static final String MESSAGE_SUCCESS = "---RECOMMENDATION---";
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
         CommandRecommendation rec = new CommandRecommendation(model);
         String outfit = rec.returnRecommendationString();
-        return new CommandResult(outfit + "\n" + MESSAGE_SUCCESS);
+        return new CommandResult( MESSAGE_SUCCESS + "\n"  + outfit + "\n" + MESSAGE_SUCCESS);
     }
 }
