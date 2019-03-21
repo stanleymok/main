@@ -45,6 +45,15 @@ public class Apparel {
         return clothingType;
     }
 
+    public String getAvailabilityStatus() {
+        if (isAvailable()) {
+            return "Available";
+        }
+        else {
+            return "Unavailable";
+        }
+    }
+
     public boolean isAvailable() {
         return available;
     }

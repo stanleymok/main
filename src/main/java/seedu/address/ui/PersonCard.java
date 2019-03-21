@@ -36,6 +36,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label clothingType;
     @FXML
+    private Label status; //availability
+    @FXML
     private FlowPane tags;
 
     public PersonCard(Apparel apparel, int displayedIndex) {
@@ -45,6 +47,7 @@ public class PersonCard extends UiPart<Region> {
         name.setText(StringUtil.capitaliseFirstLetter(apparel.getName().fullName));
         color.setText(StringUtil.capitaliseFirstLetter(apparel.getColor().toString()));
         clothingType.setText(StringUtil.capitaliseFirstLetter(apparel.getClothingType().toString()));
+        status.setText(apparel.getAvailabilityStatus());
     }
 
     @Override
