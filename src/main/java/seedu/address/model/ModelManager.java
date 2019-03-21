@@ -102,7 +102,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void deletePerson(Apparel target) {
+    public void deleteApparel(Apparel target) {
         versionedAddressBook.removeApparel(target);
     }
 
@@ -171,7 +171,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Apparel getSelectedPerson() {
+    public Apparel getSelectedApparel() {
         return selectedPerson.getValue();
     }
 

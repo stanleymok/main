@@ -41,7 +41,7 @@ public class DeleteCommand extends Command {
         }
 
         Apparel apparelToDelete = lastShownList.get(targetIndex.getZeroBased());
-        model.deletePerson(apparelToDelete);
+        model.deleteApparel(apparelToDelete);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, apparelToDelete));
     }
