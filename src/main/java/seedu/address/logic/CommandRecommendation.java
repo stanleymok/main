@@ -3,7 +3,6 @@ package seedu.address.logic;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 import javafx.collections.ObservableList;
 import seedu.address.model.Model;
 import seedu.address.model.apparel.Apparel;
@@ -26,8 +25,9 @@ import static seedu.address.model.apparel.ColorValue.WHITE;
 import static seedu.address.model.apparel.ColorValue.YELLOW;
 
 /**
- * Stores the recommendated outfit of CommandRecommendation.
+ * Stores the recommendation outfit of CommandRecommendation.
  */
+// @@author PhilipPhil
 public class CommandRecommendation {
     private ArrayList<Apparel> tops = new ArrayList<>();
     private ArrayList<Apparel> belts = new ArrayList<>();
@@ -53,17 +53,17 @@ public class CommandRecommendation {
             Apparel currBottom = bottoms.get(i);
             Apparel currTop = recommendTop(currBottom.getColor());
             Apparel currShoe = recommendShoe(currBottom.getColor());
-            Apparel currbelt = null;
+            Apparel currBelt = null;
 
             if(currShoe != null){
-                currbelt = recommendBelt(currShoe.getColor());
+                currBelt = recommendBelt(currShoe.getColor());
             }
 
             if(currTop != null && currShoe != null) {
                 recommendedBottom = currBottom;
                 recommendedTop = currTop;
                 recommendedShoe = currShoe;
-                recommendedBelt = currbelt;
+                recommendedBelt = currBelt;
                 if(recommendedBelt != null || belts.size() <= 0){
                     return;
                 }
@@ -186,6 +186,7 @@ public class CommandRecommendation {
 
     }
 
+    // @@author PhilipPhil
     private static class ColorRules {
 
         static ColorValue[] WHITEPantsToShoe = {WHITE, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, GREY};
