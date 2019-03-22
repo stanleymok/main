@@ -223,6 +223,9 @@ public class CommandRecommendation {
             if (shoe.getPrimary().equals(BROWN) && belt.getPrimary().equals(BROWN)) {
                 return true;
             }
+            if (shoe.getPrimary().equals(WHITE)) {
+                return true;
+            }
             return false;
         }
 
