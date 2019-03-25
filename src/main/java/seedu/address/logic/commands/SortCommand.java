@@ -53,14 +53,10 @@ public class SortCommand extends Command {
             return new CommandResult(SortOption.allOptions());
         } else if (SortOption.NAME.equals(sortOption)) {
             //System.out.println("e-Name: " + sortOption.toString());
-            modifiableList.sort(new Comparator<Apparel>() {
-                @Override
-                public int compare(Apparel x, Apparel y) {
-                    return x.getName().compareTo(y.getName());
-                }
-            });
+            modifiableList.sort((Apparel x, Apparel y) -> x.getName().compareTo(y.getName()));
         } else if (SortOption.COLOR.equals(sortOption)) {
             //System.out.println("e-Color: " + sortOption.toString());
+            modifiableList.sort((Apparel x, Apparel y) -> x.getColor().compareTo(y.getColor()));
         } else if (SortOption.TYPE.equals(sortOption)) {
             //System.out.println("e-Type: " + sortOption.toString());
         }

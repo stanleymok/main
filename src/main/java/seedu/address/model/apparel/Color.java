@@ -3,10 +3,12 @@ package seedu.address.model.apparel;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.util.Objects;
+
 /**
  * Represents an Apparel's color in the address book.
  */
-public class Color {
+public class Color implements Comparable<Color> {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Colors should only be those that are listed in the list of accepted colors.\n"
@@ -45,6 +47,17 @@ public class Color {
         return other == this // short circuit if same object
                 || (other instanceof Color // instanceof handles nulls
                 && primary == (((Color) other).primary)); // state check
+    }
+
+    @Override
+    public int hashCode() {
+        // use this method for custom fields hashing instead of implementing your own
+        return Objects.hash(primary);
+    }
+
+    @Override
+    public int compareTo(Color other) {
+        return this.primary.name().compareTo(other.primary.name());
     }
 
     @Override
