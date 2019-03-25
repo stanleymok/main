@@ -16,7 +16,7 @@ public class Color implements Comparable<Color> {
 
     private ColorValue primary;
 
-    public Color() { };
+    public Color() { }
 
     /**
      * Constructs a {@code Color}.
@@ -40,6 +40,10 @@ public class Color implements Comparable<Color> {
         checkArgument(ColorValue.isValidColor(primary), MESSAGE_CONSTRAINTS);
 
         this.primary = ColorValue.valueOf(primary.toUpperCase());
+    }
+
+    public ColorValue getPrimary() {
+        return primary;
     }
 
     @Override
