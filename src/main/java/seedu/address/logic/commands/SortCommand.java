@@ -46,8 +46,9 @@ public class SortCommand extends Command {
         List<Apparel> lastShownListUntouch = new ArrayList<>(lastShownList);
         List<Apparel> modifiableList = new ArrayList<Apparel>(lastShownList);
 
+        StringBuilder sb = new StringBuilder(MESSAGE_SORT_APPAREL_SUCCESS);
+        sb.append(" by " + sortOption.toString().toLowerCase() + ".");
         if (COMMAND_LIST_OPTIONS.equalsIgnoreCase(sortOption.toString())) {
-            // print to gui
             return new CommandResult(SortOption.allOptions());
         } else if (SortOption.NAME.equals(sortOption)) {
             modifiableList.sort((Apparel x, Apparel y) -> x.getName().compareTo(y.getName()));
@@ -66,7 +67,7 @@ public class SortCommand extends Command {
 
 
         model.commitAddressBook();
-        return new CommandResult(String.format(MESSAGE_SORT_APPAREL_SUCCESS));
+        return new CommandResult(String.format(sb.toString()));
     }
 
     @Override
