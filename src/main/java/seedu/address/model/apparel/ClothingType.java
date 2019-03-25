@@ -1,9 +1,9 @@
 package seedu.address.model.apparel;
 
-import java.util.Objects;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+
+import java.util.Objects;
 
 /**
  * Represents am Apparel's ClothingType in the apparel bank.
