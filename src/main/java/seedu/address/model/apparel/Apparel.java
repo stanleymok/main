@@ -48,8 +48,7 @@ public class Apparel {
     public String getAvailabilityStatus() {
         if (isAvailable()) {
             return "Available";
-        }
-        else {
+        } else {
             return "Unavailable";
         }
     }
