@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.CommandRecommendation;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -24,6 +25,7 @@ public class RecommendationCommand extends Command {
         requireNonNull(model);
         CommandRecommendation rec = new CommandRecommendation(model);
         String outfit = rec.returnRecommendationString();
-        return new CommandResult( MESSAGE_SUCCESS + "\n"  + outfit + "\n" + MESSAGE_SUCCESS);
+
+        return new CommandResult(MESSAGE_SUCCESS + "\n" + outfit + "\n" + MESSAGE_SUCCESS);
     }
 }

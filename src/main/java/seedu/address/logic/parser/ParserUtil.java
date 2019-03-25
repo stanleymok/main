@@ -62,6 +62,7 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code color} is invalid.
      */
+    // @@author PhilipPhil
     public static Color parseColor(String color) throws ParseException {
         requireNonNull(color);
         String trimmedColor = color.trim();
@@ -78,6 +79,7 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code clothingType} is invalid.
      */
+    // @@author PhilipPhil
     public static ClothingType parseClothingType(String clothingType) throws ParseException {
         requireNonNull(clothingType);
         String trimmedEmail = clothingType.trim();
