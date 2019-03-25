@@ -86,7 +86,7 @@ public class Apparel {
         return otherApparel != null
                 && otherApparel.getName().equals(getName())
                 && (otherApparel.getColor().equals(getColor())
-                || otherApparel.getClothingType().equals(getClothingType()));
+                && otherApparel.getClothingType().equals(getClothingType()));
     }
 
     /**
