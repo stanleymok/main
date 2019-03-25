@@ -43,6 +43,7 @@ public class SortCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
         List<Apparel> lastShownList = model.getFilteredApparelList();
+        List<Apparel> lastShownListUntouch = new ArrayList<>(lastShownList);
         List<Apparel> modifiableList = new ArrayList<Apparel>(lastShownList);
         System.out.println("Before: " + modifiableList.toString());
         if (SortOption.NAME.equals(sortOption)) {
@@ -62,6 +63,17 @@ public class SortCommand extends Command {
         System.out.println("After: " + modifiableList.toString());
 
         // TODO: update database
+        // delete
+        System.out.println("lastShownList = " + lastShownList.toString());
+        for (Apparel apparelToDelete: lastShownListUntouch) {
+            System.out.println("apparelToDelete = " + apparelToDelete);
+            model.deleteApparel(apparelToDelete);
+        }
+        for (Apparel apparelToAdd: modifiableList) {
+            model.addApparel(apparelToAdd);
+        }
+
+
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SORT_APPAREL_SUCCESS));
     }
