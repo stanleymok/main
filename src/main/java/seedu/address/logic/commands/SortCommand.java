@@ -18,9 +18,10 @@ import seedu.address.model.apparel.Apparel;
 public class SortCommand extends Command {
 
     public static final String COMMAND_WORD = "sort";
+    public static final String COMMAND_LIST_OPTIONS = "options";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort the apparels based on the given option.\n"
-            + "Example: sort -n\n"
+            + "Example: sort name\n"
             + "Outcome: apparel list sorted in ascending order of the name.\n";
 
 
@@ -46,7 +47,11 @@ public class SortCommand extends Command {
         List<Apparel> lastShownListUntouch = new ArrayList<>(lastShownList);
         List<Apparel> modifiableList = new ArrayList<Apparel>(lastShownList);
         System.out.println("Before: " + modifiableList.toString());
-        if (SortOption.NAME.equals(sortOption)) {
+
+        if (COMMAND_LIST_OPTIONS.equalsIgnoreCase(sortOption.toString())) {
+            // print to gui
+            return new CommandResult(SortOption.allOptions());
+        } else if (SortOption.NAME.equals(sortOption)) {
             //System.out.println("e-Name: " + sortOption.toString());
             modifiableList.sort(new Comparator<Apparel>() {
                 @Override

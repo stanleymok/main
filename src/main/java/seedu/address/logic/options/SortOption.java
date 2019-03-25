@@ -4,7 +4,10 @@ package seedu.address.logic.options;
  * All valid options for Sort command.
  */
 public enum SortOption {
-    NAME, COLOR, TYPE;
+    /**
+     * WARNING: OPTIONS must be the first. DO NOT put OPTIONS in any other order.
+     */
+    OPTIONS, NAME, COLOR, TYPE;
 
     /**
      * Return true if option supplied is valid, false otherwise.
@@ -28,5 +31,18 @@ public enum SortOption {
         }
 
         return SortOption.valueOf(optionString.toUpperCase());
+    }
+
+    /**
+     * Return all the available sorting options in String format.
+     */
+    public static String allOptions() {
+        StringBuilder sb = new StringBuilder();
+        SortOption[] sortOptions = SortOption.values();
+        sb.append("All the valid sorting options:\n");
+        for (int i = 1; i < sortOptions.length; i++) {
+            sb.append(sortOptions[i].toString().toLowerCase() + "\n");
+        }
+        return sb.toString();
     }
 }
