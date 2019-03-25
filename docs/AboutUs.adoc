@@ -12,7 +12,7 @@ Fashion Match was developed by W15-1.
 image::rafflesandrison.png[width="150", align="left"]
 {empty}[http://github.com/rafflesandrison[github]]
 
-Role: Tech Lead & Developer
+Role: Developer
 
 Responsibilities:
 
