@@ -1,12 +1,14 @@
 package seedu.address.model.apparel;
 
+import java.util.Objects;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents am Apparel's ClothingType in the apparel bank.
  */
-public class ClothingType {
+public class ClothingType implements Comparable<ClothingType> {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Types that are accepted are TOP, BOTTOM, BELT, SHOES.";
@@ -48,6 +50,17 @@ public class ClothingType {
         return other == this // short circuit if same object
                 || (other instanceof ClothingType // instanceof handles nulls
                 && primary == (((ClothingType) other).primary)); // state check
+    }
+
+    @Override
+    public int hashCode() {
+        // use this method for custom fields hashing instead of implementing your own
+        return Objects.hash(primary);
+    }
+
+    @Override
+    public int compareTo(ClothingType other) {
+        return this.primary.compareTo(other.primary);
     }
 
     @Override

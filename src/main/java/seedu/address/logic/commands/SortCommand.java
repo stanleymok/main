@@ -46,28 +46,19 @@ public class SortCommand extends Command {
         List<Apparel> lastShownList = model.getFilteredApparelList();
         List<Apparel> lastShownListUntouch = new ArrayList<>(lastShownList);
         List<Apparel> modifiableList = new ArrayList<Apparel>(lastShownList);
-        System.out.println("Before: " + modifiableList.toString());
 
         if (COMMAND_LIST_OPTIONS.equalsIgnoreCase(sortOption.toString())) {
             // print to gui
             return new CommandResult(SortOption.allOptions());
         } else if (SortOption.NAME.equals(sortOption)) {
-            //System.out.println("e-Name: " + sortOption.toString());
             modifiableList.sort((Apparel x, Apparel y) -> x.getName().compareTo(y.getName()));
         } else if (SortOption.COLOR.equals(sortOption)) {
-            //System.out.println("e-Color: " + sortOption.toString());
             modifiableList.sort((Apparel x, Apparel y) -> x.getColor().compareTo(y.getColor()));
         } else if (SortOption.TYPE.equals(sortOption)) {
-            //System.out.println("e-Type: " + sortOption.toString());
+            modifiableList.sort((Apparel x, Apparel y) -> x.getClothingType().compareTo(y.getClothingType()));
         }
 
-        System.out.println("After: " + modifiableList.toString());
-
-        // TODO: update database
-        // delete
-        System.out.println("lastShownList = " + lastShownList.toString());
         for (Apparel apparelToDelete: lastShownListUntouch) {
-            System.out.println("apparelToDelete = " + apparelToDelete);
             model.deleteApparel(apparelToDelete);
         }
         for (Apparel apparelToAdd: modifiableList) {
