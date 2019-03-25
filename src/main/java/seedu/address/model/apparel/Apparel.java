@@ -48,8 +48,7 @@ public class Apparel {
     public String getAvailabilityStatus() {
         if (isAvailable()) {
             return "Available";
-        }
-        else {
+        } else {
             return "Unavailable";
         }
     }
@@ -86,7 +85,7 @@ public class Apparel {
         return otherApparel != null
                 && otherApparel.getName().equals(getName())
                 && (otherApparel.getColor().equals(getColor())
-                || otherApparel.getClothingType().equals(getClothingType()));
+                && otherApparel.getClothingType().equals(getClothingType()));
     }
 
     /**

@@ -62,7 +62,7 @@ public interface Model {
      * Deletes the given apparel.
      * The apparel must exist in the address book.
      */
-    void deletePerson(Apparel target);
+    void deleteApparel(Apparel target);
 
     /**
      * Adds the given apparel.
@@ -122,7 +122,7 @@ public interface Model {
      * Returns the selected apparel in the filtered apparel list.
      * null if no apparel is selected.
      */
-    Apparel getSelectedPerson();
+    Apparel getSelectedApparel();
 
     /**
      * Sets the selected apparel in the filtered apparel list.

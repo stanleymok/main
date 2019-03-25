@@ -143,7 +143,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void deletePerson(Apparel target) {
+        public void deleteApparel(Apparel target) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -193,7 +193,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public Apparel getSelectedPerson() {
+        public Apparel getSelectedApparel() {
             throw new AssertionError("This method should not be called.");
         }
 

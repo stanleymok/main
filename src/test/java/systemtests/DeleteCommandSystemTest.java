@@ -117,7 +117,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
      */
     private Apparel removePerson(Model model, Index index) {
         Apparel targetApparel = getPerson(model, index);
-        model.deletePerson(targetApparel);
+        model.deleteApparel(targetApparel);
         return targetApparel;
     }
 

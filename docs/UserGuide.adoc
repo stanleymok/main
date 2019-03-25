@@ -74,6 +74,19 @@ Examples:
 Shows a list of all apparels in the address book. +
 Format: `list`
 
+=== Sort all apparels : `sort [option]`
+
+Sort all apparels in the address book based on the option supplied. +
+
+Format: `sort` +
+By default, calling `sort` without option will sort the apparels by name in ascending order. +
+
+Format: `sort options` +
+List all valid sorting options.
+
+Format: `sort [option]` +
+Sort all apparels according to the option supplied.
+
 === Editing a person : `edit`
 
 Edits an existing person in the address book. +

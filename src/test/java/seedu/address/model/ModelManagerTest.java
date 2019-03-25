@@ -36,7 +36,7 @@ public class ModelManagerTest {
         assertEquals(new UserPrefs(), modelManager.getUserPrefs());
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
         assertEquals(new AddressBook(), new AddressBook(modelManager.getAddressBook()));
-        assertEquals(null, modelManager.getSelectedPerson());
+        assertEquals(null, modelManager.getSelectedApparel());
     }
 
     @Test
@@ -106,8 +106,8 @@ public class ModelManagerTest {
     public void deletePerson_personIsSelectedAndFirstPersonInFilteredPersonList_selectionCleared() {
         modelManager.addApparel(SHIRT1);
         modelManager.setSelectedPerson(SHIRT1);
-        modelManager.deletePerson(SHIRT1);
-        assertEquals(null, modelManager.getSelectedPerson());
+        modelManager.deleteApparel(SHIRT1);
+        assertEquals(null, modelManager.getSelectedApparel());
     }
 
     @Test
@@ -116,8 +116,8 @@ public class ModelManagerTest {
         modelManager.addApparel(BOB);
         assertEquals(Arrays.asList(SHIRT1, BOB), modelManager.getFilteredApparelList());
         modelManager.setSelectedPerson(BOB);
-        modelManager.deletePerson(BOB);
-        assertEquals(SHIRT1, modelManager.getSelectedPerson());
+        modelManager.deleteApparel(BOB);
+        assertEquals(SHIRT1, modelManager.getSelectedApparel());
     }
 
     @Test
@@ -126,7 +126,7 @@ public class ModelManagerTest {
         modelManager.setSelectedPerson(SHIRT1);
         Apparel updatedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_EMAIL_BOB).build();
         modelManager.setPerson(SHIRT1, updatedAlice);
-        assertEquals(updatedAlice, modelManager.getSelectedPerson());
+        assertEquals(updatedAlice, modelManager.getSelectedApparel());
     }
 
     @Test
@@ -146,7 +146,7 @@ public class ModelManagerTest {
         modelManager.addApparel(SHIRT1);
         assertEquals(Collections.singletonList(SHIRT1), modelManager.getFilteredApparelList());
         modelManager.setSelectedPerson(SHIRT1);
-        assertEquals(SHIRT1, modelManager.getSelectedPerson());
+        assertEquals(SHIRT1, modelManager.getSelectedApparel());
     }
 
     @Test

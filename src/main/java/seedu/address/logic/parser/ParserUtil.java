@@ -7,8 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.core.index.SortBy;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.options.SortOption;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.ClothingTypeValue;
@@ -37,8 +37,17 @@ public class ParserUtil {
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
     }
 
-    public static SortBy parseSortValue(String sortBy) throws ParseException {
-        return new SortBy("testing"); // TODO: remove stud
+    /**
+     * Parse {@code optionString} into an enum type and return it.
+     * @throws ParseException if the specified optionString is invalid (not listed as valid options).
+     */
+    public static SortOption parseSortValue(String optionString) throws ParseException {
+        String optionSupplied = optionString.trim();
+        if (!SortOption.isValid(optionSupplied)) {
+            throw new ParseException("Invalid option given");
+        }
+
+        return SortOption.create(optionSupplied);
     }
 
     /**
