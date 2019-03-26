@@ -309,6 +309,13 @@ Save the clothing combination and it will be identified by the NAME and tagged t
 _{More to be added}_
 // end::save[]
 
+// tag::save[]
+=== UI Autocomplete feature
+Show matching commands and missing parameters. 
+==== Current Implementation
+_{More to be added by 3 Apr}_
+// end::save[]
+
 === Logging
 
 We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.
