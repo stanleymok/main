@@ -1,11 +1,11 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_TOP;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_GREEN;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_GREEN;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_TOP;
 
 import java.util.ArrayList;
 import java.util.Arrays;
