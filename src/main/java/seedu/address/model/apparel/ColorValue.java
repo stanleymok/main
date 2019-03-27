@@ -28,7 +28,7 @@ public enum ColorValue {
     public static boolean isValidColor(String other) {
         ColorValue[] colors = ColorValue.values();
         for (ColorValue c : colors) {
-            if (ColorValue.valueOf(other.toUpperCase()) == c) {
+            if (c.toString().equalsIgnoreCase(other)) {
                 return true;
             }
         }
