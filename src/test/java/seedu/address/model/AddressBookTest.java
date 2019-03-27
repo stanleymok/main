@@ -3,8 +3,8 @@ package seedu.address.model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.testutil.TypicalPersons.SHIRT1;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalApparels.SHIRT1;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 
 import java.util.Arrays;
 import java.util.Collection;

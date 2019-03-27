@@ -2,7 +2,7 @@ package seedu.address.ui;
 
 import static guitests.guihandles.WebViewUtil.waitUntilBrowserLoaded;
 import static org.junit.Assert.assertEquals;
-import static seedu.address.testutil.TypicalPersons.SHIRT1;
+import static seedu.address.testutil.TypicalApparels.SHIRT1;
 
 import java.net.URL;
 
