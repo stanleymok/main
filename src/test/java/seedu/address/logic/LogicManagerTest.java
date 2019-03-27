@@ -3,10 +3,10 @@ package seedu.address.logic;
 import static org.junit.Assert.assertEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
-import static seedu.address.testutil.TypicalPersons.AMY;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_TOP;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_NAME_A;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_GREEN;
+import static seedu.address.testutil.TypicalApparels.AMY;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -85,7 +85,7 @@ public class LogicManagerTest {
         logic = new LogicManager(model, storage);
 
         // Execute add command
-        String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY;
+        String addCommand = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
         Apparel expectedApparel = new ApparelBuilder(AMY).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addApparel(expectedApparel);

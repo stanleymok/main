@@ -3,8 +3,8 @@ package seedu.address.model.apparel;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.testutil.TypicalPersons.BOB;
-import static seedu.address.testutil.TypicalPersons.SHIRT1;
+import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.testutil.TypicalApparels.SHIRT1;
 
 import java.util.Arrays;
 import java.util.Collections;

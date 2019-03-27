@@ -1,24 +1,24 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_TOP;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_BOTTOM;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_TYPE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_COLOR;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_NAME_A;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_NAME_B;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_GREEN;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_BLUE;
 import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
 import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalPersons.AMY;
-import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.testutil.TypicalApparels.AMY;
+import static seedu.address.testutil.TypicalApparels.BOB;
 
 import org.junit.Test;
 
@@ -37,20 +37,20 @@ public class AddCommandParserTest {
         Apparel expectedApparel = new ApparelBuilder(BOB).build();
 
         // whitespace only preamble
-        assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB
-                + EMAIL_DESC_BOB, new AddCommand(expectedApparel));
+        assertParseSuccess(parser, PREAMBLE_WHITESPACE + INPUT_NAME_B + INPUT_COLOR_BLUE
+                + INPUT_TYPE_BOTTOM, new AddCommand(expectedApparel));
 
         // multiple names - last name accepted
-        assertParseSuccess(parser, NAME_DESC_AMY + NAME_DESC_BOB + PHONE_DESC_BOB
-                + EMAIL_DESC_BOB, new AddCommand(expectedApparel));
+        assertParseSuccess(parser, INPUT_NAME_A + INPUT_NAME_B + INPUT_COLOR_BLUE
+                + INPUT_TYPE_BOTTOM, new AddCommand(expectedApparel));
 
         // multiple phones - last phone accepted
-        assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB
-                + EMAIL_DESC_BOB, new AddCommand(expectedApparel));
+        assertParseSuccess(parser, INPUT_NAME_B + INPUT_COLOR_GREEN + INPUT_COLOR_BLUE
+                + INPUT_TYPE_BOTTOM, new AddCommand(expectedApparel));
 
         // multiple emails - last email accepted
-        assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_AMY
-                + EMAIL_DESC_BOB, new AddCommand(expectedApparel));
+        assertParseSuccess(parser, INPUT_NAME_B + INPUT_COLOR_BLUE + INPUT_TYPE_TOP
+                + INPUT_TYPE_BOTTOM, new AddCommand(expectedApparel));
 
     }
 
@@ -58,7 +58,7 @@ public class AddCommandParserTest {
     public void parse_optionalFieldsMissing_success() {
         // zero tags
         Apparel expectedApparel = new ApparelBuilder(AMY).build();
-        assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY,
+        assertParseSuccess(parser, INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP,
                 new AddCommand(expectedApparel));
     }
 
@@ -67,42 +67,42 @@ public class AddCommandParserTest {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
 
         // missing name prefix
-        assertParseFailure(parser, VALID_NAME_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB,
+        assertParseFailure(parser, VALID_NAME_B + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM,
                 expectedMessage);
 
         // missing phone prefix
-        assertParseFailure(parser, NAME_DESC_BOB + VALID_PHONE_BOB + EMAIL_DESC_BOB,
+        assertParseFailure(parser, INPUT_NAME_B + VALID_COLOR_BLUE + INPUT_TYPE_BOTTOM,
                 expectedMessage);
 
         // missing email prefix
-        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + VALID_EMAIL_BOB,
+        assertParseFailure(parser, INPUT_NAME_B + INPUT_COLOR_BLUE + VALID_TYPE_BOTTOM,
                 expectedMessage);
 
         // all prefixes missing
-        assertParseFailure(parser, VALID_NAME_BOB + VALID_PHONE_BOB + VALID_EMAIL_BOB,
+        assertParseFailure(parser, VALID_NAME_B + VALID_COLOR_BLUE + VALID_TYPE_BOTTOM,
                 expectedMessage);
     }
 
     @Test
     public void parse_invalidValue_failure() {
         // invalid name
-        assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_BOB
-                + EMAIL_DESC_BOB, Name.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, INVALID_INPUT_NAME + INPUT_COLOR_BLUE
+                + INPUT_TYPE_BOTTOM, Name.MESSAGE_CONSTRAINTS);
 
         // invalid phone
-        assertParseFailure(parser, NAME_DESC_BOB + INVALID_PHONE_DESC
-                + EMAIL_DESC_BOB, Color.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, INPUT_NAME_B + INVALID_INPUT_COLOR
+                + INPUT_TYPE_BOTTOM, Color.MESSAGE_CONSTRAINTS);
 
         // invalid email
-        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB
-                + INVALID_EMAIL_DESC, ClothingType.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, INPUT_NAME_B + INPUT_COLOR_BLUE
+                + INVALID_INPUT_TYPE, ClothingType.MESSAGE_CONSTRAINTS);
 
         // two invalid values, only first invalid value reported
-        assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_BOB + EMAIL_DESC_BOB,
+        assertParseFailure(parser, INVALID_INPUT_NAME + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM,
                 Name.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
-        assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB,
+        assertParseFailure(parser, PREAMBLE_NON_EMPTY + INPUT_NAME_B + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }

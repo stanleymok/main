@@ -2,7 +2,7 @@ package seedu.address.storage;
 
 import static org.junit.Assert.assertEquals;
 import static seedu.address.storage.JsonAdaptedApparel.MISSING_FIELD_MESSAGE_FORMAT;
-import static seedu.address.testutil.TypicalPersons.PANTS1;
+import static seedu.address.testutil.TypicalApparels.PANTS1;
 
 import org.junit.Test;
 

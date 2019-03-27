@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static seedu.address.testutil.TypicalPersons.AMY;
-import static seedu.address.testutil.TypicalPersons.BOB;
-import static seedu.address.testutil.TypicalPersons.SHIRT2;
+import static seedu.address.testutil.TypicalApparels.AMY;
+import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.testutil.TypicalApparels.SHIRT2;
 
 import java.util.Arrays;
 import java.util.Collections;
