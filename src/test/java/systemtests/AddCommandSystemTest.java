@@ -13,8 +13,8 @@ import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_BLUE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
-import static seedu.address.testutil.TypicalApparels.AMY;
-import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.testutil.TypicalApparels.ARMANY;
+import static seedu.address.testutil.TypicalApparels.BOBYIN;
 import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_MEIER;
 import static seedu.address.testutil.TypicalApparels.SHIRT1;
 import static seedu.address.testutil.TypicalApparels.SHIRT2;
@@ -49,7 +49,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         /* Case: add a apparel without tags to a non-empty address book, command with leading spaces and trailing spaces
          * -> added
          */
-        Apparel toAdd = AMY;
+        Apparel toAdd = ARMANY;
         String command = "   " + AddCommand.COMMAND_WORD + "  " + INPUT_NAME_A + "  " + INPUT_COLOR_GREEN + " "
                 + INPUT_TYPE_TOP + " ";
         assertCommandSuccess(command, toAdd);
@@ -66,14 +66,14 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, model, expectedResultMessage);
 
         /* Case: add a apparel with all fields same as another apparel in the address book except name -> added */
-        toAdd = new ApparelBuilder(AMY).withName(VALID_NAME_B).build();
+        toAdd = new ApparelBuilder(ARMANY).withName(VALID_NAME_B).build();
         command = AddCommand.COMMAND_WORD + INPUT_NAME_B + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
         assertCommandSuccess(command, toAdd);
 
         /* Case: add a apparel with all fields same as another apparel in the address book except phone and email
          * -> added
          */
-        toAdd = new ApparelBuilder(AMY).withColor(VALID_COLOR_BLUE).withClothingType(VALID_TYPE_BOTTOM).build();
+        toAdd = new ApparelBuilder(ARMANY).withColor(VALID_COLOR_BLUE).withClothingType(VALID_TYPE_BOTTOM).build();
         command = ApparelUtil.getAddCommand(toAdd);
         assertCommandSuccess(command, toAdd);
 
@@ -82,7 +82,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(SHIRT1);
 
         /* Case: add a apparel with tags, command with parameters in random order -> added */
-        toAdd = BOB;
+        toAdd = BOBYIN;
         command = AddCommand.COMMAND_WORD + INPUT_COLOR_BLUE + INPUT_NAME_B + INPUT_TYPE_BOTTOM;
         assertCommandSuccess(command, toAdd);
 

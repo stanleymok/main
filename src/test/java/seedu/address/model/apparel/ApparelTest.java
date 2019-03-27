@@ -2,10 +2,10 @@ package seedu.address.model.apparel;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
-import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
+import static seedu.address.testutil.TypicalApparels.BOBYIN;
 import static seedu.address.testutil.TypicalApparels.NAME_INFORMAL_SHIRT;
 import static seedu.address.testutil.TypicalApparels.SHIRT1;
 import static seedu.address.testutil.TypicalApparels.SHIRT2;
@@ -77,26 +77,22 @@ public class ApparelTest {
         assertFalse(SHIRT1.equals(5));
 
         // different apparel -> returns false
-        assertFalse(SHIRT1.equals(BOB));
+        assertFalse(SHIRT1.equals(BOBYIN));
 
         // different name -> returns false
         Apparel editedAlice = new ApparelBuilder(SHIRT1).withName(VALID_NAME_B).build();
         assertFalse(SHIRT1.equals(editedAlice));
 
-        // different phone -> returns false
+        // different color -> returns false
         editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_COLOR_BLUE).build();
         assertFalse(SHIRT1.equals(editedAlice));
 
-        // different email -> returns false
+        // different type -> returns false
         editedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_TYPE_BOTTOM).build();
         assertFalse(SHIRT1.equals(editedAlice));
 
-        // different address -> returns false
+        // same apparel -> returns true
         editedAlice = new ApparelBuilder(SHIRT1).build();
-        assertFalse(SHIRT1.equals(editedAlice));
-
-        // different tags -> returns false
-        editedAlice = new ApparelBuilder(SHIRT1).build();
-        assertFalse(SHIRT1.equals(editedAlice));
+        assertTrue(SHIRT1.equals(editedAlice));
     }
 }

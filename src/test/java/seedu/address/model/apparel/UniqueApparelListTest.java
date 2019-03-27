@@ -3,7 +3,7 @@ package seedu.address.model.apparel;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.testutil.TypicalApparels.BOBYIN;
 import static seedu.address.testutil.TypicalApparels.SHIRT1;
 
 import java.util.Arrays;
@@ -101,18 +101,18 @@ public class UniqueApparelListTest {
     @Test
     public void setPerson_editedPersonHasDifferentIdentity_success() {
         uniqueApparelList.add(SHIRT1);
-        uniqueApparelList.setApparel(SHIRT1, BOB);
+        uniqueApparelList.setApparel(SHIRT1, BOBYIN);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
-        expectedUniqueApparelList.add(BOB);
+        expectedUniqueApparelList.add(BOBYIN);
         assertEquals(expectedUniqueApparelList, uniqueApparelList);
     }
 
     @Test
     public void setPerson_editedPersonHasNonUniqueIdentity_throwsDuplicatePersonException() {
         uniqueApparelList.add(SHIRT1);
-        uniqueApparelList.add(BOB);
+        uniqueApparelList.add(BOBYIN);
         thrown.expect(DuplicateApparelException.class);
-        uniqueApparelList.setApparel(SHIRT1, BOB);
+        uniqueApparelList.setApparel(SHIRT1, BOBYIN);
     }
 
     @Test
@@ -145,7 +145,7 @@ public class UniqueApparelListTest {
     public void setPersons_uniquePersonList_replacesOwnListWithProvidedUniquePersonList() {
         uniqueApparelList.add(SHIRT1);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
-        expectedUniqueApparelList.add(BOB);
+        expectedUniqueApparelList.add(BOBYIN);
         uniqueApparelList.setApparels(expectedUniqueApparelList);
         assertEquals(expectedUniqueApparelList, uniqueApparelList);
     }
@@ -159,10 +159,10 @@ public class UniqueApparelListTest {
     @Test
     public void setPersons_list_replacesOwnListWithProvidedList() {
         uniqueApparelList.add(SHIRT1);
-        List<Apparel> apparelList = Collections.singletonList(BOB);
+        List<Apparel> apparelList = Collections.singletonList(BOBYIN);
         uniqueApparelList.setApparels(apparelList);
         UniqueApparelList expectedUniqueApparelList = new UniqueApparelList();
-        expectedUniqueApparelList.add(BOB);
+        expectedUniqueApparelList.add(BOBYIN);
         assertEquals(expectedUniqueApparelList, uniqueApparelList);
     }
 

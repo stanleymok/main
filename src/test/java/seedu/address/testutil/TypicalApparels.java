@@ -65,9 +65,9 @@ public class TypicalApparels {
             .withClothingType(TYPE_SHOES).build();
 
     // Manually added - Apparel's details found in {@code CommandTestUtil}
-    public static final Apparel AMY = new ApparelBuilder().withName(VALID_NAME_A).withColor(VALID_COLOR_GREEN)
+    public static final Apparel ARMANY = new ApparelBuilder().withName(VALID_NAME_A).withColor(VALID_COLOR_GREEN)
             .withClothingType(VALID_TYPE_TOP).build();
-    public static final Apparel BOB = new ApparelBuilder().withName(VALID_NAME_B).withColor(VALID_COLOR_BLUE)
+    public static final Apparel BOBYIN = new ApparelBuilder().withName(VALID_NAME_B).withColor(VALID_COLOR_BLUE)
             .withClothingType(VALID_TYPE_BOTTOM).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER

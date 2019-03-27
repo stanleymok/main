@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static seedu.address.testutil.TypicalApparels.AMY;
-import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.testutil.TypicalApparels.ARMANY;
+import static seedu.address.testutil.TypicalApparels.BOBYIN;
 import static seedu.address.testutil.TypicalApparels.SHIRT2;
 
 import java.util.Arrays;
@@ -18,8 +18,8 @@ import seedu.address.testutil.AddressBookBuilder;
 
 public class VersionedAddressBookTest {
 
-    private final ReadOnlyAddressBook addressBookWithAmy = new AddressBookBuilder().withPerson(AMY).build();
-    private final ReadOnlyAddressBook addressBookWithBob = new AddressBookBuilder().withPerson(BOB).build();
+    private final ReadOnlyAddressBook addressBookWithAmy = new AddressBookBuilder().withPerson(ARMANY).build();
+    private final ReadOnlyAddressBook addressBookWithBob = new AddressBookBuilder().withPerson(BOBYIN).build();
     private final ReadOnlyAddressBook addressBookWithCarl = new AddressBookBuilder().withPerson(SHIRT2).build();
     private final ReadOnlyAddressBook emptyAddressBook = new AddressBookBuilder().build();
 

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPARELS;
-import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.testutil.TypicalApparels.BOBYIN;
 import static seedu.address.testutil.TypicalApparels.PANTS1;
 import static seedu.address.testutil.TypicalApparels.SHIRT1;
 
@@ -113,10 +113,10 @@ public class ModelManagerTest {
     @Test
     public void deletePerson_personIsSelectedAndSecondPersonInFilteredPersonList_firstPersonSelected() {
         modelManager.addApparel(SHIRT1);
-        modelManager.addApparel(BOB);
-        assertEquals(Arrays.asList(SHIRT1, BOB), modelManager.getFilteredApparelList());
-        modelManager.setSelectedPerson(BOB);
-        modelManager.deleteApparel(BOB);
+        modelManager.addApparel(BOBYIN);
+        assertEquals(Arrays.asList(SHIRT1, BOBYIN), modelManager.getFilteredApparelList());
+        modelManager.setSelectedPerson(BOBYIN);
+        modelManager.deleteApparel(BOBYIN);
         assertEquals(SHIRT1, modelManager.getSelectedApparel());
     }
 

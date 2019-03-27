@@ -17,8 +17,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalApparels.AMY;
-import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.testutil.TypicalApparels.ARMANY;
+import static seedu.address.testutil.TypicalApparels.BOBYIN;
 
 import org.junit.Test;
 
@@ -34,7 +34,7 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Apparel expectedApparel = new ApparelBuilder(BOB).build();
+        Apparel expectedApparel = new ApparelBuilder(BOBYIN).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + INPUT_NAME_B + INPUT_COLOR_BLUE
@@ -57,7 +57,7 @@ public class AddCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Apparel expectedApparel = new ApparelBuilder(AMY).build();
+        Apparel expectedApparel = new ApparelBuilder(ARMANY).build();
         assertParseSuccess(parser, INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP,
                 new AddCommand(expectedApparel));
     }
