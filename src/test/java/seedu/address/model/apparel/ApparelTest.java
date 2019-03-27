@@ -24,6 +24,8 @@ public class ApparelTest {
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
         Apparel apparel = new ApparelBuilder().build();
         thrown.expect(UnsupportedOperationException.class);
+
+        // TODO: modify the apparel content to trigger the exception here
     }
 
     @Test
