@@ -6,6 +6,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
 import static seedu.address.testutil.TypicalApparels.BOB;
+import static seedu.address.testutil.TypicalApparels.NAME_INFORMAL_SHIRT;
 import static seedu.address.testutil.TypicalApparels.SHIRT1;
 import static seedu.address.testutil.TypicalApparels.SHIRT2;
 
@@ -47,17 +48,17 @@ public class ApparelTest {
         editedAlice = new ApparelBuilder(SHIRT1).withName(VALID_NAME_B).build();
         assertFalse(SHIRT1.isSameApparel(editedAlice));
 
-        // same name, same phone, different attributes -> returns true
+        // same name, same color, different type -> returns false
         editedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_TYPE_BOTTOM).build();
-        assertTrue(SHIRT1.isSameApparel(editedAlice));
+        assertFalse(SHIRT1.isSameApparel(editedAlice));
 
-        // same name, same email, different attributes -> returns true
+        // same name, different color, same type -> returns false
         editedAlice = new ApparelBuilder(SHIRT1).withColor(VALID_COLOR_BLUE).build();
-        assertTrue(SHIRT1.isSameApparel(editedAlice));
+        assertFalse(SHIRT1.isSameApparel(editedAlice));
 
-        // same name, same phone, same email, different attributes -> returns true
-        editedAlice = new ApparelBuilder(SHIRT1).build();
-        assertTrue(SHIRT1.isSameApparel(editedAlice));
+        // different name, same color, same type -> returns false
+        editedAlice = new ApparelBuilder(SHIRT1).withName(NAME_INFORMAL_SHIRT).build();
+        assertFalse(SHIRT1.isSameApparel(editedAlice));
     }
 
     @Test
