@@ -29,14 +29,14 @@ public class JsonAdaptedApparelTest {
     @Test
     public void toModelType_invalidName_throwsIllegalValueException() {
         JsonAdaptedApparel person =
-                new JsonAdaptedApparel(INVALID_NAME, VALID_COLOR, VALID_CLOTHING_TYPE);
+                new JsonAdaptedApparel(INVALID_NAME, VALID_COLOR, VALID_CLOTHING_TYPE, true, 1);
         String expectedMessage = Name.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
     @Test
     public void toModelType_nullName_throwsIllegalValueException() {
-        JsonAdaptedApparel person = new JsonAdaptedApparel(null, VALID_COLOR, VALID_CLOTHING_TYPE);
+        JsonAdaptedApparel person = new JsonAdaptedApparel(null, VALID_COLOR, VALID_CLOTHING_TYPE, true, 1);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
@@ -44,7 +44,7 @@ public class JsonAdaptedApparelTest {
 
     @Test
     public void toModelType_nullColor_throwsIllegalValueException() {
-        JsonAdaptedApparel person = new JsonAdaptedApparel(VALID_NAME, null, VALID_CLOTHING_TYPE);
+        JsonAdaptedApparel person = new JsonAdaptedApparel(VALID_NAME, null, VALID_CLOTHING_TYPE, true, 1);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Color.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
@@ -52,7 +52,7 @@ public class JsonAdaptedApparelTest {
 
     @Test
     public void toModelType_nullClothingType_throwsIllegalValueException() {
-        JsonAdaptedApparel person = new JsonAdaptedApparel(VALID_NAME, VALID_COLOR, null);
+        JsonAdaptedApparel person = new JsonAdaptedApparel(VALID_NAME, VALID_COLOR, null, true, 1);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, ClothingType.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
