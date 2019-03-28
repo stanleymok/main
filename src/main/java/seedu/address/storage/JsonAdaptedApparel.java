@@ -28,16 +28,19 @@ class JsonAdaptedApparel {
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
     private final Color color;
     private final ClothingType clothingType;
+    private final boolean status;
 
     /**
      * Constructs a {@code JsonAdaptedApparel} with the given apparel details.
      */
     @JsonCreator
     public JsonAdaptedApparel(@JsonProperty("name") String name, @JsonProperty("color") Color color,
-                              @JsonProperty("clothingType") ClothingType clothingType) {
+                              @JsonProperty("clothingType") ClothingType clothingType,
+                              @JsonProperty("status") boolean status) {
         this.name = name;
         this.color = color;
         this.clothingType = clothingType;
+        this.status = status;
 
     }
 
@@ -48,6 +51,7 @@ class JsonAdaptedApparel {
         name = source.getName().fullName;
         color = source.getColor();
         clothingType = source.getClothingType();
+        status = source.isAvailable();
     }
     /**
      * Converts this Jackson-friendly adapted apparel object into the model's {@code Apparel} object.
@@ -85,9 +89,11 @@ class JsonAdaptedApparel {
         }
         final ClothingType modelClothingType = new ClothingType(clothingType.toString());
 
+        final boolean modelStatus = status;
+
 
         final Set<Tag> modelTags = new HashSet<>(apparelTags);
-        return new Apparel(modelName, modelColor, modelClothingType);
+        return new Apparel(modelName, modelColor, modelClothingType, modelStatus);
     }
 
 
