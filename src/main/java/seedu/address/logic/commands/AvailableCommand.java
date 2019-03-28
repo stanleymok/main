@@ -91,7 +91,7 @@ public class AvailableCommand extends Command {
         ClothingType updatedClothingType =
                 editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
 
-        return new Apparel(updatedName, updatedColor, updatedClothingType, true);
+        return new Apparel(updatedName, updatedColor, updatedClothingType, true, apparelToEdit.getUsageCount());
     }
 
     @Override
