@@ -60,6 +60,9 @@ public class AddressBookParser {
         case UnavailableCommand.COMMAND_WORD:
             return new UnavailableCommandParser().parse(arguments);
 
+        case UnavailableCommand.ALTERNATE_COMMAND_WORD:
+            return new UnavailableCommandParser().parse(arguments);
+
         case SelectCommand.COMMAND_WORD:
             return new SelectCommandParser().parse(arguments);
 
