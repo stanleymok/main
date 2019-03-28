@@ -90,8 +90,9 @@ public class UnavailableCommand extends Command {
         Color updatedColor = editPersonDescriptor.getColor().orElse(apparelToEdit.getColor());
         ClothingType updatedClothingType =
                 editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
-
-        return new Apparel(updatedName, updatedColor, updatedClothingType, false);
+        int updatedUsageDescriptor = apparelToEdit.getUsageCount() + 1;
+        return new Apparel(updatedName, updatedColor,
+                            updatedClothingType, false, updatedUsageDescriptor);
     }
 
     @Override
