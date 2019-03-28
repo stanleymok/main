@@ -33,6 +33,15 @@ public class Apparel {
         this.usageCount = 0;
     }
 
+    public Apparel(Name name, Color color, ClothingType clothingType, boolean available) {
+        requireAllNonNull(name, color, clothingType);
+        this.name = name;
+        this.color = color;
+        this.clothingType = clothingType;
+        this.available = available;
+        this.usageCount = 0;
+    }
+
     public Name getName() {
         return name;
     }
