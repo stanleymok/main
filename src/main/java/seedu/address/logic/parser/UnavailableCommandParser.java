@@ -53,9 +53,9 @@ public class UnavailableCommandParser implements Parser<UnavailableCommand> {
                     ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_CLOTHING_TYPE).get()));
         }
 
-        if (!editPersonDescriptor.isAnyFieldEdited()) {
+        /*if (!editPersonDescriptor.isAnyFieldEdited()) {
             throw new ParseException(UnavailableCommand.MESSAGE_NOT_EDITED);
-        }
+        }*/
 
         return new UnavailableCommand(index, editPersonDescriptor);
     }
