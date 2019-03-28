@@ -90,7 +90,7 @@ public class UnavailableCommand extends Command {
         ClothingType updatedClothingType =
                 editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
 
-        return new Apparel(updatedName, updatedColor, updatedClothingType);
+        return new Apparel(updatedName, updatedColor, updatedClothingType, false);
     }
 
     @Override
