@@ -227,6 +227,7 @@ The `redo` command fails as there are no `undo` commands executed previously.
 `redo` (reapplies the `clear` command) +
 // end::undoredo[]
 
+// tag::clear[]
 === Clearing all entries : `clear`
 
 Clears all entries from the address book. +
@@ -266,6 +267,7 @@ List clothings that match the most number of other clothings.
 
 Add a matching colour combination outside predefined default combinations.
 
+// tag::delete[]
 === Delete Clothes `[coming in v2.0]`
 
 Delete a piece of clothing from the closet.
