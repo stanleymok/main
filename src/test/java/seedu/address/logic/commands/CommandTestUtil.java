@@ -35,8 +35,8 @@ public class CommandTestUtil {
     public static final String VALID_TYPE_BELT = "BELT";
     public static final String VALID_TYPE_SHOES = "SHOES";
 
-    public static final String INPUT_COLOR_GREEN = " " + PREFIX_COLOR + VALID_COLOR_GREEN;
     public static final String INPUT_COLOR_BLUE = " " + PREFIX_COLOR + VALID_COLOR_BLUE;
+    public static final String INPUT_COLOR_GREEN = " " + PREFIX_COLOR + VALID_COLOR_GREEN;
     public static final String INPUT_NAME_A = " " + PREFIX_NAME + VALID_NAME_A;
     public static final String INPUT_NAME_B = " " + PREFIX_NAME + VALID_NAME_B;
     public static final String INPUT_TYPE_TOP = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_TOP;
