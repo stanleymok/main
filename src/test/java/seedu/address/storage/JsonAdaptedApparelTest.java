@@ -22,8 +22,8 @@ public class JsonAdaptedApparelTest {
 
     @Test
     public void toModelType_validApparelDetails_returnsApparel() throws Exception {
-        JsonAdaptedApparel Apparel = new JsonAdaptedApparel(PANTS1);
-        assertEquals(PANTS1, Apparel.toModelType());
+        JsonAdaptedApparel apparel = new JsonAdaptedApparel(PANTS1);
+        assertEquals(PANTS1, apparel.toModelType());
     }
 
     @Test
