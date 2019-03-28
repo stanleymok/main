@@ -31,11 +31,12 @@ import seedu.address.model.tag.Tag;
 public class UnavailableCommand extends Command {
 
     public static final String COMMAND_WORD = "unavailable";
+    public static final String ALTERNATE_COMMAND_WORD = "dirty";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the availability of the apparel identified "
             + "by the index number used in the displayed apparel list. "
             + "Parameters: INDEX (must be a positive integer) "
-            + "Example: " + COMMAND_WORD + " 1 ";
+            + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
     public static final String MESSAGE_EDIT_APPAREL_SUCCESS = "Apparel made unavailable: %1$s";
     public static final String MESSAGE_NOT_EDITED = "Apparel index must be provided.";
