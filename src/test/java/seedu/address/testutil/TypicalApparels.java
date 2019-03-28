@@ -19,8 +19,8 @@ import seedu.address.model.apparel.Apparel;
  */
 public class TypicalApparels {
 
-    public static final String NAME_FORMAL_SHIRT = "Format Shirt";
-    public static final String NAME_FORMAL_PANTS = "Format Pants";
+    public static final String NAME_FORMAL_SHIRT = "Formal Shirt";
+    public static final String NAME_FORMAL_PANTS = "Formal Pants";
     public static final String NAME_INFORMAL_SHIRT = "Informal Shirt";
     public static final String NAME_FORMAL_BELT = "Belt";
     public static final String NAME_CASUAL_BELT = "Casual Belt";

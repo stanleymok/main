@@ -16,9 +16,9 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_GREEN;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
+import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_APPAREL;
 
 import org.junit.Test;
 
@@ -86,7 +86,7 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_allFieldsSpecified_success() {
-        Index targetIndex = INDEX_SECOND_PERSON;
+        Index targetIndex = INDEX_SECOND_APPAREL;
         String userInput = targetIndex.getOneBased() + INPUT_COLOR_BLUE + INPUT_TYPE_TOP + INPUT_NAME_A;
 
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder().withName(VALID_NAME_A)
@@ -98,7 +98,7 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_someFieldsSpecified_success() {
-        Index targetIndex = INDEX_FIRST_PERSON;
+        Index targetIndex = INDEX_FIRST_APPAREL;
         String userInput = targetIndex.getOneBased() + INPUT_COLOR_BLUE + INPUT_TYPE_TOP;
 
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder().withColor(VALID_COLOR_BLUE)
@@ -111,7 +111,7 @@ public class EditCommandParserTest {
     @Test
     public void parse_oneFieldSpecified_success() {
         // name
-        Index targetIndex = INDEX_THIRD_PERSON;
+        Index targetIndex = INDEX_THIRD_APPAREL;
         String userInput = targetIndex.getOneBased() + INPUT_NAME_A;
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder().withName(VALID_NAME_A).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
@@ -133,7 +133,7 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_multipleRepeatedFields_acceptsLast() {
-        Index targetIndex = INDEX_FIRST_PERSON;
+        Index targetIndex = INDEX_FIRST_APPAREL;
         String userInput = targetIndex.getOneBased() + INPUT_COLOR_GREEN + INPUT_TYPE_TOP
                 + INPUT_COLOR_GREEN + INPUT_TYPE_TOP + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM;
 
@@ -147,7 +147,7 @@ public class EditCommandParserTest {
     @Test
     public void parse_invalidValueFollowedByValidValue_success() {
         // no other valid values specified
-        Index targetIndex = INDEX_FIRST_PERSON;
+        Index targetIndex = INDEX_FIRST_APPAREL;
         String userInput = targetIndex.getOneBased() + INVALID_INPUT_COLOR + INPUT_COLOR_BLUE;
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder().withColor(VALID_COLOR_BLUE).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
@@ -163,7 +163,7 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_resetTags_success() {
-        Index targetIndex = INDEX_THIRD_PERSON;
+        Index targetIndex = INDEX_THIRD_APPAREL;
         String userInput = targetIndex.getOneBased() + TAG_EMPTY;
 
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder().build();

@@ -5,9 +5,9 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
+import static seedu.address.logic.commands.CommandTestUtil.showApparelAtIndex;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 
 import org.junit.Test;
@@ -31,8 +31,8 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validIndexUnfilteredList_success() {
-        Apparel apparelToDelete = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
-        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON);
+        Apparel apparelToDelete = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
+        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_APPAREL);
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS, apparelToDelete);
 
@@ -53,10 +53,10 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validIndexFilteredList_success() {
-        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+        showApparelAtIndex(model, INDEX_FIRST_APPAREL);
 
-        Apparel apparelToDelete = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
-        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON);
+        Apparel apparelToDelete = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
+        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_APPAREL);
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS, apparelToDelete);
 
@@ -70,9 +70,9 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_invalidIndexFilteredList_throwsCommandException() {
-        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+        showApparelAtIndex(model, INDEX_FIRST_APPAREL);
 
-        Index outOfBoundIndex = INDEX_SECOND_PERSON;
+        Index outOfBoundIndex = INDEX_SECOND_APPAREL;
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getApparelList().size());
 
@@ -83,8 +83,8 @@ public class DeleteCommandTest {
 
     @Test
     public void executeUndoRedo_validIndexUnfilteredList_success() throws Exception {
-        Apparel apparelToDelete = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
-        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON);
+        Apparel apparelToDelete = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
+        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_APPAREL);
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.deleteApparel(apparelToDelete);
         expectedModel.commitAddressBook();
@@ -123,11 +123,11 @@ public class DeleteCommandTest {
      */
     @Test
     public void executeUndoRedo_validIndexFilteredList_samePersonDeleted() throws Exception {
-        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON);
+        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_APPAREL);
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
 
-        showPersonAtIndex(model, INDEX_SECOND_PERSON);
-        Apparel apparelToDelete = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
+        showApparelAtIndex(model, INDEX_SECOND_APPAREL);
+        Apparel apparelToDelete = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
         expectedModel.deleteApparel(apparelToDelete);
         expectedModel.commitAddressBook();
 
@@ -138,7 +138,7 @@ public class DeleteCommandTest {
         expectedModel.undoAddressBook();
         assertCommandSuccess(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_SUCCESS, expectedModel);
 
-        assertNotEquals(apparelToDelete, model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased()));
+        assertNotEquals(apparelToDelete, model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()));
         // redo -> deletes same second apparel in unfiltered apparel list
         expectedModel.redoAddressBook();
         assertCommandSuccess(new RedoCommand(), model, commandHistory, RedoCommand.MESSAGE_SUCCESS, expectedModel);
@@ -146,14 +146,14 @@ public class DeleteCommandTest {
 
     @Test
     public void equals() {
-        DeleteCommand deleteFirstCommand = new DeleteCommand(INDEX_FIRST_PERSON);
-        DeleteCommand deleteSecondCommand = new DeleteCommand(INDEX_SECOND_PERSON);
+        DeleteCommand deleteFirstCommand = new DeleteCommand(INDEX_FIRST_APPAREL);
+        DeleteCommand deleteSecondCommand = new DeleteCommand(INDEX_SECOND_APPAREL);
 
         // same object -> returns true
         assertTrue(deleteFirstCommand.equals(deleteFirstCommand));
 
         // same values -> returns true
-        DeleteCommand deleteFirstCommandCopy = new DeleteCommand(INDEX_FIRST_PERSON);
+        DeleteCommand deleteFirstCommandCopy = new DeleteCommand(INDEX_FIRST_APPAREL);
         assertTrue(deleteFirstCommand.equals(deleteFirstCommandCopy));
 
         // different types -> returns false
