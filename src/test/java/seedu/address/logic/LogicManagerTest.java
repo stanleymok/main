@@ -3,9 +3,9 @@ package seedu.address.logic;
 import static org.junit.Assert.assertEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_GREEN;
 import static seedu.address.logic.commands.CommandTestUtil.INPUT_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_TOP;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_GREEN;
 import static seedu.address.testutil.TypicalApparels.ARMANY;
 
 import java.io.IOException;
