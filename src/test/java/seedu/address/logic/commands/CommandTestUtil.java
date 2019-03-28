@@ -26,25 +26,30 @@ import seedu.address.testutil.EditApparelDescriptorBuilder;
  */
 public class CommandTestUtil {
 
-    public static final String VALID_NAME_AMY = "Amy Bee";
-    public static final String VALID_NAME_BOB = "Bob Choo";
-    public static final String VALID_PHONE_AMY = "11111111";
-    public static final String VALID_PHONE_BOB = "22222222";
-    public static final String VALID_EMAIL_AMY = "amy@example.com";
-    public static final String VALID_EMAIL_BOB = "bob@example.com";
-    public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
+    public static final String VALID_NAME_A = "Armani";
+    public static final String VALID_NAME_B = "Bobohoo";
+    public static final String VALID_COLOR_GREEN = "Green";
+    public static final String VALID_COLOR_BLUE = "Blue";
+    public static final String VALID_TYPE_TOP = "Top";
+    public static final String VALID_TYPE_BOTTOM = "Bottom";
+    public static final String VALID_TYPE_BELT = "BELT";
+    public static final String VALID_TYPE_SHOES = "SHOES";
 
-    public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
-    public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
-    public static final String PHONE_DESC_AMY = " " + PREFIX_COLOR + VALID_PHONE_AMY;
-    public static final String PHONE_DESC_BOB = " " + PREFIX_COLOR + VALID_PHONE_BOB;
-    public static final String EMAIL_DESC_AMY = " " + PREFIX_CLOTHING_TYPE + VALID_EMAIL_AMY;
-    public static final String EMAIL_DESC_BOB = " " + PREFIX_CLOTHING_TYPE + VALID_EMAIL_BOB;
+    public static final String INPUT_NAME_A = " " + PREFIX_NAME + VALID_NAME_A;
+    public static final String INPUT_NAME_B = " " + PREFIX_NAME + VALID_NAME_B;
+    public static final String INPUT_COLOR_GREEN = " " + PREFIX_COLOR + VALID_COLOR_GREEN;
+    public static final String INPUT_COLOR_BLUE = " " + PREFIX_COLOR + VALID_COLOR_BLUE;
+    public static final String INPUT_TYPE_TOP = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_TOP;
+    public static final String INPUT_TYPE_BOTTOM = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_BOTTOM;
+    public static final String INPUT_TYPE_BELT = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_BELT;
+    public static final String INPUT_TYPE_SHOES = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_SHOES;
 
-    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
-    public static final String INVALID_PHONE_DESC = " " + PREFIX_COLOR + "911a"; // 'a' not allowed in phones
-    public static final String INVALID_EMAIL_DESC = " " + PREFIX_CLOTHING_TYPE + "bob!yahoo"; // missing '@' symbol
 
+    public static final String INVALID_INPUT_NAME = " " + PREFIX_NAME + "Amames&"; // '&' not allowed in names
+    public static final String INVALID_INPUT_COLOR = " " + PREFIX_COLOR + "Blue1"; // '1', digits not allowed in colors
+    public static final String INVALID_INPUT_TYPE = " " + PREFIX_CLOTHING_TYPE + "Necklace"; // not supported yet
+
+    // TODO: stopped here
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
@@ -52,10 +57,10 @@ public class CommandTestUtil {
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
 
     static {
-        DESC_AMY = new EditApparelDescriptorBuilder().withName(VALID_NAME_AMY)
-                .withColor(VALID_PHONE_AMY).withClothingType(VALID_EMAIL_AMY).build();
-        DESC_BOB = new EditApparelDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withColor(VALID_PHONE_BOB).withClothingType(VALID_EMAIL_BOB).build();
+        DESC_AMY = new EditApparelDescriptorBuilder().withName(VALID_NAME_A)
+                .withColor(VALID_COLOR_GREEN).withClothingType(VALID_TYPE_TOP).build();
+        DESC_BOB = new EditApparelDescriptorBuilder().withName(VALID_NAME_B)
+                .withColor(VALID_COLOR_BLUE).withClothingType(VALID_TYPE_BOTTOM).build();
     }
 
     /**

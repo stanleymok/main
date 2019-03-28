@@ -15,7 +15,7 @@ public enum ClothingTypeValue {
     public static boolean isValidClothingType(String other) {
         ClothingTypeValue[] types = ClothingTypeValue.values();
         for (ClothingTypeValue t : types) {
-            if (ClothingTypeValue.valueOf(other.toUpperCase()) == t) {
+            if (t.toString().equalsIgnoreCase(other)) {
                 return true;
             }
         }

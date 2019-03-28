@@ -3,11 +3,11 @@ package seedu.address.model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPARELS;
-import static seedu.address.testutil.TypicalPersons.BOB;
-import static seedu.address.testutil.TypicalPersons.PANTS1;
-import static seedu.address.testutil.TypicalPersons.SHIRT1;
+import static seedu.address.testutil.TypicalApparels.BOBYIN;
+import static seedu.address.testutil.TypicalApparels.PANTS1;
+import static seedu.address.testutil.TypicalApparels.SHIRT1;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -113,10 +113,10 @@ public class ModelManagerTest {
     @Test
     public void deletePerson_personIsSelectedAndSecondPersonInFilteredPersonList_firstPersonSelected() {
         modelManager.addApparel(SHIRT1);
-        modelManager.addApparel(BOB);
-        assertEquals(Arrays.asList(SHIRT1, BOB), modelManager.getFilteredApparelList());
-        modelManager.setSelectedPerson(BOB);
-        modelManager.deleteApparel(BOB);
+        modelManager.addApparel(BOBYIN);
+        assertEquals(Arrays.asList(SHIRT1, BOBYIN), modelManager.getFilteredApparelList());
+        modelManager.setSelectedPerson(BOBYIN);
+        modelManager.deleteApparel(BOBYIN);
         assertEquals(SHIRT1, modelManager.getSelectedApparel());
     }
 
@@ -124,7 +124,7 @@ public class ModelManagerTest {
     public void setPerson_personIsSelected_selectedPersonUpdated() {
         modelManager.addApparel(SHIRT1);
         modelManager.setSelectedPerson(SHIRT1);
-        Apparel updatedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_EMAIL_BOB).build();
+        Apparel updatedAlice = new ApparelBuilder(SHIRT1).withClothingType(VALID_TYPE_BOTTOM).build();
         modelManager.setPerson(SHIRT1, updatedAlice);
         assertEquals(updatedAlice, modelManager.getSelectedApparel());
     }

@@ -7,11 +7,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.Rule;
 import org.junit.Test;
+
+import org.junit.rules.ExpectedException;
 
 import seedu.address.testutil.ApparelBuilder;
 
 public class NameContainsKeywordsPredicateTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void equals() {
@@ -69,7 +74,9 @@ public class NameContainsKeywordsPredicateTest {
 
         // Keywords match phone, email and address, but does not match name
         predicate = new NameContainsKeywordsPredicate(Arrays.asList("12345", "alice@email.com", "Main", "Street"));
-        assertFalse(predicate.test(new ApparelBuilder().withName("Alice").withColor("12345")
-                .withClothingType("alice@email.com").build()));
+
+        thrown.expect(IllegalArgumentException.class);
+        predicate.test(new ApparelBuilder().withName("Alice").withColor("12345")
+                .withClothingType("alice@email.com").build());
     }
 }
