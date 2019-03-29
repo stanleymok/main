@@ -3,25 +3,25 @@ package systemtests;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_TOP;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_BOTTOM;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_TYPE;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_NAME;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_COLOR;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_BLUE;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_GREEN;
 import static seedu.address.logic.commands.CommandTestUtil.INPUT_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.INPUT_NAME_B;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_GREEN;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_BLUE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_TOP;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_BOTTOM;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_TOP;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_COLOR;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_TYPE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_GREEN;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_GREEN;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_TOP;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPARELS;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalApparels.ARMANY;
 import static seedu.address.testutil.TypicalApparels.BOBYIN;
 import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_MEIER;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 
 import org.junit.Test;
 
@@ -88,7 +88,8 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         index = INDEX_SECOND_PERSON;
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
                 + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
-        editedApparel = new ApparelBuilder(BOBYIN).withColor(VALID_COLOR_GREEN).withClothingType(VALID_TYPE_TOP).build();
+        editedApparel = new ApparelBuilder(BOBYIN).withColor(VALID_COLOR_GREEN)
+                            .withClothingType(VALID_TYPE_TOP).build();
         assertCommandSuccess(command, index, editedApparel);
 
         /* Case: clear tags -> cleared */

@@ -1,18 +1,18 @@
 package systemtests;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_TOP;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_BOTTOM;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_TYPE;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_NAME;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_COLOR;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_BLUE;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_GREEN;
 import static seedu.address.logic.commands.CommandTestUtil.INPUT_NAME_A;
 import static seedu.address.logic.commands.CommandTestUtil.INPUT_NAME_B;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_GREEN;
-import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_BLUE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_BOTTOM;
+import static seedu.address.logic.commands.CommandTestUtil.INPUT_TYPE_TOP;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_COLOR;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_INPUT_TYPE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
 import static seedu.address.testutil.TypicalApparels.ARMANY;
 import static seedu.address.testutil.TypicalApparels.BOBYIN;
 import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_MEIER;
