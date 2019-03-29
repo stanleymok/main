@@ -12,9 +12,8 @@ import seedu.address.model.UserPrefs;
  */
 class SortCommandTest {
 
+    // Setup
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     private CommandHistory commandHistory = new CommandHistory();
-
-
 }

@@ -137,7 +137,7 @@ public class CommandTestUtil {
         }
         model.updateFilteredApparelList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
-        for (Apparel a : model.getFilteredApparelList()){
+        for (Apparel a : model.getFilteredApparelList()) {
             System.out.println(a.toString());
         }
 
