@@ -4,9 +4,7 @@ package seedu.address.logic.options;
  * All valid options for Sort command.
  */
 public enum SortOption {
-    /**
-     * WARNING: OPTIONS must be the first. DO NOT put OPTIONS in any other order.
-     */
+    // WARNING: OPTIONS must be the first. DO NOT put OPTIONS in any other order.
     OPTIONS, NAME, COLOR, TYPE;
 
     /**
