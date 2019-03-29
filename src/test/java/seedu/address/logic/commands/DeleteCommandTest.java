@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+
 import static seedu.address.logic.commands.CommandTestUtil.showApparelAtIndex;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
@@ -144,7 +145,8 @@ public class DeleteCommandTest {
         assertCommandSuccess(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_SUCCESS, expectedModel);
 
         System.out.println("apparelToDelete = " + apparelToDelete.toString());
-        System.out.println("filteredItem = " + model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()).toString());
+        System.out.println("filteredItem = " + model.getFilteredApparelList()
+                .get(INDEX_FIRST_APPAREL.getZeroBased()).toString());
         assertNotEquals(apparelToDelete, model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()));
         // redo -> deletes same second apparel in unfiltered apparel list
         expectedModel.redoAddressBook();

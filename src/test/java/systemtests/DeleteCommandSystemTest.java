@@ -7,8 +7,9 @@ import static seedu.address.logic.commands.DeleteCommand.MESSAGE_DELETE_PERSON_S
 import static seedu.address.testutil.TestUtil.getLastIndex;
 import static seedu.address.testutil.TestUtil.getMidIndex;
 import static seedu.address.testutil.TestUtil.getPerson;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
+
 import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_MEIER;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
 
 import org.junit.Test;
 
@@ -31,7 +32,8 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: delete the first apparel in the list, command with leading spaces and trailing spaces -> deleted */
         Model expectedModel = getModel();
-        String command = "     " + DeleteCommand.COMMAND_WORD + "      " + INDEX_FIRST_APPAREL.getOneBased() + "       ";
+        String command = "     " + DeleteCommand.COMMAND_WORD + "      "
+                + INDEX_FIRST_APPAREL.getOneBased() + "       ";
         Apparel deletedApparel = removePerson(expectedModel, INDEX_FIRST_APPAREL);
         String expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedApparel);
         assertCommandSuccess(command, expectedModel, expectedResultMessage);

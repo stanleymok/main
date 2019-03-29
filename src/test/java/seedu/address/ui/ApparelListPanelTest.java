@@ -3,8 +3,10 @@ package seedu.address.ui;
 import static java.time.Duration.ofMillis;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
+
 import static seedu.address.testutil.TypicalApparels.getTypicalApparels;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
+
 import static seedu.address.ui.testutil.GuiTestAssert.assertCardDisplaysPerson;
 import static seedu.address.ui.testutil.GuiTestAssert.assertCardEquals;
 
@@ -51,7 +53,8 @@ public class ApparelListPanelTest extends GuiUnitTest {
         guiRobot.interact(() -> selectedPerson.set(secondApparel));
         guiRobot.pauseForHuman();
 
-        PersonCardHandle expectedPerson = personListPanelHandle.getPersonCardHandle(INDEX_SECOND_APPAREL.getZeroBased());
+        PersonCardHandle expectedPerson = personListPanelHandle
+                .getPersonCardHandle(INDEX_SECOND_APPAREL.getZeroBased());
         PersonCardHandle selectedPerson = personListPanelHandle.getHandleToSelectedCard();
         assertCardEquals(expectedPerson, selectedPerson);
     }

@@ -1,9 +1,6 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_CLOTHING_TYPE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_COLOR;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPARELS;
 
 import java.util.Collections;
@@ -28,24 +25,18 @@ import seedu.address.model.tag.Tag;
 /**
  * Edits the details of an existing apparel in the address book.
  */
-public class EditCommand extends Command {
+public class AvailableCommand extends Command {
 
-    public static final String COMMAND_WORD = "edit";
+    public static final String COMMAND_WORD = "available";
+    public static final String ALTERNATE_COMMAND_WORD = "wash";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the apparel identified "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the availability of the apparel identified "
             + "by the index number used in the displayed apparel list. "
-            + "To edit availability use dirty/unavailable and wash/available commands. "
-            + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_NAME + "NAME] "
-            + "[" + PREFIX_COLOR + "COLOR] "
-            + "[" + PREFIX_CLOTHING_TYPE + "TYPE] \n"
-            + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_COLOR + "RED "
-            + PREFIX_CLOTHING_TYPE + "BOTTOM";
+            + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_EDIT_APPAREL_SUCCESS = "Edited Apparel: %1$s";
-    public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
+    public static final String MESSAGE_EDIT_APPAREL_SUCCESS = "Apparel made available: %1$s";
+    public static final String MESSAGE_NOT_EDITED = "Apparel index must be provided.";
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
@@ -55,7 +46,7 @@ public class EditCommand extends Command {
      * @param index of the apparel in the filtered apparel list to edit
      * @param editPersonDescriptor details to edit the apparel with
      */
-    public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
+    public AvailableCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
         requireNonNull(index);
         requireNonNull(editPersonDescriptor);
 
@@ -97,7 +88,7 @@ public class EditCommand extends Command {
         ClothingType updatedClothingType =
                 editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
 
-        return new Apparel(updatedName, updatedColor, updatedClothingType);
+        return new Apparel(updatedName, updatedColor, updatedClothingType, true, apparelToEdit.getUsageCount());
     }
 
     @Override
@@ -108,12 +99,12 @@ public class EditCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof EditCommand)) {
+        if (!(other instanceof AvailableCommand)) {
             return false;
         }
 
         // state check
-        EditCommand e = (EditCommand) other;
+        AvailableCommand e = (AvailableCommand) other;
         return index.equals(e.index)
                 && editPersonDescriptor.equals(e.editPersonDescriptor);
     }
