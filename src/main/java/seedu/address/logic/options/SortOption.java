@@ -1,11 +1,14 @@
 package seedu.address.logic.options;
 
 /**
- * All valid options for Sort command.
+ * Represents the options available for Sort command.
  */
 public enum SortOption {
-    // WARNING: OPTIONS must be the first. DO NOT put OPTIONS in any other order.
-    OPTIONS, NAME, COLOR, TYPE;
+    // WARNING: OPTIONS must be the first.
+    OPTIONS,
+    NAME,
+    COLOR,
+    TYPE;
 
     /**
      * Return true if option supplied is valid, false otherwise.

@@ -7,6 +7,9 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 
+/**
+ *
+ */
 class SortCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
