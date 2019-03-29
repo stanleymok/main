@@ -137,10 +137,11 @@ public class CommandTestUtil {
         }
         model.updateFilteredApparelList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
-        // TODO : to delete
-        System.out.println(model.getFilteredApparelList());
+        for (Apparel a : model.getFilteredApparelList()){
+            System.out.println(a.toString());
+        }
 
-        assertEquals(1, model.getFilteredApparelList().size());
+        assertEquals(3, model.getFilteredApparelList().size());
     }
 
     /**

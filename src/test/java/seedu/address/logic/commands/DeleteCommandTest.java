@@ -6,9 +6,9 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showApparelAtIndex;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
-import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 
 import org.junit.Test;
 
@@ -78,6 +78,11 @@ public class DeleteCommandTest {
 
         DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex);
 
+        System.out.println("Execute invalid test function");
+        for (Apparel a : model.getFilteredApparelList()) {
+            System.out.println(a.toString());
+        }
+
         assertCommandFailure(deleteCommand, model, commandHistory, Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
     }
 
@@ -138,6 +143,8 @@ public class DeleteCommandTest {
         expectedModel.undoAddressBook();
         assertCommandSuccess(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_SUCCESS, expectedModel);
 
+        System.out.println("apparelToDelete = " + apparelToDelete.toString());
+        System.out.println("filteredItem = " + model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()).toString());
         assertNotEquals(apparelToDelete, model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()));
         // redo -> deletes same second apparel in unfiltered apparel list
         expectedModel.redoAddressBook();
