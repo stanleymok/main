@@ -26,7 +26,7 @@ import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ColorValue;
 
 /**
- * Stores the recommendation outfit of CommandRecommendation.
+ * Creates a recommendation outfit of CommandRecommendation.
  */
 // @@author PhilipPhil
 public class CommandRecommendation {
@@ -80,7 +80,7 @@ public class CommandRecommendation {
      */
     public String returnRecommendationString() {
         if (recommendedBottom == null || recommendedTop == null || recommendedShoe == null) {
-            return "You don't have enough clothing";
+            return "";
         }
 
         if (recommendedBelt == null) {
@@ -150,16 +150,7 @@ public class CommandRecommendation {
 
         return null;
     }
-    /**
-     * find a recommended bottom
-     */
-    private Apparel recommendBottom() {
-        if (bottoms.size() <= 0) {
-            return null;
-        }
-        int index = (int) (Math.random() * bottoms.size());
-        return bottoms.get(index);
-    }
+
     /**
      * initiate all the clothing type lists
      */
@@ -192,26 +183,26 @@ public class CommandRecommendation {
     // @@author PhilipPhil
     private static class ColorRules {
 
-        private static ColorValue[] whitePantsToShoe = {WHITE, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, GREY};
-        private static ColorValue[] greyPantsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
-        private static ColorValue[] blackPantsToShoe = {PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
-        private static ColorValue[] creamPantsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED};
-        private static ColorValue[] brownPantsToShoe = {WHITE, BROWN, NAVY, BLUE, GREEN};
-        private static ColorValue[] bluePantsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
-        private static ColorValue[] navyPantsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
-        private static ColorValue[] greenPantsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
-        private static ColorValue[] redPantsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
+        private static ColorValue[] whiteBottomsToShoe = {WHITE, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, GREY};
+        private static ColorValue[] greyBottomsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
+        private static ColorValue[] blackBottomsToShoe = {PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
+        private static ColorValue[] creamBottomsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED};
+        private static ColorValue[] brownBottomsToShoe = {WHITE, BROWN, NAVY, BLUE, GREEN};
+        private static ColorValue[] blueBottomsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
+        private static ColorValue[] navyBottomsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
+        private static ColorValue[] greenBottomsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
+        private static ColorValue[] redBottomsToShoe = {WHITE, GREY, BROWN, PURPLE, NAVY, BLUE, GREEN, RED, BLACK};
 
-        private static ColorValue[] whitePantsToShirt = {NAVY, RED, GREEN, BLACK, WHITE, PURPLE, PINK, GREY};
-        private static ColorValue[] greyPantsToShirt = {WHITE, BLUE, BROWN, RED};
-        private static ColorValue[] blackPantsToShirt = {NAVY, RED, GREEN, ORANGE, WHITE, PURPLE, YELLOW, PINK, GREY};
-        private static ColorValue[] creamPantsToShirt = {NAVY, RED, PINK, GREEN, BLACK};
-        private static ColorValue[] brownPantsToShirt = {WHITE};
-        private static ColorValue[] greenPantsToShirt = {WHITE};
-        private static ColorValue[] redPantsToShirt = {WHITE};
-        private static ColorValue[] bluePantsToShirt = {WHITE, YELLOW, PINK, GREEN, PURPLE, BLUE, BROWN, RED, CREAM,
+        private static ColorValue[] whiteBottomsToShirt = {NAVY, RED, GREEN, BLACK, WHITE, PURPLE, PINK, GREY};
+        private static ColorValue[] greyBottomsToShirt = {WHITE, BLUE, BROWN, RED};
+        private static ColorValue[] blackBottomsToShirt = {NAVY, RED, GREEN, ORANGE, WHITE, PURPLE, YELLOW, PINK, GREY};
+        private static ColorValue[] creamBottomsToShirt = {NAVY, RED, PINK, GREEN, BLACK};
+        private static ColorValue[] brownBottomsToShirt = {WHITE};
+        private static ColorValue[] greenBottomsToShirt = {WHITE};
+        private static ColorValue[] redBottomsToShirt = {WHITE};
+        private static ColorValue[] blueBotomsToShirt = {WHITE, YELLOW, PINK, GREEN, PURPLE, BLUE, BROWN, RED, CREAM,
                                                         KHAKI, GREY, BLACK, ORANGE};
-        private static ColorValue[] navyPantsToShirt = {WHITE, YELLOW, PINK, GREEN, PURPLE, BLUE, BROWN, RED, CREAM,
+        private static ColorValue[] navyBottomsToShirt = {WHITE, YELLOW, PINK, GREEN, PURPLE, BLUE, BROWN, RED, CREAM,
                                                         KHAKI, GREY, BLACK, ORANGE};
 
 
@@ -238,23 +229,23 @@ public class CommandRecommendation {
         static boolean isValidShoeColor(Color bottom, Color shoe) {
             switch (bottom.getPrimary()) {
             case WHITE:
-                return findMatchPants(whitePantsToShoe, shoe);
+                return findMatchPants(whiteBottomsToShoe, shoe);
             case GREY:
-                return findMatchPants(greyPantsToShoe, shoe);
+                return findMatchPants(greyBottomsToShoe, shoe);
             case BLACK:
-                return findMatchPants(blackPantsToShoe, shoe);
+                return findMatchPants(blackBottomsToShoe, shoe);
             case CREAM:
-                return findMatchPants(creamPantsToShoe, shoe);
+                return findMatchPants(creamBottomsToShoe, shoe);
             case BROWN:
-                return findMatchPants(brownPantsToShoe, shoe);
+                return findMatchPants(brownBottomsToShoe, shoe);
             case BLUE:
-                return findMatchPants(bluePantsToShoe, shoe);
+                return findMatchPants(blueBottomsToShoe, shoe);
             case NAVY:
-                return findMatchPants(navyPantsToShoe, shoe);
+                return findMatchPants(navyBottomsToShoe, shoe);
             case GREEN:
-                return findMatchPants(greenPantsToShoe, shoe);
+                return findMatchPants(greenBottomsToShoe, shoe);
             case RED:
-                return findMatchPants(redPantsToShoe, shoe);
+                return findMatchPants(redBottomsToShoe, shoe);
             default:
                 return false;
             }
@@ -292,23 +283,23 @@ public class CommandRecommendation {
         private static ColorValue[] findColors(Color bottom) {
             switch (bottom.getPrimary()) {
             case WHITE:
-                return whitePantsToShirt;
+                return whiteBottomsToShirt;
             case GREY:
-                return greyPantsToShirt;
+                return greyBottomsToShirt;
             case BLACK:
-                return blackPantsToShirt;
+                return blackBottomsToShirt;
             case CREAM:
-                return creamPantsToShirt;
+                return creamBottomsToShirt;
             case BROWN:
-                return brownPantsToShirt;
+                return brownBottomsToShirt;
             case BLUE:
-                return bluePantsToShirt;
+                return blueBotomsToShirt;
             case NAVY:
-                return navyPantsToShirt;
+                return navyBottomsToShirt;
             case GREEN:
-                return greenPantsToShirt;
+                return greenBottomsToShirt;
             default:
-                return redPantsToShirt;
+                return redBottomsToShirt;
             }
 
         }
