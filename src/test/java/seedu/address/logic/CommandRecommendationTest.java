@@ -1,6 +1,7 @@
 package seedu.address.logic;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import seedu.address.model.Model;

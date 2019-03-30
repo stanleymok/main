@@ -1,9 +1,11 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 
 import org.junit.Test;
+
 import seedu.address.logic.CommandHistory;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.apparel.Apparel;
@@ -21,7 +23,8 @@ public class RecommendationCommandTest {
 
     @Test
     public void executeEmpty() {
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
     }
 
     @Test
@@ -32,7 +35,8 @@ public class RecommendationCommandTest {
         Apparel apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Blue Jeans");
         color = new Color(ColorValue.BLUE);
@@ -40,7 +44,8 @@ public class RecommendationCommandTest {
         apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Black Shoes");
         color = new Color(ColorValue.BLACK);
@@ -64,7 +69,8 @@ public class RecommendationCommandTest {
         Apparel apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Blue Jeans");
         color = new Color(ColorValue.BLUE);
@@ -72,7 +78,8 @@ public class RecommendationCommandTest {
         apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Black Belt");
         color = new Color(ColorValue.BLACK);
@@ -80,7 +87,8 @@ public class RecommendationCommandTest {
         apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Black Shoes");
         color = new Color(ColorValue.BLACK);
@@ -107,7 +115,8 @@ public class RecommendationCommandTest {
         Apparel apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Blue Jeans");
         color = new Color(ColorValue.BLUE);
@@ -115,7 +124,8 @@ public class RecommendationCommandTest {
         apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Black Belt");
         color = new Color(ColorValue.BLACK);
@@ -123,9 +133,11 @@ public class RecommendationCommandTest {
         apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
     }
 
     @Test
@@ -136,7 +148,8 @@ public class RecommendationCommandTest {
         Apparel apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Black Belt");
         color = new Color(ColorValue.BLACK);
@@ -144,7 +157,8 @@ public class RecommendationCommandTest {
         apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Black Shoes");
         color = new Color(ColorValue.BLACK);
@@ -153,7 +167,8 @@ public class RecommendationCommandTest {
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
 
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
     }
 
@@ -166,7 +181,8 @@ public class RecommendationCommandTest {
         Apparel apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Black Belt");
         color = new Color(ColorValue.BLACK);
@@ -174,7 +190,8 @@ public class RecommendationCommandTest {
         apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
         name = new Name("Black Shoes");
         color = new Color(ColorValue.BLACK);
@@ -183,7 +200,8 @@ public class RecommendationCommandTest {
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
 
-        assertCommandSuccess(new RecommendationCommand(), model, history, RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
+        assertCommandSuccess(new RecommendationCommand(), model, history,
+                RecommendationCommand.MESSAGE_NO_RECOMMENDATION, expectedModel);
 
 
     }
