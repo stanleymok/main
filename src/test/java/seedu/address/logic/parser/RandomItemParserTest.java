@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.commands.RandomItemCommand;
 import seedu.address.model.apparel.ClothingTypeValue;
 
-
+// @@author PhilipPhil
 public class RandomItemParserTest {
     private RandomItemParser parser = new RandomItemParser();
 

@@ -15,6 +15,7 @@ import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.ColorValue;
 import seedu.address.model.apparel.Name;
 
+// @@author PhilipPhil
 public class RandomItemCommandTest {
     private CommandHistory history = new CommandHistory();
     private Model model = new ModelManager();
