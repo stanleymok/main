@@ -200,10 +200,10 @@ public class CommandRecommendation {
         private static ColorValue[] brownBottomsToShirt = {WHITE};
         private static ColorValue[] greenBottomsToShirt = {WHITE};
         private static ColorValue[] redBottomsToShirt = {WHITE};
-        private static ColorValue[] blueBotomsToShirt = {WHITE, YELLOW, PINK, GREEN, PURPLE, BLUE, BROWN, RED, CREAM,
-                                                        KHAKI, GREY, BLACK, ORANGE};
+        private static ColorValue[] blueBottomsToShirt = {WHITE, YELLOW, PINK, GREEN, PURPLE, BLUE, BROWN, RED, CREAM,
+                                                          KHAKI, GREY, BLACK, ORANGE};
         private static ColorValue[] navyBottomsToShirt = {WHITE, YELLOW, PINK, GREEN, PURPLE, BLUE, BROWN, RED, CREAM,
-                                                        KHAKI, GREY, BLACK, ORANGE};
+                                                          KHAKI, GREY, BLACK, ORANGE};
 
 
 
@@ -293,7 +293,7 @@ public class CommandRecommendation {
             case BROWN:
                 return brownBottomsToShirt;
             case BLUE:
-                return blueBotomsToShirt;
+                return blueBottomsToShirt;
             case NAVY:
                 return navyBottomsToShirt;
             case GREEN:
