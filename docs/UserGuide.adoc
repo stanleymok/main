@@ -280,7 +280,7 @@ Lists all the categorised clothes you have in your closet to your CLI.
 
 Calculates the rate of wear of each clothes.
 
-=== Recommend Clothes `[coming in v2.0]`
+=== Recommend Outfit `[coming in v2.0]`
 
 Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT. +
 Format: `recommendation`
