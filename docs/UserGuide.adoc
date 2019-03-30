@@ -282,7 +282,13 @@ Calculates the rate of wear of each clothes.
 
 === Recommend Clothes `[coming in v2.0]`
 
-Recommends clothes given occasion formality and clothes chosen.
+Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT.
+Format: `recommendation`
+
+[NOTE]
+====
+Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will allow you to see all the outfit components.
+====
 
 === Recommend Unsuitable Colours `[coming in v2.0]`
 
