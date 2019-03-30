@@ -29,7 +29,9 @@ public class RandomItemCommand extends Command {
             + "Example: " + COMMAND_WORD + " " + "BELT\n"
             + "Example: " + COMMAND_WORD + " " + "SHOES\n";
 
-    public static final String MESSAGE_RANDOM_NOT_FOUND = "random apparel found";
+    public static final String MESSAGE_RANDOM_NOT_FOUND = "could not find a random apparel item";
+    public static final String MESSAGE_MESSAGE_SUCCESS = "random apparel found";
+
 
     private final ClothingTypeValue targetType;
 
@@ -46,7 +48,7 @@ public class RandomItemCommand extends Command {
             return new CommandResult(MESSAGE_RANDOM_NOT_FOUND);
         }
 
-        return new CommandResult(randomApperals.get(0).toString());
+        return new CommandResult(MESSAGE_MESSAGE_SUCCESS + "\n" + randomApperals.get(0).toString());
     }
     /**
      * Returns a list of Apparel that is in random order and only contains targetType.
@@ -63,5 +65,10 @@ public class RandomItemCommand extends Command {
         return randomApperals;
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        return obj == this // short circuit if same object
+                || (obj instanceof RandomItemCommand // instanceof handles nulls
+                && targetType.equals(((RandomItemCommand) obj).targetType));
+    }
 }

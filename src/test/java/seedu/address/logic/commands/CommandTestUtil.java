@@ -144,4 +144,28 @@ public class CommandTestUtil {
         model.commitAddressBook();
     }
 
+    /**
+     * that takes two strings that are {@code expectedMessage}.
+     * if one is true assert true otherwise false
+     */
+    public static void assertCommandSuccessTwoSoln(Command command, Model actualModel,
+            CommandHistory actualCommandHistory, String expectedMessage1,
+            String expectedMessage2, Model expectedModel) {
+        CommandResult expectedCommandResult1 = new CommandResult(expectedMessage1);
+        CommandResult expectedCommandResult2 = new CommandResult(expectedMessage2);
+
+        CommandHistory expectedCommandHistory = new CommandHistory(actualCommandHistory);
+        try {
+            CommandResult result = command.execute(actualModel, actualCommandHistory);
+            if (expectedCommandResult1.equals(result) || expectedCommandResult2.equals(result)) {
+                assert true;
+            } else {
+                assert false;
+            }
+            assertEquals(expectedModel, actualModel);
+            assertEquals(expectedCommandHistory, actualCommandHistory);
+        } catch (CommandException ce) {
+            throw new AssertionError("Execution of command should not fail.", ce);
+        }
+    }
 }
