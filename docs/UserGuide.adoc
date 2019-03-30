@@ -343,10 +343,10 @@ e.g. `find James Jake`
 * *History* : `history`
 * *Help* : `help`
 * *List* : `list`
+* *Random* : `random TYPE` +
+e.g. `type TOP`
 * *Redo* : `redo`
 * *Recommendation* : `recommendation`
 * *Select* : `select INDEX` +
 e.g.`select 2`
 * *Undo* : `undo`
-* *Random* : `random TYPE` +
-e.g. `type TOP`
