@@ -280,9 +280,10 @@ Lists all the categorised clothes you have in your closet to your CLI.
 
 Calculates the rate of wear of each clothes.
 
-=== Recommend Clothes `[coming in v2.0]`
+=== Recommend Outfit
 
-Recommends clothes given occasion formality and clothes chosen.
+Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT. +
+Format: `recommendation`
 
 === Recommend Unsuitable Colours `[coming in v2.0]`
 
@@ -324,10 +325,11 @@ e.g. `delete 3`
 e.g. `edit 2 n/James Lee e/jameslee@example.com`
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
-* *List* : `list`
+* *History* : `history`
 * *Help* : `help`
+* *List* : `list`
+* *Redo* : `redo`
+* *Recommendation* : `recommendation`
 * *Select* : `select INDEX` +
 e.g.`select 2`
-* *History* : `history`
 * *Undo* : `undo`
-* *Redo* : `redo`

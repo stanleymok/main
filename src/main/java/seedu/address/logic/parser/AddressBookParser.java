@@ -17,6 +17,7 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.RandomItemCommand;
 import seedu.address.logic.commands.RecommendationCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
@@ -99,12 +100,15 @@ public class AddressBookParser {
 
         case UndoCommand.COMMAND_WORD:
             return new UndoCommand();
-        // @@author PhilipPhil
+
         case RecommendationCommand.COMMAND_WORD:
             return new RecommendationCommand();
 
         case RedoCommand.COMMAND_WORD:
             return new RedoCommand();
+
+        case RandomItemCommand.COMMAND_WORD:
+            return new RandomItemParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
