@@ -295,7 +295,7 @@ Returns random specified TYPE of clothing from address book. +
 Format: `random TYPE`
 
 ****
-* Returns random clothing from specified `TPYE`.
+* Returns random clothing from specified `TYPE`.
 * The type refers to the type of clothing.
 * The type *must be a positive integer* TOP,BOTTOM,BELT,SHOES
 ****
