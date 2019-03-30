@@ -287,6 +287,10 @@ Format: `recommendation`
 
 === Recommend Unsuitable Colours `[coming in v2.0]`
 
+Recommends colours that you MUST NOT wear.
+
+=== Random Item Select
+
 Returns random specified TYPE of clothing from address book. +
 Format: `random TYPE`
 
@@ -303,10 +307,6 @@ Returns a random TOP in the address book.
 
 * `random BOTTOM` +
 Returns a random BOTTOM in the address book.
-
-=== Random Item Select `[coming in v2.0]`
-
-Recommends dress attire formality i.e. formal, semi-formal, smart-casual, casual by answers to the questions asked in CLI.
 
 === Redo `[coming in v2.0]`
 
