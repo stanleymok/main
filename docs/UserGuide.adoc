@@ -348,3 +348,5 @@ e.g. `find James Jake`
 * *Select* : `select INDEX` +
 e.g.`select 2`
 * *Undo* : `undo`
+* *Random* : `random TYPE` +
+e.g. `type TOP`
