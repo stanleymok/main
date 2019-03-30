@@ -75,8 +75,7 @@ public class CommandRecommendation {
 
     }
     /**
-     * returns string of recommended outfit. If not enough items found returns message.
-     * If enough items found but no belt, returns list of items with no belt.
+     * Returns string of recommended outfit.
      */
     public String returnRecommendationString() {
         if (recommendedBottom == null || recommendedTop == null || recommendedShoe == null) {
@@ -97,7 +96,7 @@ public class CommandRecommendation {
 
 
     /**
-     * find a recommend Shoe
+     * Find Shoe that matches the outfit
      */
     private Apparel recommendShoe(Color pantColor) {
         if (shoes.size() <= 0) {
@@ -116,7 +115,7 @@ public class CommandRecommendation {
     }
 
     /**
-     * find a recommended belt
+     * Find Belt that matches the outfit
      */
     private Apparel recommendBelt(Color shoeColor) {
         if (belts.size() <= 0) {
@@ -134,7 +133,7 @@ public class CommandRecommendation {
     }
 
     /**
-     * find a recommended top
+     * Find Top that matches the outfit
      */
     private Apparel recommendTop(Color bottomColor) {
         if (tops.size() <= 0) {
@@ -229,34 +228,34 @@ public class CommandRecommendation {
         static boolean isValidShoeColor(Color bottom, Color shoe) {
             switch (bottom.getPrimary()) {
             case WHITE:
-                return findMatchPants(whiteBottomsToShoe, shoe);
+                return isColorBottomsToShoe(whiteBottomsToShoe, shoe);
             case GREY:
-                return findMatchPants(greyBottomsToShoe, shoe);
+                return isColorBottomsToShoe(greyBottomsToShoe, shoe);
             case BLACK:
-                return findMatchPants(blackBottomsToShoe, shoe);
+                return isColorBottomsToShoe(blackBottomsToShoe, shoe);
             case CREAM:
-                return findMatchPants(creamBottomsToShoe, shoe);
+                return isColorBottomsToShoe(creamBottomsToShoe, shoe);
             case BROWN:
-                return findMatchPants(brownBottomsToShoe, shoe);
+                return isColorBottomsToShoe(brownBottomsToShoe, shoe);
             case BLUE:
-                return findMatchPants(blueBottomsToShoe, shoe);
+                return isColorBottomsToShoe(blueBottomsToShoe, shoe);
             case NAVY:
-                return findMatchPants(navyBottomsToShoe, shoe);
+                return isColorBottomsToShoe(navyBottomsToShoe, shoe);
             case GREEN:
-                return findMatchPants(greenBottomsToShoe, shoe);
+                return isColorBottomsToShoe(greenBottomsToShoe, shoe);
             case RED:
-                return findMatchPants(redBottomsToShoe, shoe);
+                return isColorBottomsToShoe(redBottomsToShoe, shoe);
             default:
                 return false;
             }
         }
 
         /**
-         *  finds matching the set of shoes that corresponds to color of pants
+         *  Return true if shoe color matches bottom color
          */
-        private static boolean findMatchPants(ColorValue[] whitePantsToShoe, Color shoe) {
-            for (int i = 0; i < whitePantsToShoe.length; i++) {
-                if (shoe.getPrimary().equals(whitePantsToShoe[i])) {
+        private static boolean isColorBottomsToShoe(ColorValue[] colorBottomsToShoe, Color shoe) {
+            for (int i = 0; i < colorBottomsToShoe.length; i++) {
+                if (shoe.getPrimary().equals(colorBottomsToShoe[i])) {
                     return true;
                 }
             }
@@ -264,7 +263,7 @@ public class CommandRecommendation {
         }
 
         /**
-         * returns true if bottom and top match
+         * Returns true if top color matches bottoms color
          */
         static boolean isValidTop(Color bottom, Color top) {
             ColorValue[] colorSet = findColors(bottom);
@@ -278,7 +277,7 @@ public class CommandRecommendation {
             return false;
         }
         /**
-         * finds matching the set of top colors that corresponds to color of bottom
+         * Return the set of matching colors corresponding to color of bottom
          */
         private static ColorValue[] findColors(Color bottom) {
             switch (bottom.getPrimary()) {

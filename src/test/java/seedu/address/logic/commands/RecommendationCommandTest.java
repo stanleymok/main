@@ -53,7 +53,7 @@ public class RecommendationCommandTest {
         apparel = new Apparel(name, color, clothingType);
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
-        String successMessage = "THE OUTFIT IS:\n"
+        String successMessage = RecommendationCommand.MESSAGE_MESSAGE_SUCCESS + "\n"
                                 + "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0\n"
                                 + "Blue Jeans Color: BLUE ClothingType: BOTTOM Available: true Usage-count: 0\n"
                                 + "Black Shoes Color: BLACK ClothingType: SHOES Available: true Usage-count: 0";
@@ -97,7 +97,7 @@ public class RecommendationCommandTest {
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
 
-        String successMessage = "THE OUTFIT IS:\n"
+        String successMessage = RecommendationCommand.MESSAGE_MESSAGE_SUCCESS + "\n"
                 + "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0\n"
                 + "Blue Jeans Color: BLUE ClothingType: BOTTOM Available: true Usage-count: 0\n"
                 + "Black Belt Color: BLACK ClothingType: BELT Available: true Usage-count: 0\n"
