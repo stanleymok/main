@@ -287,9 +287,24 @@ Format: `recommendation`
 
 === Recommend Unsuitable Colours `[coming in v2.0]`
 
-Recommends colours that you MUST NOT wear.
+Returns random specified TYPE of clothing from address book. +
+Format: `random TYPE`
 
-=== Recommend Formality `[coming in v2.0]`
+****
+* Returns random clothing from specified `TPYE`.
+* The type refers to the type of clothing.
+* The type *must be a positive integer* TOP,BOTTOM,BELT,SHOES
+****
+
+Examples:
+
+* `random TOP` +
+Returns a random TOP in the address book.
+
+* `random BOTTOM` +
+Returns a random BOTTOM in the address book.
+
+=== Random Item Select `[coming in v2.0]`
 
 Recommends dress attire formality i.e. formal, semi-formal, smart-casual, casual by answers to the questions asked in CLI.
 
