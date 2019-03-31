@@ -46,7 +46,7 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.apparel = apparel;
         id.setText(displayedIndex + ". ");
-        name.setText(StringUtil.capitaliseFirstLetter(apparel.getName().fullName));
+        name.setText(apparel.getName().fullName);
         color.setText(StringUtil.capitaliseFirstLetter(apparel.getColor().toString()));
         clothingType.setText(StringUtil.capitaliseFirstLetter(apparel.getClothingType().toString()));
         status.setText(apparel.getAvailabilityStatus());

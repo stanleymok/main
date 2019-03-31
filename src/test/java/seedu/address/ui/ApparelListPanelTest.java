@@ -81,8 +81,8 @@ public class ApparelListPanelTest extends GuiUnitTest {
         ObservableList<Apparel> backingList = FXCollections.observableArrayList();
         for (int i = 0; i < personCount; i++) {
             Name name = new Name(i + "a");
-            Color color = new Color("000");
-            ClothingType clothingType = new ClothingType("a@aa");
+            Color color = new Color("BLUE");
+            ClothingType clothingType = new ClothingType("TOP");
             Address address = new Address("a");
             Apparel apparel = new Apparel(name, color, clothingType);
             backingList.add(apparel);
