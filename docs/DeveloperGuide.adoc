@@ -311,7 +311,7 @@ _{More to be added}_
 
 // tag::save[]
 === UI Autocomplete feature
-Show matching commands and missing parameters. 
+Show matching commands and missing parameters.
 ==== Current Implementation
 _{More to be added by 3 Apr}_
 // end::save[]

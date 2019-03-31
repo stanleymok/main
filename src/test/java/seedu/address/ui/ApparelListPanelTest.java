@@ -3,8 +3,10 @@ package seedu.address.ui;
 import static java.time.Duration.ofMillis;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
-import static seedu.address.testutil.TypicalApparels.getTypicalPersons;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
+
+import static seedu.address.testutil.TypicalApparels.getTypicalApparels;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
+
 import static seedu.address.ui.testutil.GuiTestAssert.assertCardDisplaysPerson;
 import static seedu.address.ui.testutil.GuiTestAssert.assertCardEquals;
 
@@ -23,7 +25,7 @@ import seedu.address.model.apparel.Name;
 
 public class ApparelListPanelTest extends GuiUnitTest {
     private static final ObservableList<Apparel> TYPICAL_APPARELS =
-            FXCollections.observableList(getTypicalPersons());
+            FXCollections.observableList(getTypicalApparels());
 
     private static final long CARD_CREATION_AND_DELETION_TIMEOUT = 2500;
 
@@ -47,11 +49,12 @@ public class ApparelListPanelTest extends GuiUnitTest {
     @Test
     public void selection_modelSelectedPersonChanged_selectionChanges() {
         initUi(TYPICAL_APPARELS);
-        Apparel secondApparel = TYPICAL_APPARELS.get(INDEX_SECOND_PERSON.getZeroBased());
+        Apparel secondApparel = TYPICAL_APPARELS.get(INDEX_SECOND_APPAREL.getZeroBased());
         guiRobot.interact(() -> selectedPerson.set(secondApparel));
         guiRobot.pauseForHuman();
 
-        PersonCardHandle expectedPerson = personListPanelHandle.getPersonCardHandle(INDEX_SECOND_PERSON.getZeroBased());
+        PersonCardHandle expectedPerson = personListPanelHandle
+                .getPersonCardHandle(INDEX_SECOND_APPAREL.getZeroBased());
         PersonCardHandle selectedPerson = personListPanelHandle.getHandleToSelectedCard();
         assertCardEquals(expectedPerson, selectedPerson);
     }

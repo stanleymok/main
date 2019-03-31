@@ -19,8 +19,8 @@ import seedu.address.model.apparel.Apparel;
  */
 public class TypicalApparels {
 
-    public static final String NAME_FORMAL_SHIRT = "Format Shirt";
-    public static final String NAME_FORMAL_PANTS = "Format Pants";
+    public static final String NAME_FORMAL_SHIRT = "Formal Shirt";
+    public static final String NAME_FORMAL_PANTS = "Formal Pants";
     public static final String NAME_INFORMAL_SHIRT = "Informal Shirt";
     public static final String NAME_FORMAL_BELT = "Belt";
     public static final String NAME_CASUAL_BELT = "Casual Belt";
@@ -44,31 +44,30 @@ public class TypicalApparels {
 
     public static final Apparel SHIRT1 = new ApparelBuilder().withName(NAME_FORMAL_SHIRT)
             .withColor(COLOR_WHITE).withClothingType(TYPE_TOP).build();
-    public static final Apparel PANTS1 = new ApparelBuilder().withName(NAME_FORMAL_PANTS)
-            .withClothingType(TYPE_BOTTOM).withColor(COLOR_BROWN).build();
     public static final Apparel SHIRT2 = new ApparelBuilder().withName(NAME_INFORMAL_SHIRT)
-            .withColor(COLOR_NAVY)
-            .withClothingType(TYPE_TOP).build();
-    public static final Apparel BELT1 = new ApparelBuilder().withName(NAME_FORMAL_BELT).withColor(COLOR_BLACK)
-            .withClothingType(TYPE_BELT).build();
-    public static final Apparel BELT2 = new ApparelBuilder().withName(NAME_CASUAL_BELT).withColor(COLOR_WHITE)
-            .withClothingType(TYPE_BELT).build();
-    public static final Apparel BELT3 = new ApparelBuilder().withName(NAME_CASUAL_BELT).withColor(COLOR_NAVY)
-            .withClothingType(TYPE_BELT).build();
-    public static final Apparel SHOES1 = new ApparelBuilder().withName(NAME_FORMAL_SHOES).withColor(COLOR_BROWN)
-            .withClothingType(TYPE_SHOES).build();
+            .withColor(COLOR_NAVY).withClothingType(TYPE_TOP).build();
 
-    // Manually added
-    public static final Apparel SHOES2 = new ApparelBuilder().withName(NAME_CASUAL_SHOES).withColor(COLOR_GREEN)
-            .withClothingType(TYPE_SHOES).build();
-    public static final Apparel SHOES3 = new ApparelBuilder().withName(NAME_SNEAKERS).withColor(COLOR_GREY)
-            .withClothingType(TYPE_SHOES).build();
+    public static final Apparel PANTS1 = new ApparelBuilder().withName(NAME_FORMAL_PANTS)
+            .withColor(COLOR_BROWN).withClothingType(TYPE_BOTTOM).build();
+
+    public static final Apparel BELT1 = new ApparelBuilder().withName(NAME_FORMAL_BELT)
+            .withColor(COLOR_BLACK).withClothingType(TYPE_BELT).build();
+    public static final Apparel BELT2 = new ApparelBuilder().withName(NAME_CASUAL_BELT)
+            .withColor(COLOR_WHITE).withClothingType(TYPE_BELT).build();
+    public static final Apparel BELT3 = new ApparelBuilder().withName(NAME_CASUAL_BELT)
+            .withColor(COLOR_NAVY).withClothingType(TYPE_BELT).build();
+    public static final Apparel SHOES1 = new ApparelBuilder().withName(NAME_FORMAL_SHOES)
+            .withColor(COLOR_BROWN).withClothingType(TYPE_SHOES).build();
+    public static final Apparel SHOES2 = new ApparelBuilder().withName(NAME_CASUAL_SHOES)
+            .withColor(COLOR_GREEN).withClothingType(TYPE_SHOES).build();
+    public static final Apparel SHOES3 = new ApparelBuilder().withName(NAME_SNEAKERS)
+            .withColor(COLOR_GREY).withClothingType(TYPE_SHOES).build();
 
     // Manually added - Apparel's details found in {@code CommandTestUtil}
-    public static final Apparel ARMANY = new ApparelBuilder().withName(VALID_NAME_A).withColor(VALID_COLOR_GREEN)
-            .withClothingType(VALID_TYPE_TOP).build();
-    public static final Apparel BOBYIN = new ApparelBuilder().withName(VALID_NAME_B).withColor(VALID_COLOR_BLUE)
-            .withClothingType(VALID_TYPE_BOTTOM).build();
+    public static final Apparel ARMANY = new ApparelBuilder().withName(VALID_NAME_A)
+            .withColor(VALID_COLOR_GREEN).withClothingType(VALID_TYPE_TOP).build();
+    public static final Apparel BOBYIN = new ApparelBuilder().withName(VALID_NAME_B)
+            .withColor(VALID_COLOR_BLUE).withClothingType(VALID_TYPE_BOTTOM).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
@@ -79,13 +78,13 @@ public class TypicalApparels {
      */
     public static AddressBook getTypicalAddressBook() {
         AddressBook ab = new AddressBook();
-        for (Apparel apparel : getTypicalPersons()) {
+        for (Apparel apparel : getTypicalApparels()) {
             ab.addApparel(apparel);
         }
         return ab;
     }
 
-    public static List<Apparel> getTypicalPersons() {
-        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, SHIRT2, BELT1, BELT2, BELT3, SHOES1));
+    public static List<Apparel> getTypicalApparels() {
+        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, BELT1, SHOES1));
     }
 }

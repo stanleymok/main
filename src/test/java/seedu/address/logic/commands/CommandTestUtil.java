@@ -125,14 +125,23 @@ public class CommandTestUtil {
      * Updates {@code model}'s filtered list to show only the apparel at the given {@code targetIndex} in the
      * {@code model}'s address book.
      */
-    public static void showPersonAtIndex(Model model, Index targetIndex) {
+    public static void showApparelAtIndex(Model model, Index targetIndex) {
         assertTrue(targetIndex.getZeroBased() < model.getFilteredApparelList().size());
 
         Apparel apparel = model.getFilteredApparelList().get(targetIndex.getZeroBased());
+        System.out.println("apparel = " + apparel.toString());
+
         final String[] splitName = apparel.getName().fullName.split("\\s+");
+        for (String s : splitName) {
+            System.out.println("s = " + s);
+        }
         model.updateFilteredApparelList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
-        assertEquals(1, model.getFilteredApparelList().size());
+        for (Apparel a : model.getFilteredApparelList()) {
+            System.out.println(a.toString());
+        }
+
+        assertEquals(3, model.getFilteredApparelList().size());
     }
 
     /**

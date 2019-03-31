@@ -9,10 +9,11 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
+
+import static seedu.address.logic.commands.CommandTestUtil.showApparelAtIndex;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
 
 import org.junit.Test;
 
@@ -40,7 +41,7 @@ public class EditCommandTest {
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         Apparel editedApparel = new ApparelBuilder().build();
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder(editedApparel).build();
-        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_APPAREL, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
 
@@ -75,8 +76,8 @@ public class EditCommandTest {
 
     @Test
     public void execute_noFieldSpecifiedUnfilteredList_success() {
-        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, new EditPersonDescriptor());
-        Apparel editedApparel = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_APPAREL, new EditPersonDescriptor());
+        Apparel editedApparel = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
 
@@ -88,11 +89,11 @@ public class EditCommandTest {
 
     @Test
     public void execute_filteredList_success() {
-        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+        showApparelAtIndex(model, INDEX_FIRST_APPAREL);
 
-        Apparel apparelInFilteredList = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Apparel apparelInFilteredList = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
         Apparel editedApparel = new ApparelBuilder(apparelInFilteredList).withName(VALID_NAME_B).build();
-        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_APPAREL,
                 new EditApparelDescriptorBuilder().withName(VALID_NAME_B).build());
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
@@ -106,20 +107,20 @@ public class EditCommandTest {
 
     @Test
     public void execute_duplicatePersonUnfilteredList_failure() {
-        Apparel firstApparel = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Apparel firstApparel = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder(firstApparel).build();
-        EditCommand editCommand = new EditCommand(INDEX_SECOND_PERSON, descriptor);
+        EditCommand editCommand = new EditCommand(INDEX_SECOND_APPAREL, descriptor);
 
         assertCommandFailure(editCommand, model, commandHistory, EditCommand.MESSAGE_DUPLICATE_APPAREL);
     }
 
     @Test
     public void execute_duplicatePersonFilteredList_failure() {
-        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+        showApparelAtIndex(model, INDEX_FIRST_APPAREL);
 
         // edit apparel in filtered list into a duplicate in address book
-        Apparel apparelInList = model.getAddressBook().getApparelList().get(INDEX_SECOND_PERSON.getZeroBased());
-        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
+        Apparel apparelInList = model.getAddressBook().getApparelList().get(INDEX_SECOND_APPAREL.getZeroBased());
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_APPAREL,
                 new EditApparelDescriptorBuilder(apparelInList).build());
 
         assertCommandFailure(editCommand, model, commandHistory, EditCommand.MESSAGE_DUPLICATE_APPAREL);
@@ -140,8 +141,8 @@ public class EditCommandTest {
      */
     @Test
     public void execute_invalidPersonIndexFilteredList_failure() {
-        showPersonAtIndex(model, INDEX_FIRST_PERSON);
-        Index outOfBoundIndex = INDEX_SECOND_PERSON;
+        showApparelAtIndex(model, INDEX_FIRST_APPAREL);
+        Index outOfBoundIndex = INDEX_SECOND_APPAREL;
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getApparelList().size());
 
@@ -154,9 +155,9 @@ public class EditCommandTest {
     @Test
     public void executeUndoRedo_validIndexUnfilteredList_success() throws Exception {
         Apparel editedApparel = new ApparelBuilder().build();
-        Apparel apparelToEdit = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Apparel apparelToEdit = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder(editedApparel).build();
-        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_APPAREL, descriptor);
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(apparelToEdit, editedApparel);
         expectedModel.commitAddressBook();
@@ -198,11 +199,11 @@ public class EditCommandTest {
     public void executeUndoRedo_validIndexFilteredList_samePersonEdited() throws Exception {
         Apparel editedApparel = new ApparelBuilder().build();
         EditPersonDescriptor descriptor = new EditApparelDescriptorBuilder(editedApparel).build();
-        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_APPAREL, descriptor);
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
 
-        showPersonAtIndex(model, INDEX_SECOND_PERSON);
-        Apparel apparelToEdit = model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased());
+        showApparelAtIndex(model, INDEX_SECOND_APPAREL);
+        Apparel apparelToEdit = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
         expectedModel.setPerson(apparelToEdit, editedApparel);
         expectedModel.commitAddressBook();
 
@@ -213,7 +214,7 @@ public class EditCommandTest {
         expectedModel.undoAddressBook();
         assertCommandSuccess(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_SUCCESS, expectedModel);
 
-        assertNotEquals(model.getFilteredApparelList().get(INDEX_FIRST_PERSON.getZeroBased()), apparelToEdit);
+        assertNotEquals(model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()), apparelToEdit);
         // redo -> edits same second apparel in unfiltered apparel list
         expectedModel.redoAddressBook();
         assertCommandSuccess(new RedoCommand(), model, commandHistory, RedoCommand.MESSAGE_SUCCESS, expectedModel);
@@ -221,11 +222,11 @@ public class EditCommandTest {
 
     @Test
     public void equals() {
-        final EditCommand standardCommand = new EditCommand(INDEX_FIRST_PERSON, DESC_AMY);
+        final EditCommand standardCommand = new EditCommand(INDEX_FIRST_APPAREL, DESC_AMY);
 
         // same values -> returns true
         EditPersonDescriptor copyDescriptor = new EditPersonDescriptor(DESC_AMY);
-        EditCommand commandWithSameValues = new EditCommand(INDEX_FIRST_PERSON, copyDescriptor);
+        EditCommand commandWithSameValues = new EditCommand(INDEX_FIRST_APPAREL, copyDescriptor);
         assertTrue(standardCommand.equals(commandWithSameValues));
 
         // same object -> returns true
@@ -238,10 +239,10 @@ public class EditCommandTest {
         assertFalse(standardCommand.equals(new ClearCommand()));
 
         // different index -> returns false
-        assertFalse(standardCommand.equals(new EditCommand(INDEX_SECOND_PERSON, DESC_AMY)));
+        assertFalse(standardCommand.equals(new EditCommand(INDEX_SECOND_APPAREL, DESC_AMY)));
 
         // different descriptor -> returns false
-        assertFalse(standardCommand.equals(new EditCommand(INDEX_FIRST_PERSON, DESC_BOB)));
+        assertFalse(standardCommand.equals(new EditCommand(INDEX_FIRST_APPAREL, DESC_BOB)));
     }
 
 }
