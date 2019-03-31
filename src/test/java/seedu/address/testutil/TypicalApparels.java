@@ -22,7 +22,7 @@ public class TypicalApparels {
     public static final String NAME_FORMAL_SHIRT = "Formal Shirt";
     public static final String NAME_FORMAL_PANTS = "Formal Pants";
     public static final String NAME_INFORMAL_SHIRT = "Informal Shirt";
-    public static final String NAME_FORMAL_BELT = "Belt";
+    public static final String NAME_FORMAL_BELT = "Formal Belt";
     public static final String NAME_CASUAL_BELT = "Casual Belt";
     public static final String NAME_FORMAL_SHOES = "Formal Shoes";
     public static final String NAME_CASUAL_SHOES = "Casual Shoes";
@@ -84,7 +84,22 @@ public class TypicalApparels {
         return ab;
     }
 
+    /**
+     * Returns an {@code AddressBook} with all the typical persons sorted by name.
+     */
+    public static AddressBook getTypicalAddressBookSortedByName() {
+        AddressBook ab = new AddressBook();
+        for (Apparel apparel : getTypicalApparelsSortedByName()) {
+            ab.addApparel(apparel);
+        }
+        return ab;
+    }
+
     public static List<Apparel> getTypicalApparels() {
-        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, BELT1, SHOES1));
+        return new ArrayList<>(Arrays.asList(SHIRT1, SHIRT2, PANTS1, BELT1, BELT2, BELT3, SHOES1, SHOES2, SHOES3));
+    }
+
+    public static List<Apparel> getTypicalApparelsSortedByName() {
+        return new ArrayList<>(Arrays.asList(BELT2, BELT3, SHOES2, BELT1, PANTS1, SHIRT1, SHOES1, SHIRT2, SHOES3));
     }
 }
