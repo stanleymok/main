@@ -280,17 +280,33 @@ Lists all the categorised clothes you have in your closet to your CLI.
 
 Calculates the rate of wear of each clothes.
 
-=== Recommend Clothes `[coming in v2.0]`
+=== Recommend Outfit
 
-Recommends clothes given occasion formality and clothes chosen.
+Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT. +
+Format: `recommendation`
 
 === Recommend Unsuitable Colours `[coming in v2.0]`
 
 Recommends colours that you MUST NOT wear.
 
-=== Recommend Formality `[coming in v2.0]`
+=== Random Item Select
 
-Recommends dress attire formality i.e. formal, semi-formal, smart-casual, casual by answers to the questions asked in CLI.
+Returns random specified TYPE of clothing from address book. +
+Format: `random TYPE`
+
+****
+* Returns random clothing from specified `TYPE`.
+* The type refers to the type of clothing.
+* The type *must be a positive integer* TOP,BOTTOM,BELT,SHOES
+****
+
+Examples:
+
+* `random TOP` +
+Returns a random TOP in the address book.
+
+* `random BOTTOM` +
+Returns a random BOTTOM in the address book.
 
 === Redo `[coming in v2.0]`
 
@@ -324,10 +340,13 @@ e.g. `delete 3`
 e.g. `edit 2 n/James Lee e/jameslee@example.com`
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
-* *List* : `list`
+* *History* : `history`
 * *Help* : `help`
+* *List* : `list`
+* *Random* : `random TYPE` +
+e.g. `type TOP`
+* *Redo* : `redo`
+* *Recommendation* : `recommendation`
 * *Select* : `select INDEX` +
 e.g.`select 2`
-* *History* : `history`
 * *Undo* : `undo`
-* *Redo* : `redo`

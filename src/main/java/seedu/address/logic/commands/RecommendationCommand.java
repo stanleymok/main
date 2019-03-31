@@ -17,8 +17,8 @@ import seedu.address.model.Model;
 public class RecommendationCommand extends Command {
 
     public static final String COMMAND_WORD = "recommendation";
-
-    public static final String MESSAGE_SUCCESS = "---RECOMMENDATION---";
+    public static final String MESSAGE_MESSAGE_SUCCESS = "the outfit is: ";
+    public static final String MESSAGE_NO_RECOMMENDATION = "not enough clothing for a recommendation";
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
@@ -26,6 +26,10 @@ public class RecommendationCommand extends Command {
         CommandRecommendation rec = new CommandRecommendation(model);
         String outfit = rec.returnRecommendationString();
 
-        return new CommandResult(MESSAGE_SUCCESS + "\n" + outfit + "\n" + MESSAGE_SUCCESS);
+        if (outfit.length() <= 0) {
+            return new CommandResult(MESSAGE_NO_RECOMMENDATION);
+        } else {
+            return new CommandResult(MESSAGE_MESSAGE_SUCCESS + "\n" + outfit);
+        }
     }
 }

@@ -91,11 +91,11 @@ public class ParserUtil {
     // @@author PhilipPhil
     public static ClothingType parseClothingType(String clothingType) throws ParseException {
         requireNonNull(clothingType);
-        String trimmedEmail = clothingType.trim();
-        if (!ClothingTypeValue.isValidClothingType(trimmedEmail)) {
+        String trimmedType = clothingType.trim();
+        if (!ClothingTypeValue.isValidClothingType(trimmedType)) {
             throw new ParseException(ClothingType.MESSAGE_CONSTRAINTS);
         }
-        return new ClothingType(trimmedEmail);
+        return new ClothingType(trimmedType);
     }
 
     /**
