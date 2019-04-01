@@ -173,7 +173,7 @@ public class ModelManagerTest {
         assertFalse(modelManager.equals(new ModelManager(differentAddressBook, userPrefs)));
 
         // different filteredList -> returns false
-        String[] keywords = SHIRT1.getName().fullName.split("\\s+");
+        String[] keywords = BOBYIN.getName().fullName.split("\\s+");
         modelManager.updateFilteredApparelList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
 
