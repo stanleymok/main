@@ -285,11 +285,26 @@ Calculates the rate of wear of each clothes.
 Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT. +
 Format: `recommendation`
 
-=== Recommend Unsuitable Colours `[coming in v2.0]`
+=== Something Color Select
 
-Recommends colours that you MUST NOT wear.
+Returns random clothing of specified COLOR from address book. +
+Format: `something COLOR`
 
-=== Random Item Select
+****
+* Returns random clothing from specified `COLOR`.
+* The color refers to the color of clothing.
+* The color *must be a one of* RED, BLUE, GREEN, WHITE, BLACK, ...
+****
+
+Examples:
+
+* `something RED` +
+Returns a RED item from the address book.
+
+* `something BLACK` +
+Returns a BLACK item from the address book.
+
+=== Random Item Type Select
 
 Returns random specified TYPE of clothing from address book. +
 Format: `random TYPE`
@@ -297,7 +312,7 @@ Format: `random TYPE`
 ****
 * Returns random clothing from specified `TYPE`.
 * The type refers to the type of clothing.
-* The type *must be a positive integer* TOP,BOTTOM,BELT,SHOES
+* The type *must be a one of* TOP,BOTTOM,BELT,SHOES
 ****
 
 Examples:
@@ -349,4 +364,6 @@ e.g. `type TOP`
 * *Recommendation* : `recommendation`
 * *Select* : `select INDEX` +
 e.g.`select 2`
+* *Something* : `something COLOR` +
+e.g. `color RED`
 * *Undo* : `undo`

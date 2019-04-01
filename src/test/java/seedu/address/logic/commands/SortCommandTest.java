@@ -1,8 +1,16 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByColor;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByName;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByType;
+
+import org.junit.Test;
 
 import seedu.address.logic.CommandHistory;
+import seedu.address.logic.options.SortOption;
+
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -10,10 +18,48 @@ import seedu.address.model.UserPrefs;
 /**
  *
  */
-class SortCommandTest {
+public class SortCommandTest {
 
     // Setup
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     private CommandHistory commandHistory = new CommandHistory();
+
+    @Test
+    public void execute_sortedName_success() {
+        Model expectedModelSortedByName = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        expectedModelSortedByName.setAddressBook(getTypicalAddressBookSortedByName());
+        expectedModelSortedByName.commitAddressBook();
+
+        SortCommand sc = new SortCommand(SortOption.NAME);
+        String expectedMessage = SortCommand.MESSAGE_SORT_APPAREL_SUCCESS + " by name.";
+
+        assertCommandSuccess(sc, model, commandHistory, expectedMessage, expectedModelSortedByName);
+    }
+
+    @Test
+    public void execute_sortedColor_success() {
+        Model expectedModelSortedByColor = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        expectedModelSortedByColor.setAddressBook(getTypicalAddressBookSortedByColor());
+        expectedModelSortedByColor.commitAddressBook();
+
+        SortCommand sc = new SortCommand(SortOption.COLOR);
+        String expectedMessage = SortCommand.MESSAGE_SORT_APPAREL_SUCCESS + " by color.";
+
+        assertCommandSuccess(sc, model, commandHistory, expectedMessage, expectedModelSortedByColor);
+    }
+
+    @Test
+    public void execute_sortedType_success() {
+        Model expectedModelSortedByType = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        expectedModelSortedByType.setAddressBook(getTypicalAddressBookSortedByType());
+        expectedModelSortedByType.commitAddressBook();
+
+        SortCommand sc = new SortCommand(SortOption.TYPE);
+        String expectedMessage = SortCommand.MESSAGE_SORT_APPAREL_SUCCESS + " by type.";
+
+        assertCommandSuccess(sc, model, commandHistory, expectedMessage, expectedModelSortedByType);
+    }
 }

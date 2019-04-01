@@ -22,7 +22,7 @@ public class TypicalApparels {
     public static final String NAME_FORMAL_SHIRT = "Formal Shirt";
     public static final String NAME_FORMAL_PANTS = "Formal Pants";
     public static final String NAME_INFORMAL_SHIRT = "Informal Shirt";
-    public static final String NAME_FORMAL_BELT = "Belt";
+    public static final String NAME_FORMAL_BELT = "Formal Belt";
     public static final String NAME_CASUAL_BELT = "Casual Belt";
     public static final String NAME_FORMAL_SHOES = "Formal Shoes";
     public static final String NAME_CASUAL_SHOES = "Casual Shoes";
@@ -69,7 +69,7 @@ public class TypicalApparels {
     public static final Apparel BOBYIN = new ApparelBuilder().withName(VALID_NAME_B)
             .withColor(VALID_COLOR_BLUE).withClothingType(VALID_TYPE_BOTTOM).build();
 
-    public static final String KEYWORD_MATCHING_BELT = "Belt"; // A keyword that matches MEIER
+    public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
     private TypicalApparels() {} // prevents instantiation
 
@@ -84,7 +84,52 @@ public class TypicalApparels {
         return ab;
     }
 
+    /**
+     * Returns an {@code AddressBook} with all the typical persons sorted by name.
+     */
+    public static AddressBook getTypicalAddressBookSortedByName() {
+        AddressBook ab = new AddressBook();
+        for (Apparel apparel : getTypicalApparelsSortedByName()) {
+            ab.addApparel(apparel);
+        }
+        return ab;
+    }
+
+    /**
+     * Returns an {@code AddressBook} with all the typical persons sorted by color.
+     */
+    public static AddressBook getTypicalAddressBookSortedByColor() {
+        AddressBook ab = new AddressBook();
+        for (Apparel apparel : getTypicalApparelsSortedByColor()) {
+            ab.addApparel(apparel);
+        }
+        return ab;
+    }
+
+    /**
+     * Returns an {@code AddressBook} with all the typical persons sorted by color.
+     */
+    public static AddressBook getTypicalAddressBookSortedByType() {
+        AddressBook ab = new AddressBook();
+        for (Apparel apparel : getTypicalApparelsSortedByType()) {
+            ab.addApparel(apparel);
+        }
+        return ab;
+    }
+
     public static List<Apparel> getTypicalApparels() {
-        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, BELT1, BELT2, SHOES1, SHOES2, SHOES3));
+        return new ArrayList<>(Arrays.asList(SHIRT1, SHIRT2, PANTS1, BELT1, BELT2, BELT3, SHOES1, SHOES2, SHOES3));
+    }
+
+    public static List<Apparel> getTypicalApparelsSortedByName() {
+        return new ArrayList<>(Arrays.asList(BELT2, BELT3, SHOES2, BELT1, PANTS1, SHIRT1, SHOES1, SHIRT2, SHOES3));
+    }
+
+    public static List<Apparel> getTypicalApparelsSortedByColor() {
+        return new ArrayList<>(Arrays.asList(BELT1, PANTS1, SHOES1, SHOES2, SHOES3, SHIRT2, BELT3, SHIRT1, BELT2));
+    }
+
+    public static List<Apparel> getTypicalApparelsSortedByType() {
+        return new ArrayList<>(Arrays.asList(BELT1, BELT2, BELT3, PANTS1, SHOES1, SHOES2, SHOES3, SHIRT1, SHIRT2));
     }
 }

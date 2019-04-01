@@ -21,6 +21,7 @@ import seedu.address.logic.commands.RandomItemCommand;
 import seedu.address.logic.commands.RecommendationCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
+import seedu.address.logic.commands.SomethingColorCommand;
 import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.commands.UnavailableCommand;
 import seedu.address.logic.commands.UndoCommand;
@@ -109,6 +110,9 @@ public class AddressBookParser {
 
         case RandomItemCommand.COMMAND_WORD:
             return new RandomItemParser().parse(arguments);
+
+        case SomethingColorCommand.COMMAND_WORD:
+            return new SomethingColorParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

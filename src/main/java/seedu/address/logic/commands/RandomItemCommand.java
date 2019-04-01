@@ -8,7 +8,6 @@ import java.util.Collections;
 import javafx.collections.ObservableList;
 
 import seedu.address.logic.CommandHistory;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.ClothingTypeValue;
@@ -39,7 +38,7 @@ public class RandomItemCommand extends Command {
         this.targetType = targetType;
     }
     @Override
-    public CommandResult execute(Model model, CommandHistory history) throws CommandException {
+    public CommandResult execute(Model model, CommandHistory history) {
         requireNonNull(model);
 
         ArrayList<Apparel> randomApperals = shuffleApperals(model.getFilteredApparelList());
@@ -54,15 +53,15 @@ public class RandomItemCommand extends Command {
      * Returns a list of Apparel that is in random order and only contains targetType.
      */
     private ArrayList<Apparel> shuffleApperals(ObservableList<Apparel> filteredApparelList) {
-        ArrayList<Apparel> randomApperals = new ArrayList<>();
+        ArrayList<Apparel> randomApparels = new ArrayList<>();
         for (int i = 0; i < filteredApparelList.size(); i++) {
             Apparel currApparel = filteredApparelList.get(i);
             if (currApparel.getClothingType().getClothingTypeValue().equals(targetType)) {
-                randomApperals.add(currApparel);
+                randomApparels.add(currApparel);
             }
         }
-        Collections.shuffle(randomApperals);
-        return randomApperals;
+        Collections.shuffle(randomApparels);
+        return randomApparels;
     }
 
     @Override
