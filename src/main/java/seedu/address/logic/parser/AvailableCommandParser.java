@@ -40,7 +40,8 @@ public class AvailableCommandParser implements Parser<AvailableCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AvailableCommand.MESSAGE_USAGE), pe);
         }
 
-        AvailableCommand.AvailablePersonDescriptor availablePersonDescriptor = new AvailableCommand.AvailablePersonDescriptor();
+        AvailableCommand.AvailablePersonDescriptor availablePersonDescriptor =
+                new AvailableCommand.AvailablePersonDescriptor();
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             availablePersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         }
