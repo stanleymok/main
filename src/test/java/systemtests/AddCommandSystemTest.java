@@ -105,12 +105,12 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         command = ApparelUtil.getAddCommand(SHOES2);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
 
-        /**//* Case: add a duplicate apparel except with different color -> rejected *//* this is valid now
+        /**//* Case: add a duplicate apparel except with different color -> rejected *//* this is invalid now
         toAdd = new ApparelBuilder(SHOES2).withColor(VALID_COLOR_BLUE).build();
         command = ApparelUtil.getAddCommand(toAdd);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
 
-        *//* Case: add a duplicate apparel except with different clothingType -> rejected *//* also valid
+        *//* Case: add a duplicate apparel except with different clothingType -> rejected *//* also invalid
         toAdd = new ApparelBuilder(SHOES2).withClothingType(VALID_TYPE_BOTTOM).build();
         command = ApparelUtil.getAddCommand(toAdd);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
