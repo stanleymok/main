@@ -107,40 +107,40 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         command = ApparelUtil.getAddCommand(SHOES2);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
 
-        /* Case: add a duplicate apparel except with different phone -> rejected */
-        toAdd = new ApparelBuilder(SHOES2).withColor(VALID_COLOR_BLUE).build();
-        command = ApparelUtil.getAddCommand(toAdd);
-        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
+//        /* Case: add a duplicate apparel except with different color -> rejected */ this is valid now
+//        toAdd = new ApparelBuilder(SHOES2).withColor(VALID_COLOR_BLUE).build();
+//        command = ApparelUtil.getAddCommand(toAdd);
+//        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
 
-        /* Case: add a duplicate apparel except with different email -> rejected */
-        toAdd = new ApparelBuilder(SHOES2).withClothingType(VALID_TYPE_BOTTOM).build();
-        command = ApparelUtil.getAddCommand(toAdd);
-        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
+//        /* Case: add a duplicate apparel except with different clothingType -> rejected */ also valid
+//        toAdd = new ApparelBuilder(SHOES2).withClothingType(VALID_TYPE_BOTTOM).build();
+//        command = ApparelUtil.getAddCommand(toAdd);
+//        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
 
-        /* Case: add a duplicate apparel except with different address -> rejected */
-        toAdd = new ApparelBuilder(SHOES2).build();
-        command = ApparelUtil.getAddCommand(toAdd);
-        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
+//        /* Case: add a duplicate apparel except with different address -> rejected */ address not valid anymore
+//        toAdd = new ApparelBuilder(SHOES2).build();
+//        command = ApparelUtil.getAddCommand(toAdd);
+//        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
 
-        /* Case: add a duplicate apparel except with different tags -> rejected */
-        command = ApparelUtil.getAddCommand(SHOES2);
-        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
+//        /* Case: add a duplicate apparel except with different tags -> rejected */ no more tags
+//        command = ApparelUtil.getAddCommand(SHOES2);
+//        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
 
         /* Case: missing name -> rejected */
         command = AddCommand.COMMAND_WORD + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
-        /* Case: missing phone -> rejected */
+        /* Case: missing color -> rejected */
         command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_TYPE_TOP;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
-        /* Case: missing email -> rejected */
+        /* Case: missing clothingType -> rejected */
         command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
-        /* Case: missing address -> rejected */
-        command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
-        assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+//        /* Case: missing address -> rejected */ no more address
+//        command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
+//        assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
         /* Case: invalid keyword -> rejected */
         command = "adds " + ApparelUtil.getApparelDetails(toAdd);
@@ -150,21 +150,21 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         command = AddCommand.COMMAND_WORD + INVALID_INPUT_NAME + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
         assertCommandFailure(command, Name.MESSAGE_CONSTRAINTS);
 
-        /* Case: invalid phone -> rejected */
+        /* Case: invalid color -> rejected */
         command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INVALID_INPUT_COLOR + INPUT_TYPE_TOP;
         assertCommandFailure(command, Color.MESSAGE_CONSTRAINTS);
 
-        /* Case: invalid email -> rejected */
+        /* Case: invalid clothingType -> rejected */
         command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INVALID_INPUT_TYPE;
         assertCommandFailure(command, ClothingType.MESSAGE_CONSTRAINTS);
 
-        /* Case: invalid address -> rejected */
-        command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
-        assertCommandFailure(command, Address.MESSAGE_CONSTRAINTS);
-
-        /* Case: invalid tag -> rejected */
-        command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
-        assertCommandFailure(command, Tag.MESSAGE_CONSTRAINTS);
+//        /* Case: invalid address -> rejected */
+//        command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
+//        assertCommandFailure(command, Address.MESSAGE_CONSTRAINTS);
+//
+//        /* Case: invalid tag -> rejected */
+//        command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
+//        assertCommandFailure(command, Tag.MESSAGE_CONSTRAINTS);
     }
 
     /**
