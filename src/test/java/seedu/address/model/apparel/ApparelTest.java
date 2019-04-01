@@ -20,7 +20,7 @@ public class ApparelTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-/*    @Test
+    /*@Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
         Apparel apparel = new ApparelBuilder().build();
         thrown.expect(UnsupportedOperationException.class);

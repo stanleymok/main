@@ -105,7 +105,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         command = ApparelUtil.getAddCommand(SHOES2);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
 
-/*        *//* Case: add a duplicate apparel except with different color -> rejected *//* this is valid now
+        /**//* Case: add a duplicate apparel except with different color -> rejected *//* this is valid now
         toAdd = new ApparelBuilder(SHOES2).withColor(VALID_COLOR_BLUE).build();
         command = ApparelUtil.getAddCommand(toAdd);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_APPAREL);
@@ -136,7 +136,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
-/*        *//* Case: missing address -> rejected *//* no more address
+        /**//* Case: missing address -> rejected *//* no more address
         command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));*/
 
@@ -156,7 +156,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INVALID_INPUT_TYPE;
         assertCommandFailure(command, ClothingType.MESSAGE_CONSTRAINTS);
 
-/*        *//* Case: invalid address -> rejected *//*
+        /**//* Case: invalid address -> rejected *//*
         command = AddCommand.COMMAND_WORD + INPUT_NAME_A + INPUT_COLOR_GREEN + INPUT_TYPE_TOP;
         assertCommandFailure(command, Address.MESSAGE_CONSTRAINTS);
 

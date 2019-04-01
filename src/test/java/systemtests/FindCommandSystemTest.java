@@ -113,7 +113,7 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-/*        *//* Case: find clothingType of apparel in address book -> 0 persons found *//*
+        /**//* Case: find clothingType of apparel in address book -> 0 persons found *//*
         Belt's clothingType is 'Belt', so not valid here
         command = FindCommand.COMMAND_WORD + " " + SHIRT2.getClothingType();
         assertCommandSuccess(command, expectedModel);
