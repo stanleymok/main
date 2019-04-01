@@ -40,18 +40,18 @@ public class UnavailableCommandTest {
 
     @Test
     public void execute_dirty_success() {
-            Apparel editedApparel = new ApparelBuilder().buildUnavailable();
-            editedApparel.use();
-            UnavailablePersonDescriptor descriptor = new UnavailableApparelDescriptorBuilder(editedApparel).build();
-            UnavailableCommand unavailableCommand = new UnavailableCommand(INDEX_FIRST_APPAREL, descriptor);
+        Apparel editedApparel = new ApparelBuilder().buildUnavailable();
+        editedApparel.use();
+        UnavailablePersonDescriptor descriptor = new UnavailableApparelDescriptorBuilder(editedApparel).build();
+        UnavailableCommand unavailableCommand = new UnavailableCommand(INDEX_FIRST_APPAREL, descriptor);
 
-            String expectedMessage = String.format(UnavailableCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
+        String expectedMessage = String.format(UnavailableCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
 
-            Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-            expectedModel.setPerson(model.getFilteredApparelList().get(0), editedApparel);
-            expectedModel.commitAddressBook();
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(model.getFilteredApparelList().get(0), editedApparel);
+        expectedModel.commitAddressBook();
 
-            assertCommandSuccess(unavailableCommand, model, commandHistory, expectedMessage, expectedModel);
+        assertCommandSuccess(unavailableCommand, model, commandHistory, expectedMessage, expectedModel);
     }
 
     @Test
@@ -122,10 +122,12 @@ public class UnavailableCommandTest {
     @Test
     public void execute_invalidPersonIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredApparelList().size() + 1);
-        UnavailablePersonDescriptor descriptor = new UnavailableApparelDescriptorBuilder().withName(VALID_NAME_B).build();
+        UnavailablePersonDescriptor descriptor = new
+                UnavailableApparelDescriptorBuilder().withName(VALID_NAME_B).build();
         UnavailableCommand unavailableCommand = new UnavailableCommand(outOfBoundIndex, descriptor);
 
-        assertCommandFailure(unavailableCommand, model, commandHistory, Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
+        assertCommandFailure(unavailableCommand, model, commandHistory,
+                Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
     }
 
     /**
@@ -142,8 +144,6 @@ public class UnavailableCommandTest {
         UnavailableCommand availableCommand = new UnavailableCommand(outOfBoundIndex,
                 new UnavailableApparelDescriptorBuilder().withName(VALID_NAME_B).build());
         availableCommand.execute(model, commandHistory);
-
-        //assertCommandFailure(availableCommand, model, commandHistory, Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
     }
 
     @Test
@@ -171,11 +171,13 @@ public class UnavailableCommandTest {
     @Test
     public void executeUndoRedo_invalidIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredApparelList().size() + 1);
-        UnavailablePersonDescriptor descriptor = new UnavailableApparelDescriptorBuilder().withName(VALID_NAME_B).build();
+        UnavailablePersonDescriptor descriptor = new UnavailableApparelDescriptorBuilder()
+                .withName(VALID_NAME_B).build();
         UnavailableCommand unavailableCommand = new UnavailableCommand(outOfBoundIndex, descriptor);
 
         // execution failed -> address book state not added into model
-        assertCommandFailure(unavailableCommand, model, commandHistory, Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
+        assertCommandFailure(unavailableCommand, model, commandHistory,
+                Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
 
         // single address book state in model -> undoCommand and redoCommand fail
         assertCommandFailure(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_FAILURE);

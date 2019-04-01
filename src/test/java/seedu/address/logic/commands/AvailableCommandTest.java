@@ -1,15 +1,14 @@
 package seedu.address.logic.commands;
 
 import static org.junit.Assert.assertFalse;
-//import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtilExtra.DESC_ANDY;
-import static seedu.address.logic.commands.CommandTestUtilExtra.DESC_BOBBY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.showApparelAtIndex;
+import static seedu.address.logic.commands.CommandTestUtilExtra.DESC_ANDY;
+import static seedu.address.logic.commands.CommandTestUtilExtra.DESC_BOBBY;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
@@ -39,17 +38,17 @@ public class AvailableCommandTest {
 
     @Test
     public void execute_wash_success() {
-            Apparel editedApparel = new ApparelBuilder().buildAvailable();
-            AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder(editedApparel).build();
-            AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL, descriptor);
+        Apparel editedApparel = new ApparelBuilder().buildAvailable();
+        AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder(editedApparel).build();
+        AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL, descriptor);
 
-            String expectedMessage = String.format(AvailableCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
+        String expectedMessage = String.format(AvailableCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
 
-            Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-            expectedModel.setPerson(model.getFilteredApparelList().get(0), editedApparel);
-            expectedModel.commitAddressBook();
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(model.getFilteredApparelList().get(0), editedApparel);
+        expectedModel.commitAddressBook();
 
-            assertCommandSuccess(availableCommand, model, commandHistory, expectedMessage, expectedModel);
+        assertCommandSuccess(availableCommand, model, commandHistory, expectedMessage, expectedModel);
     }
 
     @Test
@@ -149,8 +148,6 @@ public class AvailableCommandTest {
         AvailableCommand availableCommand = new AvailableCommand(outOfBoundIndex,
                 new AvailableApparelDescriptorBuilder().withName(VALID_NAME_B).build());
         availableCommand.execute(model, commandHistory);
-
-        //assertCommandFailure(availableCommand, model, commandHistory, Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
     }
 
     @Test
