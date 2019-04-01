@@ -4,11 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.CommandRecommendation;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-
-
-
 
 /**
  * Return a recommended outfit to the user.
@@ -21,7 +17,7 @@ public class RecommendationCommand extends Command {
     public static final String MESSAGE_NO_RECOMMENDATION = "not enough clothing for a recommendation";
 
     @Override
-    public CommandResult execute(Model model, CommandHistory history) throws CommandException {
+    public CommandResult execute(Model model, CommandHistory history) {
         requireNonNull(model);
         CommandRecommendation rec = new CommandRecommendation(model);
         String outfit = rec.returnRecommendationString();
