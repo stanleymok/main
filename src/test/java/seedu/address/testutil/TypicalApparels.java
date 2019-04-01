@@ -85,6 +85,6 @@ public class TypicalApparels {
     }
 
     public static List<Apparel> getTypicalApparels() {
-        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, BELT1, BELT2, SHOES1, SHOES2, ARMANY));
+        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, BELT1, BELT2, SHOES1, SHOES2, SHOES3));
     }
 }
