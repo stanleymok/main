@@ -285,7 +285,7 @@ Calculates the rate of wear of each clothes.
 Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT. +
 Format: `recommendation`
 
-=== Something Color Select `[coming in v2.0]`
+=== Something Color Select
 
 Returns random clothing of specified COLOR from address book. +
 Format: `something COLOR`
