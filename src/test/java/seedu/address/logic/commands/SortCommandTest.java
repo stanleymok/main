@@ -25,6 +25,16 @@ public class SortCommandTest {
     private CommandHistory commandHistory = new CommandHistory();
 
     @Test
+    public void execute_seeSortOptions_success() {
+        Model expectedModelSortedByType = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        SortCommand sc = new SortCommand(SortOption.OPTIONS);
+        String expectedMessage = SortOption.allOptions();
+
+        assertCommandSuccess(sc, model, commandHistory, expectedMessage, expectedModelSortedByType);
+    }
+
+    @Test
     public void execute_sortedName_success() {
         Model expectedModelSortedByName = new ModelManager(model.getAddressBook(), new UserPrefs());
 
