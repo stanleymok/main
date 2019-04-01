@@ -49,7 +49,6 @@ public class CommandTestUtil {
     public static final String INVALID_INPUT_COLOR = " " + PREFIX_COLOR + "Blue1"; // '1', digits not allowed in colors
     public static final String INVALID_INPUT_TYPE = " " + PREFIX_CLOTHING_TYPE + "Necklace"; // not supported yet
 
-    // TODO: stopped here
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
