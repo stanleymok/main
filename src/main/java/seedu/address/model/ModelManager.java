@@ -232,6 +232,9 @@ public class ModelManager implements Model {
                 && Objects.equals(selectedPerson.get(), other.selectedPerson.get());
     }
 
+    /**
+     * Debugging tool to determine and output the property that is different.
+     */
     public void validateEquality(ModelManager other) {
         if (!versionedAddressBook.equals(other.versionedAddressBook)) {
             System.out.println("versionedAddressBook is different");
@@ -252,11 +255,11 @@ public class ModelManager implements Model {
 
     @Override
     public String toString() {
-        return "ModelManager{" +
-                "versionedAddressBook=" + versionedAddressBook +
-                ", userPrefs=" + userPrefs +
-                ", filteredApparels=" + filteredApparels +
-                ", selectedPerson=" + selectedPerson +
-                '}';
+        return "ModelManager{"
+                + "versionedAddressBook=" + versionedAddressBook
+                + ", userPrefs=" + userPrefs
+                + ", filteredApparels=" + filteredApparels
+                + ", selectedPerson=" + selectedPerson
+                + '}';
     }
 }
