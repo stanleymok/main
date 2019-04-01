@@ -1,5 +1,5 @@
 {
-  "persons": [ {
+  "apparels": [ {
     "name": "Valid Pants",
     "color": "Blue",
     "clothingType": "Bottom"

@@ -26,8 +26,8 @@ class JsonAdaptedApparel {
 
     private final String name;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
-    private final Color color;
-    private final ClothingType clothingType;
+    private final String color;
+    private final String clothingType;
     private final boolean status;
     private final int usageCount;
 
@@ -35,8 +35,8 @@ class JsonAdaptedApparel {
      * Constructs a {@code JsonAdaptedApparel} with the given apparel details.
      */
     @JsonCreator
-    public JsonAdaptedApparel(@JsonProperty("name") String name, @JsonProperty("color") Color color,
-                              @JsonProperty("clothingType") ClothingType clothingType,
+    public JsonAdaptedApparel(@JsonProperty("name") String name, @JsonProperty("color") String color,
+                              @JsonProperty("clothingType") String clothingType,
                               @JsonProperty("status") boolean status,
                               @JsonProperty("usageCount") int usageCount) {
         this.name = name;
@@ -52,8 +52,8 @@ class JsonAdaptedApparel {
      */
     public JsonAdaptedApparel(Apparel source) {
         name = source.getName().fullName;
-        color = source.getColor();
-        clothingType = source.getClothingType();
+        color = source.getColor().toString();
+        clothingType = source.getClothingType().toString();
         status = source.isAvailable();
         usageCount = source.getUsageCount();
     }
@@ -79,19 +79,19 @@ class JsonAdaptedApparel {
         if (color == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Color.class.getSimpleName()));
         }
-        if (!ColorValue.isValidColor(color.toString())) {
+        if (!ColorValue.isValidColor(color)) {
             throw new IllegalValueException(Color.MESSAGE_CONSTRAINTS);
         }
-        final Color modelColor = new Color(color.toString());
+        final Color modelColor = new Color(color);
 
         if (clothingType == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     ClothingType.class.getSimpleName()));
         }
-        if (!ClothingTypeValue.isValidClothingType(clothingType.toString())) {
+        if (!ClothingTypeValue.isValidClothingType(clothingType)) {
             throw new IllegalValueException(ClothingType.MESSAGE_CONSTRAINTS);
         }
-        final ClothingType modelClothingType = new ClothingType(clothingType.toString());
+        final ClothingType modelClothingType = new ClothingType(clothingType);
 
         final boolean modelStatus = status;
 

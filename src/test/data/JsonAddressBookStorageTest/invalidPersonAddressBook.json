@@ -1,5 +1,5 @@
 {
-  "persons": [ {
+  "apparels": [ {
     "name": "Apparel with invalid name field: Ha!ns Mu@ster",
     "color": "Blue",
     "clothingType": "Bottom"
