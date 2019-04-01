@@ -15,7 +15,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TYPE_BOTTOM;
 import static seedu.address.testutil.TypicalApparels.ARMANY;
 import static seedu.address.testutil.TypicalApparels.BOBYIN;
-import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_MEIER;
+import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_BELT;
 import static seedu.address.testutil.TypicalApparels.SHIRT1;
 import static seedu.address.testutil.TypicalApparels.SHIRT2;
 import static seedu.address.testutil.TypicalApparels.SHOES2;
@@ -92,7 +92,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         /* -------------------------- Perform add operation on the shown filtered list ------------------------------ */
 
         /* Case: filters the apparel list before adding -> added */
-        showPersonsWithName(KEYWORD_MATCHING_MEIER);
+        showPersonsWithName(KEYWORD_MATCHING_BELT);
         assertCommandSuccess(SHOES3);
 
         /* ------------------------ Perform add operation while a apparel card is selected -------------------------- */

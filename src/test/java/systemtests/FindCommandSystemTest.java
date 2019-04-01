@@ -4,7 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static seedu.address.commons.core.Messages.MESSAGE_APPARELS_LISTED_OVERVIEW;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.testutil.TypicalApparels.BELT1;
-import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_MEIER;
+import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_BELT;
 import static seedu.address.testutil.TypicalApparels.PANTS1;
 import static seedu.address.testutil.TypicalApparels.SHIRT2;
 
@@ -24,7 +24,7 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
         /* Case: find multiple persons in address book, command with leading spaces and trailing spaces
          * -> 2 persons found
          */
-        String command = "   " + FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER + "   ";
+        String command = "   " + FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_BELT + "   ";
         Model expectedModel = getModel();
         ModelHelper.setFilteredList(expectedModel, PANTS1, BELT1); // first names of Benson and Daniel are "Meier"
         assertCommandSuccess(command, expectedModel);
@@ -33,7 +33,7 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
         /* Case: repeat previous find command where apparel list is displaying the persons we are finding
          * -> 2 persons found
          */
-        command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
+        command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_BELT;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
@@ -79,7 +79,7 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
         /* Case: find same persons in address book after deleting 1 of them -> 1 apparel found */
         executeCommand(DeleteCommand.COMMAND_WORD + " 1");
         assertFalse(getModel().getAddressBook().getApparelList().contains(PANTS1));
-        command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
+        command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_BELT;
         expectedModel = getModel();
         ModelHelper.setFilteredList(expectedModel, BELT1);
         assertCommandSuccess(command, expectedModel);
@@ -128,7 +128,7 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: find apparel in empty address book -> 0 persons found */
         deleteAllPersons();
-        command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
+        command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_BELT;
         expectedModel = getModel();
         ModelHelper.setFilteredList(expectedModel, BELT1);
         assertCommandSuccess(command, expectedModel);

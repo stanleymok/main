@@ -20,7 +20,7 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPARELS;
 
 import static seedu.address.testutil.TypicalApparels.ARMANY;
 import static seedu.address.testutil.TypicalApparels.BOBYIN;
-import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_MEIER;
+import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_BELT;
 
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
@@ -104,7 +104,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         /* ------------------ Performing edit operation while a filtered list is being shown ------------------------ */
 
         /* Case: filtered apparel list, edit index within bounds of address book and apparel list -> edited */
-        showPersonsWithName(KEYWORD_MATCHING_MEIER);
+        showPersonsWithName(KEYWORD_MATCHING_BELT);
         index = INDEX_FIRST_APPAREL;
         assertTrue(index.getZeroBased() < getModel().getFilteredApparelList().size());
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + INPUT_NAME_B;
@@ -115,7 +115,7 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
         /* Case: filtered apparel list, edit index within bounds of address book but out of bounds of apparel list
          * -> rejected
          */
-        showPersonsWithName(KEYWORD_MATCHING_MEIER);
+        showPersonsWithName(KEYWORD_MATCHING_BELT);
         int invalidIndex = getModel().getAddressBook().getApparelList().size();
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + INPUT_NAME_B,
                 Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);

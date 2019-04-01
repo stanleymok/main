@@ -69,7 +69,7 @@ public class TypicalApparels {
     public static final Apparel BOBYIN = new ApparelBuilder().withName(VALID_NAME_B)
             .withColor(VALID_COLOR_BLUE).withClothingType(VALID_TYPE_BOTTOM).build();
 
-    public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
+    public static final String KEYWORD_MATCHING_BELT = "Belt"; // A keyword that matches MEIER
 
     private TypicalApparels() {} // prevents instantiation
 
@@ -85,6 +85,6 @@ public class TypicalApparels {
     }
 
     public static List<Apparel> getTypicalApparels() {
-        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, BELT1, SHOES1));
+        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, BELT1, BELT2, SHOES1, SHOES2, ARMANY));
     }
 }
