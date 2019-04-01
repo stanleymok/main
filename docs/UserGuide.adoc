@@ -301,6 +301,14 @@ Format: `something COLOR`
 Returns random specified TYPE of clothing from address book. +
 Format: `random TYPE`
 
+Examples:
+
+* `something RED` +
+Returns a RED item from the address book.
+
+* `something BLACK` +
+Returns a BLACK item from the address book.
+
 ****
 * Returns random clothing from specified `TYPE`.
 * The type refers to the type of clothing.
