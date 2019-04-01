@@ -161,7 +161,7 @@ public class EditCommandParserTest {
         assertParseSuccess(parser, userInput, expectedCommand);
     }
 
-    @Test
+    /*@Test not dealing with tags anymore.
     public void parse_resetTags_success() {
         Index targetIndex = INDEX_THIRD_APPAREL;
         String userInput = targetIndex.getOneBased() + TAG_EMPTY;
@@ -170,5 +170,5 @@ public class EditCommandParserTest {
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
-    }
+    }*/
 }

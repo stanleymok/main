@@ -1,15 +1,9 @@
 package seedu.address.logic.parser;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,20 +13,19 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.tag.Tag;
 import seedu.address.testutil.Assert;
 
 public class ParserUtilTest {
-    private static final String INVALID_NAME = "R@chel";
-    private static final String INVALID_PHONE = "+651234";
-    private static final String INVALID_EMAIL = "example.com";
-    private static final String INVALID_TAG = "#friend";
+    private static final String INVALID_NAME = "Stripey Shirt!!!!!!";
+    private static final String INVALID_COLOR = "Blackkkkk";
+    private static final String INVALID_CLOTHING_TYPE = "Bottoms but not really bottoms";
+    //private static final String INVALID_TAG = "#friend";
 
-    private static final String VALID_NAME = "Rachel Walker";
-    private static final String VALID_PHONE = "123456";
-    private static final String VALID_EMAIL = "rachel@example.com";
-    private static final String VALID_TAG_1 = "friend";
-    private static final String VALID_TAG_2 = "neighbour";
+    private static final String VALID_NAME = "Stripey Shirt";
+    private static final String VALID_COLOR = "Black";
+    private static final String VALID_CLOTHING_TYPE = "Bottom";
+    //private static final String VALID_TAG_1 = "friend";
+    //private static final String VALID_TAG_2 = "neighbour";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -85,52 +78,52 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parsePhone_null_throwsNullPointerException() {
+    public void parseColor_null_throwsNullPointerException() {
         Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseColor((String) null));
     }
 
     @Test
-    public void parsePhone_invalidValue_throwsParseException() {
-        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseColor(INVALID_PHONE));
+    public void parseColor_invalidValue_throwsParseException() {
+        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseColor(INVALID_COLOR));
     }
 
     @Test
-    public void parsePhone_validValueWithoutWhitespace_returnsPhone() throws Exception {
-        Color expectedColor = new Color(VALID_PHONE);
-        assertEquals(expectedColor, ParserUtil.parseColor(VALID_PHONE));
+    public void parseColor_validValueWithoutWhitespace_returnsColor() throws Exception {
+        Color expectedColor = new Color(VALID_COLOR);
+        assertEquals(expectedColor, ParserUtil.parseColor(VALID_COLOR));
     }
 
     @Test
-    public void parsePhone_validValueWithWhitespace_returnsTrimmedPhone() throws Exception {
-        String phoneWithWhitespace = WHITESPACE + VALID_PHONE + WHITESPACE;
-        Color expectedColor = new Color(VALID_PHONE);
+    public void parseColor_validValueWithWhitespace_returnsTrimmedColor() throws Exception {
+        String phoneWithWhitespace = WHITESPACE + VALID_COLOR + WHITESPACE;
+        Color expectedColor = new Color(VALID_COLOR);
         assertEquals(expectedColor, ParserUtil.parseColor(phoneWithWhitespace));
     }
 
     @Test
-    public void parseEmail_null_throwsNullPointerException() {
+    public void parseClothingType_null_throwsNullPointerException() {
         Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseClothingType((String) null));
     }
 
     @Test
-    public void parseEmail_invalidValue_throwsParseException() {
-        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseClothingType(INVALID_EMAIL));
+    public void parseClothingType_invalidValue_throwsParseException() {
+        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseClothingType(INVALID_CLOTHING_TYPE));
     }
 
     @Test
-    public void parseEmail_validValueWithoutWhitespace_returnsEmail() throws Exception {
-        ClothingType expectedClothingType = new ClothingType(VALID_EMAIL);
-        assertEquals(expectedClothingType, ParserUtil.parseClothingType(VALID_EMAIL));
+    public void parseClothingType_validValueWithoutWhitespace_returnsClothingType() throws Exception {
+        ClothingType expectedClothingType = new ClothingType(VALID_CLOTHING_TYPE);
+        assertEquals(expectedClothingType, ParserUtil.parseClothingType(VALID_CLOTHING_TYPE));
     }
 
     @Test
-    public void parseEmail_validValueWithWhitespace_returnsTrimmedEmail() throws Exception {
-        String emailWithWhitespace = WHITESPACE + VALID_EMAIL + WHITESPACE;
-        ClothingType expectedClothingType = new ClothingType(VALID_EMAIL);
+    public void parseClothingType_validValueWithWhitespace_returnsTrimmedClothingType() throws Exception {
+        String emailWithWhitespace = WHITESPACE + VALID_CLOTHING_TYPE + WHITESPACE;
+        ClothingType expectedClothingType = new ClothingType(VALID_CLOTHING_TYPE);
         assertEquals(expectedClothingType, ParserUtil.parseClothingType(emailWithWhitespace));
     }
 
-    @Test
+    /*@Test not dealing with tags anymore
     public void parseTag_null_throwsNullPointerException() throws Exception {
         thrown.expect(NullPointerException.class);
         ParserUtil.parseTag(null);
@@ -178,5 +171,5 @@ public class ParserUtilTest {
         Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
-    }
+    }*/
 }
