@@ -1,12 +1,16 @@
 package seedu.address.logic.parser;
 
-
-import org.junit.jupiter.api.Test;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import seedu.address.logic.commands.SomethingColorCommand;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.logic.commands.SomethingColorCommand;
 import seedu.address.model.apparel.ColorValue;
+
+
+
 
 // @@author PhilipPhil
 public class SomethingColorParserTest {
