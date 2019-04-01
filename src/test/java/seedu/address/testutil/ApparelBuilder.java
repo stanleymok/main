@@ -63,4 +63,12 @@ public class ApparelBuilder {
         return new Apparel(name, color, clothingType);
     }
 
+    public Apparel buildAvailable() {
+        return new Apparel(name, color, clothingType, true);
+    }
+
+    public Apparel buildUnavailable() {
+        return new Apparel(name, color, clothingType, false);
+    }
+
 }

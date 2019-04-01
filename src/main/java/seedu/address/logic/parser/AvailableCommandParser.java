@@ -13,7 +13,6 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AvailableCommand;
-import seedu.address.logic.commands.AvailableCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.tag.Tag;
 
@@ -41,23 +40,24 @@ public class AvailableCommandParser implements Parser<AvailableCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AvailableCommand.MESSAGE_USAGE), pe);
         }
 
-        EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
+        AvailableCommand.AvailablePersonDescriptor availablePersonDescriptor =
+                new AvailableCommand.AvailablePersonDescriptor();
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            editPersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
+            availablePersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         }
         if (argMultimap.getValue(PREFIX_COLOR).isPresent()) {
-            editPersonDescriptor.setColor(ParserUtil.parseColor(argMultimap.getValue(PREFIX_COLOR).get()));
+            availablePersonDescriptor.setColor(ParserUtil.parseColor(argMultimap.getValue(PREFIX_COLOR).get()));
         }
         if (argMultimap.getValue(PREFIX_CLOTHING_TYPE).isPresent()) {
-            editPersonDescriptor.setClothingType(
+            availablePersonDescriptor.setClothingType(
                     ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_CLOTHING_TYPE).get()));
         }
 
-        /*if (!editPersonDescriptor.isAnyFieldEdited()) {
+        /*if (!availablePersonDescriptor.isAnyFieldEdited()) {
             throw new ParseException(UnavailableCommand.MESSAGE_NOT_EDITED);
         }*/
 
-        return new AvailableCommand(index, editPersonDescriptor);
+        return new AvailableCommand(index, availablePersonDescriptor);
     }
 
     /**

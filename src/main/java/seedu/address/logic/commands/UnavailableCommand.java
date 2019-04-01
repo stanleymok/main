@@ -40,18 +40,18 @@ public class UnavailableCommand extends Command {
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
-    private final EditPersonDescriptor editPersonDescriptor;
+    private final UnavailablePersonDescriptor unavailablePersonDescriptor;
 
     /**
      * @param index of the apparel in the filtered apparel list to edit
      * @param editPersonDescriptor details to edit the apparel with
      */
-    public UnavailableCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
+    public UnavailableCommand(Index index, UnavailablePersonDescriptor editPersonDescriptor) {
         requireNonNull(index);
         requireNonNull(editPersonDescriptor);
 
         this.index = index;
-        this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
+        this.unavailablePersonDescriptor = new UnavailablePersonDescriptor(editPersonDescriptor);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class UnavailableCommand extends Command {
         }
 
         Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
-        Apparel editedApparel = createEditedPerson(apparelToEdit, editPersonDescriptor);
+        Apparel editedApparel = createEditedPerson(apparelToEdit, unavailablePersonDescriptor);
 
         if (!apparelToEdit.isSameApparel(editedApparel) && model.hasApparel(editedApparel)) {
             throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
@@ -80,7 +80,7 @@ public class UnavailableCommand extends Command {
      * Creates and returns a {@code Apparel} with the details of {@code apparelToEdit}
      * edited with {@code editPersonDescriptor}.
      */
-    private static Apparel createEditedPerson(Apparel apparelToEdit, EditPersonDescriptor editPersonDescriptor) {
+    private static Apparel createEditedPerson(Apparel apparelToEdit, UnavailablePersonDescriptor editPersonDescriptor) {
         assert apparelToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(apparelToEdit.getName());
@@ -107,27 +107,27 @@ public class UnavailableCommand extends Command {
         // state check
         UnavailableCommand e = (UnavailableCommand) other;
         return index.equals(e.index)
-                && editPersonDescriptor.equals(e.editPersonDescriptor);
+                && unavailablePersonDescriptor.equals(e.unavailablePersonDescriptor);
     }
 
     /**
      * Stores the details to edit the apparel with. Each non-empty field value will replace the
      * corresponding field value of the apparel.
      */
-    public static class EditPersonDescriptor {
+    public static class UnavailablePersonDescriptor {
         private Name name;
         private Color color;
         private ClothingType clothingType;
         private Address address;
         private Set<Tag> tags;
 
-        public EditPersonDescriptor() {}
+        public UnavailablePersonDescriptor() {}
 
         /**
          * Copy constructor.
          * A defensive copy of {@code tags} is used internally.
          */
-        public EditPersonDescriptor(EditPersonDescriptor toCopy) {
+        public UnavailablePersonDescriptor(UnavailablePersonDescriptor toCopy) {
             setName(toCopy.name);
             setColor(toCopy.color);
             setClothingType(toCopy.clothingType);
@@ -199,12 +199,12 @@ public class UnavailableCommand extends Command {
             }
 
             // instanceof handles nulls
-            if (!(other instanceof EditPersonDescriptor)) {
+            if (!(other instanceof UnavailablePersonDescriptor)) {
                 return false;
             }
 
             // state check
-            EditPersonDescriptor e = (EditPersonDescriptor) other;
+            UnavailablePersonDescriptor e = (UnavailablePersonDescriptor) other;
 
             return getName().equals(e.getName())
                     && getColor().equals(e.getColor())

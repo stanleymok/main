@@ -11,7 +11,6 @@ import java.util.Set;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -40,18 +39,18 @@ public class AvailableCommand extends Command {
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
-    private final EditPersonDescriptor editPersonDescriptor;
+    private final AvailablePersonDescriptor availablePersonDescriptor;
 
     /**
      * @param index of the apparel in the filtered apparel list to edit
-     * @param editPersonDescriptor details to edit the apparel with
+     * @param availablePersonDescriptor details to edit the apparel with
      */
-    public AvailableCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
+    public AvailableCommand(Index index, AvailablePersonDescriptor availablePersonDescriptor) {
         requireNonNull(index);
-        requireNonNull(editPersonDescriptor);
+        requireNonNull(availablePersonDescriptor);
 
         this.index = index;
-        this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
+        this.availablePersonDescriptor = new AvailablePersonDescriptor(availablePersonDescriptor);
     }
 
     @Override
@@ -64,7 +63,7 @@ public class AvailableCommand extends Command {
         }
 
         Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
-        Apparel editedApparel = createEditedPerson(apparelToEdit, editPersonDescriptor);
+        Apparel editedApparel = createEditedPerson(apparelToEdit, availablePersonDescriptor);
 
         if (!apparelToEdit.isSameApparel(editedApparel) && model.hasApparel(editedApparel)) {
             throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
@@ -78,15 +77,16 @@ public class AvailableCommand extends Command {
 
     /**
      * Creates and returns a {@code Apparel} with the details of {@code apparelToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * edited with {@code availablePersonDescriptor}.
      */
-    private static Apparel createEditedPerson(Apparel apparelToEdit, EditPersonDescriptor editPersonDescriptor) {
+    private static Apparel createEditedPerson(Apparel apparelToEdit, AvailablePersonDescriptor
+            availablePersonDescriptor) {
         assert apparelToEdit != null;
 
-        Name updatedName = editPersonDescriptor.getName().orElse(apparelToEdit.getName());
-        Color updatedColor = editPersonDescriptor.getColor().orElse(apparelToEdit.getColor());
+        Name updatedName = availablePersonDescriptor.getName().orElse(apparelToEdit.getName());
+        Color updatedColor = availablePersonDescriptor.getColor().orElse(apparelToEdit.getColor());
         ClothingType updatedClothingType =
-                editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
+                availablePersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
 
         return new Apparel(updatedName, updatedColor, updatedClothingType, true, apparelToEdit.getUsageCount());
     }
@@ -106,39 +106,32 @@ public class AvailableCommand extends Command {
         // state check
         AvailableCommand e = (AvailableCommand) other;
         return index.equals(e.index)
-                && editPersonDescriptor.equals(e.editPersonDescriptor);
+                && availablePersonDescriptor.equals(e.availablePersonDescriptor);
     }
 
     /**
      * Stores the details to edit the apparel with. Each non-empty field value will replace the
      * corresponding field value of the apparel.
      */
-    public static class EditPersonDescriptor {
+    public static class AvailablePersonDescriptor {
         private Name name;
         private Color color;
         private ClothingType clothingType;
         private Address address;
         private Set<Tag> tags;
 
-        public EditPersonDescriptor() {}
+        public AvailablePersonDescriptor() {}
 
         /**
          * Copy constructor.
          * A defensive copy of {@code tags} is used internally.
          */
-        public EditPersonDescriptor(EditPersonDescriptor toCopy) {
+        public AvailablePersonDescriptor(AvailablePersonDescriptor toCopy) {
             setName(toCopy.name);
             setColor(toCopy.color);
             setClothingType(toCopy.clothingType);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
-        }
-
-        /**
-         * Returns true if at least one field is edited.
-         */
-        public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, color, clothingType, address, tags);
         }
 
         public void setName(Name name) {
@@ -198,12 +191,12 @@ public class AvailableCommand extends Command {
             }
 
             // instanceof handles nulls
-            if (!(other instanceof EditPersonDescriptor)) {
+            if (!(other instanceof AvailablePersonDescriptor)) {
                 return false;
             }
 
             // state check
-            EditPersonDescriptor e = (EditPersonDescriptor) other;
+            AvailablePersonDescriptor e = (AvailablePersonDescriptor) other;
 
             return getName().equals(e.getName())
                     && getColor().equals(e.getColor())
