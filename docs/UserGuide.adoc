@@ -293,7 +293,7 @@ Format: `something COLOR`
 ****
 * Returns random clothing from specified `COLOR`.
 * The color refers to the color of clothing.
-* The color *must be a valid color * RED, BLUE, GREEN, WHITE, BLACK, ...
+* The color *must be a one of* RED, BLUE, GREEN, WHITE, BLACK, ...
 ****
 
 Examples:
