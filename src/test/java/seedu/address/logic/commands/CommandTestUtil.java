@@ -52,13 +52,13 @@ public class CommandTestUtil {
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
-    public static final EditCommand.EditPersonDescriptor DESC_AMY;
-    public static final EditCommand.EditPersonDescriptor DESC_BOB;
+    public static final EditCommand.EditPersonDescriptor DESC_ARMANI;
+    public static final EditCommand.EditPersonDescriptor DESC_BOBOHOO;
 
     static {
-        DESC_AMY = new EditApparelDescriptorBuilder().withName(VALID_NAME_A)
+        DESC_ARMANI = new EditApparelDescriptorBuilder().withName(VALID_NAME_A)
                 .withColor(VALID_COLOR_GREEN).withClothingType(VALID_TYPE_TOP).build();
-        DESC_BOB = new EditApparelDescriptorBuilder().withName(VALID_NAME_B)
+        DESC_BOBOHOO = new EditApparelDescriptorBuilder().withName(VALID_NAME_B)
                 .withColor(VALID_COLOR_BLUE).withClothingType(VALID_TYPE_BOTTOM).build();
     }
 

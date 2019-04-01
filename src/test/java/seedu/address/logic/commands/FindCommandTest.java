@@ -5,9 +5,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_APPARELS_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalApparels.BELT1;
 import static seedu.address.testutil.TypicalApparels.BELT2;
 import static seedu.address.testutil.TypicalApparels.BELT3;
-import static seedu.address.testutil.TypicalApparels.SHIRT2;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 
 import java.util.Arrays;
@@ -69,11 +69,11 @@ public class FindCommandTest {
     @Test
     public void execute_multipleKeywords_multiplePersonsFound() {
         String expectedMessage = String.format(MESSAGE_APPARELS_LISTED_OVERVIEW, 3);
-        NameContainsKeywordsPredicate predicate = preparePredicate("Kurz Elle Kunz");
+        NameContainsKeywordsPredicate predicate = preparePredicate("Cool Belt Bro");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredApparelList(predicate);
         assertCommandSuccess(command, model, commandHistory, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(SHIRT2, BELT2, BELT3), model.getFilteredApparelList());
+        assertEquals(Arrays.asList(BELT1, BELT2, BELT3), model.getFilteredApparelList());
     }
 
     /**

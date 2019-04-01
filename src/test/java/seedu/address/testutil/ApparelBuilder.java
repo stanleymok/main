@@ -10,7 +10,7 @@ import seedu.address.model.apparel.Name;
  */
 public class ApparelBuilder {
 
-    public static final String DEFAULT_NAME = "Formal Shirt";
+    public static final String DEFAULT_NAME = "Sleek Shirt";
     public static final String DEFAULT_COLOR = "White";
     public static final String DEFAULT_CLOTHING_TYPE = "Top";
 

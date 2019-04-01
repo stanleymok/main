@@ -13,11 +13,11 @@ import seedu.address.model.apparel.Name;
 import seedu.address.testutil.Assert;
 
 public class JsonAdaptedApparelTest {
-    private static final String INVALID_NAME = "Formal Belt1";
+    private static final String INVALID_NAME = "Formal Belt!!!";
 
     private static final String VALID_NAME = PANTS1.getName().toString();
-    private static final Color VALID_COLOR = PANTS1.getColor();
-    private static final ClothingType VALID_CLOTHING_TYPE = PANTS1.getClothingType();
+    private static final String VALID_COLOR = PANTS1.getColor().toString();
+    private static final String VALID_CLOTHING_TYPE = PANTS1.getClothingType().toString();
 
 
     @Test
