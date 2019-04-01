@@ -55,7 +55,8 @@ public class SortCommand extends Command {
         } else if (SortOption.COLOR.equals(sortOption)) {
             modifiableList.sort((Apparel x, Apparel y) -> x.getColor().compareTo(y.getColor()));
         } else if (SortOption.TYPE.equals(sortOption)) {
-            modifiableList.sort((Apparel x, Apparel y) -> x.getClothingType().compareTo(y.getClothingType()));
+            modifiableList.sort((Apparel x, Apparel y) -> x.getClothingType().toString()
+                    .compareTo(y.getClothingType().toString()));
         }
 
         for (Apparel apparelToDelete: lastShownListUntouch) {
