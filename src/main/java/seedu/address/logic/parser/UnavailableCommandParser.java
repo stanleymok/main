@@ -13,7 +13,7 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.UnavailableCommand;
-import seedu.address.logic.commands.UnavailableCommand.EditPersonDescriptor;
+import seedu.address.logic.commands.UnavailableCommand.UnavailablePersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.tag.Tag;
 
@@ -42,7 +42,7 @@ public class UnavailableCommandParser implements Parser<UnavailableCommand> {
                     UnavailableCommand.MESSAGE_USAGE), pe);
         }
 
-        EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
+        UnavailablePersonDescriptor editPersonDescriptor = new UnavailablePersonDescriptor();
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editPersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         }
