@@ -4,7 +4,9 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByColor;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByName;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByNameCaseInsensitive;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByType;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookWithLowerCaseName;
 
 import org.junit.Test;
 
@@ -45,6 +47,20 @@ public class SortCommandTest {
         String expectedMessage = SortCommand.MESSAGE_SORT_APPAREL_SUCCESS + " by name.";
 
         assertCommandSuccess(sc, model, commandHistory, expectedMessage, expectedModelSortedByName);
+    }
+
+    @Test
+    public void execute_sortedNameCaseInsensitive_success() {
+        Model modelLowerCase = new ModelManager(getTypicalAddressBookWithLowerCaseName(), new UserPrefs());
+
+        Model expectedModel = new ModelManager(modelLowerCase.getAddressBook(), new UserPrefs());
+        expectedModel.setAddressBook(getTypicalAddressBookSortedByNameCaseInsensitive());
+        expectedModel.commitAddressBook();
+
+        SortCommand sc = new SortCommand(SortOption.NAME);
+        String expectedMessage = SortCommand.MESSAGE_SORT_APPAREL_SUCCESS + " by name.";
+
+        assertCommandSuccess(sc, modelLowerCase, commandHistory, expectedMessage, expectedModel);
     }
 
     @Test

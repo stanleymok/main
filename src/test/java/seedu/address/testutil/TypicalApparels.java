@@ -28,6 +28,8 @@ public class TypicalApparels {
     public static final String NAME_CASUAL_SHOES = "Casual Shoes";
     public static final String NAME_SNEAKERS = "Sneakers";
 
+    public static final String NAME_FORMAL_SHIRT_LOWER = "formal shirt";
+
     public static final String TYPE_TOP = "Top";
     public static final String TYPE_BOTTOM = "Bottom";
     public static final String TYPE_BELT = "Belt";
@@ -63,6 +65,9 @@ public class TypicalApparels {
     public static final Apparel SHOES3 = new ApparelBuilder().withName(NAME_SNEAKERS)
             .withColor(COLOR_GREY).withClothingType(TYPE_SHOES).build();
 
+    public static final Apparel SHIRT1_LOWER = new ApparelBuilder().withName(NAME_FORMAL_SHIRT_LOWER)
+            .withColor(COLOR_WHITE).withClothingType(TYPE_TOP).build();
+
     // Manually added - Apparel's details found in {@code CommandTestUtil}
     public static final Apparel ARMANY = new ApparelBuilder().withName(VALID_NAME_A)
             .withColor(VALID_COLOR_GREEN).withClothingType(VALID_TYPE_TOP).build();
@@ -85,11 +90,33 @@ public class TypicalApparels {
     }
 
     /**
+     * Returns an {@code AddressBook} with all the typical persons.
+     */
+    public static AddressBook getTypicalAddressBookWithLowerCaseName() {
+        AddressBook ab = new AddressBook();
+        for (Apparel apparel : getTypicalApparelsWithLowerCaseName()) {
+            ab.addApparel(apparel);
+        }
+        return ab;
+    }
+
+    /**
      * Returns an {@code AddressBook} with all the typical persons sorted by name.
      */
     public static AddressBook getTypicalAddressBookSortedByName() {
         AddressBook ab = new AddressBook();
         for (Apparel apparel : getTypicalApparelsSortedByName()) {
+            ab.addApparel(apparel);
+        }
+        return ab;
+    }
+
+    /**
+     * Returns an {@code AddressBook} with all the typical persons sorted by name.
+     */
+    public static AddressBook getTypicalAddressBookSortedByNameCaseInsensitive() {
+        AddressBook ab = new AddressBook();
+        for (Apparel apparel : getTypicalApparelsSortedByNameCaseInsensitive()) {
             ab.addApparel(apparel);
         }
         return ab;
@@ -121,8 +148,18 @@ public class TypicalApparels {
         return new ArrayList<>(Arrays.asList(SHIRT1, SHIRT2, PANTS1, BELT1, BELT2, BELT3, SHOES1, SHOES2, SHOES3));
     }
 
+    public static List<Apparel> getTypicalApparelsWithLowerCaseName() {
+        return new ArrayList<>(Arrays.asList(SHIRT1_LOWER, SHIRT1, SHIRT2, PANTS1,
+                BELT1, BELT2, BELT3, SHOES1, SHOES2, SHOES3));
+    }
+
     public static List<Apparel> getTypicalApparelsSortedByName() {
         return new ArrayList<>(Arrays.asList(BELT2, BELT3, SHOES2, BELT1, PANTS1, SHIRT1, SHOES1, SHIRT2, SHOES3));
+    }
+
+    public static List<Apparel> getTypicalApparelsSortedByNameCaseInsensitive() {
+        return new ArrayList<>(Arrays.asList(BELT2, BELT3, SHOES2, BELT1, PANTS1,
+                SHIRT1_LOWER, SHIRT1, SHOES1, SHIRT2, SHOES3));
     }
 
     public static List<Apparel> getTypicalApparelsSortedByColor() {
