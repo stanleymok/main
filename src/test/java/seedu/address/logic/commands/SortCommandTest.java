@@ -2,9 +2,13 @@ package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByColor;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByName;
 import static seedu.address.testutil.TypicalApparels.getTypicalApparels;
+import static seedu.address.testutil.TypicalApparels.getTypicalApparelsSortedByColor;
 import static seedu.address.testutil.TypicalApparels.getTypicalApparelsSortedByName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -13,6 +17,7 @@ import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.options.SortOption;
 
+import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -31,25 +36,39 @@ public class SortCommandTest {
     @Test
     public void execute_sortedName_success() {
         Model expectedModelSortedByName = new ModelManager(model.getAddressBook(), new UserPrefs());
-        List<Apparel> expectedList = getTypicalApparelsSortedByName();
+
+        expectedModelSortedByName.setAddressBook(getTypicalAddressBookSortedByName());
+        expectedModelSortedByName.commitAddressBook();
 
         SortCommand sc = new SortCommand(SortOption.NAME);
         String expectedMessage = SortCommand.MESSAGE_SORT_APPAREL_SUCCESS + " by name.";
 
-//        try {
-//            sc.execute(model, commandHistory);
-//
-//            for (int i = 0; i < expectedList.size(); i++) {
-//                Apparel actual = model.getFilteredApparelList().get(i);
-//                Apparel expected = expectedList.get(i);
-//                if (!actual.equals(expected)) {
-//                    System.out.println(actual.toString() + "\nvs\n" + expected.toString());
-//                }
-//            }
-//        } catch (CommandException e) {
-//            System.out.println("Command exception...");
-//        }
-
         assertCommandSuccess(sc, model, commandHistory, expectedMessage, expectedModelSortedByName);
+    }
+
+    @Test
+    public void execute_sortedColor_success() {
+        Model expectedModelSortedByColor = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        expectedModelSortedByColor.setAddressBook(getTypicalAddressBookSortedByColor());
+        expectedModelSortedByColor.commitAddressBook();
+
+        SortCommand sc = new SortCommand(SortOption.COLOR);
+        String expectedMessage = SortCommand.MESSAGE_SORT_APPAREL_SUCCESS + " by color.";
+
+        assertCommandSuccess(sc, model, commandHistory, expectedMessage, expectedModelSortedByColor);
+    }
+
+    @Test
+    public void execute_sortedType_success() {
+        Model expectedModelSortedByType = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        expectedModelSortedByType.setAddressBook(getTypicalAddressBookSortedByType());
+        expectedModelSortedByType.commitAddressBook();
+
+        SortCommand sc = new SortCommand(SortOption.TYPE);
+        String expectedMessage = SortCommand.MESSAGE_SORT_APPAREL_SUCCESS + " by type.";
+
+        assertCommandSuccess(sc, model, commandHistory, expectedMessage, expectedModelSortedByType);
     }
 }
