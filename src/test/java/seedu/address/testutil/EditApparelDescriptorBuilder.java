@@ -7,7 +7,7 @@ import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Name;
 
 /**
- * A utility class to help with building EditPersonDescriptor objects.
+ * A utility class to help with building AvailablePersonDescriptor objects.
  */
 public class EditApparelDescriptorBuilder {
 
@@ -22,7 +22,7 @@ public class EditApparelDescriptorBuilder {
     }
 
     /**
-     * Returns an {@code EditPersonDescriptor} with fields containing {@code apparel}'s details
+     * Returns an {@code AvailablePersonDescriptor} with fields containing {@code apparel}'s details
      */
     public EditApparelDescriptorBuilder(Apparel apparel) {
         descriptor = new EditPersonDescriptor();
@@ -32,7 +32,7 @@ public class EditApparelDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Name} of the {@code AvailablePersonDescriptor} that we are building.
      */
     public EditApparelDescriptorBuilder withName(String name) {
         descriptor.setName(new Name(name));
@@ -40,7 +40,7 @@ public class EditApparelDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Color} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Color} of the {@code AvailablePersonDescriptor} that we are building.
      */
     public EditApparelDescriptorBuilder withColor(String color) {
         descriptor.setColor(new Color(color));
@@ -48,7 +48,7 @@ public class EditApparelDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code ClothingType} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code ClothingType} of the {@code AvailablePersonDescriptor} that we are building.
      */
     public EditApparelDescriptorBuilder withClothingType(String clothingType) {
         descriptor.setClothingType(new ClothingType(clothingType));
