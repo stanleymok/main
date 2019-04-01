@@ -24,6 +24,7 @@ public class TypicalApparels {
     public static final String NAME_INFORMAL_SHIRT = "Informal Shirt";
     public static final String NAME_FORMAL_BELT = "Formal Belt";
     public static final String NAME_CASUAL_BELT = "Casual Belt";
+    public static final String NAME_COOL_BELT = "Cool Belt";
     public static final String NAME_FORMAL_SHOES = "Formal Shoes";
     public static final String NAME_CASUAL_SHOES = "Casual Shoes";
     public static final String NAME_SNEAKERS = "Sneakers";
@@ -54,7 +55,7 @@ public class TypicalApparels {
             .withColor(COLOR_BLACK).withClothingType(TYPE_BELT).build();
     public static final Apparel BELT2 = new ApparelBuilder().withName(NAME_CASUAL_BELT)
             .withColor(COLOR_WHITE).withClothingType(TYPE_BELT).build();
-    public static final Apparel BELT3 = new ApparelBuilder().withName(NAME_CASUAL_BELT)
+    public static final Apparel BELT3 = new ApparelBuilder().withName(NAME_COOL_BELT)
             .withColor(COLOR_NAVY).withClothingType(TYPE_BELT).build();
     public static final Apparel SHOES1 = new ApparelBuilder().withName(NAME_FORMAL_SHOES)
             .withColor(COLOR_BROWN).withClothingType(TYPE_SHOES).build();

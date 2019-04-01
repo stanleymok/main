@@ -42,6 +42,7 @@ public class ApparelListPanelTest extends GuiUnitTest {
             PersonCardHandle actualCard = personListPanelHandle.getPersonCardHandle(i);
 
             assertCardDisplaysPerson(expectedApparel, actualCard);
+            String x = actualCard.getId();
             assertEquals(Integer.toString(i + 1) + ". ", actualCard.getId());
         }
     }
