@@ -69,7 +69,7 @@ public class TypicalApparels {
     public static final Apparel BOBYIN = new ApparelBuilder().withName(VALID_NAME_B)
             .withColor(VALID_COLOR_BLUE).withClothingType(VALID_TYPE_BOTTOM).build();
 
-    public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
+    public static final String KEYWORD_MATCHING_BELT = "Belt"; // A keyword that matches Belt
 
     private TypicalApparels() {} // prevents instantiation
 

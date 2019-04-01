@@ -1,6 +1,6 @@
 package systemtests;
 
-import static org.junit.Assert.assertFalse;
+//import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.INPUT_COLOR_BLUE;
@@ -33,14 +33,12 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
-import seedu.address.model.apparel.Address;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.model.apparel.ClothingType;
 import seedu.address.model.apparel.Color;
 import seedu.address.model.apparel.Name;
-import seedu.address.model.tag.Tag;
 import seedu.address.testutil.ApparelBuilder;
-import seedu.address.testutil.ApparelUtil;
+//import seedu.address.testutil.ApparelUtil;
 
 public class EditCommandSystemTest extends AddressBookSystemTest {
 
@@ -94,12 +92,12 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
                             .withClothingType(VALID_TYPE_TOP).build();
         assertCommandSuccess(command, index, editedApparel);
 
-//        /* Case: clear tags -> cleared */ commented out as we dont need tags anymore
-//        index = INDEX_FIRST_APPAREL;
-//        command = EditCommand.COMMAND_WORD + " " + index.getOneBased();
-//        Apparel apparelToEdit = getModel().getFilteredApparelList().get(index.getZeroBased());
-//        editedApparel = new ApparelBuilder(apparelToEdit).build();
-//        assertCommandSuccess(command, index, editedApparel);
+/*        *//* Case: clear tags -> cleared *//* commented out as we dont need tags anymore
+        index = INDEX_FIRST_APPAREL;
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased();
+        Apparel apparelToEdit = getModel().getFilteredApparelList().get(index.getZeroBased());
+        editedApparel = new ApparelBuilder(apparelToEdit).build();
+        assertCommandSuccess(command, index, editedApparel);*/
 
         /* ------------------ Performing edit operation while a filtered list is being shown ------------------------ */
 
@@ -172,47 +170,47 @@ public class EditCommandSystemTest extends AddressBookSystemTest {
                         + INVALID_INPUT_TYPE,
                 ClothingType.MESSAGE_CONSTRAINTS);
 
-//        /* Case: invalid address -> rejected */ commented as not dealing with address and tag
+/*        *//* Case: invalid address -> rejected *//* commented as not dealing with address and tag
 
-//        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_APPAREL.getOneBased(),
-//                Address.MESSAGE_CONSTRAINTS);
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_APPAREL.getOneBased(),
+                Address.MESSAGE_CONSTRAINTS);
 
-//        /* Case: invalid tag -> rejected */
-//        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_APPAREL.getOneBased(),
-//                Tag.MESSAGE_CONSTRAINTS);
+        *//* Case: invalid tag -> rejected *//*
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_APPAREL.getOneBased(),
+                Tag.MESSAGE_CONSTRAINTS);*/
 
-//        /* Case: edit a apparel with new values same as another apparel's values -> rejected */
-//        executeCommand(ApparelUtil.getAddCommand(BOBYIN));
-//        assertTrue(getModel().getAddressBook().getApparelList().contains(BOBYIN));
-//        index = INDEX_FIRST_APPAREL;
-//        assertFalse(getModel().getFilteredApparelList().get(index.getZeroBased()).equals(BOBYIN));
-//        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
-//                + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM;
-//        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
+/*        *//* Case: edit a apparel with new values same as another apparel's values -> rejected *//*
+        executeCommand(ApparelUtil.getAddCommand(BOBYIN));
+        assertTrue(getModel().getAddressBook().getApparelList().contains(BOBYIN));
+        index = INDEX_FIRST_APPAREL;
+        assertFalse(getModel().getFilteredApparelList().get(index.getZeroBased()).equals(BOBYIN));
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
+                + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM;
+        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);*/
 
         /* Case: edit a apparel with new values same as another
          apparel's values but with different tags -> rejected */
-//        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
-//                + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM;
-//        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
-//
-//        /* Case: edit a apparel with new values same as another apparel's values but with different address ->
-//        rejected */
-//        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
-//                + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM;
-//        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
+/*        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
+                + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM;
+        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
 
-        /* Case: edit a apparel with new values same as another apparel's
-        values but with different color -> rejected */
-//        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
-//                + INPUT_COLOR_GREEN + INPUT_TYPE_BOTTOM;
-//        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
-//
-        /* Case: edit a apparel with new values same as another apparel's
-         values but with different clothingType -> rejected */
-//        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
-//                + INPUT_COLOR_BLUE + INPUT_TYPE_TOP;
-//        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
+        *//* Case: edit a apparel with new values same as another apparel's values but with different address ->
+        rejected *//*
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
+                + INPUT_COLOR_BLUE + INPUT_TYPE_BOTTOM;
+        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);*/
+
+/*        *//* Case: edit a apparel with new values same as another apparel's
+        values but with different color -> rejected *//*
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
+                + INPUT_COLOR_GREEN + INPUT_TYPE_BOTTOM;
+        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);
+
+        *//* Case: edit a apparel with new values same as another apparel's
+         values but with different clothingType -> rejected *//*
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + INPUT_NAME_B
+                + INPUT_COLOR_BLUE + INPUT_TYPE_TOP;
+        assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_APPAREL);*/
     }
 
     /**
