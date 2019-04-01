@@ -8,7 +8,6 @@ import static seedu.address.testutil.TypicalApparels.BELT2;
 import static seedu.address.testutil.TypicalApparels.BELT3;
 import static seedu.address.testutil.TypicalApparels.KEYWORD_MATCHING_BELT;
 import static seedu.address.testutil.TypicalApparels.PANTS1;
-import static seedu.address.testutil.TypicalApparels.SHIRT2;
 
 import org.junit.Test;
 
