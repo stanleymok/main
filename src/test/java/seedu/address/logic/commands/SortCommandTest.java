@@ -4,25 +4,16 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByColor;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByName;
-import static seedu.address.testutil.TypicalApparels.getTypicalApparels;
-import static seedu.address.testutil.TypicalApparels.getTypicalApparelsSortedByColor;
-import static seedu.address.testutil.TypicalApparels.getTypicalApparelsSortedByName;
-
-import java.util.ArrayList;
-import java.util.List;
+import static seedu.address.testutil.TypicalApparels.getTypicalAddressBookSortedByType;
 
 import org.junit.Test;
 
 import seedu.address.logic.CommandHistory;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.options.SortOption;
 
-import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.apparel.Apparel;
-
 
 /**
  *

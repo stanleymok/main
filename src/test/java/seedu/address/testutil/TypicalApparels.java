@@ -106,6 +106,17 @@ public class TypicalApparels {
         return ab;
     }
 
+    /**
+     * Returns an {@code AddressBook} with all the typical persons sorted by color.
+     */
+    public static AddressBook getTypicalAddressBookSortedByType() {
+        AddressBook ab = new AddressBook();
+        for (Apparel apparel : getTypicalApparelsSortedByType()) {
+            ab.addApparel(apparel);
+        }
+        return ab;
+    }
+
     public static List<Apparel> getTypicalApparels() {
         return new ArrayList<>(Arrays.asList(SHIRT1, SHIRT2, PANTS1, BELT1, BELT2, BELT3, SHOES1, SHOES2, SHOES3));
     }
@@ -118,7 +129,7 @@ public class TypicalApparels {
         return new ArrayList<>(Arrays.asList(BELT1, PANTS1, SHOES1, SHOES2, SHOES3, SHIRT2, BELT3, SHIRT1, BELT2));
     }
 
-    public static List<Apparel> getTypicalApparelsSortedByColor() {
-        return new ArrayList<>(Arrays.asList(BELT1, PANTS1, SHOES1, SHOES2, SHOES3, SHIRT2, BELT3, SHIRT1, BELT2));
+    public static List<Apparel> getTypicalApparelsSortedByType() {
+        return new ArrayList<>(Arrays.asList(BELT1, BELT2, BELT3, PANTS1, SHOES1, SHOES2, SHOES3, SHIRT1, SHIRT2));
     }
 }

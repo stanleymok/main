@@ -29,12 +29,7 @@ public class ClearCommandTest {
         Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         expectedModel.setAddressBook(new AddressBook());
-
-        ((ModelManager)model).validateEquality((ModelManager) expectedModel);
-
         expectedModel.commitAddressBook();
-
-        ((ModelManager)model).validateEquality((ModelManager) expectedModel);
 
         assertCommandSuccess(new ClearCommand(), model, commandHistory, ClearCommand.MESSAGE_SUCCESS, expectedModel);
     }
