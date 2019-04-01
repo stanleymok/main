@@ -33,7 +33,7 @@ public class ApparelUtil {
     }
 
     /**
-     * Returns the part of command string for the given {@code EditPersonDescriptor}'s details.
+     * Returns the part of command string for the given {@code AvailablePersonDescriptor}'s details.
      */
     public static String getEditApparelDescriptorDetails(EditPersonDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
