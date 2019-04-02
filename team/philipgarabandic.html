@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Philip Garabandic - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Philip Garabandic - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We build a desktop application that is a clothing closet manager.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>RecommendationCommand Algorthym, RandomCommand, and SomethingColorCommand</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: RecommendationCommand is an algorythm that find a matching outfit for the user. RandomCommand find a radnom item of chosen type. SomethingColorCommand, finds a random outfit of chosen color.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because a user can get a outfit with matching colors without thinking. The user can also have the machine pick a item of his favorite color or a type for him so he doesn&#8217;t have to think.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. I had to write parsers for each command and a CommandRecommendation. Because the methods function on random numbers I had to add more tests methods also.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: I had also added other immpimentations here and there but I didn&#8217;t know this was due tonight so it&#8217;s too last minute for me to cite all of them. I also updated the user guide and so on.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Methods:
+<a href="https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/CommandRecommendation.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/CommandRecommendation.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/parser/RandomItemParser.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/parser/RandomItemParser.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/parser/SomethingColorParser.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/parser/SomethingColorParser.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/commands/RandomItemCommand.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/commands/RandomItemCommand.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/commands/RecommendationCommand.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/commands/RecommendationCommand.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/commands/SomethingColorCommand.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/commands/SomethingColorCommand.java</a></p>
+</div>
+<div class="paragraph">
+<p>Tests:
+<a href="https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/RandomItemCommandTest.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/RandomItemCommandTest.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/RecommendationCommandTest.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/RecommendationCommandTest.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/SomethingColorCommandTest.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/SomethingColorCommandTest.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/CommandRecommendationTest.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/CommandRecommendationTest.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/parser/RandomItemParserTest.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/parser/RandomItemParserTest.java</a>
+<a href="https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/parser/SomethingColorParserTest.java" class="bare">https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/parser/SomethingColorParserTest.java</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Other contributions</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Methods here and there @@Author will be seen</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Section 3.18,3.19,3.2 and Section 5</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Added writting in</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="delete-clothes-feature"><a class="link" href="#delete-clothes-feature">Delete Clothes feature</a></h3>
+<div class="paragraph">
+<p>Deletes the specified item from the database.
+==== Current Implementation
+<em>{More to be added}</em></p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 13:10:00 UTC</div></div></div></body></html>
