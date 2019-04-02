@@ -17,7 +17,7 @@ Fashion Match is a desktop apparels matching application that recommends user th
 ** What it does: allows the user sort the apparels in any valid way. To find out about the valid way of sorting, user can simply type `sort options` which output all the valid sorting options.
 ** Justification: This feature improves the product significantly because a user might want to arrange the apparels in a certain order for easy viewing.
 ** Highlights: This enhancement affects existing commands and commands to be added in future. The implementation taps on existing command. Truly adopt the spirit of "Don't reinvent the wheel".
-** Credits: _Pending_
+** Credits: None.
 
 * *Minor enhancement*: added a <name of command> command that allows the user to <Do what>.
 
@@ -32,7 +32,6 @@ Fashion Match is a desktop apparels matching application that recommends user th
 *SortCommand*: [https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/SortCommand.java[Functional code]]
 *SortCommandParser*: [https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/SortCommandParser.java[Functional code]]
 *SortCommandTest*: [https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/SortCommandTest.java[Test code]]
-[https://github.com[Test code]] _{give links to collated code files}_
 
 * *Other contributions*:
 
@@ -48,9 +47,7 @@ Fashion Match is a desktop apparels matching application that recommends user th
 ** Community:
 *** PRs reviewed: https://github.com/CS2103-AY1819S2-W15-1/main/pull/42[#42], https://github.com/CS2103-AY1819S2-W15-1/main/pull/50[#50], https://github.com/CS2103-AY1819S2-W15-1/main/pull/51[#51]
 ** Tools:
-***
-
-_{you can add/remove categories in the list above}_
+*** {to be added in future update}
 
 == Contributions to the User Guide
 
