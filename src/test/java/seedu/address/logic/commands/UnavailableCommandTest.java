@@ -28,8 +28,6 @@ import seedu.address.model.apparel.Apparel;
 import seedu.address.testutil.ApparelBuilder;
 import seedu.address.testutil.UnavailableApparelDescriptorBuilder;
 
-//import static org.junit.Assert.assertNotEquals;
-
 /**
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for EditCommand.
  */

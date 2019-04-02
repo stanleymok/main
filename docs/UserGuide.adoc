@@ -56,23 +56,20 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Format: `help`
 
-=== Adding a person: `add`
-
-Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
-
-[TIP]
-A person can have any number of tags (including 0)
-
-Examples:
-
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
-
 === Listing all apparels : `list`
 
 Shows a list of all apparels in the address book. +
 Format: `list`
+
+=== Adding a piece of Apparel: `add`
+
+Add a piece of apparel to wardrobe +
+Format: `add n/NAME c/COLOUR t/CLOTHINGTYPE`
+
+Examples:
+
+* `add n/Zara Shirt c/Red t/Top
+* `add n/Desigual Tailored Pants c/Grey t/Bottom
 
 === Sort all apparels : `sort [option]`
 
@@ -90,22 +87,54 @@ Sort all apparels according to the option supplied.
 === Editing a person : `edit`
 
 Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+Format: `edit INDEX [n/NAME] [c/COLOUR] [t/CLOTHINGTYPE]`
 
 ****
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person's tags by typing `t/` without specifying any tags after it.
 ****
 
 Examples:
 
-* `edit 1 p/91234567 e/johndoe@example.com` +
-Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` +
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 1 n/TSHIRT c/ORANGE` +
+Edits the name and colour of the 1st apparel to be `TSHIRT` and `Orange` respectively.
+* `edit 2 n/Brown Belt t/Belt` +
+Edits the name of the 2nd apparel to be `Brown Belt` and changes type to `Belt`.
+
+=== Making available/washing a piece of apparel : `available` or `wash`
+
+Makes an existing apparel in the address book available. +
+Format: `wash INDEX` or `available INDEX`
+
+****
+* Makes available the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Apparel will be made available whether it was available or unavailable before the command.
+****
+
+Examples:
+
+* `wash 1` +
+Makes available the 1st apparel in the list.
+* `available 2` +
+Makes available the 2nd apparel in the list.
+
+=== Making unavailable/dirty a piece of apparel : `unavailable` or `dirty`
+
+Makes an existing apparel in the address book available. +
+Format: `dirty INDEX` or `unavailable INDEX`
+
+****
+* Makes unavailable the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Apparel will be made unavailable whether it was available or unavailable before the command.
+****
+
+Examples:
+
+* `dirty 1` +
+Makes available the 1st apparel in the list.
+* `unavailable 2` +
+Makes available the 2nd apparel in the list.
 
 === Locating apparels by name: `find`
 
@@ -113,19 +142,19 @@ Finds apparels whose names contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 ****
-* The search is case insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+* The search is case insensitive. e.g `Zara` will match `zara`
+* The order of the keywords does not matter. e.g. `Nice Shirt` will match `Shirt Nice`
 * Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* Only full words will be matched e.g. `Nice` will not match `Nices`
+* Persons matching at least one keyword will be returned (i.e. `OR` search). e.g. `Tim Tam` will return `Tim`, `Higgy Tam`
 ****
 
 Examples:
 
-* `find John` +
-Returns `john` and `John Doe`
-* `find Betsy Tim John` +
-Returns any person having names `Betsy`, `Tim`, or `John`
+* `find Zara` +
+Returns `zara` and `Zara`
+* `find Tim Tam Battle Plan` +
+Returns any person having names `Tim`, `Tam`,`Battle` or `Plan`.
 
 === Deleting a person : `delete`
 
@@ -243,40 +272,7 @@ Format: `exit`
 Address book data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
-=== Add Clothes `[coming in v2.0]`
-
-Add a piece of clothing given type i.e. shirt, colour, formality level.
-
-=== Edit Clothes `[coming in v2.0]`
-
-Edit the details, i.e. tag/name of the clothes.
-
-=== Add Favourite Combination Relation `[coming in v2.0]`
-
-Add a matching relation between two pieces of clothing outside default combinations.
-
-=== List Favourite Combinations `[coming in v2.0]`
-
-See all saved combinations.
-
-=== List top versatile clothing `[coming in v2.0]`
-
-List clothings that match the most number of other clothings.
-
-== Add Colour Relation `[coming in v2.0]`
-
-Add a matching colour combination outside predefined default combinations.
-
-// tag::delete[]
-=== Delete Clothes `[coming in v2.0]`
-
-Delete a piece of clothing from the closet.
-
-=== Listing all Clothes `[coming in v2.0]`
-
-Lists all the categorised clothes you have in your closet to your CLI.
-
-=== Calculating use Statistics `[coming in v2.0]`
+=== Calculating use Statistics `[coming in v4.0]`
 
 Calculates the rate of wear of each clothes.
 
@@ -322,22 +318,6 @@ Returns a random TOP in the address book.
 
 * `random BOTTOM` +
 Returns a random BOTTOM in the address book.
-
-=== Redo `[coming in v2.0]`
-
-Redo previous command similar to up arrow key in vim.
-
-=== Search Clothing `[coming in v2.0]`
-
-Search for clothing by keyword.
-
-=== Undo `[coming in v2.0]`
-
-Undo previous command.
-
-=== Exit App `[coming in v2.0]`
-
-Exit the app.
 
 == FAQ
 
