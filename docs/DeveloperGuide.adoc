@@ -253,6 +253,20 @@ Adds an item to the clothing database.
 _{More to be added}_
 // end::add[]
 
+// tag::available[]
+=== Make Available feature
+Set availability status to available.
+==== Current Implementation
+_{More to be added}_
+// end::available[]
+
+// tag::unavailable[]
+=== Make Unavailable feature
+Set availability status to unavailable.
+==== Current Implementation
+_{More to be added}_
+// end::unavailable[]
+
 // tag::list[]
 === List Clothes feature
 Show a list of all the clothing.
