@@ -1,4 +1,4 @@
-= John Doe - Project Portfolio
+= Stanley Joseph Mok Yao Quan - Project Portfolio
 :site-section: AboutUs
 :imagesDir: ../images
 :stylesDir: ../stylesheets
