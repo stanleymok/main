@@ -155,12 +155,12 @@ public class TypicalApparels {
     }
 
     public static List<Apparel> getTypicalApparelsSortedByName() {
-        return new ArrayList<>(Arrays.asList(BELT2, BELT3, SHOES2, BELT1, PANTS1, SHIRT1, SHOES1, SHIRT2, SHOES3));
+        return new ArrayList<>(Arrays.asList(SHIRT1, PANTS1, SHIRT2, BELT1, BELT2, BELT3, SHOES1, SHOES2, SHOES3));
     }
 
     public static List<Apparel> getTypicalApparelsSortedByNameCaseInsensitive() {
-        return new ArrayList<>(Arrays.asList(BELT2, BELT3, SHOES2, BELT1, PANTS1,
-                SHIRT1_LOWER, SHIRT1, SHOES1, SHIRT2, SHOES3));
+        return new ArrayList<>(Arrays.asList(SHIRT1, SHIRT1_LOWER, PANTS1, SHIRT2,
+                BELT1, BELT2, BELT3, SHOES1, SHOES2, SHOES3));
     }
 
     public static List<Apparel> getTypicalApparelsSortedByColor() {
