@@ -23,7 +23,7 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 * *Code contributed*: refactoring and test cases
 
 
-* *Other contributions*: 
+* *Other contributions*:
 ** Refactored entire AddressBook to become Fashion Match
 ** Fix test cases that resulted from the refactoring of AddressBook
 ** Managed release of `v1.3`, reviewed and merged all PRs from week 10 saturday onwards on GitHub
