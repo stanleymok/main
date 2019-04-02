@@ -21,7 +21,7 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 
 * *Minor enhancement*: Enabled alternative, more intuitive command words to be used in place of available and unavailable: *wash* and *dirty*.
 
-* *Code contributed*: 
+* *Code contributed*:
 
 *Available command*: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Functional code]
 
@@ -47,8 +47,8 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 *** Managed release of `v1.2`, reviewed and merged all PRs from week 8 wednesday - week 10 friday on GitHub
 ** Enhancements to existing features:
 *** Updated the apparel UI card to display the availability status and its usage count. (Pull requests https://github.com/CS2103-AY1819S2-W15-1/main/pull/79[#1], https://github.com/CS2103-AY1819S2-W15-1/main/pull/69[#2])
-*** Created 5 classes. 
-2 for testing: AvailableCommandTest.java, UnavailableCommandTest.java and 
+*** Created 5 classes.
+2 for testing: AvailableCommandTest.java, UnavailableCommandTest.java and
 3 other classes as stubs for dependency injection: CommandTestUtilExtra.java, AvailableApparelDescriptorBuilder.java and UnavailableApparelDescriptorBuilder.java (Pull requests https://github.com/CS2103-AY1819S2-W15-1/main/pull/79[#1], https://github.com/CS2103-AY1819S2-W15-1/main/pull/92[#3])
 ** Documentation:
 *** Cleanup of the User Guide from ab4 to Fashion Match: https://github.com/CS2103-AY1819S2-W15-1/main/pull/9[#4] https://github.com/CS2103-AY1819S2-W15-1/main/pull/96[#5]
@@ -62,10 +62,10 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-Available/wash command: 
+Available/wash command:
 include::../UserGuide.adoc[tag=available]
 
-Unavailable/dirty command: 
+Unavailable/dirty command:
 include::../UserGuide.adoc[tag=unavailable]
 
 == Contributions to the Developer Guide
@@ -74,8 +74,8 @@ include::../UserGuide.adoc[tag=unavailable]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-Available/wash command: 
+Available/wash command:
 include::../DeveloperGuide.adoc[tag=unavailable]
 
-Unavailable/dirty command: 
+Unavailable/dirty command:
 include::../DeveloperGuide.adoc[tag=unavailable]
