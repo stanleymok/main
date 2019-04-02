@@ -46,7 +46,7 @@ Stub class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/j
 *** Cleanup of the User Guide from ab4 to Fashion Match: https://github.com/CS2103-AY1819S2-W15-1/main/pull/9[#4] https://github.com/CS2103-AY1819S2-W15-1/main/pull/96[#5]
 ** Community:
 *** PRs reviewed (with non-trivial review comments): https://github.com/CS2103-AY1819S2-W15-1/main/pull/59[#6]
-*** Reported bugs and suggestions for other teams in the class (examples:  [https://github.com[EMPTY]] [https://github.com[EMPTY]] [https://github.com[EMPTY]]])
+*** Reported bugs and suggestions for other teams in the class (examples: )
 
 == Contributions to the User Guide
 
