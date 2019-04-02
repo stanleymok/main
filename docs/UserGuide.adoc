@@ -102,6 +102,8 @@ Edits the name and colour of the 1st apparel to be `TSHIRT` and `Orange` respect
 * `edit 2 n/Brown Belt t/Belt` +
 Edits the name of the 2nd apparel to be `Brown Belt` and changes type to `Belt`.
 
+
+// tag::available[]
 === Making available/washing a piece of apparel : `available` or `wash`
 
 Makes an existing apparel in the address book available. +
@@ -119,6 +121,7 @@ Makes available the 1st apparel in the list.
 * `available 2` +
 Makes available the 2nd apparel in the list.
 
+// tag::unavailable[]
 === Making unavailable/dirty a piece of apparel : `unavailable` or `dirty`
 
 Makes an existing apparel in the address book available. +
