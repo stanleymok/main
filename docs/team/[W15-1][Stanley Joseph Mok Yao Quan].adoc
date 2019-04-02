@@ -35,17 +35,19 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 ** Documentation:
 *** Cleanup of the User Guide from ab4 to Fashion Match: https://github.com[#EMPTY]
 ** Community:
-*** PRs reviewed (with non-trivial review comments): https://github.com/CS2103-AY1819S2-W15-1/main/pull/59[#1], 
+*** PRs reviewed (with non-trivial review comments): https://github.com/CS2103-AY1819S2-W15-1/main/pull/59[#1]
 *** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[EMPTY], https://github.com[EMPTY], https://github.com[EMPTY])
 
 == Contributions to the User Guide
-
+https://github.com/CS2103-AY1819S2-W15-1/main/pull/9[#1]
+https://github.com/CS2103-AY1819S2-W15-1/main/pull/96[#2]
 
 |===
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-include::../UserGuide.adoc[tag=delete]
+include::../UserGuide.adoc[tag=available]
+include::../UserGuide.adoc[tag=unavailable]
 
 == Contributions to the Developer Guide
 
@@ -53,11 +55,5 @@ include::../UserGuide.adoc[tag=delete]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=delete]
-
-
-== PROJECT: PowerPointLabs
-
----
-
-_{Optionally, you may include other projects in your portfolio.}_
+include::../DeveloperGuide.adoc[tag=unavailable]
+include::../DeveloperGuide.adoc[tag=unavailable]
