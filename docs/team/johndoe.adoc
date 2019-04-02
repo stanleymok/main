@@ -64,4 +64,3 @@ include::../DeveloperGuide.adoc[tag=delete]
 == PROJECT: [W15-1][Philip Garabandic]Portfolio
 
 ---
-
