@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_ARMANI;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOBOHOO;
@@ -148,7 +149,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(outOfBoundIndex,
                 new EditApparelDescriptorBuilder().withName(VALID_NAME_B).build());
 
-        //assertCommandFailure(editCommand, model, commandHistory, Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
+        assertCommandFailure(editCommand, model, commandHistory, Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
     }
 
     @Test
@@ -213,7 +214,7 @@ public class EditCommandTest {
         expectedModel.undoAddressBook();
         assertCommandSuccess(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_SUCCESS, expectedModel);
 
-        //assertNotEquals(model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()), apparelToEdit);
+        assertNotEquals(model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()), apparelToEdit);
         // redo -> edits same second apparel in unfiltered apparel list
         expectedModel.redoAddressBook();
         assertCommandSuccess(new RedoCommand(), model, commandHistory, RedoCommand.MESSAGE_SUCCESS, expectedModel);

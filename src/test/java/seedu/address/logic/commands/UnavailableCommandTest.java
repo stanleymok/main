@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
@@ -19,7 +20,6 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.UnavailableCommand.UnavailablePersonDescriptor;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -135,15 +135,17 @@ public class UnavailableCommandTest {
      * but smaller than size of address book
      */
     @Test
-    public void execute_invalidPersonIndexFilteredList_failure() throws CommandException {
+    public void execute_invalidPersonIndexFilteredList_failure() {
         showApparelAtIndex(model, INDEX_FIRST_APPAREL);
         Index outOfBoundIndex = INDEX_SECOND_APPAREL;
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getApparelList().size());
 
-        UnavailableCommand availableCommand = new UnavailableCommand(outOfBoundIndex,
-                new UnavailableApparelDescriptorBuilder().withName(VALID_NAME_B).build());
-        availableCommand.execute(model, commandHistory);
+        UnavailableCommand unavailableCommand = new UnavailableCommand(outOfBoundIndex,
+                                new UnavailableApparelDescriptorBuilder().withName(VALID_NAME_B).build());
+
+        assertCommandFailure(unavailableCommand, model, commandHistory,
+                                Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
     }
 
     @Test
@@ -210,7 +212,7 @@ public class UnavailableCommandTest {
         expectedModel.undoAddressBook();
         assertCommandSuccess(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_SUCCESS, expectedModel);
 
-        //assertNotEquals(model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()), apparelToEdit);
+        assertNotEquals(model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()), apparelToEdit);
         // redo -> edits same second apparel in unfiltered apparel list
         expectedModel.redoAddressBook();
         assertCommandSuccess(new RedoCommand(), model, commandHistory, RedoCommand.MESSAGE_SUCCESS, expectedModel);
