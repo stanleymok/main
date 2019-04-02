@@ -57,6 +57,8 @@ public class SelectCommandTest {
         showApparelAtIndex(model, INDEX_FIRST_APPAREL);
         showApparelAtIndex(expectedModel, INDEX_FIRST_APPAREL);
 
+
+
         Index outOfBoundsIndex = INDEX_SECOND_APPAREL;
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundsIndex.getZeroBased() < model.getAddressBook().getApparelList().size());
