@@ -140,7 +140,7 @@ public class CommandTestUtil {
             System.out.println(a.toString());
         }
 
-        assertEquals(4, model.getFilteredApparelList().size());
+        assertEquals(1, model.getFilteredApparelList().size());
     }
 
     /**

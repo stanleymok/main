@@ -13,10 +13,12 @@ import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.AvailableCommand.AvailablePersonDescriptor;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -139,7 +141,7 @@ public class AvailableCommandTest {
      * but smaller than size of address book
      */
     @Test
-    public void execute_invalidPersonIndexFilteredList_failure() throws CommandException {
+    public void execute_invalidPersonIndexFilteredList_failure() {
         showApparelAtIndex(model, INDEX_FIRST_APPAREL);
         Index outOfBoundIndex = INDEX_SECOND_APPAREL;
         // ensures that outOfBoundIndex is still in bounds of address book list
@@ -147,7 +149,13 @@ public class AvailableCommandTest {
 
         AvailableCommand availableCommand = new AvailableCommand(outOfBoundIndex,
                 new AvailableApparelDescriptorBuilder().withName(VALID_NAME_B).build());
-        availableCommand.execute(model, commandHistory);
+
+        try {
+            availableCommand.execute(model, commandHistory);
+            Assert.fail("CommandException should be thrown.");
+        } catch (CommandException ce) {
+            // do nothing
+        }
     }
 
     @Test
