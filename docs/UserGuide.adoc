@@ -56,19 +56,6 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Format: `help`
 
-=== Adding a person: `add`
-
-Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
-
-[TIP]
-A person can have any number of tags (including 0)
-
-Examples:
-
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
-
 === Listing all apparels : `list`
 
 Shows a list of all apparels in the address book. +
@@ -243,9 +230,16 @@ Format: `exit`
 Address book data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
-=== Add Clothes `[coming in v2.0]`
+=== Adding a piece of Apparel: `add`
 
-Add a piece of clothing given type i.e. shirt, colour, formality level.
+Add a piece of apparel to wardrobe +
+Format: `add n/NAME c/COLOUR t/CLOTHINGTYPE`
+
+Examples:
+
+* `add n/Zara Shirt n/ e/johnd@example.com a/John street, block 123, #01-01`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+
 
 === Edit Clothes `[coming in v2.0]`
 
