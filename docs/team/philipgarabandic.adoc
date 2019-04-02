@@ -15,7 +15,6 @@ We build a desktop application that is a clothing closet manager.
 
 * *Major enhancement*: added *RecommendationCommand Algorthym, RandomCommand, and SomethingColorCommand*
 ** What it does: RecommendationCommand is an algorythm that find a matching outfit for the user. RandomCommand find a radnom item of chosen type. SomethingColorCommand, finds a random outfit of chosen color.
-
 ** Justification: This feature improves the product significantly because a user can get a outfit with matching colors without thinking. The user can also have the machine pick a item of his favorite color or a type for him so he doesn't have to think. 
 ** Highlights: This enhancement affects existing commands and commands to be added in future. I had to write parsers for each command and a CommandRecommendation. Because the methods function on random numbers I had to add more tests methods also.
 
@@ -59,8 +58,3 @@ include::../UserGuide.adoc[tag=delete]
 |===
 
 include::../DeveloperGuide.adoc[tag=delete]
-
-
-== PROJECT: [W15-1][Philip Garabandic]Portfolio
-
----
