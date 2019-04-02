@@ -17,9 +17,9 @@ We build a desktop application that is a clothing closet manager.
 ** What it does: RecommendationCommand is an algorythm that find a matching outfit for the user. RandomCommand find a radnom item of chosen type. SomethingColorCommand, finds a random outfit of chosen color.
 
 ** Justification: This feature improves the product significantly because a user can get a outfit with matching colors without thinking. The user can also have the machine pick a item of his favorite color or a type for him so he doesn't have to think. 
-** Highlights: This enhancement affects existing commands and commands to be added in future. I had to write parsers for each command and a CommandRecommendation. Because the methods function on random numbers I had to add more tests methods also. I had also added many other immpimentations here and there but I didn't know this was due tonight so it's too last minute for me to cite all of them. I also updated the user guide and so on.
+** Highlights: This enhancement affects existing commands and commands to be added in future. I had to write parsers for each command and a CommandRecommendation. Because the methods function on random numbers I had to add more tests methods also.
 
-* *Minor enhancement*: added methods in here and there to support others
+* *Minor enhancement*: I had also added other immpimentations here and there but I didn't know this was due tonight so it's too last minute for me to cite all of them. I also updated the user guide and so on.
 
 * *Code contributed*:
 Methods:
