@@ -61,7 +61,7 @@ include::../UserGuide.adoc[tag=delete]
 include::../DeveloperGuide.adoc[tag=delete]
 
 
-== PROJECT: PowerPointLabs
+== PROJECT: [W15-1][JPhilip Garabandic]Portfolio
 
 ---
 
