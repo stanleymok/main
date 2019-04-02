@@ -17,16 +17,6 @@ endif::[]
 
 By: `Team W15-01`      Since: `Jan 2019`      Licence: `MIT`
 
-//tag::introduction
-== Introduction
-
-Fashion Match (FM) is for those who prefer to use a desktop app to find the matching combination for their clothing and accessories.
-FM is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
-If you can type fast, FM can get your contact management tasks done faster than traditional GUI apps.
-
-This Developer Guide contains a broad overview of FM. The implementation key features will be discussed, as well as the general software architecture.
-By reading through this guide, you should be able to modify the codebase yourself.
-//end::introduction
 
 == Setting up
 
@@ -821,7 +811,8 @@ See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-
 
 *Target user profile*:
 
-* wish for a clothing and accessories matching app
+* wishes for a clothing and accessories matching app
+* wishes for an app to store their wardrobe and recommends clothes
 * prefer desktop apps over other types
 * can type fast
 * prefers typing over mouse input
@@ -839,7 +830,7 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 [width="59%",cols="22%,<23%,<25%,<30%",options="header",]
 |=======================================================================
 |Priority |As a ... |I want to ... |So that I can...
-|`* * *` |user |see usage instructions |refer to instructions when I forget how to use the App
+|`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
 
 |`* * *` |user |see all items in closet |see all the clothings that i have
 
@@ -855,23 +846,23 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* *` |user |see clothings being categorised in their respective category (e.g. shirt, pants, shoe, etc) |locate the clothing item easily
 
-|`* *` |user |know the suitable clothing based on occasions |wear the right clothing based on occasions
+|`* *` |power user |know the suitable clothing based on occasions |wear the right clothing based on occasions
 
-|`*` |user |know the colors that are not suitable for certain clothings |avoid wearing colors that don’t match
+|`*` |power user |know the colors that are not suitable for certain clothings |avoid wearing colors that don’t match
 
-|`*` |user |add tags to each clothing |identify clothing by tags
+|`*` |forgetful user |add tags to each clothing |identify clothing by tags
 
 |`* * *` |user |edit item details |edit item details
 
 |`* * *` |user |exit the app |exit the app
 
-|`* * *` |user |save favorite clothing combination |easily find my go-to attire
+|`* * *` |efiicient user |save favorite clothing combination |easily find my go-to attire
 
 |`*` |user |Redo previous command |avoid the hassle of retyping commonly used command
 
 |`*` |user |undo previous changes |undo recently committed mistake
 
-|`*` |user |search by keyword |easily locate clothing
+|`*` |efficient user |search by keyword |easily locate clothing
 
 |`*` |user |see all saved combinations |easy choice
 
@@ -882,10 +873,10 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 [appendix]
 == Use Cases
 
-(For all use cases below, the *System* is the `Application` and the *Actor* is the `user`, unless specified otherwise)
+(For all use cases below, the *System* is the `Fashion Match Application` and the *Actor* is the `user`, unless specified otherwise)
 
 [discrete]
-=== Use case: Addding an entry
+=== Use case: Adding an entry
 
 *MSS*
 
@@ -899,7 +890,7 @@ Use case ends.
 *Extensions*
 
 [none]
-* 1a. Entry with same name already exists in Application.
+* 1a. Entry with same apparel name already exists in Application.
 +
 [none]
 ** 1a1. Application informs user, requests for confirmation
