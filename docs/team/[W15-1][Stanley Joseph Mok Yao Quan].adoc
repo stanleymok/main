@@ -22,23 +22,23 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 * *Minor enhancement*: Enabled alternative, more intuitive command words to be used in place of available and unavailable: *wash* and *dirty*.
 
 * *Code contributed*: 
-Available command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Functional code]
+*Available command*: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Functional code]
 
-Unavailable command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/UnavailableCommand.java[Functional code]
+*Unavailable command*: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/UnavailableCommand.java[Functional code]
 
-Parser for available command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/AvailableCommandParser.java[Functional code]
+*Parser* for available command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/AvailableCommandParser.java[Functional code]
 
-Parser for unavailable command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/UnavailableCommandParser.java[Functional code]
+*Parser* for unavailable command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/UnavailableCommandParser.java[Functional code]
 
 Test case for *available* command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Test code]
 
 Test case for *unavailable* command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/UnavailableCommandTest.java[Test code]
 
-Stub class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/CommandTestUtilExtra.java[Test code]
+*Stub* class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/CommandTestUtilExtra.java[Test code]
 
-Stub class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/testutil/AvailableApparelDescriptorBuilder.java[Test code]
+*Stub* class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/testutil/AvailableApparelDescriptorBuilder.java[Test code]
 
-Stub class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/testutil/UnavailableApparelDescriptorBuilder.java[Test code]
+*Stub* class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/testutil/UnavailableApparelDescriptorBuilder.java[Test code]
 
 * *Other contributions*: Created 2 classes for testing: AvailableCommandTest.java, UnavailableCommandTest.java and 3 other classes as stubs for dependency injection: CommandTestUtilExtra.java, AvailableApparelDescriptorBuilder.java and UnavailableApparelDescriptorBuilder.java
 
