@@ -137,24 +137,52 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h3>
+<h3 id="delete-clothes-code-coming-in-v2-0-code"><a class="link" href="#delete-clothes-code-coming-in-v2-0-code">Delete Clothes <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Delete a piece of clothing from the closet.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+</div>
+<div class="sect2">
+<h3 id="listing-all-clothes-code-coming-in-v2-0-code"><a class="link" href="#listing-all-clothes-code-coming-in-v2-0-code">Listing all Clothes <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Lists all the categorised clothes you have in your closet to your CLI.</p>
 </div>
-</td>
-</tr>
-</table>
+</div>
+<div class="sect2">
+<h3 id="calculating-use-statistics-code-coming-in-v2-0-code"><a class="link" href="#calculating-use-statistics-code-coming-in-v2-0-code">Calculating use Statistics <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Calculates the rate of wear of each clothes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="recommend-outfit"><a class="link" href="#recommend-outfit">Recommend Outfit</a></h3>
+<div class="paragraph">
+<p>Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT.<br>
+Format: <code>recommendation</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="something-color-select"><a class="link" href="#something-color-select">Something Color Select</a></h3>
+<div class="paragraph">
+<p>Returns random clothing of specified COLOR from address book.<br>
+Format: <code>something COLOR</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Returns random clothing from specified <code>COLOR</code>.</p>
+</li>
+<li>
+<p>The color refers to the color of clothing.</p>
+</li>
+<li>
+<p>The color <strong>must be a one of</strong> RED, BLUE, GREEN, WHITE, BLACK, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -162,30 +190,38 @@ Format: <code>undo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>something RED</code><br>
+Returns a RED item from the address book.</p>
 </li>
 <li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>something BLACK</code><br>
+Returns a BLACK item from the address book.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="random-item-type-select"><a class="link" href="#random-item-type-select">Random Item Type Select</a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Returns random specified TYPE of clothing from address book.<br>
+Format: <code>random TYPE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Returns random clothing from specified <code>TYPE</code>.</p>
+</li>
+<li>
+<p>The type refers to the type of clothing.</p>
+</li>
+<li>
+<p>The type <strong>must be a one of</strong> TOP,BOTTOM,BELT,SHOES</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -193,25 +229,106 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+<p><code>random TOP</code><br>
+Returns a random TOP in the address book.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><code>random BOTTOM</code><br>
+Returns a random BOTTOM in the address book.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="redo-code-coming-in-v2-0-code"><a class="link" href="#redo-code-coming-in-v2-0-code">Redo <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Redo previous command similar to up arrow key in vim.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="search-clothing-code-coming-in-v2-0-code"><a class="link" href="#search-clothing-code-coming-in-v2-0-code">Search Clothing <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Search for clothing by keyword.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-code-coming-in-v2-0-code"><a class="link" href="#undo-code-coming-in-v2-0-code">Undo <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Undo previous command.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exit-app-code-coming-in-v2-0-code"><a class="link" href="#exit-app-code-coming-in-v2-0-code">Exit App <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Exit the app.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+</li>
+<li>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find James Jake</code></p>
+</li>
+<li>
+<p><strong>History</strong> : <code>history</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Random</strong> : <code>random TYPE</code><br>
+e.g. <code>type TOP</code></p>
+</li>
+<li>
+<p><strong>Redo</strong> : <code>redo</code></p>
+</li>
+<li>
+<p><strong>Recommendation</strong> : <code>recommendation</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select INDEX</code><br>
+e.g.<code>select 2</code></p>
+</li>
+<li>
+<p><strong>Something</strong> : <code>something COLOR</code><br>
+e.g. <code>color RED</code></p>
+</li>
+<li>
+<p><strong>Undo</strong> : <code>undo</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -228,6 +345,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="delete-clothes-feature"><a class="link" href="#delete-clothes-feature">Delete Clothes feature</a></h3>
+<div class="paragraph">
+<p>Deletes the specified item from the database.
+==== Current Implementation
+<em>{More to be added}</em></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -238,4 +363,4 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-05 15:27:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 07:31:45 UTC</div></div></div></body></html>
