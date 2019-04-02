@@ -22,7 +22,8 @@ We build a desktop application that is a clothing closet manager.
 * *Minor enhancement*: I had also added other immpimentations here and there but I didn't know this was due tonight so it's too last minute for me to cite all of them. I also updated the user guide and so on.
 
 * *Code contributed*:
-==Methods:
+
+Methods:
 https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/CommandRecommendation.java
 https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/parser/RandomItemParser.java
 https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/parser/SomethingColorParser.java
@@ -30,7 +31,7 @@ https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic
 https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/commands/RecommendationCommand.java
 https://github.com/PhilipPhil/main/blob/master/src/main/java/seedu/address/logic/commands/SomethingColorCommand.java
 
-==Tests:
+Tests:
 https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/RandomItemCommandTest.java
 https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/RecommendationCommandTest.java
 https://github.com/PhilipPhil/main/blob/master/src/test/java/seedu/address/logic/commands/SomethingColorCommandTest.java
