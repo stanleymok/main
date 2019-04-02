@@ -148,6 +148,7 @@ public class AvailableCommandTest {
         AvailableCommand availableCommand = new AvailableCommand(outOfBoundIndex,
                 new AvailableApparelDescriptorBuilder().withName(VALID_NAME_B).build());
         availableCommand.execute(model, commandHistory);
+
     }
 
     @Test

@@ -19,17 +19,17 @@ import seedu.address.model.apparel.Apparel;
  */
 public class TypicalApparels {
 
-    public static final String NAME_FORMAL_SHIRT = "Formal Shirt";
-    public static final String NAME_FORMAL_PANTS = "Formal Pants";
-    public static final String NAME_INFORMAL_SHIRT = "Informal Shirt";
-    public static final String NAME_FORMAL_BELT = "Formal Belt";
-    public static final String NAME_CASUAL_BELT = "Casual Belt";
-    public static final String NAME_COOL_BELT = "Cool Belt";
-    public static final String NAME_FORMAL_SHOES = "Formal Shoes";
-    public static final String NAME_CASUAL_SHOES = "Casual Shoes";
-    public static final String NAME_SNEAKERS = "Sneakers";
+    public static final String NAME_FORMAL_SHIRT = "A Formal Shirt";
+    public static final String NAME_FORMAL_PANTS = "B Formal Pants";
+    public static final String NAME_INFORMAL_SHIRT = "C Informal Shirt";
+    public static final String NAME_FORMAL_BELT = "D Formal Belt";
+    public static final String NAME_CASUAL_BELT = "E Casual Belt";
+    public static final String NAME_COOL_BELT = "F Cool Belt";
+    public static final String NAME_FORMAL_SHOES = "G Formal Shoes";
+    public static final String NAME_CASUAL_SHOES = "H Casual Shoes";
+    public static final String NAME_SNEAKERS = "I Sneakers";
 
-    public static final String NAME_FORMAL_SHIRT_LOWER = "formal shirt";
+    public static final String NAME_FORMAL_SHIRT_LOWER = "aa formal shirt";
 
     public static final String TYPE_TOP = "Top";
     public static final String TYPE_BOTTOM = "Bottom";
