@@ -23,14 +23,21 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 
 * *Code contributed*: 
 Available command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Functional code]
+
 Unavailable command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/UnavailableCommand.java[Functional code]
+
 Parser for available command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/AvailableCommandParser.java[Functional code]
+
 Parser for unavailable command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/UnavailableCommandParser.java[Functional code]
 
 Test case for *available* command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Test code]
+
 Test case for *unavailable* command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/UnavailableCommandTest.java[Test code]
+
 Stub class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/CommandTestUtilExtra.java[Test code]
+
 Stub class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/testutil/AvailableApparelDescriptorBuilder.java[Test code]
+
 Stub class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/testutil/UnavailableApparelDescriptorBuilder.java[Test code]
 
 * *Other contributions*: Created 2 classes for testing: AvailableCommandTest.java, UnavailableCommandTest.java and 3 other classes as stubs for dependency injection: CommandTestUtilExtra.java, AvailableApparelDescriptorBuilder.java and UnavailableApparelDescriptorBuilder.java
@@ -54,8 +61,9 @@ Stub class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/j
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-include::../UserGuide.adoc[tag=available]
-include::../UserGuide.adoc[tag=unavailable]
+Available/wash command: include::../UserGuide.adoc[tag=available]
+
+Unavailable/dirty command: include::../UserGuide.adoc[tag=unavailable]
 
 == Contributions to the Developer Guide
 
@@ -63,5 +71,6 @@ include::../UserGuide.adoc[tag=unavailable]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=unavailable]
-include::../DeveloperGuide.adoc[tag=unavailable]
+Available/wash command: include::../DeveloperGuide.adoc[tag=unavailable]
+
+Unavailable/dirty command: include::../DeveloperGuide.adoc[tag=unavailable]
