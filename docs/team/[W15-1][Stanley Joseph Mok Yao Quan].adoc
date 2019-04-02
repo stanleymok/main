@@ -22,6 +22,7 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 * *Minor enhancement*: Enabled alternative, more intuitive command words to be used in place of available and unavailable: *wash* and *dirty*.
 
 * *Code contributed*: 
+
 *Available command*: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Functional code]
 
 *Unavailable command*: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/UnavailableCommand.java[Functional code]
@@ -30,9 +31,9 @@ Fashion Match is a desktop wardrobe management application used as a guide for y
 
 *Parser* for unavailable command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/UnavailableCommandParser.java[Functional code]
 
-Test case for *available* command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Test code]
+*Available* command test: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java[Test code]
 
-Test case for *unavailable* command: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/UnavailableCommandTest.java[Test code]
+*Unavailable* command test: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/UnavailableCommandTest.java[Test code]
 
 *Stub* class: https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/CommandTestUtilExtra.java[Test code]
 
@@ -61,9 +62,11 @@ Test case for *unavailable* command: https://github.com/CS2103-AY1819S2-W15-1/ma
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-Available/wash command: include::../UserGuide.adoc[tag=available]
+Available/wash command: 
+include::../UserGuide.adoc[tag=available]
 
-Unavailable/dirty command: include::../UserGuide.adoc[tag=unavailable]
+Unavailable/dirty command: 
+include::../UserGuide.adoc[tag=unavailable]
 
 == Contributions to the Developer Guide
 
