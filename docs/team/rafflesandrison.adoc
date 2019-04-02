@@ -40,28 +40,25 @@ Fashion Match is a desktop apparels matching application that recommends user th
 *** Set up team development environment.
 *** Managed releases `v1.1` (1 release) on GitHub
 ** Enhancements to existing features:
-*** Updated the GUI colorValue scheme (Pull requests https://github.com[#33], https://github.com[#34])
-*** Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
-*** Refactoring of existing classes to suit Fashion Match need.
+*** Updated the display of apparel name on GUI by capitalising the name (Pull requests https://github.com/CS2103-AY1819S2-W15-1/main/pull/65[#65])
+*** Refactoring of existing classes to suit Fashion Match need. (Pull requests https://github.com/CS2103-AY1819S2-W15-1/main/pull/93[#93])
 ** Documentation:
+*** Wrote the first version of user guide on Google Doc before it was keyed into GitHub.
 *** Cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
 ** Community:
-*** PRs reviewed (with non-trivial review comments): https://github.com[#12], https://github.com[#32], https://github.com[#19], https://github.com[#42]
-*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
+*** PRs reviewed: https://github.com/CS2103-AY1819S2-W15-1/main/pull/42[#42], https://github.com/CS2103-AY1819S2-W15-1/main/pull/50[#50], https://github.com/CS2103-AY1819S2-W15-1/main/pull/51[#51]
 ** Tools:
-*** Pending
+***
 
 _{you can add/remove categories in the list above}_
 
 == Contributions to the User Guide
 
-
 |===
-|_Wrote the first version of user guide on Google Doc before it was keyed into GitHub.
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-include::../UserGuide.adoc[tag=delete]
+include::../UserGuide.adoc[tag=sort]
 
 == Contributions to the Developer Guide
 
@@ -70,7 +67,7 @@ include::../UserGuide.adoc[tag=delete]
 
 |===
 
-include::../DeveloperGuide.adoc[tag=delete]
+include::../DeveloperGuide.adoc[tag=sort]
 
 
 == PROJECT: PowerPointLabs

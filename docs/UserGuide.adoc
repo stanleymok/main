@@ -71,6 +71,7 @@ Examples:
 * `add n/Zara Shirt c/Red t/Top
 * `add n/Desigual Tailored Pants c/Grey t/Bottom
 
+// tag::sort[]
 === Sort all apparels : `sort [option]`
 
 Sort all apparels in the address book based on the option supplied. +
