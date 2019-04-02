@@ -140,11 +140,7 @@ public class CommandTestUtil {
             System.out.println(a.toString());
         }
 
-        // There expected number is 4 because if you look at TypicalApparels,
-        // there are a total of 4 apparels whose name starts with "formal" regardless of case (upper or lower).
-        // Since the targetIndex is 0 (INDEX_FIRST_APPAREL), which is set to "Formal Shirt",
-        // Naturally the filtered list will show all apparels whose name starts with "formal".
-        assertEquals(4, model.getFilteredApparelList().size());
+        assertEquals(1, model.getFilteredApparelList().size());
     }
 
     /**
