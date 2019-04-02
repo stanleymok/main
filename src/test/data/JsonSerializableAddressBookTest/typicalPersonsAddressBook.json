@@ -1,39 +1,39 @@
 {
   "_comment": "AddressBook save file which contains the same Apparel values as in TypicalPersons#getTypicalAddressBook()",
   "apparels" : [ {
-    "name" : "Formal Shirt",
+    "name" : "A Formal Shirt",
     "color" : "White",
     "clothingType" : "Top"
   }, {
-    "name" : "Informal Shirt",
+    "name" : "C Informal Shirt",
     "color" : "Navy",
     "clothingType" : "Top"
   }, {
-    "name" : "Formal Pants",
+    "name" : "B Formal Pants",
     "color" : "Brown",
     "clothingType" : "Bottom"
   }, {
-    "name" : "Formal Belt",
+    "name" : "D Formal Belt",
     "color" : "Black",
     "clothingType" : "Belt"
   }, {
-    "name" : "Casual Belt",
+    "name" : "E Casual Belt",
     "color" : "White",
     "clothingType" : "Belt"
   }, {
-    "name" : "Cool Belt",
+    "name" : "F Cool Belt",
     "color" : "Navy",
     "clothingType" : "Belt"
   }, {
-    "name" : "Formal Shoes",
+    "name" : "G Formal Shoes",
     "color" : "Brown",
     "clothingType" : "Shoes"
   }, {
-    "name" : "Casual Shoes",
+    "name" : "H Casual Shoes",
     "color" : "Green",
     "clothingType" : "Shoes"
   }, {
-    "name" : "Sneakers",
+    "name" : "I Sneakers",
     "color" : "Grey",
     "clothingType" : "Shoes"
   } ]
