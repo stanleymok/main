@@ -49,7 +49,7 @@ Methods here and there @@Author will be seen
 |_Section 3.18,3.19,3.2 and Section 5_
 |===
 
-include::../UserGuide.adoc[tag=delete]
+include::../UserGuide.adoc
 
 == Contributions to the Developer Guide
 
@@ -57,4 +57,4 @@ include::../UserGuide.adoc[tag=delete]
 |_Added writting in_
 |===
 
-include::../DeveloperGuide.adoc[tag=delete]
+include::../DeveloperGuide.adoc
