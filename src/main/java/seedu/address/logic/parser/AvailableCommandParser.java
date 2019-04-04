@@ -53,10 +53,6 @@ public class AvailableCommandParser implements Parser<AvailableCommand> {
                     ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_CLOTHING_TYPE).get()));
         }
 
-        /*if (!availablePersonDescriptor.isAnyFieldEdited()) {
-            throw new ParseException(UnavailableCommand.MESSAGE_NOT_EDITED);
-        }*/
-
         return new AvailableCommand(index, availablePersonDescriptor);
     }
 
