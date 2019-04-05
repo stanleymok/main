@@ -45,7 +45,7 @@ public class AvailableCommandTest {
         AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder(editedApparel).build();
         AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL, descriptor);
 
-        String expectedMessage = String.format(AvailableCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
+        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS, editedApparel);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredApparelList().get(0), editedApparel);
@@ -67,7 +67,7 @@ public class AvailableCommandTest {
                 .withColor(VALID_COLOR_BLUE).build();
         AvailableCommand availableCommand = new AvailableCommand(indexLastPerson, descriptor);
 
-        String expectedMessage = String.format(AvailableCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
+        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS, editedApparel);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(lastApparel, editedApparel);
@@ -81,7 +81,7 @@ public class AvailableCommandTest {
         AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL, new AvailablePersonDescriptor());
         Apparel editedApparel = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
 
-        String expectedMessage = String.format(AvailableCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
+        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS, editedApparel);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.commitAddressBook();
@@ -98,7 +98,7 @@ public class AvailableCommandTest {
         AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL,
                 new AvailableApparelDescriptorBuilder().withName(VALID_NAME_B).build());
 
-        String expectedMessage = String.format(AvailableCommand.MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel);
+        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS, editedApparel);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredApparelList().get(0), editedApparel);
