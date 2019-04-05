@@ -71,6 +71,14 @@ public class Apparel {
         }
     }
 
+    public String getWornStatus() {
+        if (isAvailable()) {
+            return "Clean";
+        } else {
+            return "Worn";
+        }
+    }
+
     public boolean isAvailable() {
         return available;
     }
@@ -102,8 +110,8 @@ public class Apparel {
 
         return otherApparel != null
                 && otherApparel.getName().equals(getName())
-                && (otherApparel.getColor().equals(getColor())
-                && otherApparel.getClothingType().equals(getClothingType()));
+                && otherApparel.getColor().equals(getColor())
+                && otherApparel.getClothingType().equals(getClothingType());
     }
 
     /**
