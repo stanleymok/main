@@ -309,6 +309,10 @@ Returns a random TOP in the address book.
 * `random BOTTOM` +
 Returns a random BOTTOM in the address book.
 
+=== Calculating use Statistics `[coming in v4.0]`
+
+Calculates the rate of wear of each clothes.
+
 === Exiting the program : `exit`
 
 Exits the program. +
@@ -318,10 +322,6 @@ Format: `exit`
 
 Address book data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
-
-=== Calculating use Statistics `[coming in v4.0]`
-
-Calculates the rate of wear of each clothes.
 
 == FAQ
 
