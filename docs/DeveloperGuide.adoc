@@ -314,6 +314,20 @@ _{More to be added}_
 // end::save[]
 
 // tag::save[]
+=== Recommendation Clothes feature
+Recommendat clothing item based on color matching as well as type of clothing.
+==== Current Implementation
+_{More to be added}_
+// end::save[]
+
+// tag::save[]
+=== Random Select feature
+Random TYPE, and Something Color method. They return random items of selected color and type.
+==== Current Implementation
+_{More to be added}_
+// end::save[]
+
+// tag::save[]
 === UI Autocomplete feature
 Show matching commands and missing parameters.
 ==== Current Implementation
