@@ -315,16 +315,16 @@ _{More to be added}_
 
 // tag::save[]
 === Recommendation Clothes feature
-Recommendat clothing item based on color matching as well as type of clothing.
+Recommend clothing item based on color matching as well as type of clothing.
 ==== Current Implementation
-_{More to be added}_
+_{Recommendation}_
 // end::save[]
 
 // tag::save[]
 === Random Select feature
 Random TYPE, and Something Color method. They return random items of selected color and type.
 ==== Current Implementation
-_{More to be added}_
+_{random TYPE, something COLOR}_
 // end::save[]
 
 // tag::save[]
