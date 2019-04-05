@@ -27,14 +27,15 @@ import seedu.address.model.tag.Tag;
 public class AvailableCommand extends Command {
 
     public static final String COMMAND_WORD = "available";
-    public static final String ALTERNATE_COMMAND_WORD = "wash";
+    public static final String ALTERNATE_COMMAND_WORD = "clean";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the availability of the apparel identified "
             + "by the index number used in the displayed apparel list. "
             + "Parameters: INDEX (must be a positive integer) "
             + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_EDIT_APPAREL_SUCCESS = "Apparel made available: %1$s";
+    public static final String MESSAGE_EDIT_APPAREL_SUCCESS = "Apparel cleaned: \n%1$s";
+    public static final String MESSAGE_EDIT_APPAREL_SUCCESS_OCD = "Apparel is already clean, you OCD freak ^.^ \n%1$s";
     public static final String MESSAGE_NOT_EDITED = "Apparel index must be provided.";
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
@@ -65,33 +66,16 @@ public class AvailableCommand extends Command {
         Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
         Apparel editedApparel = new Apparel(apparelToEdit.getName(), apparelToEdit.getColor(),
                 apparelToEdit.getClothingType(), true, apparelToEdit.getUsageCount());
-        //createEditedPerson(apparelToEdit, availablePersonDescriptor);
-
-        /*if (!apparelToEdit.isSameApparel(editedApparel)) {
-            throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
-        }*/
 
         model.setPerson(apparelToEdit, editedApparel);
         model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         model.commitAddressBook();
-        // if already available : return commandresult: stop cleaning you ADHD clean freak :p
-        return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel));
-    }
 
-    /**
-     * Creates and returns a {@code Apparel} with the details of {@code apparelToEdit}
-     * edited with {@code availablePersonDescriptor}.
-     */
-    private static Apparel createEditedPerson(Apparel apparelToEdit, AvailablePersonDescriptor
-            availablePersonDescriptor) {
-        assert apparelToEdit != null;
-
-        Name updatedName = availablePersonDescriptor.getName().orElse(apparelToEdit.getName());
-        Color updatedColor = availablePersonDescriptor.getColor().orElse(apparelToEdit.getColor());
-        ClothingType updatedClothingType =
-                availablePersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
-
-        return new Apparel(updatedName, updatedColor, updatedClothingType, true, apparelToEdit.getUsageCount());
+        if (apparelToEdit.isAvailable()) {
+            return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS_OCD, editedApparel));
+        } else {
+            return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel));
+        }
     }
 
     @Override
