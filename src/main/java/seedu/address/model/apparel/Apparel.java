@@ -146,10 +146,10 @@ public class Apparel {
         builder.append(getName())
                 .append(" Color: ")
                 .append(getColor())
-                .append(" ClothingType: ")
+                .append(" Type: ")
                 .append(getClothingType())
-                .append(" Available: ")
-                .append(isAvailable())
+                .append(" Status: ")
+                .append(getWornStatus())
                 .append(" Usage-count: ")
                 .append(getUsageCount());
 
