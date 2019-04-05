@@ -63,15 +63,18 @@ public class AvailableCommand extends Command {
         }
 
         Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
-        Apparel editedApparel = createEditedPerson(apparelToEdit, availablePersonDescriptor);
+        Apparel editedApparel = new Apparel(apparelToEdit.getName(), apparelToEdit.getColor(),
+                apparelToEdit.getClothingType(), true, apparelToEdit.getUsageCount());
+        //createEditedPerson(apparelToEdit, availablePersonDescriptor);
 
-        if (!apparelToEdit.isSameApparel(editedApparel) && model.hasApparel(editedApparel)) {
+        /*if (!apparelToEdit.isSameApparel(editedApparel)) {
             throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
-        }
+        }*/
 
         model.setPerson(apparelToEdit, editedApparel);
         model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         model.commitAddressBook();
+        // if already available : return commandresult: stop cleaning you ADHD clean freak :p
         return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel));
     }
 
