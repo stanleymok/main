@@ -200,49 +200,6 @@ Selects the 2nd person in the address book.
 `select 1` +
 Selects the 1st person in the results of the `find` command.
 
-=== Recommend Outfit
-
-Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT. +
-Format: `recommendation`
-
-=== Something Color Select
-
-Returns random clothing of specified COLOR from address book. +
-Format: `something COLOR`
-
-****
-* Returns random clothing from specified `COLOR`.
-* The color refers to the color of clothing.
-* The color *must be a one of* RED, BLUE, GREEN, WHITE, BLACK, ...
-****
-
-Examples:
-
-* `something RED` +
-Returns a RED item from the address book.
-
-* `something BLACK` +
-Returns a BLACK item from the address book.
-
-=== Random Item Type Select
-
-Returns random specified TYPE of clothing from address book. +
-Format: `random TYPE`
-
-****
-* Returns random clothing from specified `TYPE`.
-* The type refers to the type of clothing.
-* The type *must be a one of* TOP,BOTTOM,BELT,SHOES
-****
-
-Examples:
-
-* `random TOP` +
-Returns a random TOP in the address book.
-
-* `random BOTTOM` +
-Returns a random BOTTOM in the address book.
-
 === Listing entered commands : `history`
 
 Lists all the commands that you have entered in reverse chronological order. +
@@ -308,6 +265,49 @@ The `redo` command fails as there are no `undo` commands executed previously.
 
 Clears all entries from the address book. +
 Format: `clear`
+
+=== Recommend Outfit
+
+Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT. +
+Format: `recommendation`
+
+=== Something Color Select
+
+Returns random clothing of specified COLOR from address book. +
+Format: `something COLOR`
+
+****
+* Returns random clothing from specified `COLOR`.
+* The color refers to the color of clothing.
+* The color *must be a one of* RED, BLUE, GREEN, WHITE, BLACK, ...
+****
+
+Examples:
+
+* `something RED` +
+Returns a RED item from the address book.
+
+* `something BLACK` +
+Returns a BLACK item from the address book.
+
+=== Random Item Type Select
+
+Returns random specified TYPE of clothing from address book. +
+Format: `random TYPE`
+
+****
+* Returns random clothing from specified `TYPE`.
+* The type refers to the type of clothing.
+* The type *must be a one of* TOP,BOTTOM,BELT,SHOES
+****
+
+Examples:
+
+* `random TOP` +
+Returns a random TOP in the address book.
+
+* `random BOTTOM` +
+Returns a random BOTTOM in the address book.
 
 === Exiting the program : `exit`
 
