@@ -30,6 +30,7 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.testutil.ApparelBuilder;
 import seedu.address.testutil.AvailableApparelDescriptorBuilder;
+import seedu.address.testutil.TypicalApparels;
 
 /**
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for EditCommand.
@@ -90,21 +91,17 @@ public class AvailableCommandTest {
     }
 
     @Test
-    public void execute_filteredList_success() {
+    public void execute_apparelAlreadyClean_failure() {
         showApparelAtIndex(model, INDEX_FIRST_APPAREL);
 
         Apparel apparelInFilteredList = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
-        Apparel editedApparel = new ApparelBuilder(apparelInFilteredList).withName(VALID_NAME_B).build();
         AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL,
-                new AvailableApparelDescriptorBuilder().withName(VALID_NAME_B).build());
+                new AvailableApparelDescriptorBuilder().build());
 
-        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS, editedApparel);
+        String expectedMessage = String.format(AvailableCommand.MESSAGE_APPAREL_ALREADY_CLEAN_OCD,
+                INDEX_FIRST_APPAREL.getOneBased(), apparelInFilteredList);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(model.getFilteredApparelList().get(0), editedApparel);
-        expectedModel.commitAddressBook();
-
-        assertCommandSuccess(availableCommand, model, commandHistory, expectedMessage, expectedModel);
+        assertCommandFailure(availableCommand, model, commandHistory, expectedMessage);
     }
 
     @Test
