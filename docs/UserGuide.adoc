@@ -123,9 +123,9 @@ Makes available the 1st apparel in the list.
 Makes available the 2nd apparel in the list.
 
 // tag::unavailable[]
-=== Making unavailable/dirty a piece of apparel : `unavailable` or `dirty`
+=== Making unavailable/dirty a piece of apparel : `unavailable` or `wear`
 
-Makes an existing apparel in the address book available. +
+Makes an existing apparel in the address book unavailable/dirty and increases times worn by 1. +
 Format: `dirty INDEX` or `unavailable INDEX`
 
 ****
