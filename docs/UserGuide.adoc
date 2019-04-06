@@ -343,11 +343,11 @@ e.g. `find Formal`
 * *Help* : `help`
 * *List* : `list`
 * *Random* : `random TYPE` +
-e.g. `type TOP`
+e.g. `random TOP`
 * *Redo* : `redo`
 * *Recommendation* : `recommendation`
 * *Select* : `select INDEX` +
 e.g.`select 2`
 * *Something* : `something COLOR` +
-e.g. `color RED`
+e.g. `something RED`
 * *Undo* : `undo`
