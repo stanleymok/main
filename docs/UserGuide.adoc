@@ -125,11 +125,11 @@ Makes available the 2nd apparel in the list.
 // tag::unavailable[]
 === Making unavailable/dirty a piece of apparel : `unavailable` or `dirty`
 
-Makes an existing apparel in the address book available. +
+Makes an existing apparel in FM unavailable. +
 Format: `dirty INDEX` or `unavailable INDEX`
 
 ****
-* Makes unavailable the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Makes unavailable the apparel at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
 * Apparel will be made unavailable whether it was available or unavailable before the command.
 * Increases the 'Times worn' counter by 1.
 ****
@@ -321,7 +321,7 @@ Format: `exit`
 
 === Saving the data
 
-Address book data are saved in the hard disk automatically after any command that changes the data. +
+FM data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
 == FAQ
