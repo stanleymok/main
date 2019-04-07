@@ -23,9 +23,9 @@ Fashion Match (FM) is for those who *prefer to use a desktop app for managing dr
 == Quick Start
 
 .  Ensure you have Java version `9` or later installed in your Computer.
-.  Fork and clone the FM repository into your local directory.
-.  Import the project in Intellij.
-.  Run main.
+.  Download the latest `main.jar` link:{repoURL}/releases[here].
+.  Copy the file to the folder you want to use as the home folder for FM.
+.  Double-click the jar file to start FM. The GUI will appear shortly after.
 +
 image::Ui.png[width="790"]
 +
