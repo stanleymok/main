@@ -30,8 +30,7 @@ public class UnavailableCommandParser implements Parser<UnavailableCommand> {
     public UnavailableCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_COLOR,
-                        PREFIX_CLOTHING_TYPE);
+                ArgumentTokenizer.tokenize(args);
 
         Index index;
 
@@ -42,23 +41,7 @@ public class UnavailableCommandParser implements Parser<UnavailableCommand> {
                     UnavailableCommand.MESSAGE_USAGE), pe);
         }
 
-        UnavailablePersonDescriptor editPersonDescriptor = new UnavailablePersonDescriptor();
-        if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            editPersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
-        }
-        if (argMultimap.getValue(PREFIX_COLOR).isPresent()) {
-            editPersonDescriptor.setColor(ParserUtil.parseColor(argMultimap.getValue(PREFIX_COLOR).get()));
-        }
-        if (argMultimap.getValue(PREFIX_CLOTHING_TYPE).isPresent()) {
-            editPersonDescriptor.setClothingType(
-                    ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_CLOTHING_TYPE).get()));
-        }
-
-        /*if (!editPersonDescriptor.isAnyFieldEdited()) {
-            throw new ParseException(UnavailableCommand.MESSAGE_NOT_EDITED);
-        }*/
-
-        return new UnavailableCommand(index, editPersonDescriptor);
+        return new UnavailableCommand(index);
     }
 
     /**

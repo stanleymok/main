@@ -40,18 +40,14 @@ public class UnavailableCommand extends Command {
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
-    private final UnavailablePersonDescriptor unavailablePersonDescriptor;
 
     /**
      * @param index of the apparel in the filtered apparel list to edit
-     * @param editPersonDescriptor details to edit the apparel with
      */
-    public UnavailableCommand(Index index, UnavailablePersonDescriptor editPersonDescriptor) {
+    public UnavailableCommand(Index index) {
         requireNonNull(index);
-        requireNonNull(editPersonDescriptor);
 
         this.index = index;
-        this.unavailablePersonDescriptor = new UnavailablePersonDescriptor(editPersonDescriptor);
     }
 
     @Override
@@ -63,17 +59,23 @@ public class UnavailableCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
         }
 
-        Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
-        Apparel editedApparel = createEditedPerson(apparelToEdit, unavailablePersonDescriptor);
+        Apparel apparelToWear = lastShownList.get(index.getZeroBased());
 
-        if (!apparelToEdit.isSameApparel(editedApparel) && model.hasApparel(editedApparel)) {
-            throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
+        boolean isWorn = false;
+        if (!apparelToWear.isAvailable()) {
+            isWorn = true;
         }
 
-        model.setPerson(apparelToEdit, editedApparel);
+        Apparel wornApparel = new Apparel(apparelToWear).use();
+
+        model.setPerson(apparelToWear, wornApparel);
         model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         model.commitAddressBook();
-        return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel));
+
+        if (isWorn) {
+            //special message
+        }
+        return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, wornApparel));
     }
 
     /**
@@ -106,8 +108,7 @@ public class UnavailableCommand extends Command {
 
         // state check
         UnavailableCommand e = (UnavailableCommand) other;
-        return index.equals(e.index)
-                && unavailablePersonDescriptor.equals(e.unavailablePersonDescriptor);
+        return index.equals(e.index);
     }
 
     /**
