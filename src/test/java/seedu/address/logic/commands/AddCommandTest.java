@@ -201,6 +201,21 @@ public class AddCommandTest {
         public void setSelectedPerson(Apparel apparel) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public String getFavColor() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public String getFavApparel() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public int getTotalColor() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**

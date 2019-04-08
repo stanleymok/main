@@ -128,4 +128,11 @@ public interface Model {
      * Sets the selected apparel in the filtered apparel list.
      */
     void setSelectedPerson(Apparel apparel);
+
+    /**
+     * To get the apparel statistics.
+     */
+    int getTotalColor();
+    String getFavApparel();
+    String getFavColor();
 }
