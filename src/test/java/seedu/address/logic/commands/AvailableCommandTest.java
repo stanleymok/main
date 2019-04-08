@@ -1,15 +1,14 @@
 package seedu.address.logic.commands;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COLOR_BLUE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_B;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showApparelAtIndex;
 import static seedu.address.logic.commands.CommandTestUtilExtra.DESC_ANDY;
 import static seedu.address.logic.commands.CommandTestUtilExtra.DESC_BOBBY;
+import static seedu.address.testutil.TypicalApparels.getDirtyAddressBook;
 import static seedu.address.testutil.TypicalApparels.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPAREL;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPAREL;
@@ -30,7 +29,6 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.apparel.Apparel;
 import seedu.address.testutil.ApparelBuilder;
 import seedu.address.testutil.AvailableApparelDescriptorBuilder;
-import seedu.address.testutil.TypicalApparels;
 
 /**
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for EditCommand.
@@ -38,56 +36,29 @@ import seedu.address.testutil.TypicalApparels;
 public class AvailableCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model dirtyModel = new ModelManager(getDirtyAddressBook(), new UserPrefs());
     private CommandHistory commandHistory = new CommandHistory();
 
     @Test
     public void execute_wash_success() {
-        Apparel editedApparel = new ApparelBuilder().buildAvailable();
-        AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder(editedApparel).build();
-        AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL, descriptor);
-
-        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS, editedApparel);
-
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(model.getFilteredApparelList().get(0), editedApparel);
-        expectedModel.commitAddressBook();
-
-        assertCommandSuccess(availableCommand, model, commandHistory, expectedMessage, expectedModel);
-    }
-
-    @Test
-    public void execute_someFieldsSpecifiedUnfilteredList_success() {
-        Index indexLastPerson = Index.fromOneBased(model.getFilteredApparelList().size());
-        Apparel lastApparel = model.getFilteredApparelList().get(indexLastPerson.getZeroBased());
-
-        ApparelBuilder personInList = new ApparelBuilder(lastApparel);
-        Apparel editedApparel = personInList.withName(VALID_NAME_B).withColor(VALID_COLOR_BLUE)
-                .build();
-
-        AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder().withName(VALID_NAME_B)
-                .withColor(VALID_COLOR_BLUE).build();
-        AvailableCommand availableCommand = new AvailableCommand(indexLastPerson, descriptor);
-
-        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS, editedApparel);
-
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(lastApparel, editedApparel);
-        expectedModel.commitAddressBook();
-
-        assertCommandSuccess(availableCommand, model, commandHistory, expectedMessage, expectedModel);
-    }
-
-    @Test
-    public void execute_noFieldSpecifiedUnfilteredList_success() {
+        //Apparel editedApparel = new ApparelBuilder().buildUnavailable();
+        //AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder(editedApparel).build();
         AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL, new AvailablePersonDescriptor());
-        Apparel editedApparel = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
 
-        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS, editedApparel);
+        Apparel apparelToWash = dirtyModel.getFilteredApparelList().get(0);
+        Apparel apparelAfterWash = apparelToWash.setWashed();
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        String expectedMessage = String.format(AvailableCommand.MESSAGE_CLEAN_APPAREL_SUCCESS,
+                INDEX_FIRST_APPAREL.getOneBased(), apparelAfterWash);
+
+        // reset
+        apparelToWash.setDirty();
+
+        Model expectedModel = new ModelManager(new AddressBook(dirtyModel.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(apparelToWash, new Apparel(apparelToWash).setDirty());
         expectedModel.commitAddressBook();
 
-        assertCommandSuccess(availableCommand, model, commandHistory, expectedMessage, expectedModel);
+        assertCommandSuccess(availableCommand, dirtyModel, commandHistory, expectedMessage, expectedModel);
     }
 
     @Test
@@ -102,27 +73,6 @@ public class AvailableCommandTest {
                 INDEX_FIRST_APPAREL.getOneBased(), apparelInFilteredList);
 
         assertCommandFailure(availableCommand, model, commandHistory, expectedMessage);
-    }
-
-    @Test
-    public void execute_duplicatePersonUnfilteredList_failure() {
-        Apparel firstApparel = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
-        AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder(firstApparel).build();
-        AvailableCommand availableCommand = new AvailableCommand(INDEX_SECOND_APPAREL, descriptor);
-
-        assertCommandFailure(availableCommand, model, commandHistory, EditCommand.MESSAGE_DUPLICATE_APPAREL);
-    }
-
-    @Test
-    public void execute_duplicatePersonFilteredList_failure() {
-        showApparelAtIndex(model, INDEX_FIRST_APPAREL);
-
-        // edit apparel in filtered list into a duplicate in address book
-        Apparel apparelInList = model.getAddressBook().getApparelList().get(INDEX_SECOND_APPAREL.getZeroBased());
-        AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL,
-                new AvailableApparelDescriptorBuilder(apparelInList).build());
-
-        assertCommandFailure(availableCommand, model, commandHistory, EditCommand.MESSAGE_DUPLICATE_APPAREL);
     }
 
     @Test
@@ -157,28 +107,6 @@ public class AvailableCommandTest {
     }
 
     @Test
-    public void executeUndoRedo_validIndexUnfilteredList_success() throws Exception {
-        Apparel editedApparel = new ApparelBuilder().build();
-        Apparel apparelToEdit = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
-        AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder(editedApparel).build();
-        AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL, descriptor);
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(apparelToEdit, editedApparel);
-        expectedModel.commitAddressBook();
-
-        // edit -> first apparel edited
-        availableCommand.execute(model, commandHistory);
-
-        // undo -> reverts addressbook back to previous state and filtered apparel list to show all persons
-        expectedModel.undoAddressBook();
-        assertCommandSuccess(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_SUCCESS, expectedModel);
-
-        // redo -> same first apparel edited again
-        expectedModel.redoAddressBook();
-        assertCommandSuccess(new RedoCommand(), model, commandHistory, RedoCommand.MESSAGE_SUCCESS, expectedModel);
-    }
-
-    @Test
     public void executeUndoRedo_invalidIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredApparelList().size() + 1);
         AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder().withName(VALID_NAME_B).build();
@@ -190,38 +118,6 @@ public class AvailableCommandTest {
         // single address book state in model -> undoCommand and redoCommand fail
         assertCommandFailure(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_FAILURE);
         assertCommandFailure(new RedoCommand(), model, commandHistory, RedoCommand.MESSAGE_FAILURE);
-    }
-
-    /**
-     * 1. Edits a {@code Apparel} from a filtered list.
-     * 2. Undo the edit.
-     * 3. The unfiltered list should be shown now. Verify that the index of the previously edited apparel in the
-     * unfiltered list is different from the index at the filtered list.
-     * 4. Redo the edit. This ensures {@code RedoCommand} edits the apparel object regardless of indexing.
-     */
-    @Test
-    public void executeUndoRedo_validIndexFilteredList_samePersonEdited() throws Exception {
-        Apparel editedApparel = new ApparelBuilder().build();
-        AvailablePersonDescriptor descriptor = new AvailableApparelDescriptorBuilder(editedApparel).build();
-        AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL, descriptor);
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-
-        showApparelAtIndex(model, INDEX_SECOND_APPAREL);
-        Apparel apparelToEdit = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
-        expectedModel.setPerson(apparelToEdit, editedApparel);
-        expectedModel.commitAddressBook();
-
-        // edit -> edits second apparel in unfiltered apparel list / first apparel in filtered apparel list
-        availableCommand.execute(model, commandHistory);
-
-        // undo -> reverts addressbook back to previous state and filtered apparel list to show all persons
-        expectedModel.undoAddressBook();
-        assertCommandSuccess(new UndoCommand(), model, commandHistory, UndoCommand.MESSAGE_SUCCESS, expectedModel);
-
-        assertNotEquals(model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased()), apparelToEdit);
-        // redo -> edits same second apparel in unfiltered apparel list
-        expectedModel.redoAddressBook();
-        assertCommandSuccess(new RedoCommand(), model, commandHistory, RedoCommand.MESSAGE_SUCCESS, expectedModel);
     }
 
     @Test
