@@ -50,7 +50,7 @@ public class TypicalApparels {
     public static final Apparel SHIRT2 = new ApparelBuilder().withName(NAME_INFORMAL_SHIRT)
             .withColor(COLOR_NAVY).withClothingType(TYPE_TOP).build();
     public static final Apparel SHIRT3 = new ApparelBuilder().withName(NAME_INFORMAL_SHIRT)
-            .withColor(COLOR_NAVY).withClothingType(TYPE_TOP).build().setDirty();
+            .withColor(COLOR_NAVY).withClothingType(TYPE_TOP).build().setWorn();
 
     public static final Apparel PANTS1 = new ApparelBuilder().withName(NAME_FORMAL_PANTS)
             .withColor(COLOR_BROWN).withClothingType(TYPE_BOTTOM).build();
