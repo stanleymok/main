@@ -324,6 +324,23 @@ Format: `exit`
 FM data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
+== Coming in v2.0
+
+=== Know suitable apparels based on occasions
+
+Fashion Match would be able to recommend suitable apparels based on whatever occasion the user is preparing for. For example, if the user is preparing for a formal event, FM will only recommend apparels that match the formal occasion.
+
+=== Matched Colors
+
+Fashion Match would also be able to establish relations between certain colors so that it will not recommend conflicting colors. +
+Examples: red on red, yellow on yellow, etc
+
+=== Save Favourite Apparels/Outfits
+
+Users would be able to save their favourite outfits or apparels so that they can quickly identify their favourite clothes for future use.
+
+
+
 == FAQ
 
 *Q*: How do I transfer my data to another Computer? +
