@@ -95,15 +95,17 @@ public class Apparel {
         return usageCount;
     }
 
-    public void use() {
+    public Apparel use() {
+        available = false;
         usageCount++;
+        return this;
     }
 
     public void dirty() {
         available = false;
     }
 
-    public Apparel setDirty() {
+    public Apparel setWorn() {
         available = false;
         return this;
     }
