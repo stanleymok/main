@@ -124,15 +124,7 @@ Makes available the 2nd apparel in the list.
 // tag::unavailable[]
 === Making unavailable/dirty a piece of apparel : `unavailable` or `wear`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Makes an existing apparel in the address book unavailable/dirty and increases times worn by 1. +
-=======
-Makes an existing apparel in FM unavailable. +
->>>>>>> 7da2d1068b74323dae3a7b197ea2bee12de2c35d
-=======
-Makes an existing apparel in the address book unavailable/dirty and increases times worn by 1. +
->>>>>>> 0ae7df1a8c08aafbf523792731a7e4f8a9838efc
+Makes an existing apparel in FM unavailable/dirty and increases times worn by 1. +
 Format: `dirty INDEX` or `unavailable INDEX`
 
 ****
@@ -317,9 +309,10 @@ Returns a random TOP in FM.
 * `random BOTTOM` +
 Returns a random BOTTOM in FM.
 
-=== Calculating use Statistics `[coming in v4.0]`
+=== Calculating use Statistics `stats`
 
-Calculates the rate of wear of each apparel.
+Gives an overview of the various statistics of the apparels/wardrobe. +
+Format: `stats` or `statistics`
 
 === Exiting the program : `exit`
 
