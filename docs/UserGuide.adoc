@@ -23,9 +23,9 @@ Fashion Match (FM) is for those who *prefer to use a desktop app for managing dr
 == Quick Start
 
 .  Ensure you have Java version `9` or later installed in your Computer.
-.  Fork and clone the FM repository into your local directory.
-.  Import the project in Intellij.
-.  Run main.
+.  Download the latest `main.jar` link:{repoURL}/releases[here].
+.  Copy the file to the folder you want to use as the home folder for FM.
+.  Double-click the jar file to start FM. The GUI will appear shortly after.
 +
 image::Ui.png[width="790"]
 +
@@ -46,10 +46,9 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 ====
 *Command Format*
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-* Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
-* Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/Formal Shirt`.
+* Items in square brackets are optional e.g `n/NAME [c/COLOR]` can be used as `n/Formal Shirt c/White` or as `n/Formal Shirt`.
+* Parameters can be in any order e.g. if the command specifies `n/NAME c/COLOR`, `c/COLOR n/NAME` is also acceptable.
 ====
 
 === Viewing help : `help`
@@ -58,7 +57,7 @@ Format: `help`
 
 === Listing all apparels : `list`
 
-Shows a list of all apparels in the address book. +
+Shows a list of all apparels in FM. +
 Format: `list`
 
 === Adding a piece of Apparel: `add`
@@ -74,7 +73,7 @@ Examples:
 // tag::sort[]
 === Sort all apparels : `sort [option]`
 
-Sort all apparels in the address book based on the option supplied. +
+Sort all apparels in the FM based on the option supplied. +
 
 Format: `sort` +
 By default, calling `sort` without option will sort the apparels by name in ascending order. +
@@ -85,13 +84,13 @@ List all valid sorting options.
 Format: `sort [option]` +
 Sort all apparels according to the option supplied.
 
-=== Editing a person : `edit`
+=== Editing an apparel : `edit`
 
-Edits an existing person in the address book. +
+Edits an existing apparel in FM. +
 Format: `edit INDEX [n/NAME] [c/COLOUR] [t/CLOTHINGTYPE]`
 
 ****
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Edits the apparel at the specified `INDEX`. The index refers to the index number shown in the displayed apparel list. The index *must be a positive integer* 1, 2, 3, ...
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 ****
@@ -107,11 +106,11 @@ Edits the name of the 2nd apparel to be `Brown Belt` and changes type to `Belt`.
 // tag::available[]
 === Making available/washing a piece of apparel : `available` or `wash`
 
-Makes an existing apparel in the address book available. +
+Makes an existing apparel in FM available. +
 Format: `wash INDEX` or `available INDEX`
 
 ****
-* Makes available the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Makes available the apparel at the specified `INDEX`. The index refers to the index number shown in the displayed apparel list. The index *must be a positive integer* 1, 2, 3, ...
 * Apparel will be made available whether it was available or unavailable before the command.
 ****
 
@@ -125,11 +124,15 @@ Makes available the 2nd apparel in the list.
 // tag::unavailable[]
 === Making unavailable/dirty a piece of apparel : `unavailable` or `wear`
 
+<<<<<<< HEAD
 Makes an existing apparel in the address book unavailable/dirty and increases times worn by 1. +
+=======
+Makes an existing apparel in FM unavailable. +
+>>>>>>> 7da2d1068b74323dae3a7b197ea2bee12de2c35d
 Format: `dirty INDEX` or `unavailable INDEX`
 
 ****
-* Makes unavailable the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Makes unavailable the apparel at the specified `INDEX`. The index refers to the index number shown in the displayed apparel list. The index *must be a positive integer* 1, 2, 3, ...
 * Apparel will be made unavailable whether it was available or unavailable before the command.
 * Increases the 'Times worn' counter by 1.
 ****
@@ -151,24 +154,24 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Nice Shirt` will match `Shirt Nice`
 * Only the name is searched.
 * Only full words will be matched e.g. `Nice` will not match `Nices`
-* Persons matching at least one keyword will be returned (i.e. `OR` search). e.g. `Tim Tam` will return `Tim`, `Higgy Tam`
+* Apparels matching at least one keyword will be returned (i.e. `OR` search). e.g. `Zara Uniqlo` will return `Zara Belt`, `Uniqlo shoes`
 ****
 
 Examples:
 
 * `find Zara` +
 Returns `zara` and `Zara`
-* `find Tim Tam Battle Plan` +
-Returns any person having names `Tim`, `Tam`,`Battle` or `Plan`.
+* `find Zara Uniqlo Shirt` +
+Returns any apparel having names `Zara`, `Uniqlo` or `Shirt`.
 
-=== Deleting a person : `delete`
+=== Deleting an apparel : `delete`
 
-Deletes the specified person from the address book. +
+Deletes the specified apparel from FM. +
 Format: `delete INDEX`
 
 ****
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Deletes the apparel at the specified `INDEX`.
+* The index refers to the index number shown in the displayed apparel list.
 * The index *must be a positive integer* 1, 2, 3, ...
 ****
 
@@ -176,19 +179,19 @@ Examples:
 
 * `list` +
 `delete 2` +
-Deletes the 2nd person in the address book.
-* `find Betsy` +
+Deletes the 2nd apparel in FM.
+* `find Uniqlo` +
 `delete 1` +
-Deletes the 1st person in the results of the `find` command.
+Deletes the 1st apparel in the results of the `find` command.
 
-=== Selecting a person : `select`
+=== Selecting a apparel : `select`
 
-Selects the person identified by the index number used in the displayed person list. +
+Selects the apparel identified by the index number used in the displayed apparel list. +
 Format: `select INDEX`
 
 ****
-* Selects the person and loads the Google search page the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Selects the apparel and loads a picture of the apparel at the specified `INDEX`.
+* The index refers to the index number shown in the displayed apparel list.
 * The index *must be a positive integer* `1, 2, 3, ...`
 ****
 
@@ -196,10 +199,10 @@ Examples:
 
 * `list` +
 `select 2` +
-Selects the 2nd person in the address book.
-* `find Betsy` +
+Selects the 2nd apparel in FM.
+* `find Uniqlo` +
 `select 1` +
-Selects the 1st person in the results of the `find` command.
+Selects the 1st apparel in the results of the `find` command.
 
 === Listing entered commands : `history`
 
@@ -214,12 +217,12 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 // tag::undoredo[]
 === Undoing previous command : `undo`
 
-Restores the address book to the state before the previous _undoable_ command was executed. +
+Restores FM to the state before the previous _undoable_ command was executed. +
 Format: `undo`
 
 [NOTE]
 ====
-Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`).
+Undoable commands: those commands that modify the FM's content (`add`, `delete`, `edit` and `clear`).
 ====
 
 Examples:
@@ -264,55 +267,55 @@ The `redo` command fails as there are no `undo` commands executed previously.
 // tag::clear[]
 === Clearing all entries : `clear`
 
-Clears all entries from the address book. +
+Clears all entries from FM. +
 Format: `clear`
 
 === Recommend Outfit
 
-Lists a recommended outfit based on what matches in your closet. The outfit must have a TOP,BOTTOM,SHOES. If a matching belt exists an outfit may be recommended with a BELT. +
+Lists a recommended outfit based on what matches in your closet. The outfit must have a `TOP`, `BOTTOM`, `SHOES`. If a matching belt exists, an outfit may be recommended with a BELT. +
 Format: `recommendation`
 
 === Something Color Select
 
-Returns random clothing of specified COLOR from address book. +
+Returns random apparel of specified COLOR FM. +
 Format: `something COLOR`
 
 ****
-* Returns random clothing from specified `COLOR`.
-* The color refers to the color of clothing.
+* Returns random apparel from specified `COLOR`.
+* The color refers to the color of apparel.
 * The color *must be a one of* RED, BLUE, GREEN, WHITE, BLACK, ...
 ****
 
 Examples:
 
 * `something RED` +
-Returns a RED item from the address book.
+Returns a RED apparel from FM.
 
 * `something BLACK` +
-Returns a BLACK item from the address book.
+Returns a BLACK apparel from FM.
 
 === Random Item Type Select
 
-Returns random specified TYPE of clothing from address book. +
+Returns random specified TYPE of apparel from FM. +
 Format: `random TYPE`
 
 ****
-* Returns random clothing from specified `TYPE`.
-* The type refers to the type of clothing.
-* The type *must be a one of* TOP, BOTTOM, BELT, SHOES
+* Returns random apparel from specified `TYPE`.
+* The type refers to the type of apparel.
+* The type *must be a one of* `TOP`, `BOTTOM`, `BELT`, `SHOES`
 ****
 
 Examples:
 
 * `random TOP` +
-Returns a random TOP in the address book.
+Returns a random TOP in FM.
 
 * `random BOTTOM` +
-Returns a random BOTTOM in the address book.
+Returns a random BOTTOM in FM.
 
 === Calculating use Statistics `[coming in v4.0]`
 
-Calculates the rate of wear of each clothes.
+Calculates the rate of wear of each apparel.
 
 === Exiting the program : `exit`
 
@@ -321,13 +324,13 @@ Format: `exit`
 
 === Saving the data
 
-Address book data are saved in the hard disk automatically after any command that changes the data. +
+FM data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
 == FAQ
 
 *Q*: How do I transfer my data to another Computer? +
-*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.
+*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous FM folder.
 
 == Command Summary
 
@@ -344,11 +347,11 @@ e.g. `find Formal`
 * *Help* : `help`
 * *List* : `list`
 * *Random* : `random TYPE` +
-e.g. `type TOP`
+e.g. `random TOP`
 * *Redo* : `redo`
 * *Recommendation* : `recommendation`
 * *Select* : `select INDEX` +
 e.g.`select 2`
 * *Something* : `something COLOR` +
-e.g. `color RED`
+e.g. `something RED`
 * *Undo* : `undo`
