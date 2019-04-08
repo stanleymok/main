@@ -309,7 +309,7 @@ Returns a random TOP in FM.
 * `random BOTTOM` +
 Returns a random BOTTOM in FM.
 
-=== Calculating use Statistics `stats`
+=== Calculating use Statistics : `stats`
 
 Gives an overview of the various statistics of the apparels/wardrobe. +
 Format: `stats` or `statistics`
