@@ -29,8 +29,7 @@ public class AvailableCommandParser implements Parser<AvailableCommand> {
     public AvailableCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_COLOR,
-                        PREFIX_CLOTHING_TYPE);
+                ArgumentTokenizer.tokenize(args);
 
         Index index;
 
@@ -40,20 +39,7 @@ public class AvailableCommandParser implements Parser<AvailableCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AvailableCommand.MESSAGE_USAGE), pe);
         }
 
-        AvailableCommand.AvailablePersonDescriptor availablePersonDescriptor =
-                new AvailableCommand.AvailablePersonDescriptor();
-        if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-            availablePersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
-        }
-        if (argMultimap.getValue(PREFIX_COLOR).isPresent()) {
-            availablePersonDescriptor.setColor(ParserUtil.parseColor(argMultimap.getValue(PREFIX_COLOR).get()));
-        }
-        if (argMultimap.getValue(PREFIX_CLOTHING_TYPE).isPresent()) {
-            availablePersonDescriptor.setClothingType(
-                    ParserUtil.parseClothingType(argMultimap.getValue(PREFIX_CLOTHING_TYPE).get()));
-        }
-
-        return new AvailableCommand(index, availablePersonDescriptor);
+        return new AvailableCommand(index);
     }
 
     /**

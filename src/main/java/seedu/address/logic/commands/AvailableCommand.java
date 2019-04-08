@@ -27,9 +27,9 @@ import seedu.address.model.tag.Tag;
 public class AvailableCommand extends Command {
 
     public static final String COMMAND_WORD = "available";
-    public static final String ALTERNATE_COMMAND_WORD = "clean";
+    public static final String ALTERNATE_COMMAND_WORD = "wash";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the availability of the apparel identified "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Resets the cleanliness of the apparel identified "
             + "by the index number used in the displayed apparel list. "
             + "Parameters: INDEX (must be a positive integer) "
             + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
@@ -41,18 +41,14 @@ public class AvailableCommand extends Command {
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
-    private final AvailablePersonDescriptor availablePersonDescriptor;
 
     /**
      * @param index of the apparel in the filtered apparel list to edit
-     * @param availablePersonDescriptor details to edit the apparel with
      */
-    public AvailableCommand(Index index, AvailablePersonDescriptor availablePersonDescriptor) {
+    public AvailableCommand(Index index) {
         requireNonNull(index);
-        requireNonNull(availablePersonDescriptor);
 
         this.index = index;
-        this.availablePersonDescriptor = new AvailablePersonDescriptor(availablePersonDescriptor);
     }
 
     @Override
@@ -64,22 +60,21 @@ public class AvailableCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
         }
 
-        Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
+        Apparel apparelToWash = lastShownList.get(index.getZeroBased());
 
-        if (apparelToEdit.isAvailable()) {
+        if (apparelToWash.isAvailable()) {
             throw new CommandException(String.format(MESSAGE_APPAREL_ALREADY_CLEAN_OCD,
-                    index.getOneBased(), apparelToEdit));
+                    index.getOneBased(), apparelToWash));
         }
 
-        Apparel editedApparel = new Apparel(apparelToEdit.getName(), apparelToEdit.getColor(),
-                apparelToEdit.getClothingType(), true, apparelToEdit.getUsageCount());
+        Apparel washedApparel = new Apparel(apparelToWash);
 
-        model.setPerson(apparelToEdit, editedApparel);
+        model.setPerson(apparelToWash, washedApparel);
         model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         model.commitAddressBook();
 
         return new CommandResult(String.format(MESSAGE_CLEAN_APPAREL_SUCCESS, index.getOneBased(),
-                editedApparel));
+                washedApparel));
     }
 
     @Override
@@ -96,8 +91,7 @@ public class AvailableCommand extends Command {
 
         // state check
         AvailableCommand e = (AvailableCommand) other;
-        return index.equals(e.index)
-                && availablePersonDescriptor.equals(e.availablePersonDescriptor);
+        return index.equals(e.index);
     }
 
     /**
