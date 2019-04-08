@@ -38,7 +38,7 @@ public class RandomItemCommandTest {
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
         String successMessage = RandomItemCommand.MESSAGE_MESSAGE_SUCCESS + "\n"
-                + "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0";
+                + "Red Shirt Color: RED Type: TOP Status: Clean Usage-count: 0";
         assertCommandSuccess(new RandomItemCommand(ClothingTypeValue.TOP), model,
                 history, successMessage, expectedModel);
 
@@ -59,7 +59,7 @@ public class RandomItemCommandTest {
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
         String successMessage = RandomItemCommand.MESSAGE_MESSAGE_SUCCESS + "\n"
-                + "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0";
+                + "Red Shirt Color: RED Type: TOP Status: Clean Usage-count: 0";
         assertCommandSuccess(new RandomItemCommand(ClothingTypeValue.TOP), model,
                 history, successMessage, expectedModel);
 
@@ -99,10 +99,10 @@ public class RandomItemCommandTest {
         expectedModel.addApparel(apparel);
 
         String successMessage1 = RandomItemCommand.MESSAGE_MESSAGE_SUCCESS + "\n"
-                + "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0";
+                + "Red Shirt Color: RED Type: TOP Status: Clean Usage-count: 0";
 
         String successMessage2 = RandomItemCommand.MESSAGE_MESSAGE_SUCCESS + "\n"
-                + "White Shirt Color: WHITE ClothingType: TOP Available: true Usage-count: 0";
+                + "White Shirt Color: WHITE Type: TOP Status: Clean Usage-count: 0";
 
 
 

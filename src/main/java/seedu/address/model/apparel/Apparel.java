@@ -51,6 +51,14 @@ public class Apparel {
         this.usageCount = usageCount;
     }
 
+    public Apparel(Apparel other) {
+        this.name = other.name;
+        this.color = other.color;
+        this.clothingType = other.clothingType;
+        this.available = other.available;
+        this.usageCount = other.usageCount;
+    }
+
     public Name getName() {
         return name;
     }
@@ -93,6 +101,16 @@ public class Apparel {
 
     public void dirty() {
         available = false;
+    }
+
+    public Apparel setDirty() {
+        available = false;
+        return this;
+    }
+
+    public Apparel setWashed() {
+        available = true;
+        return this;
     }
 
     public void wash() {
