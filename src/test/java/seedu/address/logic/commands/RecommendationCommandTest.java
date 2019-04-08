@@ -54,9 +54,9 @@ public class RecommendationCommandTest {
         model.addApparel(apparel);
         expectedModel.addApparel(apparel);
         String successMessage = RecommendationCommand.MESSAGE_MESSAGE_SUCCESS + "\n"
-                                + "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0\n"
-                                + "Blue Jeans Color: BLUE ClothingType: BOTTOM Available: true Usage-count: 0\n"
-                                + "Black Shoes Color: BLACK ClothingType: SHOES Available: true Usage-count: 0";
+                                + "Red Shirt Color: RED Type: TOP Status: Clean Usage-count: 0\n"
+                                + "Blue Jeans Color: BLUE Type: BOTTOM Status: Clean Usage-count: 0\n"
+                                + "Black Shoes Color: BLACK Type: SHOES Status: Clean Usage-count: 0";
         assertCommandSuccess(new RecommendationCommand(), model, history, successMessage, expectedModel);
 
     }
@@ -98,10 +98,10 @@ public class RecommendationCommandTest {
         expectedModel.addApparel(apparel);
 
         String successMessage = RecommendationCommand.MESSAGE_MESSAGE_SUCCESS + "\n"
-                + "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0\n"
-                + "Blue Jeans Color: BLUE ClothingType: BOTTOM Available: true Usage-count: 0\n"
-                + "Black Belt Color: BLACK ClothingType: BELT Available: true Usage-count: 0\n"
-                + "Black Shoes Color: BLACK ClothingType: SHOES Available: true Usage-count: 0";
+                + "Red Shirt Color: RED Type: TOP Status: Clean Usage-count: 0\n"
+                + "Blue Jeans Color: BLUE Type: BOTTOM Status: Clean Usage-count: 0\n"
+                + "Black Belt Color: BLACK Type: BELT Status: Clean Usage-count: 0\n"
+                + "Black Shoes Color: BLACK Type: SHOES Status: Clean Usage-count: 0";
         assertCommandSuccess(new RecommendationCommand(), model, history, successMessage, expectedModel);
 
     }

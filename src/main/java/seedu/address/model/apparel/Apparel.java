@@ -51,6 +51,14 @@ public class Apparel {
         this.usageCount = usageCount;
     }
 
+    public Apparel(Apparel other) {
+        this.name = other.name;
+        this.color = other.color;
+        this.clothingType = other.clothingType;
+        this.available = other.available;
+        this.usageCount = other.usageCount;
+    }
+
     public Name getName() {
         return name;
     }
@@ -71,6 +79,14 @@ public class Apparel {
         }
     }
 
+    public String getWornStatus() {
+        if (isAvailable()) {
+            return "Clean";
+        } else {
+            return "Worn";
+        }
+    }
+
     public boolean isAvailable() {
         return available;
     }
@@ -85,6 +101,16 @@ public class Apparel {
 
     public void dirty() {
         available = false;
+    }
+
+    public Apparel setDirty() {
+        available = false;
+        return this;
+    }
+
+    public Apparel setWashed() {
+        available = true;
+        return this;
     }
 
     public void wash() {
@@ -102,8 +128,8 @@ public class Apparel {
 
         return otherApparel != null
                 && otherApparel.getName().equals(getName())
-                && (otherApparel.getColor().equals(getColor())
-                && otherApparel.getClothingType().equals(getClothingType()));
+                && otherApparel.getColor().equals(getColor())
+                && otherApparel.getClothingType().equals(getClothingType());
     }
 
     /**
@@ -138,10 +164,10 @@ public class Apparel {
         builder.append(getName())
                 .append(" Color: ")
                 .append(getColor())
-                .append(" ClothingType: ")
+                .append(" Type: ")
                 .append(getClothingType())
-                .append(" Available: ")
-                .append(isAvailable())
+                .append(" Status: ")
+                .append(getWornStatus())
                 .append(" Usage-count: ")
                 .append(getUsageCount());
 

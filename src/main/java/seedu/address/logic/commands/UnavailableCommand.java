@@ -28,7 +28,7 @@ import seedu.address.model.tag.Tag;
 public class UnavailableCommand extends Command {
 
     public static final String COMMAND_WORD = "unavailable";
-    public static final String ALTERNATE_COMMAND_WORD = "dirty";
+    public static final String ALTERNATE_COMMAND_WORD = "wear";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the availability of the apparel identified "
             + "by the index number used in the displayed apparel list. "

@@ -49,6 +49,8 @@ public class TypicalApparels {
             .withColor(COLOR_WHITE).withClothingType(TYPE_TOP).build();
     public static final Apparel SHIRT2 = new ApparelBuilder().withName(NAME_INFORMAL_SHIRT)
             .withColor(COLOR_NAVY).withClothingType(TYPE_TOP).build();
+    public static final Apparel SHIRT3 = new ApparelBuilder().withName(NAME_INFORMAL_SHIRT)
+            .withColor(COLOR_NAVY).withClothingType(TYPE_TOP).build().setDirty();
 
     public static final Apparel PANTS1 = new ApparelBuilder().withName(NAME_FORMAL_PANTS)
             .withColor(COLOR_BROWN).withClothingType(TYPE_BOTTOM).build();
@@ -87,6 +89,12 @@ public class TypicalApparels {
         for (Apparel apparel : getTypicalApparels()) {
             ab.addApparel(apparel);
         }
+        return ab;
+    }
+
+    public static AddressBook getDirtyAddressBook() {
+        AddressBook ab = new AddressBook();
+        ab.addApparel(SHIRT3);
         return ab;
     }
 

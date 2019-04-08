@@ -50,9 +50,9 @@ public class CommandRecommendationTest {
 
 
         assertEquals(commandRecommendation.returnRecommendationString(),
-                "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0\n"
-                        + "Blue Jeans Color: BLUE ClothingType: BOTTOM Available: true Usage-count: 0\n"
-                        + "Black Shoes Color: BLACK ClothingType: SHOES Available: true Usage-count: 0");
+                "Red Shirt Color: RED Type: TOP Status: Clean Usage-count: 0\n"
+                        + "Blue Jeans Color: BLUE Type: BOTTOM Status: Clean Usage-count: 0\n"
+                        + "Black Shoes Color: BLACK Type: SHOES Status: Clean Usage-count: 0");
 
 
     }
@@ -87,10 +87,10 @@ public class CommandRecommendationTest {
 
 
         assertEquals(commandRecommendation.returnRecommendationString(),
-                "Red Shirt Color: RED ClothingType: TOP Available: true Usage-count: 0\n"
-                + "Blue Jeans Color: BLUE ClothingType: BOTTOM Available: true Usage-count: 0\n"
-                + "Black Belt Color: BLACK ClothingType: BELT Available: true Usage-count: 0\n"
-                + "Black Shoes Color: BLACK ClothingType: SHOES Available: true Usage-count: 0");
+                "Red Shirt Color: RED Type: TOP Status: Clean Usage-count: 0\n"
+                + "Blue Jeans Color: BLUE Type: BOTTOM Status: Clean Usage-count: 0\n"
+                + "Black Belt Color: BLACK Type: BELT Status: Clean Usage-count: 0\n"
+                + "Black Shoes Color: BLACK Type: SHOES Status: Clean Usage-count: 0");
     }
 
     @Test
@@ -204,10 +204,10 @@ public class CommandRecommendationTest {
 
 
         assertEquals(commandRecommendation.returnRecommendationString(),
-                "White Shirt Color: WHITE ClothingType: TOP Available: true Usage-count: 0\n"
-                        + "Red Pants Color: RED ClothingType: BOTTOM Available: true Usage-count: 0\n"
-                        + "Brown Belt Color: BROWN ClothingType: BELT Available: true Usage-count: 0\n"
-                        + "Brown Shoes Color: BROWN ClothingType: SHOES Available: true Usage-count: 0");
+                "White Shirt Color: WHITE Type: TOP Status: Clean Usage-count: 0\n"
+                        + "Red Pants Color: RED Type: BOTTOM Status: Clean Usage-count: 0\n"
+                        + "Brown Belt Color: BROWN Type: BELT Status: Clean Usage-count: 0\n"
+                        + "Brown Shoes Color: BROWN Type: SHOES Status: Clean Usage-count: 0");
     }
 
     @Test
@@ -241,10 +241,10 @@ public class CommandRecommendationTest {
 
 
         assertEquals(commandRecommendation.returnRecommendationString(),
-                "White Shirt Color: WHITE ClothingType: TOP Available: true Usage-count: 0\n"
-                        + "Red Pants Color: RED ClothingType: BOTTOM Available: true Usage-count: 0\n"
-                        + "Orange Belt Color: ORANGE ClothingType: BELT Available: true Usage-count: 0\n"
-                        + "White Shoes Color: WHITE ClothingType: SHOES Available: true Usage-count: 0");
+                "White Shirt Color: WHITE Type: TOP Status: Clean Usage-count: 0\n"
+                        + "Red Pants Color: RED Type: BOTTOM Status: Clean Usage-count: 0\n"
+                        + "Orange Belt Color: ORANGE Type: BELT Status: Clean Usage-count: 0\n"
+                        + "White Shoes Color: WHITE Type: SHOES Status: Clean Usage-count: 0");
     }
 
 
@@ -279,9 +279,9 @@ public class CommandRecommendationTest {
 
 
         assertEquals(commandRecommendation.returnRecommendationString(),
-                "White Shirt Color: WHITE ClothingType: TOP Available: true Usage-count: 0\n"
-                        + "Red Pants Color: RED ClothingType: BOTTOM Available: true Usage-count: 0\n"
-                        + "Grey Shoes Color: GREY ClothingType: SHOES Available: true Usage-count: 0");
+                "White Shirt Color: WHITE Type: TOP Status: Clean Usage-count: 0\n"
+                        + "Red Pants Color: RED Type: BOTTOM Status: Clean Usage-count: 0\n"
+                        + "Grey Shoes Color: GREY Type: SHOES Status: Clean Usage-count: 0");
     }
 
 

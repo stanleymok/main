@@ -49,7 +49,7 @@ public class PersonCard extends UiPart<Region> {
         name.setText(apparel.getName().fullName);
         color.setText(StringUtil.capitaliseFirstLetter(apparel.getColor().toString()));
         clothingType.setText(StringUtil.capitaliseFirstLetter(apparel.getClothingType().toString()));
-        status.setText(apparel.getAvailabilityStatus());
+        status.setText(apparel.getWornStatus());
         usageCount.setText("Times worn: " + Integer.toString(apparel.getUsageCount()));
     }
 
