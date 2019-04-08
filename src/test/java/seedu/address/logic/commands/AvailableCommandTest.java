@@ -27,7 +27,6 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.apparel.Apparel;
-import seedu.address.testutil.ApparelBuilder;
 import seedu.address.testutil.AvailableApparelDescriptorBuilder;
 
 /**
