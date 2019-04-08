@@ -23,6 +23,7 @@ import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SomethingColorCommand;
 import seedu.address.logic.commands.SortCommand;
+import seedu.address.logic.commands.StatisticsCommand;
 import seedu.address.logic.commands.UnavailableCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -71,6 +72,12 @@ public class AddressBookParser {
 
         case AvailableCommand.ALTERNATE_COMMAND_WORD:
             return new AvailableCommandParser().parse(arguments);
+
+        case StatisticsCommand.COMMAND_WORD:
+            return new StatisticsCommand();
+
+        case StatisticsCommand.ALTERNATE_COMMAND_WORD:
+            return new StatisticsCommand();
 
         case SelectCommand.COMMAND_WORD:
             return new SelectCommandParser().parse(arguments);
