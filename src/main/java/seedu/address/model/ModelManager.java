@@ -186,11 +186,11 @@ public class ModelManager implements Model {
             int value = filteredApparels.get(i).getUsageCount();
             hm.put(key, value);
         }
-        int max_count = -1;
+        int maxCount = -1;
         String output = null;
         for (Map.Entry<String, Integer> value : hm.entrySet()) {
-            if (max_count < value.getValue()) {
-                max_count = value.getValue();
+            if (maxCount < value.getValue()) {
+                maxCount = value.getValue();
                 output = value.getKey();
             }
         }
@@ -215,11 +215,11 @@ public class ModelManager implements Model {
             }
         }
 
-        int max_count = 0;
+        int maxCount = 0;
         String output = null;
         for (Map.Entry<String, Integer> value : hm.entrySet()) {
-            if (max_count < value.getValue()) {
-                max_count = value.getValue();
+            if (maxCount < value.getValue()) {
+                maxCount = value.getValue();
                 output = value.getKey();
             }
         }

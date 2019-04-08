@@ -2,10 +2,10 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
+
 import seedu.address.logic.CommandHistory;
 import seedu.address.model.Model;
-
-import java.util.ArrayList;
 
 /**
  * Calculates and displays statistics of all existing apparel in Fashion Match.
