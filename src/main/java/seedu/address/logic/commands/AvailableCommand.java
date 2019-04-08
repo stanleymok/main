@@ -27,14 +27,16 @@ import seedu.address.model.tag.Tag;
 public class AvailableCommand extends Command {
 
     public static final String COMMAND_WORD = "available";
-    public static final String ALTERNATE_COMMAND_WORD = "wash";
+    public static final String ALTERNATE_COMMAND_WORD = "clean";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the availability of the apparel identified "
             + "by the index number used in the displayed apparel list. "
             + "Parameters: INDEX (must be a positive integer) "
             + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_EDIT_APPAREL_SUCCESS = "Apparel made available: %1$s";
+    public static final String MESSAGE_CLEAN_APPAREL_SUCCESS = "Apparel %1$d. cleaned: \n%2$s";
+    public static final String MESSAGE_APPAREL_ALREADY_CLEAN_OCD = "Apparel %1$d. already cleaned, "
+            + "OCD freak :p\n%2$s";
     public static final String MESSAGE_NOT_EDITED = "Apparel index must be provided.";
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
@@ -63,32 +65,21 @@ public class AvailableCommand extends Command {
         }
 
         Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
-        Apparel editedApparel = createEditedPerson(apparelToEdit, availablePersonDescriptor);
 
-        if (!apparelToEdit.isSameApparel(editedApparel) && model.hasApparel(editedApparel)) {
-            throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
+        if (apparelToEdit.isAvailable()) {
+            throw new CommandException(String.format(MESSAGE_APPAREL_ALREADY_CLEAN_OCD,
+                    index.getOneBased(), apparelToEdit));
         }
+
+        Apparel editedApparel = new Apparel(apparelToEdit.getName(), apparelToEdit.getColor(),
+                apparelToEdit.getClothingType(), true, apparelToEdit.getUsageCount());
 
         model.setPerson(apparelToEdit, editedApparel);
         model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         model.commitAddressBook();
-        return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel));
-    }
 
-    /**
-     * Creates and returns a {@code Apparel} with the details of {@code apparelToEdit}
-     * edited with {@code availablePersonDescriptor}.
-     */
-    private static Apparel createEditedPerson(Apparel apparelToEdit, AvailablePersonDescriptor
-            availablePersonDescriptor) {
-        assert apparelToEdit != null;
-
-        Name updatedName = availablePersonDescriptor.getName().orElse(apparelToEdit.getName());
-        Color updatedColor = availablePersonDescriptor.getColor().orElse(apparelToEdit.getColor());
-        ClothingType updatedClothingType =
-                availablePersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
-
-        return new Apparel(updatedName, updatedColor, updatedClothingType, true, apparelToEdit.getUsageCount());
+        return new CommandResult(String.format(MESSAGE_CLEAN_APPAREL_SUCCESS, index.getOneBased(),
+                editedApparel));
     }
 
     @Override
