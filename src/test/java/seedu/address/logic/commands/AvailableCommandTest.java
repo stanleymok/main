@@ -51,10 +51,10 @@ public class AvailableCommandTest {
                 INDEX_FIRST_APPAREL.getOneBased(), apparelAfterWash);
 
         // reset
-        apparelToWash.setDirty();
+        apparelToWash.setWorn();
 
         Model expectedModel = new ModelManager(new AddressBook(dirtyModel.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(apparelToWash, new Apparel(apparelToWash).setDirty());
+        expectedModel.setPerson(apparelToWash, new Apparel(apparelToWash).setWorn());
         expectedModel.commitAddressBook();
 
         assertCommandSuccess(availableCommand, dirtyModel, commandHistory, expectedMessage, expectedModel);
