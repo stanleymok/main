@@ -60,11 +60,6 @@ public class UnavailableCommand extends Command {
 
         Apparel apparelToWear = lastShownList.get(index.getZeroBased());
 
-        /*boolean isWorn = false;
-        if (!apparelToWear.isAvailable()) {
-            isWorn = true;
-        }*/
-
         Apparel wornApparel = new Apparel(apparelToWear).use();
 
         model.setPerson(apparelToWear, wornApparel);
