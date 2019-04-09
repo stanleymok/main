@@ -87,27 +87,30 @@ public class UnavailableCommand extends Command {
             number++; // 1-7
 
             switch(number) {
-                case 1:
-                    return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_1,
+
+            case 1:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_1,
                             index.getOneBased(), wornApparel));
-                case 2:
-                    return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_2,
+            case 2:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_2,
                             index.getOneBased(), wornApparel));
-                case 3:
-                    return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_3,
+            case 3:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_3,
                             index.getOneBased(), wornApparel));
-                case 4:
-                    return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_4,
+            case 4:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_4,
                             index.getOneBased(), wornApparel));
-                case 5:
-                    return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_5,
+            case 5:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_5,
                             index.getOneBased(), wornApparel));
-                case 6:
-                    return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_6,
+            case 6:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_6,
                             index.getOneBased(), wornApparel));
-                case 7:
-                    return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_7,
+            case 7:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_7,
                             index.getOneBased(), wornApparel));
+            default:
+                break;
             }
             throw new CommandException(MESSAGE_SWITCH_CASE_ERROR);
         } else {

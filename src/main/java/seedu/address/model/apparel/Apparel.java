@@ -100,6 +100,10 @@ public class Apparel {
         return usageCount;
     }
 
+    /**
+     * Increases use count, times worn count and set availability status to false/dirty
+     * Returns altered (@code apparel)
+     */
     public Apparel use() {
         available = false;
         usageCount++;
