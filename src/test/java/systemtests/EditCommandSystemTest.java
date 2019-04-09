@@ -42,6 +42,7 @@ import seedu.address.testutil.ApparelBuilder;
 
 public class EditCommandSystemTest extends AddressBookSystemTest {
 
+
     @Test
     public void edit() {
         Model model = getModel();
