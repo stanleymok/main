@@ -34,9 +34,8 @@ public class AvailableCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_CLEAN_APPAREL_SUCCESS = "Apparel %1$d. cleaned: \n%2$s";
-    public static final String MESSAGE_APPAREL_ALREADY_CLEAN_OCD = "Apparel %1$d. already cleaned, "
-            + "OCD freak :p\n%2$s";
+    public static final String MESSAGE_CLEAN_APPAREL_SUCCESS = "Apparel %1$d. washed: \n%2$s";
+    public static final String MESSAGE_APPAREL_ALREADY_CLEAN_OCD = "Apparel %1$d. already washed: \n%2$s";
     public static final String MESSAGE_NOT_EDITED = "Apparel index must be provided.";
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
