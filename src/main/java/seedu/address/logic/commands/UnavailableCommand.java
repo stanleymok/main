@@ -78,22 +78,6 @@ public class UnavailableCommand extends Command {
         return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, wornApparel));
     }
 
-    /**
-     * Creates and returns a {@code Apparel} with the details of {@code apparelToEdit}
-     * edited with {@code editPersonDescriptor}.
-     */
-    private static Apparel createEditedPerson(Apparel apparelToEdit, UnavailablePersonDescriptor editPersonDescriptor) {
-        assert apparelToEdit != null;
-
-        Name updatedName = editPersonDescriptor.getName().orElse(apparelToEdit.getName());
-        Color updatedColor = editPersonDescriptor.getColor().orElse(apparelToEdit.getColor());
-        ClothingType updatedClothingType =
-                editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
-        int updatedUsageDescriptor = apparelToEdit.getUsageCount() + 1;
-        return new Apparel(updatedName, updatedColor,
-                            updatedClothingType, false, updatedUsageDescriptor);
-    }
-
     @Override
     public boolean equals(Object other) {
         // short circuit if same object
@@ -134,13 +118,6 @@ public class UnavailableCommand extends Command {
             setClothingType(toCopy.clothingType);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
-        }
-
-        /**
-         * Returns true if at least one field is edited.
-         */
-        public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, color, clothingType, address, tags);
         }
 
         public void setName(Name name) {
