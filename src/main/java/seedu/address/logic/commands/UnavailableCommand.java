@@ -35,8 +35,7 @@ public class UnavailableCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_EDIT_APPAREL_SUCCESS = "Apparel %$1d. made unavailable: %2$s";
-    public static final String MESSAGE_NOT_EDITED = "Apparel index must be provided.";
+    public static final String MESSAGE_WEAR_APPAREL_SUCCESS = "Apparel %1$d. made unavailable: %2$s";
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
@@ -75,7 +74,7 @@ public class UnavailableCommand extends Command {
         if (isWorn) {
             //special message
         }
-        return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, index.getOneBased(), wornApparel));
+        return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_SUCCESS, index.getOneBased(), wornApparel));
     }
 
     @Override
