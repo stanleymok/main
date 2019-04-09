@@ -10,7 +10,8 @@ public enum ListOption {
     TOP,
     BOTTOM,
     BELT,
-    SHOES;
+    SHOES,
+    COLOR;
     // TODO; add option to see specific color
 
     /**

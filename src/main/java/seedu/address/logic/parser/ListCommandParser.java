@@ -24,8 +24,13 @@ public class ListCommandParser implements Parser<ListCommand> {
      */
     public ListCommand parse(String args) throws ParseException {
         try {
-            ListOption sortOption = ParserUtil.parseListValue(args);
-            return new ListCommand(sortOption);
+            String[] inputs = args.trim().split(" ");
+            ListOption sortOption = ParserUtil.parseListValue(inputs[0].trim());
+            if (inputs.length > 1) {
+                return new ListCommand(sortOption, inputs[1].trim());
+            } else {
+                return new ListCommand(sortOption, null);
+            }
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListCommand.MESSAGE_USAGE), pe);
