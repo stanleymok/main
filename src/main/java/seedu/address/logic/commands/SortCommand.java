@@ -50,7 +50,8 @@ public class SortCommand extends Command {
         sb.append(" by " + sortOption.toString().toLowerCase() + ".");
         if (COMMAND_LIST_OPTIONS.equalsIgnoreCase(sortOption.toString())) {
             return new CommandResult(SortOption.allOptions());
-        } else if (SortOption.NAME.equals(sortOption)) {
+        }
+        if (SortOption.NAME.equals(sortOption)) {
             modifiableList.sort((Apparel x, Apparel y) -> x.getName().compareTo(y.getName()));
         } else if (SortOption.COLOR.equals(sortOption)) {
             modifiableList.sort((Apparel x, Apparel y) -> x.getColor().compareTo(y.getColor()));

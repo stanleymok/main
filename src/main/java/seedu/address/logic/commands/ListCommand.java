@@ -37,7 +37,11 @@ public class ListCommand extends Command {
         requireNonNull(model);
 
         StringBuilder sb = new StringBuilder(MESSAGE_SUCCESS + " ");
-        if (listOption.ALL.equals(listOption)) {
+        if (ListOption.OPTIONS.equals(listOption)) {
+            return new CommandResult(ListOption.allOptions());
+        }
+
+        if (ListOption.ALL.equals(listOption)) {
             model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         } else if (ListOption.TOP.equals(listOption)) {
             sb.append("by " + ListOption.TOP.toString().toLowerCase() + ".");
