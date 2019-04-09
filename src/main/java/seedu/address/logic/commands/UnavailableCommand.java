@@ -46,7 +46,6 @@ public class UnavailableCommand extends Command {
      */
     public UnavailableCommand(Index index) {
         requireNonNull(index);
-
         this.index = index;
     }
 
