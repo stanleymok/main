@@ -10,8 +10,7 @@ import java.util.Objects;
  */
 public class Color implements Comparable<Color> {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "List of accepted colors:\n" 
+    public static final String MESSAGE_CONSTRAINTS = "List of accepted colors:\n"
                     + "RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, BROWN, NAVY, PINK, WHITE, GREY, KHAKI, CREAM";
 
     private ColorValue primary;
