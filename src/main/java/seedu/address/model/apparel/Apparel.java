@@ -18,6 +18,7 @@ public class Apparel {
     // Status fields
     private boolean available;
     private int usageCount;
+    private int timesWorn; // before washing
 
     public Apparel() {};
 
@@ -31,6 +32,7 @@ public class Apparel {
         this.clothingType = clothingType;
         this.available = true;
         this.usageCount = 0;
+        this.timesWorn = 0;
     }
 
     public Apparel(Name name, Color color, ClothingType clothingType, boolean available) {
@@ -40,6 +42,7 @@ public class Apparel {
         this.clothingType = clothingType;
         this.available = available;
         this.usageCount = 0;
+        this.timesWorn = 0;
     }
 
     public Apparel(Name name, Color color, ClothingType clothingType, boolean available, int usageCount) {
@@ -49,6 +52,7 @@ public class Apparel {
         this.clothingType = clothingType;
         this.available = available;
         this.usageCount = usageCount;
+        this.timesWorn = 0;
     }
 
     public Apparel(Apparel other) {
@@ -57,6 +61,7 @@ public class Apparel {
         this.clothingType = other.clothingType;
         this.available = other.available;
         this.usageCount = other.usageCount;
+        this.timesWorn = other.timesWorn;
     }
 
     public Name getName() {
@@ -98,6 +103,7 @@ public class Apparel {
     public Apparel use() {
         available = false;
         usageCount++;
+        timesWorn++;
         return this;
     }
 
@@ -112,6 +118,7 @@ public class Apparel {
 
     public Apparel setWashed() {
         available = true;
+        timesWorn = 0; // reset when washed
         return this;
     }
 
