@@ -35,6 +35,8 @@ public class UnavailableCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
     public static final String MESSAGE_WEAR_APPAREL_SUCCESS = "Apparel %1$d. worn: \n%2$s";
+    public static final String MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS = "Apparel %1$d. worn again: \n%2$s"
+            + "\nWould definitely suggest washing soon.";
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
@@ -59,10 +61,10 @@ public class UnavailableCommand extends Command {
 
         Apparel apparelToWear = lastShownList.get(index.getZeroBased());
 
-        boolean isWorn = false;
+        /*boolean isWorn = false;
         if (!apparelToWear.isAvailable()) {
             isWorn = true;
-        }
+        }*/
 
         Apparel wornApparel = new Apparel(apparelToWear).use();
 
@@ -70,10 +72,13 @@ public class UnavailableCommand extends Command {
         model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         model.commitAddressBook();
 
-        if (isWorn) {
-            //special message
+        if (!apparelToWear.isAvailable()) {
+            return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS,
+                                                    index.getOneBased(), wornApparel));
+        } else {
+            return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_SUCCESS,
+                                                    index.getOneBased(), wornApparel));
         }
-        return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_SUCCESS, index.getOneBased(), wornApparel));
     }
 
     @Override
