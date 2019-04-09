@@ -47,7 +47,6 @@ public class AvailableCommand extends Command {
      */
     public AvailableCommand(Index index) {
         requireNonNull(index);
-
         this.index = index;
     }
 
@@ -67,7 +66,7 @@ public class AvailableCommand extends Command {
                     index.getOneBased(), apparelToWash));
         }
 
-        Apparel washedApparel = new Apparel(apparelToWash);
+        Apparel washedApparel = new Apparel(apparelToWash).setWashed();
 
         model.setPerson(apparelToWash, washedApparel);
         model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
