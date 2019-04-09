@@ -18,17 +18,41 @@ import seedu.address.model.tag.Tag;
 public class SampleDataUtil {
     public static Apparel[] getSamplePersons() {
         return new Apparel[] {
-            new Apparel(new Name("Formal Shirt"), new Color("White"), new ClothingType("Top")),
+            new Apparel(new Name("Formal Shirt"), new Color("White"), new ClothingType("Top"),
+                    true, 3),
 
-            new Apparel(new Name("Formal Pants"), new Color("Black"), new ClothingType("Bottom")),
+            new Apparel(new Name("Formal Pants"), new Color("Black"), new ClothingType("Bottom"),
+                    true, 4),
 
-            new Apparel(new Name("Formal Belt"), new Color("Black"), new ClothingType("Belt")),
+            new Apparel(new Name("Formal Belt"), new Color("Black"), new ClothingType("Belt"),
+                    true, 5),
 
-            new Apparel(new Name("Formal Shoes"), new Color("Black"), new ClothingType("Shoes")),
+            new Apparel(new Name("Formal Shoes"), new Color("Black"), new ClothingType("Shoes"),
+                    true, 7),
 
-            new Apparel(new Name("Uniqlo Tshirt"), new Color("Yellow"), new ClothingType("Top")),
+            new Apparel(new Name("Uniqlo Tshirt"), new Color("Yellow"), new ClothingType("Top"),
+                    true, 10),
 
-            new Apparel(new Name("Adidas Tshirt"), new Color("Brown"), new ClothingType("Top")),
+            new Apparel(new Name("Casual Belt"), new Color("Red"), new ClothingType("Belt"),
+                    true, 8),
+
+            new Apparel(new Name("Sneakers"), new Color("White"), new ClothingType("Shoes"),
+                    true, 9),
+
+            new Apparel(new Name("Zara Tshirt"), new Color("Pink"), new ClothingType("Top"),
+                    false, 6),
+
+            new Apparel(new Name("Running Shoes"), new Color("Grey"), new ClothingType("Shoes"),
+                    false, 9),
+
+            new Apparel(new Name("Skinny Jeans"), new Color("Blue"), new ClothingType("Bottom"),
+                    false, 8),
+
+            new Apparel(new Name("Bermudas"), new Color("Cream"), new ClothingType("Bottom"),
+                    false, 7),
+
+            new Apparel(new Name("Cool Shirt"), new Color("Khaki"), new ClothingType("Top"),
+                    false, 5),
         };
     }
 
