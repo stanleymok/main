@@ -11,7 +11,6 @@ import java.util.Set;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -35,7 +34,7 @@ public class UnavailableCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_WEAR_APPAREL_SUCCESS = "Apparel %1$d. made unavailable: %2$s";
+    public static final String MESSAGE_WEAR_APPAREL_SUCCESS = "Apparel %1$d. worn: \n%2$s";
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
