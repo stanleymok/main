@@ -6,6 +6,7 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPARELS;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.options.ListOption;
 import seedu.address.model.Model;
+import seedu.address.model.apparel.ClothingTypeValue;
 
 /**
  * Lists all persons in the address book to the user.
@@ -39,17 +40,21 @@ public class ListCommand extends Command {
         if (listOption.ALL.equals(listOption)) {
             model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         } else if (ListOption.TOP.equals(listOption)) {
-            // do smth
             sb.append("by " + ListOption.TOP.toString().toLowerCase() + ".");
+            model.updateFilteredApparelList(apparel -> apparel.getClothingType()
+                    .getClothingTypeValue().equals(ClothingTypeValue.TOP));
         } else if (ListOption.BOTTOM.equals(listOption)) {
-            // do smth
             sb.append("by " + ListOption.BOTTOM.toString().toLowerCase() + ".");
+            model.updateFilteredApparelList(apparel -> apparel.getClothingType()
+                    .getClothingTypeValue().equals(ClothingTypeValue.BOTTOM));
         } else if (ListOption.BELT.equals(listOption)) {
-            // do smth
             sb.append("by " + ListOption.BELT.toString().toLowerCase() + ".");
+            model.updateFilteredApparelList(apparel -> apparel.getClothingType()
+                    .getClothingTypeValue().equals(ClothingTypeValue.BELT));
         } else if (ListOption.SHOES.equals(listOption)) {
-            // do smth
             sb.append("by " + ListOption.SHOES.toString().toLowerCase() + ".");
+            model.updateFilteredApparelList(apparel -> apparel.getClothingType()
+                    .getClothingTypeValue().equals(ClothingTypeValue.SHOES));
         }
 
         return new CommandResult(sb.toString());

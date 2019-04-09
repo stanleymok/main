@@ -19,6 +19,11 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.apparel.Apparel;
+import seedu.address.model.apparel.ClothingType;
+import seedu.address.model.apparel.ClothingTypeValue;
+import seedu.address.model.apparel.Color;
+import seedu.address.model.apparel.ColorValue;
+import seedu.address.model.apparel.Name;
 import seedu.address.model.apparel.exceptions.ApparelNotFoundException;
 
 /**
@@ -136,6 +141,7 @@ public class ModelManager implements Model {
     @Override
     public void updateFilteredApparelList(Predicate<Apparel> predicate) {
         requireNonNull(predicate);
+        System.out.println("predicate is = " + predicate.test(new Apparel(new Name("lala"), new Color("blue"), new ClothingType("top"))));
         filteredApparels.setPredicate(predicate);
     }
 

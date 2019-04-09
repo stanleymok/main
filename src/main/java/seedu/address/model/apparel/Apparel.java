@@ -3,6 +3,7 @@ package seedu.address.model.apparel;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Represents a Apparel in the address book.
@@ -70,6 +71,8 @@ public class Apparel {
     public ClothingType getClothingType() {
         return clothingType;
     }
+
+    public Predicate<Apparel> isTop = apparel -> apparel.getClothingType().equals(ClothingTypeValue.TOP);
 
     public String getAvailabilityStatus() {
         if (isAvailable()) {
