@@ -75,13 +75,10 @@ Examples:
 
 Sort all apparels in the FM based on the option supplied. +
 
-Format: `sort` +
-By default, calling `sort` without option will sort the apparels by name in ascending order. +
-
 Format: `sort options` +
 List all valid sorting options.
 
-Format: `sort [option]` +
+Format: `sort [OPTION]` +
 Sort all apparels according to the option supplied.
 
 === Editing an apparel : `edit`
