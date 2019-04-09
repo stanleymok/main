@@ -45,6 +45,20 @@ public class Color implements Comparable<Color> {
         return primary;
     }
 
+    /**
+     * Return all the available sorting options in String format.
+     */
+    public static String allValidColors() {
+        StringBuilder sb = new StringBuilder();
+        ColorValue[] allColors = ColorValue.values();
+        sb.append("All the valid colors are:\n");
+        for (int i = 1; i < allColors.length; i++) {
+            sb.append(allColors[i].toString().toLowerCase() + ", ");
+        }
+        sb.setLength(sb.length() - 2);
+        return sb.toString();
+    }
+
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

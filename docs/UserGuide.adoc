@@ -55,12 +55,12 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Format: `help`
 
-=== Listing all apparels that matches the given option : `list [OPTION]`
+=== Listing all apparels that matches the given option : `list [OPTION] [OPTION-VALUE]`
 
 Shows a list of all apparels in FM that matches the given option. +
 
 Valid options: +
-all, top, bottom, belt, shoes
+all, top, bottom, belt, shoes, color
 
 Format: `list options`
 List all valid list options.
@@ -79,6 +79,9 @@ List all apparels of clothing type belt.
 
 Format: `list shoes`
 List all apparels of clothing type shoes.
+
+Format: `list color red`
+List all red colored apparels.
 
 === Adding a piece of Apparel: `add`
 
