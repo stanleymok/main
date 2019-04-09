@@ -36,7 +36,7 @@ public class ListCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) {
         requireNonNull(model);
 
-        StringBuilder sb = new StringBuilder(MESSAGE_SUCCESS + " ");
+        StringBuilder sb = new StringBuilder(MESSAGE_SUCCESS);
         if (ListOption.OPTIONS.equals(listOption)) {
             return new CommandResult(ListOption.allOptions());
         }
@@ -44,19 +44,19 @@ public class ListCommand extends Command {
         if (ListOption.ALL.equals(listOption)) {
             model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         } else if (ListOption.TOP.equals(listOption)) {
-            sb.append("by " + ListOption.TOP.toString().toLowerCase() + ".");
+            sb.append(" by " + ListOption.TOP.toString().toLowerCase() + ".");
             model.updateFilteredApparelList(apparel -> apparel.getClothingType()
                     .getClothingTypeValue().equals(ClothingTypeValue.TOP));
         } else if (ListOption.BOTTOM.equals(listOption)) {
-            sb.append("by " + ListOption.BOTTOM.toString().toLowerCase() + ".");
+            sb.append(" by " + ListOption.BOTTOM.toString().toLowerCase() + ".");
             model.updateFilteredApparelList(apparel -> apparel.getClothingType()
                     .getClothingTypeValue().equals(ClothingTypeValue.BOTTOM));
         } else if (ListOption.BELT.equals(listOption)) {
-            sb.append("by " + ListOption.BELT.toString().toLowerCase() + ".");
+            sb.append(" by " + ListOption.BELT.toString().toLowerCase() + ".");
             model.updateFilteredApparelList(apparel -> apparel.getClothingType()
                     .getClothingTypeValue().equals(ClothingTypeValue.BELT));
         } else if (ListOption.SHOES.equals(listOption)) {
-            sb.append("by " + ListOption.SHOES.toString().toLowerCase() + ".");
+            sb.append(" by " + ListOption.SHOES.toString().toLowerCase() + ".");
             model.updateFilteredApparelList(apparel -> apparel.getClothingType()
                     .getClothingTypeValue().equals(ClothingTypeValue.SHOES));
         }
