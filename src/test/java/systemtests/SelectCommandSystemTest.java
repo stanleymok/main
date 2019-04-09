@@ -27,6 +27,7 @@ public class SelectCommandSystemTest extends AddressBookSystemTest {
          * -> selected
          */
         String command = "   " + SelectCommand.COMMAND_WORD + " " + INDEX_FIRST_APPAREL.getOneBased() + "   ";
+
         assertCommandSuccess(command, INDEX_FIRST_APPAREL);
 
         /* Case: select the last card in the apparel list -> selected */
