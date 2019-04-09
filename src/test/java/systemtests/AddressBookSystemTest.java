@@ -137,7 +137,7 @@ public abstract class AddressBookSystemTest {
      * Displays all persons in the address book.
      */
     protected void showAllPersons() {
-        executeCommand(ListCommand.COMMAND_WORD);
+        executeCommand(ListCommand.COMMAND_WORD + " all");
         assertEquals(getModel().getAddressBook().getApparelList().size(), getModel().getFilteredApparelList().size());
     }
 

@@ -55,15 +55,35 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Format: `help`
 
-=== Listing all apparels : `list`
+=== Listing all apparels that matches the given option : `list [OPTION]`
 
-Shows a list of all apparels in FM. +
-Format: `list`
+Shows a list of all apparels in FM that matches the given option. +
+
+Valid options: +
+all, top, bottom, belt, shoes
+
+Format: `list options`
+List all valid list options.
+
+Format: `list all`
+List all apparels.
+
+Format: `list top`
+List all apparels of clothing type top.
+
+Format: `list bottom`
+List all apparels of clothing type bottom.
+
+Format: `list belt`
+List all apparels of clothing type belt.
+
+Format: `list shoes`
+List all apparels of clothing type shoes.
 
 === Adding a piece of Apparel: `add`
 
 Add a piece of apparel to wardrobe +
-Format: `add n/NAME c/COLOUR t/CLOTHINGTYPE`
+Format: `add n/NAME c/COLOR t/CLOTHINGTYPE`
 
 Examples:
 
@@ -71,18 +91,21 @@ Examples:
 * `add n/Desigual Tailored Pants c/Grey t/Bottom
 
 // tag::sort[]
-=== Sort all apparels : `sort [option]`
+=== Sort all apparels that matches the given option : `sort [OPTION]`
 
 Sort all apparels in the FM based on the option supplied. +
 
-Format: `sort` +
-By default, calling `sort` without option will sort the apparels by name in ascending order. +
+Valid options: +
+name, color, type
 
 Format: `sort options` +
 List all valid sorting options.
 
-Format: `sort [option]` +
-Sort all apparels according to the option supplied.
+Format: `sort [OPTION]` +
+Sort all apparels according to the option supplied. +
+
+Example: sort the apparels by color +
+Format: `sort color`
 
 === Editing an apparel : `edit`
 
