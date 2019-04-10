@@ -14,9 +14,9 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#listing-all-apparels-code-list-code">3.2. Listing all apparels : <code>list</code></a></li>
+<li><a href="#listing-all-apparels-that-matches-the-given-option-code-list-option-option-value-code">3.2. Listing all apparels that matches the given option : <code>list [OPTION] [OPTION-VALUE]</code></a></li>
 <li><a href="#adding-a-piece-of-apparel-code-add-code">3.3. Adding a piece of Apparel: <code>add</code></a></li>
-<li><a href="#sort-all-apparels-code-sort-option-code">3.4. Sort all apparels : <code>sort [option]</code></a></li>
+<li><a href="#sort-all-apparels-that-matches-the-given-option-code-sort-option-code">3.4. Sort all apparels that matches the given option : <code>sort [OPTION]</code></a></li>
 <li><a href="#editing-an-apparel-code-edit-code">3.5. Editing an apparel : <code>edit</code></a></li>
 <li><a href="#making-available-washing-a-piece-of-apparel-code-available-code-or-code-wash-code">3.6. Making available/washing a piece of apparel : <code>available</code> or <code>wash</code></a></li>
 <li><a href="#making-unavailable-dirty-a-piece-of-apparel-code-unavailable-code-or-code-wear-code">3.7. Making unavailable/dirty a piece of apparel : <code>unavailable</code> or <code>wear</code></a></li>
@@ -138,17 +138,48 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-apparels-code-list-code"><a class="link" href="#listing-all-apparels-code-list-code">3.2. Listing all apparels : <code>list</code></a></h3>
+<h3 id="listing-all-apparels-that-matches-the-given-option-code-list-option-option-value-code"><a class="link" href="#listing-all-apparels-that-matches-the-given-option-code-list-option-option-value-code">3.2. Listing all apparels that matches the given option : <code>list [OPTION] [OPTION-VALUE]</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all apparels in FM.<br>
-Format: <code>list</code></p>
+<p>Shows a list of all apparels in FM that matches the given option.<br></p>
+</div>
+<div class="paragraph">
+<p>Valid options:<br>
+all, top, bottom, belt, shoes, color</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list options</code>
+List all valid list options.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list all</code>
+List all apparels.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list top</code>
+List all apparels of clothing type top.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list bottom</code>
+List all apparels of clothing type bottom.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list belt</code>
+List all apparels of clothing type belt.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list shoes</code>
+List all apparels of clothing type shoes.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list color red</code>
+List all red colored apparels.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-piece-of-apparel-code-add-code"><a class="link" href="#adding-a-piece-of-apparel-code-add-code">3.3. Adding a piece of Apparel: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Add a piece of apparel to wardrobe<br>
-Format: <code>add n/NAME c/COLOUR t/CLOTHINGTYPE</code></p>
+Format: <code>add n/NAME c/COLOR t/CLOTHINGTYPE</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -165,21 +196,25 @@ Format: <code>add n/NAME c/COLOUR t/CLOTHINGTYPE</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-all-apparels-code-sort-option-code"><a class="link" href="#sort-all-apparels-code-sort-option-code">3.4. Sort all apparels : <code>sort [option]</code></a></h3>
+<h3 id="sort-all-apparels-that-matches-the-given-option-code-sort-option-code"><a class="link" href="#sort-all-apparels-that-matches-the-given-option-code-sort-option-code">3.4. Sort all apparels that matches the given option : <code>sort [OPTION]</code></a></h3>
 <div class="paragraph">
 <p>Sort all apparels in the FM based on the option supplied.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>sort</code><br>
-By default, calling <code>sort</code> without option will sort the apparels by name in ascending order.<br></p>
+<p>Valid options:<br>
+name, color, type</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>sort options</code><br>
 List all valid sorting options.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>sort [option]</code><br>
-Sort all apparels according to the option supplied.</p>
+<p>Format: <code>sort [OPTION]</code><br>
+Sort all apparels according to the option supplied.<br></p>
+</div>
+<div class="paragraph">
+<p>Example: sort the apparels by color<br>
+Format: <code>sort color</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -726,4 +761,4 @@ e.g. <code>something RED</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-09 10:22:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-10 09:55:29 UTC</div></div></div></body></html>
