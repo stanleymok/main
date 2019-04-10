@@ -70,7 +70,7 @@ public class LogicManagerTest {
 
     @Test
     public void execute_validCommand_success() {
-        String listCommand = ListCommand.COMMAND_WORD;
+        String listCommand = ListCommand.COMMAND_WORD + " all";
         assertCommandSuccess(listCommand, ListCommand.MESSAGE_SUCCESS, model);
         assertHistoryCorrect(listCommand);
     }

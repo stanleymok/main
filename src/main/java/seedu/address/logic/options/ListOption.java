@@ -3,18 +3,22 @@ package seedu.address.logic.options;
 /**
  * Represents the options available for Sort command.
  */
-public enum SortOption {
+public enum ListOption {
     // WARNING: OPTIONS must be the first.
     OPTIONS,
-    NAME,
-    COLOR,
-    TYPE;
+    ALL,
+    TOP,
+    BOTTOM,
+    BELT,
+    SHOES,
+    COLOR;
+    // TODO; add option to see specific color
 
     /**
      * Return true if option supplied is valid, false otherwise.
      */
     public static boolean isValid(String optionString) {
-        for (SortOption so : SortOption.values()) {
+        for (ListOption so : ListOption.values()) {
             String validOption = so.toString();
             if (validOption.equalsIgnoreCase(optionString.trim())) {
                 return true;
@@ -26,12 +30,12 @@ public enum SortOption {
     /**
      * Create a SortOption.
      */
-    public static SortOption create(String optionString) throws IllegalArgumentException {
+    public static ListOption create(String optionString) throws IllegalArgumentException {
         if (!isValid(optionString)) {
             throw new IllegalArgumentException("Invalid option.");
         }
 
-        return SortOption.valueOf(optionString.toUpperCase());
+        return ListOption.valueOf(optionString.toUpperCase());
     }
 
     /**
@@ -39,10 +43,10 @@ public enum SortOption {
      */
     public static String allOptions() {
         StringBuilder sb = new StringBuilder();
-        SortOption[] sortOptions = SortOption.values();
-        sb.append("All the valid sorting options:\n");
-        for (int i = 1; i < sortOptions.length; i++) {
-            sb.append(sortOptions[i].toString().toLowerCase() + ", ");
+        ListOption[] listOptions = ListOption.values();
+        sb.append("All the valid list options:\n");
+        for (int i = 1; i < listOptions.length; i++) {
+            sb.append(listOptions[i].toString().toLowerCase() + ", ");
         }
         sb.setLength(sb.length() - 2);
         return sb.toString();

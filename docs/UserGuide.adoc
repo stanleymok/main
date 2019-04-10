@@ -55,15 +55,38 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Format: `help`
 
-=== Listing all apparels : `list`
+=== Listing all apparels that matches the given option : `list [OPTION] [OPTION-VALUE]`
 
-Shows a list of all apparels in FM. +
-Format: `list`
+Shows a list of all apparels in FM that matches the given option. +
+
+Valid options: +
+all, top, bottom, belt, shoes, color
+
+Format: `list options`
+List all valid list options.
+
+Format: `list all`
+List all apparels.
+
+Format: `list top`
+List all apparels of clothing type top.
+
+Format: `list bottom`
+List all apparels of clothing type bottom.
+
+Format: `list belt`
+List all apparels of clothing type belt.
+
+Format: `list shoes`
+List all apparels of clothing type shoes.
+
+Format: `list color red`
+List all red colored apparels.
 
 === Adding a piece of Apparel: `add`
 
 Add a piece of apparel to wardrobe +
-Format: `add n/NAME c/COLOUR t/CLOTHINGTYPE`
+Format: `add n/NAME c/COLOR t/CLOTHINGTYPE`
 
 Examples:
 
@@ -71,18 +94,21 @@ Examples:
 * `add n/Desigual Tailored Pants c/Grey t/Bottom
 
 // tag::sort[]
-=== Sort all apparels : `sort [option]`
+=== Sort all apparels that matches the given option : `sort [OPTION]`
 
 Sort all apparels in the FM based on the option supplied. +
 
-Format: `sort` +
-By default, calling `sort` without option will sort the apparels by name in ascending order. +
+Valid options: +
+name, color, type
 
 Format: `sort options` +
 List all valid sorting options.
 
-Format: `sort [option]` +
-Sort all apparels according to the option supplied.
+Format: `sort [OPTION]` +
+Sort all apparels according to the option supplied. +
+
+Example: sort the apparels by color +
+Format: `sort color`
 
 === Editing an apparel : `edit`
 
@@ -124,15 +150,7 @@ Makes available the 2nd apparel in the list.
 // tag::unavailable[]
 === Making unavailable/dirty a piece of apparel : `unavailable` or `wear`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Makes an existing apparel in the address book unavailable/dirty and increases times worn by 1. +
-=======
-Makes an existing apparel in FM unavailable. +
->>>>>>> 7da2d1068b74323dae3a7b197ea2bee12de2c35d
-=======
-Makes an existing apparel in the address book unavailable/dirty and increases times worn by 1. +
->>>>>>> 0ae7df1a8c08aafbf523792731a7e4f8a9838efc
+Makes an existing apparel in FM unavailable/dirty and increases times worn by 1. +
 Format: `dirty INDEX` or `unavailable INDEX`
 
 ****
@@ -317,9 +335,10 @@ Returns a random TOP in FM.
 * `random BOTTOM` +
 Returns a random BOTTOM in FM.
 
-=== Calculating use Statistics `[coming in v4.0]`
+=== Calculating use Statistics : `stats`
 
-Calculates the rate of wear of each apparel.
+Gives an overview of the various statistics of the apparels/wardrobe. +
+Format: `stats` or `statistics`
 
 === Exiting the program : `exit`
 
@@ -330,6 +349,23 @@ Format: `exit`
 
 FM data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
+
+== Coming in v2.0
+
+=== Know suitable apparels based on occasions
+
+Fashion Match would be able to recommend suitable apparels based on whatever occasion the user is preparing for. For example, if the user is preparing for a formal event, FM will only recommend apparels that match the formal occasion.
+
+=== Matched Colors
+
+Fashion Match would also be able to establish relations between certain colors so that it will not recommend conflicting colors. +
+Examples: red on red, yellow on yellow, etc
+
+=== Save Favourite Apparels/Outfits
+
+Users would be able to save their favourite outfits or apparels so that they can quickly identify their favourite clothes for future use.
+
+
 
 == FAQ
 

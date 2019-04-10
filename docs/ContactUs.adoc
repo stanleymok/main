@@ -2,5 +2,4 @@
 :site-section: ContactUs
 :stylesDir: stylesheets
 
-* *Bug reports, Suggestions* : Post in our https://github.com/se-edu/addressbook-level4/issues[issue tracker] if you noticed bugs or have suggestions on how to improve.
-* *Email us* : You can also reach us at e0368942@u.nus.edu
+* *Bug reports, Suggestions* : Post in our https://github.com/cs2103-ay1819s2-w15-1/main/issues if you noticed bugs or have suggestions on how to improve.

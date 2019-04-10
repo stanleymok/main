@@ -4,6 +4,9 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
@@ -30,13 +33,13 @@ public class ModelManager implements Model {
     private final SimpleObjectProperty<Apparel> selectedPerson = new SimpleObjectProperty<>();
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given Fashion Match and userPrefs.
      */
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
         super();
         requireAllNonNull(addressBook, userPrefs);
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing with fashion match: " + addressBook + " and user prefs " + userPrefs);
 
         versionedAddressBook = new VersionedAddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
@@ -83,7 +86,7 @@ public class ModelManager implements Model {
         userPrefs.setAddressBookFilePath(addressBookFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== FashionMatch ================================================================================
 
     @Override
     public void setAddressBook(ReadOnlyAddressBook addressBook) {
@@ -163,6 +166,65 @@ public class ModelManager implements Model {
         versionedAddressBook.commit();
     }
 
+    //=========== Statistics ===============================================================================
+    @Override
+    public int getTotalColor() {
+        ArrayList<String> outputTotalColor = new ArrayList<>();
+        for (int i = 0; i <= filteredApparels.size() - 1; i++) {
+            if (!outputTotalColor.contains(filteredApparels.get(i).getColor().toString())) {
+                outputTotalColor.add(filteredApparels.get(i).getColor().toString());
+            }
+        }
+        return outputTotalColor.size();
+    }
+
+    @Override
+    public String getFavApparel() {
+        Map<String, Integer> hm = new HashMap();
+        for (int i = 0; i < filteredApparels.size(); i++) {
+            String key = filteredApparels.get(i).getName().toString();
+            int value = filteredApparels.get(i).getUsageCount();
+            hm.put(key, value);
+        }
+        int maxCount = -1;
+        String output = null;
+        for (Map.Entry<String, Integer> value : hm.entrySet()) {
+            if (maxCount < value.getValue()) {
+                maxCount = value.getValue();
+                output = value.getKey();
+            }
+        }
+        return output;
+    }
+
+    @Override
+    public String getFavColor() {
+        ArrayList<String> favColor = new ArrayList<>();
+        for (int i = 0; i < filteredApparels.size(); i++) {
+            favColor.add(filteredApparels.get(i).getColor().toString());
+        }
+
+        Map<String, Integer> hm = new HashMap();
+        for (int i = 0; i < favColor.size(); i++) {
+            String key = favColor.get(i);
+            if (hm.containsKey(key)) {
+                int value = hm.get(key);
+                hm.put(key, value + 1);
+            } else {
+                hm.put(key, 1);
+            }
+        }
+
+        int maxCount = 0;
+        String output = null;
+        for (Map.Entry<String, Integer> value : hm.entrySet()) {
+            if (maxCount < value.getValue()) {
+                maxCount = value.getValue();
+                output = value.getKey();
+            }
+        }
+        return output;
+    }
     //=========== Selected apparel ===========================================================================
 
     @Override

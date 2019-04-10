@@ -20,6 +20,8 @@ We build a desktop application that is a clothing closet manager.
 
 * *Minor enhancement*: I had also added other immpimentations here and there but I didn't know this was due tonight so it's too last minute for me to cite all of them. I also updated the user guide and so on.
 
+I did all the UI changes
+
 * *Code contributed*:
 
 Methods:

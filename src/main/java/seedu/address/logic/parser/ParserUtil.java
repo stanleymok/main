@@ -8,6 +8,7 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.options.ListOption;
 import seedu.address.logic.options.SortOption;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.apparel.ClothingType;
@@ -48,6 +49,19 @@ public class ParserUtil {
         }
 
         return SortOption.create(optionSupplied);
+    }
+
+    /**
+     * Parse {@code optionString} into an enum type and return it.
+     * @throws ParseException if the specified optionString is invalid (not listed as valid options).
+     */
+    public static ListOption parseListValue(String optionString) throws ParseException {
+        String optionSupplied = optionString.trim();
+        if (!ListOption.isValid(optionSupplied)) {
+            throw new ParseException("Invalid option given");
+        }
+
+        return ListOption.create(optionSupplied);
     }
 
     /**

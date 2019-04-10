@@ -10,9 +10,8 @@ import java.util.Objects;
  */
 public class Color implements Comparable<Color> {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Colors should only be those that are listed in the list of accepted colors.\n"
-                    + "Type `colors` to see all the accepted colors.";
+    public static final String MESSAGE_CONSTRAINTS = "List of accepted colors:\n"
+                    + "RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, BROWN, NAVY, PINK, WHITE, GREY, KHAKI, CREAM";
 
     private ColorValue primary;
 
@@ -44,6 +43,20 @@ public class Color implements Comparable<Color> {
 
     public ColorValue getPrimary() {
         return primary;
+    }
+
+    /**
+     * Return all the available sorting options in String format.
+     */
+    public static String allValidColors() {
+        StringBuilder sb = new StringBuilder();
+        ColorValue[] allColors = ColorValue.values();
+        sb.append("All the valid colors are:\n");
+        for (int i = 1; i < allColors.length; i++) {
+            sb.append(allColors[i].toString().toLowerCase() + ", ");
+        }
+        sb.setLength(sb.length() - 2);
+        return sb.toString();
     }
 
     @Override
