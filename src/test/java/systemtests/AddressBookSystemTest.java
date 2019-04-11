@@ -8,8 +8,6 @@ import static seedu.address.ui.StatusBarFooter.SYNC_STATUS_INITIAL;
 import static seedu.address.ui.StatusBarFooter.SYNC_STATUS_UPDATED;
 import static seedu.address.ui.testutil.GuiTestAssert.assertListMatching;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -37,7 +35,7 @@ import seedu.address.logic.commands.SelectCommand;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.testutil.TypicalApparels;
-import seedu.address.ui.BrowserPanel;
+//import seedu.address.ui.BrowserPanel;
 import seedu.address.ui.CommandBox;
 
 /**
@@ -196,7 +194,6 @@ public abstract class AddressBookSystemTest {
      * @see BrowserPanelHandle#isUrlChanged()
      */
     protected void assertSelectedCardDeselected() {
-        assertEquals(BrowserPanel.DEFAULT_PAGE, getBrowserPanel().getLoadedUrl());
         assertFalse(getPersonListPanel().isAnyCardSelected());
     }
 
@@ -206,6 +203,7 @@ public abstract class AddressBookSystemTest {
      * @see BrowserPanelHandle#isUrlChanged()
      * @see PersonListPanelHandle#isSelectedPersonCardChanged()
      */
+    /**
     protected void assertSelectedCardChanged(Index expectedSelectedCardIndex) {
         getPersonListPanel().navigateToCard(getPersonListPanel().getSelectedCardIndex());
         String selectedCardName = getPersonListPanel().getHandleToSelectedCard().getName();
@@ -219,6 +217,7 @@ public abstract class AddressBookSystemTest {
 
         assertEquals(expectedSelectedCardIndex.getZeroBased(), getPersonListPanel().getSelectedCardIndex());
     }
+     */
 
     /**
      * Asserts that the browser's url and the selected card in the apparel list panel remain unchanged.
@@ -272,7 +271,8 @@ public abstract class AddressBookSystemTest {
         assertEquals("", getCommandBox().getInput());
         assertEquals("", getResultDisplay().getText());
         assertListMatching(getPersonListPanel(), getModel().getFilteredApparelList());
-        assertEquals(BrowserPanel.DEFAULT_PAGE, getBrowserPanel().getLoadedUrl());
+        // TODO, write test for BrowserPanel
+        //assertEquals(BrowserPanel.DEFAULT_PAGE, getBrowserPanel().getLoadedUrl());
         assertEquals(Paths.get(".").resolve(testApp.getStorageSaveLocation()).toString(),
                 getStatusBarFooter().getSaveLocation());
         assertEquals(SYNC_STATUS_INITIAL, getStatusBarFooter().getSyncStatus());
