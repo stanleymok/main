@@ -95,7 +95,7 @@ public class CommandTestUtil {
             CommandResult result = command.execute(actualModel, actualCommandHistory);
             System.out.println("result:");
             System.out.println(result.getFeedbackToUser());
-//
+
             boolean match = false;
             for (CommandResult anyRandomCommandResult : randomCommandResults) {
                 System.out.println(anyRandomCommandResult.getFeedbackToUser());
@@ -103,10 +103,11 @@ public class CommandTestUtil {
                     match = true;
                 }
             }
+
             if (!match) {
                 Assert.fail("Result does not match with any of the random Messages from wash command.");
             }
-//
+
             assertEquals(expectedModel, actualModel);
             assertEquals(expectedCommandHistory, actualCommandHistory);
         } catch (CommandException ce) {
@@ -134,7 +135,7 @@ public class CommandTestUtil {
         int i = 0;
         for (String randomMessage : randomMessages) {
             randomCommandResults[i] = new CommandResult(randomMessage);
-            i = i+1;
+            i = i + 1;
         }
         assertCommandSuccess(command, actualModel, actualCommandHistory, randomCommandResults, expectedModel);
     }
