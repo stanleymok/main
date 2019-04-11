@@ -72,6 +72,10 @@ public class UnavailableCommandTest {
         assertCommandSuccess(unavailableCommand, dirtyModel, commandHistory, randomMessages, expectedModel);
     }
 
+    /**
+     * Takes all the random global string response messages from wear command and stores them in a
+     * {@code String} array
+     */
     public String[] generateRandomResponses(int index, Apparel wornApparel) {
 
         // for future versions can replace randomMessage array init
