@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Assert;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -41,9 +43,6 @@ public class CommandTestUtil {
     public static final String INPUT_NAME_B = " " + PREFIX_NAME + VALID_NAME_B;
     public static final String INPUT_TYPE_TOP = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_TOP;
     public static final String INPUT_TYPE_BOTTOM = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_BOTTOM;
-    public static final String INPUT_TYPE_BELT = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_BELT;
-    public static final String INPUT_TYPE_SHOES = " " + PREFIX_CLOTHING_TYPE + VALID_TYPE_SHOES;
-
 
     public static final String INVALID_INPUT_NAME = " " + PREFIX_NAME + "Amames&"; // '&' not allowed in names
     public static final String INVALID_INPUT_COLOR = " " + PREFIX_COLOR + "Blue1"; // '1', digits not allowed in colors
@@ -73,7 +72,42 @@ public class CommandTestUtil {
         CommandHistory expectedCommandHistory = new CommandHistory(actualCommandHistory);
         try {
             CommandResult result = command.execute(actualModel, actualCommandHistory);
+            System.out.println(result.getFeedbackToUser());
+            System.out.println(expectedCommandResult.getFeedbackToUser());
             assertEquals(expectedCommandResult, result);
+            assertEquals(expectedModel, actualModel);
+            assertEquals(expectedCommandHistory, actualCommandHistory);
+        } catch (CommandException ce) {
+            throw new AssertionError("Execution of command should not fail.", ce);
+        }
+    }
+
+    /**
+     * Executes the given {@code command}, confirms that <br>
+     * - the returned {@link CommandResult} matches any of the {@code randomCommandResult} <br>
+     * - the {@code actualModel} matches {@code expectedModel} <br>
+     * - the {@code actualCommandHistory} remains unchanged.
+     */
+    public static void assertCommandSuccess(Command command, Model actualModel, CommandHistory actualCommandHistory,
+                                            CommandResult[] randomCommandResults, Model expectedModel) {
+        CommandHistory expectedCommandHistory = new CommandHistory(actualCommandHistory);
+        try {
+            CommandResult result = command.execute(actualModel, actualCommandHistory);
+            System.out.println("result:");
+            System.out.println(result.getFeedbackToUser());
+
+            boolean match = false;
+            for (CommandResult anyRandomCommandResult : randomCommandResults) {
+                System.out.println(anyRandomCommandResult.getFeedbackToUser());
+                if (result.equals(anyRandomCommandResult)) {
+                    match = true;
+                }
+            }
+
+            if (!match) {
+                Assert.fail("Result does not match with any of the random Messages from wash command.");
+            }
+
             assertEquals(expectedModel, actualModel);
             assertEquals(expectedCommandHistory, actualCommandHistory);
         } catch (CommandException ce) {
@@ -89,6 +123,21 @@ public class CommandTestUtil {
             String expectedMessage, Model expectedModel) {
         CommandResult expectedCommandResult = new CommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, actualCommandHistory, expectedCommandResult, expectedModel);
+    }
+
+    /**
+     * Convenience wrapper to {@link #assertCommandSuccess(Command, Model, CommandHistory, CommandResult[], Model)}
+     * that takes a string array {@code randomMessagesMessage}.
+     */
+    public static void assertCommandSuccess(Command command, Model actualModel, CommandHistory actualCommandHistory,
+                                            String[] randomMessages, Model expectedModel) {
+        CommandResult[] randomCommandResults = new CommandResult[randomMessages.length];
+        int i = 0;
+        for (String randomMessage : randomMessages) {
+            randomCommandResults[i] = new CommandResult(randomMessage);
+            i = i + 1;
+        }
+        assertCommandSuccess(command, actualModel, actualCommandHistory, randomCommandResults, expectedModel);
     }
 
     /**

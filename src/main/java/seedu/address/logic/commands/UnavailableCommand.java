@@ -7,11 +7,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.Set;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -35,23 +35,33 @@ public class UnavailableCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "Example: " + COMMAND_WORD + " 1 or " + ALTERNATE_COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_EDIT_APPAREL_SUCCESS = "Apparel made unavailable: %1$s";
-    public static final String MESSAGE_NOT_EDITED = "Apparel index must be provided.";
+    public static final String MESSAGE_WEAR_APPAREL_SUCCESS = "Apparel %1$d. worn: \n%2$s";
+    public static final String MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_1 = "Apparel %1$d. worn again: \n%2$s"
+            + "\nWould definitely suggest washing soon.";
+    public static final String MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_2 = "Apparel %1$d. worn again: \n%2$s"
+            + "\nBut hey, don't sit next to me.";
+    public static final String MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_3 = "Apparel %1$d. worn again: \n%2$s"
+            + "\nBy the way, are you allergic to soap?";
+    public static final String MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_4 = "Apparel %1$d. worn again: \n%2$s"
+            + "\nWash your clothes, clean your room, and confront the devils in your house.";
+    public static final String MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_5 = "Apparel %1$d. worn again: \n%2$s"
+            + "\nI can smell you from a mile away, and guess what? It's not a good smell.";
+    public static final String MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_6 = "Apparel %1$d. worn again: \n%2$s"
+            + "\n... There's a river 2 miles away, just go swim in it.";
+    public static final String MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_7 = "Apparel %1$d. worn again: \n%2$s"
+            + "\nDon't wear it to a date, please.";
+
+    public static final String MESSAGE_SWITCH_CASE_ERROR = "Something went wrong with the switch case.";
     public static final String MESSAGE_DUPLICATE_APPAREL = "This apparel already exists in the address book.";
 
     private final Index index;
-    private final UnavailablePersonDescriptor unavailablePersonDescriptor;
 
     /**
      * @param index of the apparel in the filtered apparel list to edit
-     * @param editPersonDescriptor details to edit the apparel with
      */
-    public UnavailableCommand(Index index, UnavailablePersonDescriptor editPersonDescriptor) {
+    public UnavailableCommand(Index index) {
         requireNonNull(index);
-        requireNonNull(editPersonDescriptor);
-
         this.index = index;
-        this.unavailablePersonDescriptor = new UnavailablePersonDescriptor(editPersonDescriptor);
     }
 
     @Override
@@ -63,33 +73,50 @@ public class UnavailableCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_APPAREL_DISPLAYED_INDEX);
         }
 
-        Apparel apparelToEdit = lastShownList.get(index.getZeroBased());
-        Apparel editedApparel = createEditedPerson(apparelToEdit, unavailablePersonDescriptor);
+        Apparel apparelToWear = lastShownList.get(index.getZeroBased());
 
-        if (!apparelToEdit.isSameApparel(editedApparel) && model.hasApparel(editedApparel)) {
-            throw new CommandException(MESSAGE_DUPLICATE_APPAREL);
-        }
+        Apparel wornApparel = new Apparel(apparelToWear).use();
 
-        model.setPerson(apparelToEdit, editedApparel);
+        model.setPerson(apparelToWear, wornApparel);
         model.updateFilteredApparelList(PREDICATE_SHOW_ALL_APPARELS);
         model.commitAddressBook();
-        return new CommandResult(String.format(MESSAGE_EDIT_APPAREL_SUCCESS, editedApparel));
-    }
 
-    /**
-     * Creates and returns a {@code Apparel} with the details of {@code apparelToEdit}
-     * edited with {@code editPersonDescriptor}.
-     */
-    private static Apparel createEditedPerson(Apparel apparelToEdit, UnavailablePersonDescriptor editPersonDescriptor) {
-        assert apparelToEdit != null;
+        if (!apparelToWear.isAvailable()) {
+            Random random = new Random();
+            int number = random.nextInt(7); // 0-6
+            number++; // 1-7
 
-        Name updatedName = editPersonDescriptor.getName().orElse(apparelToEdit.getName());
-        Color updatedColor = editPersonDescriptor.getColor().orElse(apparelToEdit.getColor());
-        ClothingType updatedClothingType =
-                editPersonDescriptor.getClothingType().orElse(apparelToEdit.getClothingType());
-        int updatedUsageDescriptor = apparelToEdit.getUsageCount() + 1;
-        return new Apparel(updatedName, updatedColor,
-                            updatedClothingType, false, updatedUsageDescriptor);
+            switch(number) {
+
+            case 1:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_1,
+                            index.getOneBased(), wornApparel));
+            case 2:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_2,
+                            index.getOneBased(), wornApparel));
+            case 3:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_3,
+                            index.getOneBased(), wornApparel));
+            case 4:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_4,
+                            index.getOneBased(), wornApparel));
+            case 5:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_5,
+                            index.getOneBased(), wornApparel));
+            case 6:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_6,
+                            index.getOneBased(), wornApparel));
+            case 7:
+                return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_THOUGH_WORN_SUCCESS_7,
+                            index.getOneBased(), wornApparel));
+            default:
+                break;
+            }
+            throw new CommandException(MESSAGE_SWITCH_CASE_ERROR);
+        } else {
+            return new CommandResult(String.format(MESSAGE_WEAR_APPAREL_SUCCESS,
+                                                    index.getOneBased(), wornApparel));
+        }
     }
 
     @Override
@@ -106,8 +133,7 @@ public class UnavailableCommand extends Command {
 
         // state check
         UnavailableCommand e = (UnavailableCommand) other;
-        return index.equals(e.index)
-                && unavailablePersonDescriptor.equals(e.unavailablePersonDescriptor);
+        return index.equals(e.index);
     }
 
     /**
@@ -133,13 +159,6 @@ public class UnavailableCommand extends Command {
             setClothingType(toCopy.clothingType);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
-        }
-
-        /**
-         * Returns true if at least one field is edited.
-         */
-        public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, color, clothingType, address, tags);
         }
 
         public void setName(Name name) {
