@@ -34,7 +34,6 @@ public class UnavailableCommandTest {
     public void execute_wear_success() {
 
         Apparel apparelToWear = model.getFilteredApparelList().get(INDEX_SECOND_APPAREL.getZeroBased());
-        System.out.println(apparelToWear);
         Apparel wornApparel = new Apparel(apparelToWear);
         wornApparel.use();
 

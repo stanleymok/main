@@ -57,10 +57,15 @@ public class AvailableCommandTest {
         showApparelAtIndex(model, INDEX_FIRST_APPAREL);
 
         Apparel apparelInFilteredList = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
+
+        Apparel cleanApparelInFilteredList = new Apparel(apparelInFilteredList);
+        cleanApparelInFilteredList.setWashed();
+        model.setPerson(apparelInFilteredList, cleanApparelInFilteredList);
+
         AvailableCommand availableCommand = new AvailableCommand(INDEX_FIRST_APPAREL);
 
         String expectedMessage = String.format(AvailableCommand.MESSAGE_APPAREL_ALREADY_CLEAN_OCD,
-                INDEX_FIRST_APPAREL.getOneBased(), apparelInFilteredList);
+                INDEX_FIRST_APPAREL.getOneBased(), cleanApparelInFilteredList);
 
         assertCommandFailure(availableCommand, model, commandHistory, expectedMessage);
     }
