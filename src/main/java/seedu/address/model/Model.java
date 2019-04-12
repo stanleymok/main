@@ -132,7 +132,9 @@ public interface Model {
     /**
      * To get the apparel statistics.
      */
-    int getTotalColor();
+    String getTotalColor();
     String getFavApparel();
     String getFavColor();
+    String getLeastFavApparel();
+    String getCleanOrDirty();
 }
