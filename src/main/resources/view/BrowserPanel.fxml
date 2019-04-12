@@ -8,7 +8,7 @@
 <StackPane xmlns:fx="http://javafx.com/fxml/1">
   <WebView fx:id="browser"/>
     <children>
-        <ImageView fitHeight="1000.0" fitWidth="1250.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView>
             <image>
                 <Image url="@../images/matching_matrix.png"/>
             </image>
