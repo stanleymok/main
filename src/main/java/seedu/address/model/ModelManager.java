@@ -168,14 +168,14 @@ public class ModelManager implements Model {
 
     //=========== Statistics ===============================================================================
     @Override
-    public int getTotalColor() {
+    public String getTotalColor() {
         ArrayList<String> outputTotalColor = new ArrayList<>();
         for (int i = 0; i <= filteredApparels.size() - 1; i++) {
             if (!outputTotalColor.contains(filteredApparels.get(i).getColor().toString())) {
                 outputTotalColor.add(filteredApparels.get(i).getColor().toString());
             }
         }
-        return outputTotalColor.size();
+        return "Total Different Colors : " + outputTotalColor.size();
     }
 
     @Override
@@ -194,7 +194,11 @@ public class ModelManager implements Model {
                 output = value.getKey();
             }
         }
-        return output;
+        if (filteredApparels.size() == 0) {
+            return "Your favorite apparel is none!";
+        } else {
+            return "Your favorite apparel is " + output;
+        }
     }
 
     @Override
@@ -214,8 +218,7 @@ public class ModelManager implements Model {
                 hm.put(key, 1);
             }
         }
-
-        int maxCount = 0;
+        int maxCount = -1;
         String output = null;
         for (Map.Entry<String, Integer> value : hm.entrySet()) {
             if (maxCount < value.getValue()) {
@@ -223,7 +226,11 @@ public class ModelManager implements Model {
                 output = value.getKey();
             }
         }
-        return output;
+        if (filteredApparels.size() == 0) {
+            return "Your favorite color is none!";
+        } else {
+            return "Your favorite color is " + output;
+        }
     }
 
     @Override
@@ -234,15 +241,19 @@ public class ModelManager implements Model {
             int value = filteredApparels.get(i).getUsageCount();
             hm.put(key, value);
         }
-        int minCount = 1;
-        String output = filteredApparels.get(0).getName().toString();
+        int minCount = 10000;
+        String output = null;
         for (Map.Entry<String, Integer> value : hm.entrySet()) {
             if (minCount > value.getValue()) {
                 minCount = value.getValue();
                 output = value.getKey();
             }
         }
-        return output;
+        if (filteredApparels.size() == 0) {
+            return "You should wear more of none of your apparels! :(";
+        } else {
+            return "You should wear more of " + output + " :(";
+        }
     }
 
     @Override
@@ -252,12 +263,18 @@ public class ModelManager implements Model {
             if (filteredApparels.get(i).isAvailable()) {cleanCount++;}
             else {dirtyCount++;}
         }
-        if (cleanCount >= dirtyCount) {
-            return "Your wardrobe is quite clean! (" + Math.round(cleanCount/(filteredApparels.size())*100)
-                    + "% clean)";
+        if (cleanCount > dirtyCount) {
+            return "Your wardrobe is quite clean! ("
+                    + Math.round(cleanCount/(filteredApparels.size())*100) + "% clean)";
+        } else if (dirtyCount > cleanCount) {
+            return "Your wardrobe is getting dirty... ("
+                    + Math.round(dirtyCount/(filteredApparels.size())*100) + "% dirty)";
+        } else if (cleanCount == 0 && dirtyCount == 0) {
+            return "Your wardrobe is empty!";
+        } else if (cleanCount == dirtyCount) {
+            return "Your wardrobe is equally clean and dirty :O";
         } else {
-            return "Your wardrobe is getting dirty... (" + Math.round(dirtyCount/(filteredApparels.size())*100)
-                    + "% dirty)";
+            return null;
         }
     }
     //=========== Selected apparel ===========================================================================
