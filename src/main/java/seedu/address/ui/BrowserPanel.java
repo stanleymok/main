@@ -75,7 +75,7 @@ public class BrowserPanel extends UiPart<Region> {
             clothingTypeLabel.setText(apparel.getClothingType().toString());
             colorLabel.setText(apparel.getColor().toString());
             usageCountLabel.setText(String.valueOf(apparel.getUsageCount()));
-            statusLabel.setText(apparel.getAvailabilityStatus());
+            statusLabel.setText(apparel.getWornStatus());
         }
     }
 
