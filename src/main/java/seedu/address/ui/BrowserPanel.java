@@ -62,11 +62,11 @@ public class BrowserPanel extends UiPart<Region> {
         Image image = new Image(file.toURI().toString());
         apparelImageView.setImage(image);
         if (apparel == null) {
-            nameLabel.setText("");
-            clothingTypeLabel.setText("");
-            colorLabel.setText("");
-            usageCountLabel.setText("");
-            statusLabel.setText("");
+            nameLabel.setText("Click");
+            clothingTypeLabel.setText("to");
+            colorLabel.setText("display");
+            statusLabel.setText("an");
+            usageCountLabel.setText("apparel");
         } else {
             // Fill the labels with info from the apparel Object
             System.out.println("apparel = " + apparel.toString());
@@ -75,7 +75,7 @@ public class BrowserPanel extends UiPart<Region> {
             clothingTypeLabel.setText(apparel.getClothingType().toString());
             colorLabel.setText(apparel.getColor().toString());
             usageCountLabel.setText(String.valueOf(apparel.getUsageCount()));
-            statusLabel.setText(apparel.getAvailabilityStatus());
+            statusLabel.setText(apparel.getWornStatus());
         }
     }
 
