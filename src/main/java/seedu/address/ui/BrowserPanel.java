@@ -1,6 +1,5 @@
 package seedu.address.ui;
 
-import java.io.File;
 import java.util.logging.Logger;
 
 import javafx.beans.value.ObservableValue;
@@ -11,8 +10,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.util.FileUtil;
 import seedu.address.model.apparel.Apparel;
-
+import seedu.address.model.apparel.ColorValue;
 
 /**
  * The Browser Panel of the App.
@@ -57,10 +57,7 @@ public class BrowserPanel extends UiPart<Region> {
      * If the specified apparel is null, all text fields are cleared.
      */
     private void showApparelDetails(Apparel apparel) {
-        // TODO
-        File file = new File("/images/pants-transparent.png");
-        Image image = new Image(file.toURI().toString());
-        apparelImageView.setImage(image);
+
         if (apparel == null) {
             nameLabel.setText("Click");
             clothingTypeLabel.setText("to");
@@ -68,6 +65,27 @@ public class BrowserPanel extends UiPart<Region> {
             statusLabel.setText("an");
             usageCountLabel.setText("apparel");
         } else {
+            // Fill the image
+            Image image;
+            ColorValue cv = apparel.getColor().getPrimary();
+            switch(apparel.getClothingType().getClothingTypeValue()) {
+            case TOP:
+                image = new Image(FileUtil.getTopIconFilePath(cv));
+                break;
+            case BOTTOM:
+                image = new Image(FileUtil.getBottomIconFilePath(cv));
+                break;
+            case BELT:
+                image = new Image(FileUtil.getBeltIconFilePath(cv));
+                break;
+            case SHOES:
+                image = new Image(FileUtil.getShoeIconFilePath(cv));
+                break;
+            default:
+                throw new IllegalArgumentException("No such clothing type.");
+            }
+            apparelImageView.setImage(image);
+
             // Fill the labels with info from the apparel Object
             System.out.println("apparel = " + apparel.toString());
             System.out.println("apparel usage = " + apparel.getUsageCount());
@@ -78,5 +96,4 @@ public class BrowserPanel extends UiPart<Region> {
             statusLabel.setText(apparel.getWornStatus());
         }
     }
-
 }
