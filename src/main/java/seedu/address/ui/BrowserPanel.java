@@ -58,7 +58,7 @@ public class BrowserPanel extends UiPart<Region> {
      */
     private void showApparelDetails(Apparel apparel) {
         // TODO
-        File file = new File("/images/address_book_32.png");
+        File file = new File("/images/pants-transparent.png");
         Image image = new Image(file.toURI().toString());
         apparelImageView.setImage(image);
         if (apparel == null) {

@@ -9,12 +9,17 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
+<?import javafx.scene.image.Image?>
 <StackPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0">
      <items>
        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
             <children>
-               <ImageView fx:id="apparelImageView" fitHeight="150.0" fitWidth="200.0" layoutX="299.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" />
+               <ImageView fx:id="apparelImageView" fitHeight="150.0" fitWidth="200.0" layoutX="299.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" >
+                   <image>
+                       <Image url="/images/pants-transparent.png"></Image>
+                   </image>
+               </ImageView>
             </children>
          </AnchorPane>
        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
