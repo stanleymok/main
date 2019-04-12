@@ -4,13 +4,13 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-Fashion Match was developed by W15-1.
+Fashion Match was developed by the https://github.com/orgs/CS2103-AY1819S2-W15-1/teams/developers team.
 
 == Project Team
 
 === Raffles Andrison
 image::rafflesandrison.png[width="150", align="left"]
-{empty}[http://github.com/rafflesandrison[github]]
+{empty}[http://github.com/rafflesandrison[github]][<<rafflesandrison#,portfolio>>]
 
 Role: Developer
 
@@ -26,7 +26,7 @@ more robust by allowing it to process multiple options.
 
 === Philip Garabandic
 image::philipphil.png[width="150", align="left"]
-{empty}[https://github.com/PhilipPhil[github]]
+{empty}[https://github.com/PhilipPhil[github]][<<philipphil#,portfolio>>]
 
 Role: Developer
 
@@ -39,7 +39,7 @@ Responsibilities:
 
 === Stanley Joseph Mok
 image::stanleymok.png[width="150", align="left"]
-{empty}[http://github.com/stanleymok[github]]
+{empty}[http://github.com/stanleymok[github]][<<stanleymok#,portfolio>>]
 
 Role: Developer
 
@@ -52,7 +52,7 @@ Responsibilities:
 
 === Tan Yiren Eugene
 image::reinsheer.png[width="150", align="left"]
-{empty}[http://github.com/ReinSheer[github]]
+{empty}[http://github.com/ReinSheer[github]][<<reinsheer#,portfolio>>]
 
 Role: Developer
 
