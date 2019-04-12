@@ -135,4 +135,6 @@ public interface Model {
     int getTotalColor();
     String getFavApparel();
     String getFavColor();
+    String getLeastFavApparel();
+    String getCleanOrDirty();
 }

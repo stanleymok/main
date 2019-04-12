@@ -225,6 +225,41 @@ public class ModelManager implements Model {
         }
         return output;
     }
+
+    @Override
+    public String getLeastFavApparel() {
+        Map<String, Integer> hm = new HashMap();
+        for (int i = 0; i < filteredApparels.size(); i++) {
+            String key = filteredApparels.get(i).getName().toString();
+            int value = filteredApparels.get(i).getUsageCount();
+            hm.put(key, value);
+        }
+        int minCount = 1;
+        String output = filteredApparels.get(0).getName().toString();
+        for (Map.Entry<String, Integer> value : hm.entrySet()) {
+            if (minCount > value.getValue()) {
+                minCount = value.getValue();
+                output = value.getKey();
+            }
+        }
+        return output;
+    }
+
+    @Override
+    public String getCleanOrDirty() {
+        float cleanCount = 0, dirtyCount = 0;
+        for (int i = 0; i < filteredApparels.size(); i++) {
+            if (filteredApparels.get(i).isAvailable()) {cleanCount++;}
+            else {dirtyCount++;}
+        }
+        if (cleanCount >= dirtyCount) {
+            return "Your wardrobe is quite clean! (" + Math.round(cleanCount/(filteredApparels.size())*100)
+                    + "% clean)";
+        } else {
+            return "Your wardrobe is getting dirty... (" + Math.round(dirtyCount/(filteredApparels.size())*100)
+                    + "% dirty)";
+        }
+    }
     //=========== Selected apparel ===========================================================================
 
     @Override

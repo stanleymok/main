@@ -32,11 +32,15 @@ public class StatisticsCommand extends Command {
         String favColor = "Your favourite color is " + model.getFavColor();
         String totalApparel = "Total Apparel in Wardrobe : " + model.getFilteredApparelList().size();
         String totalColor = "Total Different Colors : " + model.getTotalColor();
+        String leastFavApparel = "You should wear more of your " + model.getLeastFavApparel() + " :(";
+        String cleanOrDirty = model.getCleanOrDirty();
 
         outputStats.add(favApparel);
         outputStats.add(favColor);
         outputStats.add(totalApparel);
         outputStats.add(totalColor);
+        outputStats.add(leastFavApparel);
+        outputStats.add(cleanOrDirty);
 
         String returnMessage = MESSAGE_SUCCESS;
         return new CommandResult(String.format(returnMessage, String.join("\n", outputStats)));
