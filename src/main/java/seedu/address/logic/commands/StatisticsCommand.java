@@ -28,18 +28,23 @@ public class StatisticsCommand extends Command {
         requireNonNull(history);
         ArrayList<String> outputStats = new ArrayList<>();
 
-        String favApparel = "Your favourite apparel is " + model.getFavApparel();
-        String favColor = "Your favourite color is " + model.getFavColor();
+        String favApparel = model.getFavApparel();
+        String favColor = model.getFavColor();
         String totalApparel = "Total Apparel in Wardrobe : " + model.getFilteredApparelList().size();
-        String totalColor = "Total Different Colors : " + model.getTotalColor();
+        String totalColor = model.getTotalColor();
+        String leastFavApparel = model.getLeastFavApparel();
+        String cleanOrDirty = model.getCleanOrDirty();
 
         outputStats.add(favApparel);
         outputStats.add(favColor);
         outputStats.add(totalApparel);
         outputStats.add(totalColor);
+        outputStats.add(leastFavApparel);
+        outputStats.add(cleanOrDirty);
 
-        String returnMessage = MESSAGE_SUCCESS;
-        return new CommandResult(String.format(returnMessage, String.join("\n", outputStats)));
+        CommandResult outputCommand = new CommandResult(
+                String.format(MESSAGE_SUCCESS, String.join("\n", outputStats)));
+        return outputCommand;
     }
 
     @Override
@@ -47,4 +52,5 @@ public class StatisticsCommand extends Command {
         return other == this //short circuit if same object
                 || (other instanceof StatisticsCommand); // instance of handles nulls
     }
+
 }

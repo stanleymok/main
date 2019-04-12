@@ -213,7 +213,17 @@ public class AddCommandTest {
         }
 
         @Override
-        public int getTotalColor() {
+        public String getTotalColor() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public String getLeastFavApparel() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public String getCleanOrDirty() {
             throw new AssertionError("This method should not be called.");
         }
     }
