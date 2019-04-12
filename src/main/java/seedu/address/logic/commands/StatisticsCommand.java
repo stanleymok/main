@@ -29,7 +29,7 @@ public class StatisticsCommand extends Command {
         ArrayList<String> outputStats = new ArrayList<>();
 
         String favApparel = model.getFavApparel();
-        String favColor =  model.getFavColor();
+        String favColor = model.getFavColor();
         String totalApparel = "Total Apparel in Wardrobe : " + model.getFilteredApparelList().size();
         String totalColor = model.getTotalColor();
         String leastFavApparel = model.getLeastFavApparel();

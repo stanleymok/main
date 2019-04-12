@@ -258,17 +258,21 @@ public class ModelManager implements Model {
 
     @Override
     public String getCleanOrDirty() {
-        float cleanCount = 0, dirtyCount = 0;
+        float cleanCount = 0;
+        float dirtyCount = 0;
         for (int i = 0; i < filteredApparels.size(); i++) {
-            if (filteredApparels.get(i).isAvailable()) {cleanCount++;}
-            else {dirtyCount++;}
+            if (filteredApparels.get(i).isAvailable()) {
+                cleanCount++;
+            } else {
+                dirtyCount++;
+            }
         }
         if (cleanCount > dirtyCount) {
             return "Your wardrobe is quite clean! ("
-                    + Math.round(cleanCount/(filteredApparels.size())*100) + "% clean)";
+                    + Math.round(cleanCount / (filteredApparels.size()) * 100) + "% clean)";
         } else if (dirtyCount > cleanCount) {
             return "Your wardrobe is getting dirty... ("
-                    + Math.round(dirtyCount/(filteredApparels.size())*100) + "% dirty)";
+                    + Math.round(dirtyCount / (filteredApparels.size()) * 100) + "% dirty)";
         } else if (cleanCount == 0 && dirtyCount == 0) {
             return "Your wardrobe is empty!";
         } else if (cleanCount == dirtyCount) {
