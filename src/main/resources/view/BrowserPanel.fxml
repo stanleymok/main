@@ -3,15 +3,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.web.WebView?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1">
   <WebView fx:id="browser"/>
-    <children>
-        <ImageView>
-            <image>
-                <Image url="@../images/matching_matrix.png"/>
-            </image>
-        </ImageView>
-    </children>
 </StackPane>
