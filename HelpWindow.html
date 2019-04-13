@@ -18,8 +18,8 @@
 <li><a href="#adding-a-piece-of-apparel-code-add-code">3.3. Adding a piece of Apparel: <code>add</code></a></li>
 <li><a href="#sort-all-apparels-that-matches-the-given-option-code-sort-option-code">3.4. Sort all apparels that matches the given option : <code>sort [OPTION]</code></a></li>
 <li><a href="#editing-an-apparel-code-edit-code">3.5. Editing an apparel : <code>edit</code></a></li>
-<li><a href="#making-available-washing-a-piece-of-apparel-code-available-code-or-code-wash-code">3.6. Making available/washing a piece of apparel : <code>available</code> or <code>wash</code></a></li>
-<li><a href="#making-unavailable-dirty-a-piece-of-apparel-code-unavailable-code-or-code-wear-code">3.7. Making unavailable/dirty a piece of apparel : <code>unavailable</code> or <code>wear</code></a></li>
+<li><a href="#washing-a-piece-of-apparel-code-wash-code-or-code-available-code">3.6. Washing a piece of apparel : <code>wash</code> or <code>available</code></a></li>
+<li><a href="#wearing-a-piece-of-apparel-code-wear-code-or-code-unavailable-code">3.7. Wearing a piece of apparel : <code>wear</code> or <code>unavailable</code></a></li>
 <li><a href="#locating-apparels-by-name-code-find-code">3.8. Locating apparels by name: <code>find</code></a></li>
 <li><a href="#deleting-an-apparel-code-delete-code">3.9. Deleting an apparel : <code>delete</code></a></li>
 <li><a href="#selecting-a-apparel-code-select-code">3.10. Selecting a apparel : <code>select</code></a></li>
@@ -257,9 +257,9 @@ Edits the name of the 2nd apparel to be <code>Brown Belt</code> and changes type
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-available-washing-a-piece-of-apparel-code-available-code-or-code-wash-code"><a class="link" href="#making-available-washing-a-piece-of-apparel-code-available-code-or-code-wash-code">3.6. Making available/washing a piece of apparel : <code>available</code> or <code>wash</code></a></h3>
+<h3 id="washing-a-piece-of-apparel-code-wash-code-or-code-available-code"><a class="link" href="#washing-a-piece-of-apparel-code-wash-code-or-code-available-code">3.6. Washing a piece of apparel : <code>wash</code> or <code>available</code></a></h3>
 <div class="paragraph">
-<p>Makes an existing apparel in FM available.<br>
+<p>Makes an existing listed apparel available.<br>
 Format: <code>wash INDEX</code> or <code>available INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -267,10 +267,19 @@ Format: <code>wash INDEX</code> or <code>available INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Makes available the apparel at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed apparel list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Makes available the apparel at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>Apparel will be made available whether it was available or unavailable before the command.</p>
+<p>Does not allow the user to clean an already clean apparel.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed apparel list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Apparel will be made clean if it was worn before the command.</p>
 </li>
 </ul>
 </div>
@@ -283,33 +292,39 @@ Format: <code>wash INDEX</code> or <code>available INDEX</code></p>
 <ul>
 <li>
 <p><code>wash 1</code><br>
-Makes available the 1st apparel in the list.</p>
+Makes available the 1st apparel in the list if it was worn.</p>
 </li>
 <li>
 <p><code>available 2</code><br>
-Makes available the 2nd apparel in the list.</p>
+Does nothing if the 2nd apparel in the list is already clean.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-unavailable-dirty-a-piece-of-apparel-code-unavailable-code-or-code-wear-code"><a class="link" href="#making-unavailable-dirty-a-piece-of-apparel-code-unavailable-code-or-code-wear-code">3.7. Making unavailable/dirty a piece of apparel : <code>unavailable</code> or <code>wear</code></a></h3>
+<h3 id="wearing-a-piece-of-apparel-code-wear-code-or-code-unavailable-code"><a class="link" href="#wearing-a-piece-of-apparel-code-wear-code-or-code-unavailable-code">3.7. Wearing a piece of apparel : <code>wear</code> or <code>unavailable</code></a></h3>
 <div class="paragraph">
-<p>Makes an existing apparel in FM unavailable/dirty and increases times worn by 1.<br>
-Format: <code>dirty INDEX</code> or <code>unavailable INDEX</code></p>
+<p>Makes an existing apparel in FM worn and increases times worn by 1.<br>
+Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Makes unavailable the apparel at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed apparel list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Makes the apparel&#8217;s status worn at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed apparel list.</p>
 </li>
 <li>
-<p>Apparel will be made unavailable whether it was available or unavailable before the command.</p>
+<p>Apparel will be made worn whether it was worn or clean before the command.</p>
 </li>
 <li>
-<p>Increases the 'Times worn' counter by 1.</p>
+<p>Feedback message gently advices you to not be a dirty bum if you wear a worn apparel even if its belts or shoes.</p>
+</li>
+<li>
+<p>Increases the 'Times Worn' counter by 1.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -321,12 +336,14 @@ Format: <code>dirty INDEX</code> or <code>unavailable INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>dirty 1</code><br>
-Makes available the 1st apparel in the list.</p>
+<p><code>wear 1</code><br>
+Makes worn the 1st apparel in the list.
+Increases its times worn by 1.</p>
 </li>
 <li>
 <p><code>unavailable 2</code><br>
-Makes available the 2nd apparel in the list.</p>
+Makes available the 2nd apparel in the list.
+Increases its times worn by 1.</p>
 </li>
 </ul>
 </div>
@@ -761,4 +778,4 @@ e.g. <code>something RED</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 11:51:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 22:40:44 UTC</div></div></div></body></html>
