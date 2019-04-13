@@ -19,7 +19,7 @@ import seedu.address.model.apparel.ColorValue;
  */
 public class BrowserPanel extends UiPart<Region> {
 
-    public static final String DEFAULT_IMAGE_PATH = "/images/default_welcome_smiley_icon.png";
+    public static final String DEFAULT_IMAGE_PATH = "/images/firstpage.jpg";
     public static final String DEFAULT_NAME_LABEL = "Select an apparel";
     public static final String DEFAULT_CLOTHING_TYPE_LABEL = "to";
     public static final String DEFAULT_COLOR_LABEL = "display";
