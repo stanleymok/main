@@ -53,13 +53,47 @@ public class BrowserPanelHandle extends NodeHandle<Node> {
         prevStatus = BrowserPanel.DEFAULT_STATUS_LABEL;
         prevUsageCount = BrowserPanel.DEFAULT_USAGE_COUNT_LABEL;
     }
+    /**
+     * Get the image.
+     */
+    public Image getImage() {
+        return imageView.getImage();
+    }
 
-    public Image getImage() { return imageView.getImage(); }
-    public String getName() { return nameLabel.getText(); }
-    public String getClothingType() { return clothingTypeLabel.getText(); }
-    public String getColor() { return colorLabel.getText(); }
-    public String getStatus() { return statusLabel.getText(); }
-    public String getUsageCount() { return usageCountLabel.getText(); }
+    /**
+     * Get the apparel name.
+     */
+    public String getName() {
+        return nameLabel.getText();
+    }
+
+    /**
+     * Get the clothing type for the apparel.
+     */
+    public String getClothingType() {
+        return clothingTypeLabel.getText();
+    }
+
+    /**
+     * Get the color of the apparel.
+     */
+    public String getColor() {
+        return colorLabel.getText();
+    }
+
+    /**
+     * Get the status of the apparel.
+     */
+    public String getStatus() {
+        return statusLabel.getText();
+    }
+
+    /**
+     * Get the usage count for the apparel.
+     */
+    public String getUsageCount() {
+        return usageCountLabel.getText();
+    }
 
     /**
      * Remember the state of the selected apparel
