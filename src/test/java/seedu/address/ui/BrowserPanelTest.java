@@ -1,10 +1,6 @@
 package seedu.address.ui;
 
-import static guitests.guihandles.WebViewUtil.waitUntilBrowserLoaded;
-import static org.junit.Assert.assertEquals;
-import static seedu.address.testutil.TypicalApparels.SHIRT1;
-
-import java.net.URL;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,15 +24,7 @@ public class BrowserPanelTest extends GuiUnitTest {
 
     @Test
     public void display() throws Exception {
-        // default web page
-        assertEquals(BrowserPanel.DEFAULT_PAGE, browserPanelHandle.getLoadedUrl());
-
-        // associated web page of a apparel
-        guiRobot.interact(() -> selectedPerson.set(SHIRT1));
-        URL expectedPersonUrl = new URL(BrowserPanel.SEARCH_PAGE_URL
-                + SHIRT1.getName().fullName.replaceAll(" ", "%20"));
-
-        waitUntilBrowserLoaded(browserPanelHandle);
-        assertEquals(expectedPersonUrl, browserPanelHandle.getLoadedUrl());
+        // default page
+        assertTrue(browserPanelHandle.isDefaultLoaded());
     }
 }
