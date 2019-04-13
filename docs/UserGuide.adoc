@@ -297,9 +297,9 @@ Format: `clear`
 Lists a recommended outfit based on what matches in your closet. The matching is done based on what colors match. The outfit must have a `TOP`, `BOTTOM`, `SHOES`. If a matching belt exists, an outfit may be recommended with a BELT. +
 Format: `recommendation`
 
-+
-image::color_matrix_userguide.jpg[width="790"]
-+
+
+image::color_matrix_userguide.png
+
 
 === Something Color Select
 
