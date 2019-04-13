@@ -298,7 +298,7 @@ Lists a recommended outfit based on what matches in your closet. The matching is
 Format: `recommendation`
 
 
-image::Ui.png[width="790"]
+image::color_matrix_userguide.png[width="790"]
 
 
 === Something Color Select
