@@ -19,6 +19,13 @@ import seedu.address.model.apparel.ColorValue;
  */
 public class BrowserPanel extends UiPart<Region> {
 
+    public static final String DEFAULT_IMAGE_PATH = "images/default_welcome_smiley_icon.png";
+    public static final String DEFAULT_NAME_LABEL = "Select an apparel";
+    public static final String DEFAULT_CLOTHING_TYPE_LABEL = "to";
+    public static final String DEFAULT_COLOR_LABEL = "display";
+    public static final String DEFAULT_USAGE_COUNT_LABEL = "an";
+    public static final String DEFAULT_STATUS_LABEL = "apparel";
+
     private static final String FXML = "BrowserPanel.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
@@ -41,7 +48,8 @@ public class BrowserPanel extends UiPart<Region> {
 
         // To prevent triggering events for typing inside the loaded Web page.
         getRoot().setOnKeyPressed(Event::consume);
-
+        // Show default screen
+        showApparelDetails(null);
         selectedApparel.addListener((observable, oldValue, newValue) -> {
             if (newValue == null) {
                 showApparelDetails(null);
@@ -58,14 +66,14 @@ public class BrowserPanel extends UiPart<Region> {
     public void showApparelDetails(Apparel apparel) {
 
         if (apparel == null) {
-            nameLabel.setText("Click apparel on the right ");
-            clothingTypeLabel.setText("to");
-            colorLabel.setText("display");
-            statusLabel.setText("an");
-            usageCountLabel.setText("apparel");
+            nameLabel.setText(DEFAULT_NAME_LABEL);
+            clothingTypeLabel.setText(DEFAULT_CLOTHING_TYPE_LABEL);
+            colorLabel.setText(DEFAULT_COLOR_LABEL);
+            statusLabel.setText(DEFAULT_STATUS_LABEL);
+            usageCountLabel.setText(DEFAULT_USAGE_COUNT_LABEL);
 
             // set to default spalsh image when the list is empty
-            Image image = new Image("images/default_welcome_smiley_icon.png");
+            Image image = new Image(DEFAULT_IMAGE_PATH);
             apparelImageView.setImage(image);
         } else {
             // Fill the image

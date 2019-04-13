@@ -171,6 +171,10 @@ public abstract class AddressBookSystemTest {
     protected void assertApplicationDisplaysExpected(String expectedCommandInput, String expectedResultMessage,
             Model expectedModel) {
         assertEquals(expectedCommandInput, getCommandBox().getInput());
+        System.out.println("expected command input = " + expectedCommandInput);
+        System.out.println("expected result message = " + expectedResultMessage);
+        System.out.println("expected model = " + expectedModel);
+        System.out.println("result display text = " + getResultDisplay().getText());
         assertEquals(expectedResultMessage, getResultDisplay().getText());
         assertEquals(new AddressBook(expectedModel.getAddressBook()), testApp.readStorageAddressBook());
         assertListMatching(getPersonListPanel(), expectedModel.getFilteredApparelList());
@@ -190,34 +194,36 @@ public abstract class AddressBookSystemTest {
     /**
      * Asserts that the previously selected card is now deselected and the browser's url is now displaying the
      * default page.
-     * @see BrowserPanelHandle#isUrlChanged()
+     * @see BrowserPanelHandle#isGuiChanged()
      */
     protected void assertSelectedCardDeselected() {
+        assertTrue(getBrowserPanel().isGuiChanged());
         assertFalse(getPersonListPanel().isAnyCardSelected());
     }
 
     /**
      * Asserts that the browser's url is changed to display the details of the apparel in the apparel list panel at
      * {@code expectedSelectedCardIndex}, and only the card at {@code expectedSelectedCardIndex} is selected.
-     * @see BrowserPanelHandle#isUrlChanged()
+     * @see BrowserPanelHandle#isGuiChanged()
      * @see PersonListPanelHandle#isSelectedPersonCardChanged()
      */
     protected void assertSelectedCardChanged(Index expectedSelectedCardIndex) {
         getPersonListPanel().navigateToCard(getPersonListPanel().getSelectedCardIndex());
         String selectedCardName = getPersonListPanel().getHandleToSelectedCard().getName();
-        assertEquals(expectedUrl, getBrowserPanel().getLoadedUrl());
+        assertTrue(getBrowserPanel().isGuiChanged());
 
         assertEquals(expectedSelectedCardIndex.getZeroBased(), getPersonListPanel().getSelectedCardIndex());
     }
 
     /**
      * Asserts that the browser's url and the selected card in the apparel list panel remain unchanged.
-     * @see BrowserPanelHandle#isUrlChanged()
+     * @see BrowserPanelHandle#isGuiChanged()
      * @see PersonListPanelHandle#isSelectedPersonCardChanged()
      */
     protected void assertSelectedCardUnchanged() {
-        assertFalse(getBrowserPanel().isUrlChanged());
+        assertFalse(getBrowserPanel().isGuiChanged());
         assertFalse(getPersonListPanel().isSelectedPersonCardChanged());
+        assertFalse(getBrowserPanel().isGuiChanged());
     }
 
     /**
@@ -262,8 +268,7 @@ public abstract class AddressBookSystemTest {
         assertEquals("", getCommandBox().getInput());
         assertEquals("", getResultDisplay().getText());
         assertListMatching(getPersonListPanel(), getModel().getFilteredApparelList());
-        // TODO, write test for BrowserPanel
-        //assertEquals(BrowserPanel.DEFAULT_PAGE, getBrowserPanel().getLoadedUrl());
+        assertTrue(getBrowserPanel().isDefaultLoaded());
         assertEquals(Paths.get(".").resolve(testApp.getStorageSaveLocation()).toString(),
                 getStatusBarFooter().getSaveLocation());
         assertEquals(SYNC_STATUS_INITIAL, getStatusBarFooter().getSyncStatus());
