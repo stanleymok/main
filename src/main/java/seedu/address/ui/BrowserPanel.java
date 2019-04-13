@@ -58,13 +58,15 @@ public class BrowserPanel extends UiPart<Region> {
     public void showApparelDetails(Apparel apparel) {
 
         if (apparel == null) {
-            System.out.println("NULL LEIIII !!");
-            nameLabel.setText("Click");
+            nameLabel.setText("Click apparel on the right ");
             clothingTypeLabel.setText("to");
             colorLabel.setText("display");
             statusLabel.setText("an");
             usageCountLabel.setText("apparel");
+
+            // set to default spalsh image when the list is empty
             Image image = new Image("images/default_welcome_smiley_icon.png");
+            apparelImageView.setImage(image);
         } else {
             // Fill the image
             Image image;
