@@ -72,7 +72,7 @@ public class BrowserPanel extends UiPart<Region> {
             statusLabel.setText(DEFAULT_STATUS_LABEL);
             usageCountLabel.setText(DEFAULT_USAGE_COUNT_LABEL);
 
-            // set to default spalsh image when the list is empty
+            // set to welcome image if nothing selected / just booted
             Image image = new Image(getClass().getResource(DEFAULT_IMAGE_PATH).toString());
             apparelImageView.setImage(image);
         } else {
