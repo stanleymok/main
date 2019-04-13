@@ -185,6 +185,7 @@ public abstract class AddressBookSystemTest {
      * their current state.
      */
     private void rememberStates() {
+        getBrowserPanel().rememberState();
         StatusBarFooterHandle statusBarFooterHandle = getStatusBarFooter();
         statusBarFooterHandle.rememberSaveLocation();
         statusBarFooterHandle.rememberSyncStatus();

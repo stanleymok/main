@@ -19,7 +19,7 @@ import seedu.address.model.apparel.ColorValue;
  */
 public class BrowserPanel extends UiPart<Region> {
 
-    public static final String DEFAULT_IMAGE_PATH = "images/default_welcome_smiley_icon.png";
+    public static final String DEFAULT_IMAGE_PATH = "/images/default_welcome_smiley_icon.png";
     public static final String DEFAULT_NAME_LABEL = "Select an apparel";
     public static final String DEFAULT_CLOTHING_TYPE_LABEL = "to";
     public static final String DEFAULT_COLOR_LABEL = "display";
@@ -73,7 +73,7 @@ public class BrowserPanel extends UiPart<Region> {
             usageCountLabel.setText(DEFAULT_USAGE_COUNT_LABEL);
 
             // set to default spalsh image when the list is empty
-            Image image = new Image(DEFAULT_IMAGE_PATH);
+            Image image = new Image(getClass().getResource(DEFAULT_IMAGE_PATH).toString());
             apparelImageView.setImage(image);
         } else {
             // Fill the image
@@ -81,16 +81,20 @@ public class BrowserPanel extends UiPart<Region> {
             ColorValue cv = apparel.getColor().getPrimary();
             switch(apparel.getClothingType().getClothingTypeValue()) {
             case TOP:
-                image = new Image(FileUtil.getTopIconFilePath(cv));
+                image = new Image(getClass()
+                        .getResource(FileUtil.getTopIconFilePath(cv)).toString(), true);
                 break;
             case BOTTOM:
-                image = new Image(FileUtil.getBottomIconFilePath(cv));
+                image = new Image(getClass()
+                        .getResource(FileUtil.getBottomIconFilePath(cv)).toString(), true);
                 break;
             case BELT:
-                image = new Image(FileUtil.getBeltIconFilePath(cv));
+                image = new Image(getClass()
+                        .getResource(FileUtil.getBeltIconFilePath(cv)).toString(), true);
                 break;
             case SHOES:
-                image = new Image(FileUtil.getShoeIconFilePath(cv));
+                image = new Image(getClass()
+                        .getResource(FileUtil.getShoeIconFilePath(cv)).toString(), true);
                 break;
             default:
                 throw new IllegalArgumentException("No such clothing type.");
