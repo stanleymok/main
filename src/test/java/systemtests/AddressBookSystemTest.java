@@ -221,7 +221,6 @@ public abstract class AddressBookSystemTest {
      * @see PersonListPanelHandle#isSelectedPersonCardChanged()
      */
     protected void assertSelectedCardUnchanged() {
-        assertFalse(getBrowserPanel().isGuiChanged());
         assertFalse(getPersonListPanel().isSelectedPersonCardChanged());
         assertFalse(getBrowserPanel().isGuiChanged());
     }

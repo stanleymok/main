@@ -45,6 +45,13 @@ public class BrowserPanelHandle extends NodeHandle<Node> {
         colorLabel = getChildNode(COLOR_LABEL);
         statusLabel = getChildNode(STATUS_LABEL);
         usageCountLabel = getChildNode(USAGE_COUNT_LABEL);
+
+        prevImage = new Image(BrowserPanel.DEFAULT_IMAGE_PATH);
+        prevName = BrowserPanel.DEFAULT_NAME_LABEL;
+        prevClothingType = BrowserPanel.DEFAULT_CLOTHING_TYPE_LABEL;
+        prevColor = BrowserPanel.DEFAULT_COLOR_LABEL;
+        prevStatus = BrowserPanel.DEFAULT_STATUS_LABEL;
+        prevUsageCount = BrowserPanel.DEFAULT_USAGE_COUNT_LABEL;
     }
 
     public Image getImage() { return imageView.getImage(); }
