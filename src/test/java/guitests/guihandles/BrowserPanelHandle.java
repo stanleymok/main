@@ -1,64 +1,65 @@
 package guitests.guihandles;
 
-import java.net.URL;
-
-import guitests.GuiRobot;
-import javafx.concurrent.Worker;
 import javafx.scene.Node;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import seedu.address.commons.core.index.Index;
 
 /**
  * A handler for the {@code BrowserPanel} of the UI.
  */
 public class BrowserPanelHandle extends NodeHandle<Node> {
 
-    public static final String BROWSER_ID = "#browser";
+    private static final String APPAREL_IMAGE_VIEW = "#apparelImageView";
+    private static final String NAME_LABEL = "#nameLabel";
+    private static final String CLOTHING_TYPE_LABEL = "#clothingTypeLabel";
+    private static final String COLOR_LABEL = "#colorLabel";
+    private static final String STATUS_LABEL = "#statusLabel";
+    private static final String USAGE_COUNT_LABEL = "#usageCountLabel";
 
-    private boolean isWebViewLoaded = true;
+    private Index lastRememberIndex;
+    private ImageView imageView;
+    private Label nameLabel;
+    private Label clothingTypeLabel;
+    private Label colorLabel;
+    private Label statusLabel;
+    private Label usageCountLabel;
 
-    private URL lastRememberedUrl;
+    private Image image;
+    private String name;
+    private String clothingType;
+    private String color;
+    private String status;
+    private String usageCount;
 
     public BrowserPanelHandle(Node browserPanelNode) {
         super(browserPanelNode);
 
-        WebView webView = getChildNode(BROWSER_ID);
-        WebEngine engine = webView.getEngine();
-        new GuiRobot().interact(() -> engine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
-            if (newState == Worker.State.RUNNING) {
-                isWebViewLoaded = false;
-            } else if (newState == Worker.State.SUCCEEDED) {
-                isWebViewLoaded = true;
-            }
-        }));
+        imageView = getChildNode(APPAREL_IMAGE_VIEW);
+        nameLabel = getChildNode(NAME_LABEL);
+        clothingTypeLabel = getChildNode(CLOTHING_TYPE_LABEL);
+        colorLabel = getChildNode(COLOR_LABEL);
+        statusLabel = getChildNode(STATUS_LABEL);
+        usageCountLabel = getChildNode(USAGE_COUNT_LABEL);
     }
 
-    /**
-     * Returns the {@code URL} of the currently loaded page.
-     */
-    public URL getLoadedUrl() {
-        return WebViewUtil.getLoadedUrl(getChildNode(BROWSER_ID));
-    }
+    public Image getImage() { return imageView.getImage(); }
+    public String getName() { return nameLabel.getText(); }
+    public String getClothingType() { return clothingTypeLabel.getText(); }
+    public String getColor() { return colorLabel.getText(); }
+    public String getStatus() { return statusLabel.getText(); }
+    public String getUsageCount() { return usageCountLabel.getText(); }
 
     /**
-     * Remembers the {@code URL} of the currently loaded page.
+     * Remember the state of the selected apparel
      */
-    public void rememberUrl() {
-        lastRememberedUrl = getLoadedUrl();
-    }
-
-    /**
-     * Returns true if the current {@code URL} is different from the value remembered by the most recent
-     * {@code rememberUrl()} call.
-     */
-    public boolean isUrlChanged() {
-        return !lastRememberedUrl.equals(getLoadedUrl());
-    }
-
-    /**
-     * Returns true if the browser is done loading a page, or if this browser has yet to load any page.
-     */
-    public boolean isLoaded() {
-        return isWebViewLoaded;
+    public void rememberState() {
+        image = imageView.getImage();
+        name = nameLabel.getText();
+        clothingType = clothingTypeLabel.getText();
+        color = colorLabel.getText();
+        status = statusLabel.getText();
+        usageCount = usageCountLabel.getText();
     }
 }

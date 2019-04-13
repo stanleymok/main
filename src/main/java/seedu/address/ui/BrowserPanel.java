@@ -51,19 +51,20 @@ public class BrowserPanel extends UiPart<Region> {
         });
     }
 
-
     /**
      * Fill all text fields to show details about the apparel.
      * If the specified apparel is null, all text fields are cleared.
      */
-    private void showApparelDetails(Apparel apparel) {
+    public void showApparelDetails(Apparel apparel) {
 
         if (apparel == null) {
+            System.out.println("NULL LEIIII !!");
             nameLabel.setText("Click");
             clothingTypeLabel.setText("to");
             colorLabel.setText("display");
             statusLabel.setText("an");
             usageCountLabel.setText("apparel");
+            Image image = new Image("images/default_welcome_smiley_icon.png");
         } else {
             // Fill the image
             Image image;
@@ -87,8 +88,6 @@ public class BrowserPanel extends UiPart<Region> {
             apparelImageView.setImage(image);
 
             // Fill the labels with info from the apparel Object
-            System.out.println("apparel = " + apparel.toString());
-            System.out.println("apparel usage = " + apparel.getUsageCount());
             nameLabel.setText(apparel.getName().fullName);
             clothingTypeLabel.setText(apparel.getClothingType().toString());
             colorLabel.setText(apparel.getColor().toString());
