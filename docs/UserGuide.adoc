@@ -292,12 +292,12 @@ The `redo` command fails as there are no `undo` commands executed previously.
 Clears all entries from FM. +
 Format: `clear`
 
-=== Recommend Outfit
+=== Recommend Outfit : `recommendation`
 
 Lists a recommended outfit based on what matches in your closet. The outfit must have a `TOP`, `BOTTOM`, `SHOES`. If a matching belt exists, an outfit may be recommended with a BELT. +
 Format: `recommendation`
 
-=== Something Color Select
+=== Something Color Select : `something [COLOR]`
 
 Returns random apparel of specified COLOR FM. +
 Format: `something COLOR`
@@ -316,7 +316,7 @@ Returns a RED apparel from FM.
 * `something BLACK` +
 Returns a BLACK apparel from FM.
 
-=== Random Item Type Select
+=== Random Item Type Select : `random [TYPE]`
 
 Returns random specified TYPE of apparel from FM. +
 Format: `random TYPE`
@@ -390,6 +390,8 @@ Users would be able to save their favourite outfits or apparels so that they can
 
 * *Add* `add n/NAME c/COLOR t/CLOTHINGTYPE` +
 e.g. `add n/Bright Tshirt c/Yellow t/Top`
+* *Available* : `available INDEX` +
+e.g. `available 1`
 * *Clear* : `clear`
 * *Delete* : `delete INDEX` +
 e.g. `delete 3`
@@ -399,13 +401,19 @@ e.g. `edit 2 n/Formal Belt c/Brown`
 e.g. `find Formal`
 * *History* : `history`
 * *Help* : `help`
-* *List* : `list`
+* *List* : `list [OPTION] [OPTION-VALUE]` +
+e.g. `list top`
 * *Random* : `random TYPE` +
 e.g. `random TOP`
 * *Redo* : `redo`
 * *Recommendation* : `recommendation`
+* *Sort* : `sort [OPTION]` +
+e.g. `sort color`
 * *Select* : `select INDEX` +
-e.g.`select 2`
+e.g. `select 2`
 * *Something* : `something COLOR` +
 e.g. `something RED`
+* *Stats* : `stats`
+* *Unavailable* : `unavailable INDEX` +
+e.g. `unavailable 2`
 * *Undo* : `undo`
