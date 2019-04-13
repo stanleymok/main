@@ -19,6 +19,13 @@ import seedu.address.model.apparel.ColorValue;
  */
 public class BrowserPanel extends UiPart<Region> {
 
+    public static final String DEFAULT_IMAGE_PATH = "/images/default_welcome_smiley_icon.png";
+    public static final String DEFAULT_NAME_LABEL = "Select an apparel";
+    public static final String DEFAULT_CLOTHING_TYPE_LABEL = "to";
+    public static final String DEFAULT_COLOR_LABEL = "display";
+    public static final String DEFAULT_USAGE_COUNT_LABEL = "an";
+    public static final String DEFAULT_STATUS_LABEL = "apparel";
+
     private static final String FXML = "BrowserPanel.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
@@ -41,7 +48,8 @@ public class BrowserPanel extends UiPart<Region> {
 
         // To prevent triggering events for typing inside the loaded Web page.
         getRoot().setOnKeyPressed(Event::consume);
-
+        // Show default screen
+        showApparelDetails(null);
         selectedApparel.addListener((observable, oldValue, newValue) -> {
             if (newValue == null) {
                 showApparelDetails(null);
@@ -51,35 +59,42 @@ public class BrowserPanel extends UiPart<Region> {
         });
     }
 
-
     /**
      * Fill all text fields to show details about the apparel.
      * If the specified apparel is null, all text fields are cleared.
      */
-    private void showApparelDetails(Apparel apparel) {
+    public void showApparelDetails(Apparel apparel) {
 
         if (apparel == null) {
-            nameLabel.setText("Click");
-            clothingTypeLabel.setText("to");
-            colorLabel.setText("display");
-            statusLabel.setText("an");
-            usageCountLabel.setText("apparel");
+            nameLabel.setText(DEFAULT_NAME_LABEL);
+            clothingTypeLabel.setText(DEFAULT_CLOTHING_TYPE_LABEL);
+            colorLabel.setText(DEFAULT_COLOR_LABEL);
+            statusLabel.setText(DEFAULT_STATUS_LABEL);
+            usageCountLabel.setText(DEFAULT_USAGE_COUNT_LABEL);
+
+            // set to default spalsh image when the list is empty
+            Image image = new Image(getClass().getResource(DEFAULT_IMAGE_PATH).toString());
+            apparelImageView.setImage(image);
         } else {
             // Fill the image
             Image image;
             ColorValue cv = apparel.getColor().getPrimary();
             switch(apparel.getClothingType().getClothingTypeValue()) {
             case TOP:
-                image = new Image(FileUtil.getTopIconFilePath(cv));
+                image = new Image(getClass()
+                        .getResource(FileUtil.getTopIconFilePath(cv)).toString(), true);
                 break;
             case BOTTOM:
-                image = new Image(FileUtil.getBottomIconFilePath(cv));
+                image = new Image(getClass()
+                        .getResource(FileUtil.getBottomIconFilePath(cv)).toString(), true);
                 break;
             case BELT:
-                image = new Image(FileUtil.getBeltIconFilePath(cv));
+                image = new Image(getClass()
+                        .getResource(FileUtil.getBeltIconFilePath(cv)).toString(), true);
                 break;
             case SHOES:
-                image = new Image(FileUtil.getShoeIconFilePath(cv));
+                image = new Image(getClass()
+                        .getResource(FileUtil.getShoeIconFilePath(cv)).toString(), true);
                 break;
             default:
                 throw new IllegalArgumentException("No such clothing type.");
@@ -87,8 +102,6 @@ public class BrowserPanel extends UiPart<Region> {
             apparelImageView.setImage(image);
 
             // Fill the labels with info from the apparel Object
-            System.out.println("apparel = " + apparel.toString());
-            System.out.println("apparel usage = " + apparel.getUsageCount());
             nameLabel.setText(apparel.getName().fullName);
             clothingTypeLabel.setText(apparel.getClothingType().toString());
             colorLabel.setText(apparel.getColor().toString());
