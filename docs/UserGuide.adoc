@@ -341,16 +341,18 @@ Gives an overview of the various statistics of the apparels/wardrobe. +
 Format: `stats` or `statistics`
 
 Typing `stats` or `statistics` will give you the following several information about your wardrobe:
+
 * Your favorite apparel
+
 * Your favorite color
+
 * Total number of apparel in wardrobe
+
 * Total number of different colored apparels
+
 * Your least favorite apparel (a reminder for you to wear them more often!)
+
 * How clean or dirty is your wardrobe
-+
-An example screenshot is provided below:
-+
-image::stats.png[width="400"]
 
 === Exiting the program : `exit`
 
