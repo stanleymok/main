@@ -294,7 +294,7 @@ Format: `clear`
 
 === Recommend Outfit
 
-Lists a recommended outfit based on what matches in your closet. The matching is done based on what colors match. The outfit must have a `TOP`, `BOTTOM`, `SHOES`. If a matching belt exists, an outfit may be recommended with a BELT. +
+Lists a recommended outfit based on what matches in your closet. The matching is done based on what colors match. The matching matrix is displayed beloy. Green boxes match and red do not match. The algorithm will search for a random outfit that meets the color requirements. The outfit must have a `TOP`, `BOTTOM`, `SHOES`. If a matching belt exists, an outfit may be recommended with a BELT. +
 Format: `recommendation`
 
 
