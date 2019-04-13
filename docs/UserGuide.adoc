@@ -129,42 +129,49 @@ Edits the name and colour of the 1st apparel to be `TSHIRT` and `Orange` respect
 Edits the name of the 2nd apparel to be `Brown Belt` and changes type to `Belt`.
 
 
-// tag::available[]
-=== Making available/washing a piece of apparel : `available` or `wash`
+// tag::wash[]
+=== Washing a piece of apparel : `wash` or `available`
 
-Makes an existing apparel in FM available. +
+Makes an existing listed apparel available. +
 Format: `wash INDEX` or `available INDEX`
 
 ****
-* Makes available the apparel at the specified `INDEX`. The index refers to the index number shown in the displayed apparel list. The index *must be a positive integer* 1, 2, 3, ...
-* Apparel will be made available whether it was available or unavailable before the command.
+* Makes available the apparel at the specified `INDEX`.
+* Does not allow the user to clean an already clean apparel.
+* The index refers to the index number shown in the displayed apparel list.
+* The index *must be a positive integer* 1, 2, 3, ...
+* Apparel will be made clean if it was worn before the command.
 ****
 
 Examples:
 
 * `wash 1` +
-Makes available the 1st apparel in the list.
+Makes available the 1st apparel in the list if it was worn.
 * `available 2` +
-Makes available the 2nd apparel in the list.
+Does nothing if the 2nd apparel in the list is already clean.
 
-// tag::unavailable[]
-=== Making unavailable/dirty a piece of apparel : `unavailable` or `wear`
+// tag::wear[]
+=== Wearing a piece of apparel : `wear` or `unavailable`
 
-Makes an existing apparel in FM unavailable/dirty and increases times worn by 1. +
-Format: `dirty INDEX` or `unavailable INDEX`
+Makes an existing apparel in FM worn and increases times worn by 1. +
+Format: `wash INDEX` or `unavailable INDEX`
 
 ****
-* Makes unavailable the apparel at the specified `INDEX`. The index refers to the index number shown in the displayed apparel list. The index *must be a positive integer* 1, 2, 3, ...
-* Apparel will be made unavailable whether it was available or unavailable before the command.
-* Increases the 'Times worn' counter by 1.
+* Makes the apparel's status worn at the specified `INDEX`. The index refers to the index number shown in the displayed apparel list.
+* Apparel will be made worn whether it was worn or clean before the command.
+* Feedback message gently advices you to not be a dirty bum if you wear a worn apparel even if its belts or shoes.
+* Increases the 'Times Worn' counter by 1.
+* The index *must be a positive integer* 1, 2, 3, ...
 ****
 
 Examples:
 
-* `dirty 1` +
-Makes available the 1st apparel in the list.
+* `wear 1` +
+Makes worn the 1st apparel in the list.
+Increases its times worn by 1.
 * `unavailable 2` +
 Makes available the 2nd apparel in the list.
+Increases its times worn by 1.
 
 === Locating apparels by name: `find`
 
