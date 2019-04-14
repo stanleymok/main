@@ -19,12 +19,12 @@ import seedu.address.model.apparel.ColorValue;
  */
 public class BrowserPanel extends UiPart<Region> {
 
-    public static final String DEFAULT_IMAGE_PATH = "/images/default_welcome_smiley_icon.png";
-    public static final String DEFAULT_NAME_LABEL = "Select an apparel";
+    public static final String DEFAULT_IMAGE_PATH = "/images/firstpage.jpg";
+    public static final String DEFAULT_NAME_LABEL = "Select";
     public static final String DEFAULT_CLOTHING_TYPE_LABEL = "to";
     public static final String DEFAULT_COLOR_LABEL = "display";
-    public static final String DEFAULT_USAGE_COUNT_LABEL = "an";
-    public static final String DEFAULT_STATUS_LABEL = "apparel";
+    public static final String DEFAULT_STATUS_LABEL = "an";
+    public static final String DEFAULT_USAGE_COUNT_LABEL = "apparel";
 
     private static final String FXML = "BrowserPanel.fxml";
 
@@ -72,7 +72,7 @@ public class BrowserPanel extends UiPart<Region> {
             statusLabel.setText(DEFAULT_STATUS_LABEL);
             usageCountLabel.setText(DEFAULT_USAGE_COUNT_LABEL);
 
-            // set to default spalsh image when the list is empty
+            // set to welcome image if nothing selected / just booted
             Image image = new Image(getClass().getResource(DEFAULT_IMAGE_PATH).toString());
             apparelImageView.setImage(image);
         } else {

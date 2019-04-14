@@ -270,7 +270,15 @@ _{random TYPE, something COLOR}_
 === Statistics feature
 Show statistics of the apparels of the current wardrobe.
 ==== Current Implementation
-_{More to be added}_
+Below is the UML diagram and a step-by-step explanation of an example scenario for the usage of `stats`.
+
+(UML)
+
+1. User enters command `stats`. The command is received by `FashionMatchParser`, which then creates a `StatisticsCommandParser` object.
+2. `StatisticsCommandParser` will then create a relevant `Statistic` object.
+3.  After that, a `StatisticsCommand` object is created with the `Statistic` object as parameter and return to `LogicManager`.
+4. `LogicManager` then calls `StatisticsCommand.execute()`, which calls `Model.getFavApparel()`, `Model.getFavColor()`, `Model.getFilteredApparelList().size()`, `Model.getTotalColor`, `Model.getLeastFavApparel` and `Model.getCleanOrDirty`.
+5.  The result will be shown on the UI
 // end::stats[]
 
 === Logging
