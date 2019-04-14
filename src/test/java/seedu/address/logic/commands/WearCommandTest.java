@@ -15,7 +15,7 @@ import org.junit.Test;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
-import seedu.address.model.AddressBook;
+import seedu.address.model.FashionMatch;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -42,7 +42,7 @@ public class WearCommandTest {
         String expectedMessage = String.format(WearCommand.MESSAGE_WEAR_APPAREL_SUCCESS,
                 INDEX_SECOND_APPAREL.getOneBased(), wornApparel);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new FashionMatch(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredApparelList().get(INDEX_SECOND_APPAREL.getZeroBased()),
                 wornApparel);
         expectedModel.commitAddressBook();
@@ -63,7 +63,7 @@ public class WearCommandTest {
 
         String[] randomMessages = generateRandomResponses(INDEX_FIRST_APPAREL.getOneBased(), wornAgainApparel);
 
-        Model expectedModel = new ModelManager(new AddressBook(dirtyModel.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new FashionMatch(dirtyModel.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(dirtyModel.getFilteredApparelList()
                 .get(INDEX_FIRST_APPAREL.getZeroBased()), wornAgainApparel);
         expectedModel.commitAddressBook();
@@ -131,7 +131,7 @@ public class WearCommandTest {
         Apparel apparelToEdit = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
         Apparel wornApparel = new Apparel(apparelToEdit.use());
         WearCommand wearCommand = new WearCommand(INDEX_FIRST_APPAREL);
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new FashionMatch(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(apparelToEdit, wornApparel);
         expectedModel.commitAddressBook();
 
@@ -171,7 +171,7 @@ public class WearCommandTest {
     @Test
     public void executeUndoRedo_validIndexFilteredList_samePersonEdited() throws Exception {
         WearCommand wearCommand = new WearCommand(INDEX_FIRST_APPAREL);
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new FashionMatch(model.getAddressBook()), new UserPrefs());
 
         showApparelAtIndex(model, INDEX_SECOND_APPAREL);
         Apparel apparelToEdit = model.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
