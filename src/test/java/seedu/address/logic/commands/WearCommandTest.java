@@ -51,11 +51,12 @@ public class WearCommandTest {
 
     @Test
     public void execute_wearAgain_success() {
-        for (int i=0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             Model dirtyModel = new ModelManager(getDirtyAddressBook(), new UserPrefs());
             showApparelAtIndex(dirtyModel, INDEX_FIRST_APPAREL);
 
-            Apparel wornApparelInFilteredList = dirtyModel.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
+            Apparel wornApparelInFilteredList = dirtyModel.getFilteredApparelList()
+                    .get(INDEX_FIRST_APPAREL.getZeroBased());
             Apparel wornAgainApparel = new Apparel(wornApparelInFilteredList);
             wornAgainApparel.use();
 
