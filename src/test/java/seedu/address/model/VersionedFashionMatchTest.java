@@ -225,7 +225,8 @@ public class VersionedFashionMatchTest {
         assertFalse(versionedFashionMatch.equals(1));
 
         // different state list -> returns false
-        VersionedFashionMatch differentAddressBookList = prepareAddressBookList(addressBookWithBob, addressBookWithCarl);
+        VersionedFashionMatch differentAddressBookList =
+                prepareAddressBookList(addressBookWithBob, addressBookWithCarl);
         assertFalse(versionedFashionMatch.equals(differentAddressBookList));
 
         // different current pointer index -> returns false
@@ -238,7 +239,8 @@ public class VersionedFashionMatchTest {
     /**
      * Asserts that {@code versionedFashionMatch} is currently pointing at {@code expectedCurrentState},
      * states before {@code versionedFashionMatch#currentStatePointer} is equal to {@code expectedStatesBeforePointer},
-     * and states after {@code versionedFashionMatch#currentStatePointer} is equal to {@code expectedStatesAfterPointer}.
+     * and states after {@code versionedFashionMatch#currentStatePointer}
+     * is equal to {@code expectedStatesAfterPointer}.
      */
     private void assertAddressBookListStatus(VersionedFashionMatch versionedFashionMatch,
                                              List<ReadOnlyFashionMatch> expectedStatesBeforePointer,
