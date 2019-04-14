@@ -20,26 +20,36 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to make available and unavailable certain apparel, or the ability to wash and dirty certain apparel</strong>, where available and wash keywords can be used interchangebly like unavailable and dirty.</p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to make wash and wear certain apparels</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to change an apparel&#8217;s availability status, whether it should be dirty or clean.</p>
+<p>What it does: allows the user to indicate whether an apparel&#8217;s is clean or worn.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because it similates the wardrobe&#8217;s laundry basket; if available, it is clean and has not been worn; if unavailable, it similates a dirty apparel in the laundry basket.</p>
+<p>Justification: This feature improves the product significantly because it similates the wardrobe and the laundry basket; if clean, it is hanging clean and has not been worn; if worn, it has been put in the laundry basket.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands like the recommendation class of commands and commands to be added in future. It required an in-depth analysis of the n-level design architecture in ab4. The implementation too was challenging as it required changes to existing commands, and is modelled after the EditCommand.java class.</p>
+<p>Highlights: This enhancement affects existing commands like the recommendation class of commands and the statistics commands. It required an in-depth analysis of the n-level design architecture in ab4. The implementation too was challenging as it required changes to existing commands, and is modelled after the EditCommand.java class.</p>
 </li>
 <li>
-<p>Credits: <em>none</em>, as i simply had to model the AvailableCommand.java and UnavailableCommand.java classes after EditCommand.java class</p>
+<p>Credits: <em>none</em>, as i simply had to model the WashCommand.java and WearCommand.java classes after EditCommand.java class</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Enabled alternative, more intuitive command words to be used in place of available and unavailable: <strong>wash</strong> and <strong>dirty</strong>.</p>
+<p><strong>Minor enhancement</strong>: Learnt CSS and HTML for CS2103 to take charge of the UI Design aspect. Raffles did the back-end code, i was in charge of user experience. I did the front end, adjusting the fonts and the anchorpane settings, and choosing the right colours finding the right hexcode values for our app.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Used photoshop skills to remove background white image from jpg image. Resized images. Did this for all 64 of tops, bottoms, belts, and shoes images in the our resources/images folder. Tedious work but worth it.</p>
+</li>
+<li>
+<p>Commissioned my artist friend to do the default image seen when Fashion Match first loads up. Titled firstpage.png in resources/image folder.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>:</p>
@@ -47,22 +57,22 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Available command</strong>: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java">Functional code</a></p>
+<p><strong>Wash command</strong>: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/WashCommand.java">Functional code</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Unavailable command</strong>: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/UnavailableCommand.java">Functional code</a></p>
+<p><strong>Wear command</strong>: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/WearCommand.java">Functional code</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Parser</strong> for available command: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/AvailableCommandParser.java">Functional code</a></p>
+<p><strong>Parser</strong> for available command: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/WashCommandParser.java">Functional code</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Parser</strong> for unavailable command: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/UnavailableCommandParser.java">Functional code</a></p>
+<p><strong>Parser</strong> for unavailable command: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/parser/WearCommandParser.java">Functional code</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Available</strong> command test: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/AvailableCommand.java">Test code</a></p>
+<p><strong>Wash</strong> command test: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/main/java/seedu/address/logic/commands/WashCommand.java">Test code</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Unavailable</strong> command test: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/UnavailableCommandTest.java">Test code</a></p>
+<p><strong>Wear</strong> command test: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/WearCommandTest.java">Test code</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Stub</strong> class: <a href="https://github.com/CS2103-AY1819S2-W15-1/main/blob/master/src/test/java/seedu/address/logic/commands/CommandTestUtilExtra.java">Test code</a></p>
@@ -122,7 +132,7 @@
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S2-W15-1/main/pull/59">#6</a></p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples: )</p>
+<p>Reported bugs and suggestions for other teams in the class: <a href="https://github.com/cs2103-ay1819s2-w11-4/main/issues/128">#7</a> <a href="https://github.com/cs2103-ay1819s2-w11-4/main/issues/118">#8</a> <a href="https://github.com/cs2103-ay1819s2-w11-4/main/issues/114">#9</a> <a href="https://github.com/cs2103-ay1819s2-w11-4/main/issues/124">#10</a></p>
 </li>
 </ul>
 </div>
@@ -1470,4 +1480,4 @@ Simulating an event in the real world where throw your worn clothes to the laund
 <p>A wear command that takes in multiple INDEXs to simulate wearing a whole outfit out. e.g. <code>wear 1 2 3</code> to wear Apparel no. 1, 2 and 3.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 23:26:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 23:55:46 UTC</div></div></div></body></html>
