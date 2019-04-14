@@ -423,7 +423,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-w15-1/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S2-W15-1/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ApparelListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
@@ -495,7 +495,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-w15-1/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : link::https://github.com/CS2103-AY1819S2-W15-1/main/tree/master/src/main/java/seedu/address/model/Model.java[<code>Model.java</code>]</p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -526,7 +526,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/cs2103-ay1819s2-w15-1/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S2-W15-1/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -559,17 +559,156 @@ The following class plays an important role at the architecture level:</p>
 <div class="sect2">
 <h3 id="wash-feature"><a class="link" href="#wash-feature">3.1. Wash feature</a></h3>
 <div class="paragraph">
-<p>Set availability status to clean.
-==== Current Implementation
-<em>{More to be added}</em></p>
+<p>Reset apparel status to <code>clean</code> if previously <code>worn</code>.
+Simulating an event in the real world where send your clothes to wash.</p>
+</div>
+<div class="paragraph">
+<p>3.1.1. Current implementation - Wash a single indicated apparel</p>
+</div>
+<div class="paragraph">
+<p>The wash command takes in only one parameter:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Index: Index number of an apparel in filtered/unfiltered list. Only positive numbers present in list are valid.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>e.g <code>wash 1</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HighLevelWashDiagram.png" alt="HighLevelWashDiagram" width="800">
+</div>
+<div class="title">Figure 9. High Level Visualisation of Wash Command</div>
+</div>
+<div class="paragraph">
+<p>When the user inputs the wash command in the CLI, the input is parsed, and the index of the apparel specified are tokenized and extracted.</p>
+</div>
+<div class="paragraph">
+<p><code>wash</code> keyword will call a constructor for WashCommandParser to parse the <code>index</code>, 1, creating a WashCommand for LogicManager.</p>
+</div>
+<div class="paragraph">
+<p>LogicManager executes WashCommand which calls Model to set the apparel in the list to <code>clean</code>, and commits the changes to Storage.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/washCommand.jpg" alt="washCommand" width="800">
+</div>
+<div class="title">Figure 10. Sequence Diagram for Wash command</div>
+</div>
+<div class="paragraph">
+<p>The CommandResult object that is returned by the wash command lets the user know that the status of the apparel has been reset to <code>clean</code> or that it is already <code>clean</code>.</p>
+</div>
+<div class="paragraph">
+<p>3.1.2. Design Considerations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternate command word: <code>available 1</code> works the same and is identical to <code>wash 1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pros: Gives the user a choice and a more intuitive approach to wardrobe management</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Input: Not allowing user to wash an already-clean Apparel again.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pros: Reminds the user that his apparel is already clean if user absentminded types command.</p>
+</div>
+<div class="paragraph">
+<p>Pros: Saves CPU time as it is not commiting to Addressbook. Throws exception instead.</p>
+</div>
+<div class="paragraph">
+<p>3.1.3. Proposed additions for v2.0:</p>
+</div>
+<div class="paragraph">
+<p>A washAll command to simulate throwing all your dirty clothes into the washing machine.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="wear-feature"><a class="link" href="#wear-feature">3.2. Wear feature</a></h3>
 <div class="paragraph">
-<p>Set availability status to Worn.
-==== Current Implementation
-<em>{More to be added}</em></p>
+<p>Sets apparel status to <code>worn</code> whether its previous status was <code>clean</code> or <code>worn</code> and increases usage count by one.
+Simulating an event in the real world where throw your worn clothes to the laundry basket</p>
+</div>
+<div class="paragraph">
+<p>3.2.1. Current implementation - Wear a single indicated apparel</p>
+</div>
+<div class="paragraph">
+<p>The wear command takes in only one parameter:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Index: Index number of an apparel in filtered/unfiltered list. Only positive numbers present in list are valid.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>e.g <code>wear 1</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HighLevelWearDiagram.png" alt="HighLevelWearDiagram" width="800">
+</div>
+<div class="title">Figure 11. High Level Visualisation of Wear Command</div>
+</div>
+<div class="paragraph">
+<p>When the user inputs the wash command in the CLI, the input is parsed, and the index of the apparel specified are tokenized and extracted.</p>
+</div>
+<div class="paragraph">
+<p><code>wear</code> keyword will call a constructor for WearCommandParser to parse the <code>index</code>, 1, creating a WearCommand for LogicManager.</p>
+</div>
+<div class="paragraph">
+<p>LogicManager executes WashCommand which calls Model to set the apparel in the list to <code>worn</code>, and commits the changes to the Apparel to Storage.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/wearCommand.jpg" alt="wearCommand" width="800">
+</div>
+<div class="title">Figure 12. Sequence Diagram for Wear command</div>
+</div>
+<div class="paragraph">
+<p>The CommandResult object that is returned by the wear command lets the user know that the status of the apparel has been set to <code>worn</code> and returns and random message if the indicated apparel was already <code>worn</code> before command was executed.</p>
+</div>
+<div class="paragraph">
+<p>3.2.2. Design Considerations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternate command word: <code>unavailable 1</code> works the same and is identical to <code>wash 1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pros: Gives the user a choice and a more intuitive approach to wardrobe management</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Input: Allowing user to wear an already-clean Apparel again.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pros: Simulates the real world where people might not have time to wash their clothes due to bad time management and instead throws on the next thing in the wardrobe.</p>
+</div>
+<div class="paragraph">
+<p>3.2.3. Proposed additions for v2.0:</p>
+</div>
+<div class="paragraph">
+<p>A wear command that takes in multiple INDEXs to simulate wearing a whole outfit out. e.g. <code>wear 1 2 3</code> to wear Apparel no. 1, 2 and 3.</p>
 </div>
 </div>
 <div class="sect2">
@@ -731,7 +870,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 9. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1593,4 +1732,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 18:29:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 23:26:04 UTC</div></div></div></body></html>
