@@ -27,12 +27,10 @@ import seedu.address.model.apparel.Apparel;
 public class WearCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-    private Model dirtyModel = new ModelManager(getDirtyAddressBook(), new UserPrefs());
     private CommandHistory commandHistory = new CommandHistory();
 
     @Test
     public void execute_wear_success() {
-
         Apparel apparelToWear = model.getFilteredApparelList().get(INDEX_SECOND_APPAREL.getZeroBased());
         Apparel wornApparel = new Apparel(apparelToWear);
         wornApparel.use();
@@ -53,22 +51,25 @@ public class WearCommandTest {
 
     @Test
     public void execute_wearAgain_success() {
-        showApparelAtIndex(dirtyModel, INDEX_FIRST_APPAREL);
+        for (int i=0; i < 100; i++) {
+            Model dirtyModel = new ModelManager(getDirtyAddressBook(), new UserPrefs());
+            showApparelAtIndex(dirtyModel, INDEX_FIRST_APPAREL);
 
-        Apparel wornApparelInFilteredList = dirtyModel.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
-        Apparel wornAgainApparel = new Apparel(wornApparelInFilteredList);
-        wornAgainApparel.use();
+            Apparel wornApparelInFilteredList = dirtyModel.getFilteredApparelList().get(INDEX_FIRST_APPAREL.getZeroBased());
+            Apparel wornAgainApparel = new Apparel(wornApparelInFilteredList);
+            wornAgainApparel.use();
 
-        WearCommand wearCommand = new WearCommand(INDEX_FIRST_APPAREL);
+            WearCommand wearCommand = new WearCommand(INDEX_FIRST_APPAREL);
 
-        String[] randomMessages = generateRandomResponses(INDEX_FIRST_APPAREL.getOneBased(), wornAgainApparel);
+            String[] randomMessages = generateRandomResponses(INDEX_FIRST_APPAREL.getOneBased(), wornAgainApparel);
 
-        Model expectedModel = new ModelManager(new FashionMatch(dirtyModel.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(dirtyModel.getFilteredApparelList()
-                .get(INDEX_FIRST_APPAREL.getZeroBased()), wornAgainApparel);
-        expectedModel.commitAddressBook();
+            Model expectedModel = new ModelManager(new FashionMatch(dirtyModel.getAddressBook()), new UserPrefs());
+            expectedModel.setPerson(dirtyModel.getFilteredApparelList()
+                    .get(INDEX_FIRST_APPAREL.getZeroBased()), wornAgainApparel);
+            expectedModel.commitAddressBook();
 
-        assertCommandSuccess(wearCommand, dirtyModel, commandHistory, randomMessages, expectedModel);
+            assertCommandSuccess(wearCommand, dirtyModel, commandHistory, randomMessages, expectedModel);
+        }
     }
 
     /**
