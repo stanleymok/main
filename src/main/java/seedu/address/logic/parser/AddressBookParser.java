@@ -23,9 +23,9 @@ import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SomethingColorCommand;
 import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.commands.StatisticsCommand;
+import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.commands.WashCommand;
 import seedu.address.logic.commands.WearCommand;
-import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
