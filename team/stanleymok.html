@@ -184,17 +184,33 @@ Format: <code>wash INDEX</code> or <code>available INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>wash 1</code><br>
-Makes available the 1st apparel in the list if it was worn.</p>
+<p><code>wash 5</code><br>
+Resets cleanliness status of the fifth apparel in the list if it was worn.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/washWornBefore.jpg" alt="washWornBefore" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/washWornAfter.jpg" alt="washWornAfter" width="790">
+</div>
+</div>
 </li>
 <li>
-<p><code>available 2</code><br>
-Does nothing if the 2nd apparel in the list is already clean.</p>
+<p><code>wash 5</code><br>
+Does not allow cleaning if the fifth apparel in the list is already clean.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/washClean.jpg" alt="washClean" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>=== Wearing a piece of apparel : <code>wear</code> or <code>unavailable</code></p>
+</div>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="wearing-a-piece-of-apparel-code-wear-code-or-code-unavailable-code"><a class="link" href="#wearing-a-piece-of-apparel-code-wear-code-or-code-unavailable-code">Wearing a piece of apparel : <code>wear</code> or <code>unavailable</code></a></h3>
 <div class="paragraph">
 <p>Makes an existing apparel in FM worn and increases times worn by 1.<br>
 Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
@@ -213,6 +229,9 @@ Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
 <p>Feedback message gently advices you to not be a dirty bum if you wear a worn apparel even if its belts or shoes.</p>
 </li>
 <li>
+<p>Random message guilting you for being dirty is shown to user.</p>
+</li>
+<li>
 <p>Increases the 'Times Worn' counter by 1.</p>
 </li>
 <li>
@@ -228,20 +247,41 @@ Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>wear 1</code><br>
-Makes worn the 1st apparel in the list.
+<p><code>wear 5</code><br>
+Sets status of the fifth apparel in the list to 'Worn'.
 Increases its times worn by 1.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wearCleanBefore.jpg" alt="wearCleanBefore" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wearCleanAfter.jpg" alt="wearCleanAfter" width="790">
+</div>
+</div>
 </li>
 <li>
-<p><code>unavailable 2</code><br>
-Makes available the 2nd apparel in the list.
-Increases its times worn by 1.</p>
+<p><code>wear 5</code><br>
+Sets status of the fifth apparel in the list to 'Worn' even if it&#8217;s already worn.
+Increases its times worn by 1.
+One of the seven random messages shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wearAgainBefore.jpg" alt="wearAgainBefore" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wearAgainAfter.jpg" alt="wearAgainAfter" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>=== Locating apparels by name: <code>find</code></p>
+</div>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="locating-apparels-by-name-code-find-code"><a class="link" href="#locating-apparels-by-name-code-find-code">Locating apparels by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds apparels whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -283,7 +323,6 @@ Returns <code>zara</code> and <code>Zara</code></p>
 Returns any apparel having names <code>Zara</code>, <code>Uniqlo</code> or <code>Shirt</code>.</p>
 </li>
 </ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-an-apparel-code-delete-code"><a class="link" href="#deleting-an-apparel-code-delete-code">Deleting an apparel : <code>delete</code></a></h3>
@@ -737,6 +776,9 @@ Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
 <p>Feedback message gently advices you to not be a dirty bum if you wear a worn apparel even if its belts or shoes.</p>
 </li>
 <li>
+<p>Random message guilting you for being dirty is shown to user.</p>
+</li>
+<li>
 <p>Increases the 'Times Worn' counter by 1.</p>
 </li>
 <li>
@@ -752,19 +794,41 @@ Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>wear 1</code><br>
-Makes worn the 1st apparel in the list.
+<p><code>wear 5</code><br>
+Sets status of the fifth apparel in the list to 'Worn'.
 Increases its times worn by 1.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wearCleanBefore.jpg" alt="wearCleanBefore" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wearCleanAfter.jpg" alt="wearCleanAfter" width="790">
+</div>
+</div>
 </li>
 <li>
-<p><code>unavailable 2</code><br>
-Makes available the 2nd apparel in the list.
-Increases its times worn by 1.</p>
+<p><code>wear 5</code><br>
+Sets status of the fifth apparel in the list to 'Worn' even if it&#8217;s already worn.
+Increases its times worn by 1.
+One of the seven random messages shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wearAgainBefore.jpg" alt="wearAgainBefore" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/wearAgainAfter.jpg" alt="wearAgainAfter" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>=== Locating apparels by name: <code>find</code></p>
+</div>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="locating-apparels-by-name-code-find-code-2"><a class="link" href="#locating-apparels-by-name-code-find-code-2">Locating apparels by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds apparels whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -806,7 +870,6 @@ Returns <code>zara</code> and <code>Zara</code></p>
 Returns any apparel having names <code>Zara</code>, <code>Uniqlo</code> or <code>Shirt</code>.</p>
 </li>
 </ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-an-apparel-code-delete-code-2"><a class="link" href="#deleting-an-apparel-code-delete-code-2">Deleting an apparel : <code>delete</code></a></h3>
@@ -1264,4 +1327,4 @@ Set availability status to clean.
 <p>Wear command:</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 18:13:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 18:29:52 UTC</div></div></div></body></html>

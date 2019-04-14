@@ -19,20 +19,18 @@
 <li><a href="#sort-all-apparels-that-matches-the-given-option-code-sort-option-code">3.4. Sort all apparels that matches the given option : <code>sort [OPTION]</code></a></li>
 <li><a href="#editing-an-apparel-code-edit-code">3.5. Editing an apparel : <code>edit</code></a></li>
 <li><a href="#washing-a-piece-of-apparel-code-wash-code-or-code-available-code">3.6. Washing a piece of apparel : <code>wash</code> or <code>available</code></a></li>
-<li><a href="#wearing-a-piece-of-apparel-code-wear-code-or-code-unavailable-code">3.7. Wearing a piece of apparel : <code>wear</code> or <code>unavailable</code></a></li>
-<li><a href="#locating-apparels-by-name-code-find-code">3.8. Locating apparels by name: <code>find</code></a></li>
-<li><a href="#deleting-an-apparel-code-delete-code">3.9. Deleting an apparel : <code>delete</code></a></li>
-<li><a href="#selecting-a-apparel-code-select-code">3.10. Selecting a apparel : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.11. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#recommend-outfit-code-recommendation-code">3.15. Recommend Outfit : <code>recommendation</code></a></li>
-<li><a href="#something-color-select-code-something-color-code">3.16. Something Color Select : <code>something [COLOR]</code></a></li>
-<li><a href="#random-item-type-select-code-random-type-code">3.17. Random Item Type Select : <code>random [TYPE]</code></a></li>
-<li><a href="#calculating-statistics-code-stats-code-or-code-statistics-code">3.18. Calculating statistics : <code>stats</code> or <code>statistics</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.19. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.20. Saving the data</a></li>
+<li><a href="#deleting-an-apparel-code-delete-code">3.7. Deleting an apparel : <code>delete</code></a></li>
+<li><a href="#selecting-a-apparel-code-select-code">3.8. Selecting a apparel : <code>select</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.12. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#recommend-outfit-code-recommendation-code">3.13. Recommend Outfit : <code>recommendation</code></a></li>
+<li><a href="#something-color-select-code-something-color-code">3.14. Something Color Select : <code>something [COLOR]</code></a></li>
+<li><a href="#random-item-type-select-code-random-type-code">3.15. Random Item Type Select : <code>random [TYPE]</code></a></li>
+<li><a href="#calculating-statistics-code-stats-code-or-code-statistics-code">3.16. Calculating statistics : <code>stats</code> or <code>statistics</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#coming-in-v2-0">4. Coming in v2.0</a>
@@ -291,18 +289,33 @@ Format: <code>wash INDEX</code> or <code>available INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>wash 1</code><br>
-Makes available the 1st apparel in the list if it was worn.</p>
+<p><code>wash 5</code><br>
+Resets cleanliness status of the fifth apparel in the list if it was worn.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/washWornBefore.jpg" alt="washWornBefore" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/washWornAfter.jpg" alt="washWornAfter" width="790">
+</div>
+</div>
 </li>
 <li>
-<p><code>available 2</code><br>
-Does nothing if the 2nd apparel in the list is already clean.</p>
+<p><code>wash 5</code><br>
+Does not allow cleaning if the fifth apparel in the list is already clean.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/washClean.jpg" alt="washClean" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>=== Wearing a piece of apparel : <code>wear</code> or <code>unavailable</code></p>
+</div>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="wearing-a-piece-of-apparel-code-wear-code-or-code-unavailable-code"><a class="link" href="#wearing-a-piece-of-apparel-code-wear-code-or-code-unavailable-code">3.7. Wearing a piece of apparel : <code>wear</code> or <code>unavailable</code></a></h3>
 <div class="paragraph">
 <p>Makes an existing apparel in FM worn and increases times worn by 1.<br>
 Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
@@ -321,6 +334,9 @@ Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
 <p>Feedback message gently advices you to not be a dirty bum if you wear a worn apparel even if its belts or shoes.</p>
 </li>
 <li>
+<p>Random message guilting you for being dirty is shown to user.</p>
+</li>
+<li>
 <p>Increases the 'Times Worn' counter by 1.</p>
 </li>
 <li>
@@ -336,20 +352,41 @@ Format: <code>wash INDEX</code> or <code>unavailable INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>wear 1</code><br>
-Makes worn the 1st apparel in the list.
+<p><code>wear 5</code><br>
+Sets status of the fifth apparel in the list to 'Worn'.
 Increases its times worn by 1.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/wearCleanBefore.jpg" alt="wearCleanBefore" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/wearCleanAfter.jpg" alt="wearCleanAfter" width="790">
+</div>
+</div>
 </li>
 <li>
-<p><code>unavailable 2</code><br>
-Makes available the 2nd apparel in the list.
-Increases its times worn by 1.</p>
+<p><code>wear 5</code><br>
+Sets status of the fifth apparel in the list to 'Worn' even if it&#8217;s already worn.
+Increases its times worn by 1.
+One of the seven random messages shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/wearAgainBefore.jpg" alt="wearAgainBefore" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/wearAgainAfter.jpg" alt="wearAgainAfter" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>=== Locating apparels by name: <code>find</code></p>
+</div>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="locating-apparels-by-name-code-find-code"><a class="link" href="#locating-apparels-by-name-code-find-code">3.8. Locating apparels by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds apparels whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -394,7 +431,7 @@ Returns any apparel having names <code>Zara</code>, <code>Uniqlo</code> or <code
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-apparel-code-delete-code"><a class="link" href="#deleting-an-apparel-code-delete-code">3.9. Deleting an apparel : <code>delete</code></a></h3>
+<h3 id="deleting-an-apparel-code-delete-code"><a class="link" href="#deleting-an-apparel-code-delete-code">3.7. Deleting an apparel : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified apparel from FM.<br>
 Format: <code>delete INDEX</code></p>
@@ -435,7 +472,7 @@ Deletes the 1st apparel in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-apparel-code-select-code"><a class="link" href="#selecting-a-apparel-code-select-code">3.10. Selecting a apparel : <code>select</code></a></h3>
+<h3 id="selecting-a-apparel-code-select-code"><a class="link" href="#selecting-a-apparel-code-select-code">3.8. Selecting a apparel : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the apparel identified by the index number used in the displayed apparel list.<br>
 Format: <code>select INDEX</code></p>
@@ -476,7 +513,7 @@ Selects the 1st apparel in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.11. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -497,7 +534,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores FM to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -542,7 +579,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -574,21 +611,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.12. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from FM.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="recommend-outfit-code-recommendation-code"><a class="link" href="#recommend-outfit-code-recommendation-code">3.15. Recommend Outfit : <code>recommendation</code></a></h3>
+<h3 id="recommend-outfit-code-recommendation-code"><a class="link" href="#recommend-outfit-code-recommendation-code">3.13. Recommend Outfit : <code>recommendation</code></a></h3>
 <div class="paragraph">
 <p>Lists a recommended outfit based on what matches in your closet. The matching is done based on what colors match. The matching matrix is displayed below. Green means match and red means not match. The algorithm will search for a random outfit that meets the color requirements. The outfit must have a <code>TOP</code>, <code>BOTTOM</code>, <code>SHOES</code>. If a matching belt exists, an outfit may be recommended with a BELT.<br>
 Format: <code>recommendation</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="something-color-select-code-something-color-code"><a class="link" href="#something-color-select-code-something-color-code">3.16. Something Color Select : <code>something [COLOR]</code></a></h3>
+<h3 id="something-color-select-code-something-color-code"><a class="link" href="#something-color-select-code-something-color-code">3.14. Something Color Select : <code>something [COLOR]</code></a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/CM.png" alt="CM" width="1000">
@@ -632,7 +669,7 @@ Returns a BLACK apparel from FM.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="random-item-type-select-code-random-type-code"><a class="link" href="#random-item-type-select-code-random-type-code">3.17. Random Item Type Select : <code>random [TYPE]</code></a></h3>
+<h3 id="random-item-type-select-code-random-type-code"><a class="link" href="#random-item-type-select-code-random-type-code">3.15. Random Item Type Select : <code>random [TYPE]</code></a></h3>
 <div class="paragraph">
 <p>Returns random specified TYPE of apparel from FM.<br>
 Format: <code>random TYPE</code></p>
@@ -671,7 +708,7 @@ Returns a random BOTTOM in FM.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="calculating-statistics-code-stats-code-or-code-statistics-code"><a class="link" href="#calculating-statistics-code-stats-code-or-code-statistics-code">3.18. Calculating statistics : <code>stats</code> or <code>statistics</code></a></h3>
+<h3 id="calculating-statistics-code-stats-code-or-code-statistics-code"><a class="link" href="#calculating-statistics-code-stats-code-or-code-statistics-code">3.16. Calculating statistics : <code>stats</code> or <code>statistics</code></a></h3>
 <div class="paragraph">
 <p>Gives an overview of the various statistics of the apparels/wardrobe.<br>
 Format: <code>stats</code> or <code>statistics</code></p>
@@ -703,14 +740,14 @@ Format: <code>stats</code> or <code>statistics</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.19. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.20. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>FM data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -824,4 +861,4 @@ e.g. <code>wear 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 18:13:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 18:29:52 UTC</div></div></div></body></html>
