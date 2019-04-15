@@ -188,9 +188,9 @@ Sets status of the fifth apparel in the list to 'Worn' even if it's already worn
 Increases its times worn by 1.
 One of the seven random messages shown below.
 +
-image::wearAgainBefore.jpg[width="790"]
+image::wearAgainBefore.PNG[width="790"]
 +
-image::wearAgainAfter.jpg[width="790"]
+image::wearAgainAfter.JPG[width="790"]
 +
 
 === Locating apparels by name: `find`
